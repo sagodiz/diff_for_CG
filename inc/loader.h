@@ -8,12 +8,12 @@ class Loader {
     /**
     * Loads the nodes to the method store, if no matching method is found creates a new one with a new id
     */
-    bool load();
+    bool load() = 0;
   
     /**
     * Uses the ids (ones that is used by every other tool) instead of it's own method names
     * @return Returns a set of connections a connection is represented as a pair<caller, calle>
     */
-    std::set<std::pair<int, int> > transformConnections();
+    std::set<std::pair<int, int> > transformConnections() = 0;
   
 };
