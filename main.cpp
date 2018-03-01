@@ -1,9 +1,8 @@
 #include<iostream>
+#include<string>
 
+using namespace std;
 
-/*
-* paramétereknek: feldolgozandó tool neve; feldolgozandó file
-*/
 int main( int argc, char** argv ) {
   
   Loader** loaders = {
@@ -12,11 +11,18 @@ int main( int argc, char** argv ) {
                       ....
                       null
                     };
+  //get the amount of the loaders
+  unsigned char i = 0;
+  while( loaders[i++] );
   
-  unsigned char i = -1;
+  //create an array for the transformed connections
+  set<pair<int, int> > connections[i];
+  
+  i = -1;
   while( loaders[++i] ) {
     
     loaders[i]->load();
+    loaders[i]->transformConnections();
   }
   
   
