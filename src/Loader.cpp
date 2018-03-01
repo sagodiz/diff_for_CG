@@ -4,7 +4,7 @@ using namespace std;
 
 Loader::Loader( string filepath ) {
   
-  fp = fopen( filepath.c_str(), "r");
-  if ( !fp )
+  out.open(filepath);
+  if ( !out.is_open() )
     throw "File couldn't be loaded."
 }

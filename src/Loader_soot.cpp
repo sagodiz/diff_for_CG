@@ -8,5 +8,5 @@ Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
 
 bool load() {
   
-  
+  //store the methods int the common::storedIds vector
 }

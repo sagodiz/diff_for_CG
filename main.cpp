@@ -1,6 +1,13 @@
 #include<iostream>
 #include<string>
 #include<set>
+#include<vector>
+
+
+namespace common {
+  
+  vector<vector<string>> storedIds; 
+}
 
 using namespace std;
 

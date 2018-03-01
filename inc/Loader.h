@@ -1,6 +1,6 @@
 class Loader {
   
-  FILE* fp;
+  ofstream out;
   
   public:
     Loader( std::string file2access );
