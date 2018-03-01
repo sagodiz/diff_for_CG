@@ -8,4 +8,3 @@ Loader::Loader( string filepath ) {
   if ( !fp )
     throw "File couldn't be loaded."
 }
-

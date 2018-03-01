@@ -1,14 +1,13 @@
 #include<iostream>
 #include<string>
+#include<set>
 
 using namespace std;
 
 int main( int argc, char** argv ) {
   
   Loader** loaders = {
-                      new Loader_A(),
-                      new Loader_B(),
-                      ....
+                      new Loader_soot("todo"),
                       null
                     };
   //get the amount of the loaders
