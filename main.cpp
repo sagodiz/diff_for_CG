@@ -28,7 +28,7 @@ int main( int argc, char** argv ) {
   while( loaders[++i] ) {
     
     loaders[i]->load();
-    loaders[i]->transformConnections();
+    connections[i] = loaders[i]->transformConnections();
   }
   
   
