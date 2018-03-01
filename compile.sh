@@ -1,0 +1,1 @@
+gcc main.cpp src/*.cpp -o main
