@@ -6,11 +6,6 @@
 #include "inc/Loader.h"
 #include "inc/Loader_soot.h"
 
-namespace common {
-  
-  std::vector<std::vector<std::string>> storedIds; 
-}
-
 using namespace std;
 
 int main( int argc, char** argv ) {

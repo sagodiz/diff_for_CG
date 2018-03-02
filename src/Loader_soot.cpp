@@ -1,4 +1,6 @@
 #include "../inc/Loader_soot.h"
+#include "../inc/common.h"
+
 #include <set>
 #include<iostream>
 
@@ -14,10 +16,9 @@ bool Loader_soot::load() {
   //store the methods int the common::storedIds vector
   
   string line;
-  
   while ( getline(input, line) ) {
     cout << line << endl;
-    //TODO
+    //TODO: create a record get the info from the line if it's a node.
   }
   
   return true;

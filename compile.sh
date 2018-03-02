@@ -1,1 +1,11 @@
-g++ main.cpp src/Loader.cpp src/Loader_soot.cpp -o main -std=c++11
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+  if [ "$1" == "c" ]; then
+    clear
+  elif [ "$1" == "clear" ]; then
+    clear
+  fi
+fi
+
+g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp -o main -std=c++11
