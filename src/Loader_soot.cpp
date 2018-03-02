@@ -5,16 +5,16 @@ using namespace std;
 
 Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
 }
-Loader_soot::~Loader_soot(){
+Loader_soot::~Loader_soot() {
 }
 
-bool load() {
+bool Loader_soot::load() {
   //TODO
   //store the methods int the common::storedIds vector
   return true;//TODO
 }
 
-set<pair<int, int>> transformConnections() {
+set<pair<int, int>> Loader_soot::transformConnections() {
   
   set<pair<int, int>> connections;
   //TODO

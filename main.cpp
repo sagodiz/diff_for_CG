@@ -15,7 +15,9 @@ using namespace std;
 
 int main( int argc, char** argv ) {
 
-try {
+  cout << "Starting transforming and making stat..." << endl;
+  
+  try {
   Loader* loaders[] = {
                       new Loader_soot("todo"),
                       NULL
@@ -36,8 +38,12 @@ try {
   }
   
   
-}
-catch(...) {}
+  }
+  catch(...) {
+    cerr << "An error has occured." << endl;
+  }
 
+  cout << "End of program." << endl;
+  
   return 0;
 }
