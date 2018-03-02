@@ -1,8 +1,11 @@
 #include "../inc/Record.h"
 
+#include <algorithm>
+
 using namespace std;
 
-Record::Record( string package, string methodClass, string methodName, vector<string> parameters ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters) {
+Record::Record( string rep, string package, string methodClass, string methodName, vector<string> parameters ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters) {
+  sameMethods.push_back(rep);
 }
 
 bool Record::operator==(const Record& r ) const {
@@ -18,9 +21,32 @@ bool Record::operator==(const Record& r ) const {
   return false;
 }
 
+bool Record::operator==( const string method ) const {
+  
+  if ( find( sameMethods.begin(), sameMethods.end(), method ) != sameMethods.end() ) {
+    
+    return true;
+  }
+  
+  return false;
+}
+
 Record& Record::operator+( const string nWOR ) {
   
-  parameters.push_back(nWOR);
+  sameMethods.push_back(nWOR);
+  
+  return *this;
+}
+
+Record& Record::operator+( const Record& r ) {
+  
+  if ( *this == r ) {
+    
+    for ( auto it = r.getSameMethods().begin(); it != r.getSameMethods().end(); ++it ) {
+      
+      sameMethods.push_back(*it);
+    }
+  }
   
   return *this;
 }
@@ -40,4 +66,8 @@ string Record::getMethodName() const {
 vector<string> Record::getParameters() const {
   
   return parameters;
+}
+vector<string> Record::getSameMethods() const {
+  
+  return sameMethods;
 }
