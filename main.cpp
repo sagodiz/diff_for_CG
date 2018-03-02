@@ -3,20 +3,24 @@
 #include<set>
 #include<vector>
 
+#include "inc/Loader.h"
+#include "inc/Loader_soot.h"
 
 namespace common {
   
-  vector<vector<string>> storedIds; 
+  std::vector<std::vector<std::string>> storedIds; 
 }
 
 using namespace std;
 
 int main( int argc, char** argv ) {
-  
-  Loader** loaders = {
+
+try {
+  Loader* loaders[] = {
                       new Loader_soot("todo"),
-                      null
+                      NULL
                     };
+  
   //get the amount of the loaders
   unsigned char i = 0;
   while( loaders[i++] );
@@ -32,6 +36,8 @@ int main( int argc, char** argv ) {
   }
   
   
-  
+}
+catch(...) {}
+
   return 0;
 }

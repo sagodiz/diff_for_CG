@@ -1,1 +1,1 @@
-gcc main.cpp src/*.cpp -o main
+g++ main.cpp src/Loader.cpp src/Loader_soot.cpp -o main -std=c++11
