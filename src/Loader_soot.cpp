@@ -25,6 +25,8 @@ bool Loader_soot::load() {
       line.erase(0, 6); //remove the '<4 spaces>"<' beginning
       line.erase(line.length()-2, 2); //remove the '">' ending
       cout << line << endl;
+      
+      //get the needed info. for a Record then algorithm::find(.., r) can be used...
     }
   }
   input.clear();
