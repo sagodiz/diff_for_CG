@@ -16,10 +16,19 @@ bool Loader_soot::load() {
   //store the methods int the common::storedIds vector
   
   string line;
+  getline(input, line); //get the "header" line
+  
   while ( getline(input, line) ) {
-    cout << line << endl;
-    //TODO: create a record get the info from the line if it's a node.
+    //TODO: create a record get the info from the line if it's a node. And not the closure of the file.
+    if ( line.find("->") == string::npos && line != "}" ) {
+      //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
+      line.erase(0, 6); //remove the '<4 spaces>"<' beginning
+      line.erase(line.length()-2, 2); //remove the '">' ending
+      cout << line << endl;
+    }
   }
+  input.clear();
+  input.seekg(0, ios::beg);
   
   return true;
 }

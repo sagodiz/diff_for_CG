@@ -13,6 +13,8 @@ int main( int argc, char** argv ) {
   cout << "Starting transforming and making stat..." << endl;
   
   try {
+    //TODO: kapcsolókkal addjam hozzá a loader-t s akkor beállítható, hogy melyik fusson le
+    
   Loader* loaders[] = {
                       new Loader_soot("soot.out"),
                       NULL
