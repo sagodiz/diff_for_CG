@@ -1,14 +1,17 @@
 #include "../inc/Loader.h"
 #include "../inc/Labels.h"
+#include <iostream>
+
 using namespace std;
 
 Loader::Loader( string filepath ) {
   
-  out.open(filepath);
-  if ( !out.is_open() )
-    throw Labels::FILE_READ_ERROR;
+  input.open(filepath);
+  if ( !input.is_open() )
+    throw Labels::FILE_READ_ERROR + filepath;
 }
 
 Loader::~Loader() {
-  out.close();
+  
+  input.close();
 }

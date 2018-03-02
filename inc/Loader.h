@@ -6,7 +6,8 @@
 
 class Loader {
   
-  std::ofstream out;
+  protected:
+    std::ifstream input;
   
   public:
     Loader( std::string filepath );

@@ -19,7 +19,7 @@ int main( int argc, char** argv ) {
   
   try {
   Loader* loaders[] = {
-                      new Loader_soot("todo"),
+                      new Loader_soot("soot.out"),
                       NULL
                     };
   
@@ -28,7 +28,7 @@ int main( int argc, char** argv ) {
   while( loaders[i++] );
   
   //create an array for the transformed connections
-  set<pair<int, int> > connections[i];
+  set<pair<int, int>> connections[i];
   
   i = -1;
   while( loaders[++i] ) {
@@ -39,8 +39,8 @@ int main( int argc, char** argv ) {
   
   
   }
-  catch(...) {
-    cerr << "An error has occured." << endl;
+  catch(const string e) {
+    cerr << "An error has occured: " << e << endl;
   }
 
   cout << "End of program." << endl;
