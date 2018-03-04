@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<set>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <set>
+#include <vector>
 
 #include "inc/Loader.h"
 #include "inc/Loader_soot.h"
@@ -30,7 +30,7 @@ int main( int argc, char** argv ) {
       
       if ( *(switches[j]) == argv[i] ) {
         
-        loaders.push_back(&(switches[j]->getLoader()));
+        loaders.push_back( &(switches[j]->getLoader()) );
       }
     }
   }
@@ -44,8 +44,8 @@ int main( int argc, char** argv ) {
     connections[i] = loaders[i]->transformConnections();
   }
   
-  }
-  catch(const string e) {
+  } catch( const string e ) {
+    
     cerr << "An error has occurred: " << e << endl;
   }
 

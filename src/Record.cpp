@@ -9,7 +9,7 @@
 #include "../inc/Record.h"
 
 #include <algorithm>
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -33,21 +33,8 @@ DDD
 
 bool Record::operator==( const string method ) const {
   
-  cout << "comparasion to: |" << method << "|" << endl;
-  for ( int i = 0; i < sameMethods.size(); i++ ) {
-    
-    cout << "            |" << sameMethods[i] << "|" << endl;
-    
-    if ( sameMethods[i] == method ) {
-      
-      cout << "Should find" << endl;
-    }
-    
-  }
-  cout << "---------------------" << endl;
-  
   if ( find( sameMethods.begin(), sameMethods.end(), method ) != sameMethods.end() ) {
-    cout << "found" << endl;
+
     return true;
   }
   

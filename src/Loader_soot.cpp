@@ -8,16 +8,12 @@
 #include "../inc/common.h"
 
 #include <set>
-#include<iostream>
-#include<string>
-#include<sstream>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
 
 using namespace std;
-
-//TODO: leading spaces remove!
-
-
 
 Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
 }
@@ -35,6 +31,7 @@ bool Loader_soot::load() {
       //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
       
       string methodRepresentation = line; //save the line for representation
+      methodRepresentation.erase(0, 4); //the leading spaces
       
       line.erase(0, 6); //remove the '<4 spaces>"<' beginning
       line.erase(line.length()-2, 2); //remove the '">' ending
@@ -89,7 +86,6 @@ DDD
 set<pair<int, int>> Loader_soot::transformConnections() {
   
   set<pair<int, int>> connections;
-  //TODO
   
   string line;
   getline(input, line); //get the "header" line
@@ -100,14 +96,10 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       //it is a connection
       line.erase(line.length()-1, 1); //as connections are closed by ";"
       
-      //TODO: cut by ->
-      
       string caller = line.substr(0, line.find("->"));  //left part
+      caller.erase(0, 4); //removal of leading spaces
       string callee = line.substr(line.find("->")+2);  //right part
       int callerId = -1, calleeId = -1;
-      
-      
-      
       
       bool check = false; //to check if the method do be found.
       
