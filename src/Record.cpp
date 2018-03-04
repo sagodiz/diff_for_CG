@@ -1,6 +1,15 @@
+#ifdef DEBUG
+#define DDD cout << "records are compared...: " << endl; \\
+  cout << r.getClass() << " " << r.getMethodName() << " to: " << methodClass << " " << methodName << endl;
+
+#else
+#define DDD ;  
+#endif
+
 #include "../inc/Record.h"
 
 #include <algorithm>
+#include<iostream>
 
 using namespace std;
 
@@ -9,6 +18,8 @@ Record::Record( string rep, string methodClass, string methodName, vector<string
 }
 
 bool Record::operator==(const Record& r ) const {
+
+DDD
   
   if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
