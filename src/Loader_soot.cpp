@@ -3,6 +3,8 @@
 
 #include <set>
 #include<iostream>
+#include<string>
+#include<sstream>
 
 using namespace std;
 
@@ -20,13 +22,23 @@ bool Loader_soot::load() {
   
   while ( getline(input, line) ) {
     //TODO: create a record get the info from the line if it's a node. And not the closure of the file.
+    
     if ( line.find("->") == string::npos && line != "}" ) {
       //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
       line.erase(0, 6); //remove the '<4 spaces>"<' beginning
       line.erase(line.length()-2, 2); //remove the '">' ending
-      cout << line << endl;
       
       //get the needed info. for a Record then algorithm::find(.., r) can be used...
+     //----------------------------------------------------------------------------------------
+     
+      string classWithPckg, tmp, method;
+      stringstream input_stringstream(line);
+
+      getline(input_stringstream, classWithPckg, ' ');
+      getline(input_stringstream, tmp , ' ');
+      getline(input_stringstream, method , ' ');
+
+      
     }
   }
   input.clear();

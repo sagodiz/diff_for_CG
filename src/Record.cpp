@@ -4,14 +4,13 @@
 
 using namespace std;
 
-Record::Record( string rep, string package, string methodClass, string methodName, vector<string> parameters ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters) {
+Record::Record( string rep, string methodClass, string methodName, vector<string> parameters ) : methodClass(methodClass), methodName(methodName), parameters(parameters) {
   sameMethods.push_back(rep);
 }
 
 bool Record::operator==(const Record& r ) const {
   
-  if ( r.getPackage() == package
-      && r.getClass() == methodClass
+  if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
       && r.getParameters() == parameters
       ) {
@@ -51,10 +50,6 @@ Record& Record::operator+( const Record& r ) {
   return *this;
 }
 
-string Record::getPackage() const {
-  
-  return package;
-}
 string Record::getClass() const {
   
   return methodClass;
