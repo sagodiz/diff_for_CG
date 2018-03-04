@@ -15,6 +15,10 @@
 
 using namespace std;
 
+//TODO: leading spaces remove!
+
+
+
 Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
 }
 Loader_soot::~Loader_soot() {
@@ -86,6 +90,59 @@ set<pair<int, int>> Loader_soot::transformConnections() {
   
   set<pair<int, int>> connections;
   //TODO
+  
+  string line;
+  getline(input, line); //get the "header" line
+  
+  while ( getline(input, line) ) {
+    
+    if ( line.find("->") != string::npos && line != "}" ) {
+      //it is a connection
+      line.erase(line.length()-1, 1); //as connections are closed by ";"
+      
+      //TODO: cut by ->
+      
+      string caller = line.substr(0, line.find("->"));  //left part
+      string callee = line.substr(line.find("->")+2);  //right part
+      int callerId = -1, calleeId = -1;
+      
+      
+      
+      
+      bool check = false; //to check if the method do be found.
+      
+      for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        
+        if ( common::storedIds[i] == caller ) {
+          
+          check = true;
+          callerId = i;
+          break;
+        }
+      }
+      if ( !check ) {
+        
+        cerr << "Method couldn't be resolved: " << caller << endl;
+      }
+      
+      check = false;
+      for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        
+        if ( common::storedIds[i] == callee ) {
+          
+          check = true;
+          calleeId = i;
+          break;
+        }
+      }
+      if ( !check ) {
+        
+        cerr << "Method couldn't be resolved: " << callee << endl;
+      }
+      
+      connections.insert(pair<int, int>(callerId, calleeId));
+    }
+  }
   
   return connections;
 }
