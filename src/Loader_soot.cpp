@@ -31,13 +31,19 @@ bool Loader_soot::load() {
       //get the needed info. for a Record then algorithm::find(.., r) can be used...
      //----------------------------------------------------------------------------------------
      
-      string classWithPckg, tmp, method;
+      string f_classWithPckg, tmp, method;
       stringstream input_stringstream(line);
 
-      getline(input_stringstream, classWithPckg, ' ');
+      getline(input_stringstream, f_classWithPckg , ' ');
       getline(input_stringstream, tmp , ' ');
       getline(input_stringstream, method , ' ');
 
+      string parameters = method.substr(method.find("("));
+      method.erase(method.find("("), method.length()-method.find("("));
+      parameters.erase(parameters.length()-1, 1);
+      parameters.erase(0,1);
+      
+      //cut apart parameters
       
     }
   }
