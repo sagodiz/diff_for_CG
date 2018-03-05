@@ -11,6 +11,12 @@ using namespace std;
 
 int main( int argc, char** argv ) {
 
+  if ( argc < 2 ) {
+    
+    cout << "At least 1 tool have to be given." << endl;
+    return 1;
+  }
+  
   cout << "Starting transforming and making stat..." << endl;
   
   try {
