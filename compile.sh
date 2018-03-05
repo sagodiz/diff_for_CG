@@ -11,7 +11,7 @@ if [ $# -eq 1 ]; then
   fi
 fi
 
-g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp src/Switch.cpp -o main -std=c++11
+g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp src/Switch.cpp src/Loader_callerhierarchy.cpp src/common.cpp -o main -std=c++11
 
 if [ $? -eq 0 ]; then
   echo -e "${GREEN}Sikeres fordítás"

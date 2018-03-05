@@ -4,5 +4,5 @@
 
 namespace common {
   
-  std::vector<Record> storedIds; 
+  extern std::vector<Record> storedIds; 
 }
