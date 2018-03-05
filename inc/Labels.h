@@ -3,7 +3,7 @@
 
 namespace Labels {
   
-  const std::string FILE_READ_ERROR = "Couldn't read file";
+  const std::string FILE_READ_ERROR = "Couldn't read file: ";
 }
 
 #endif
