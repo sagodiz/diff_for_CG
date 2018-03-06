@@ -1,11 +1,13 @@
 #include "../inc/Loader_sourcemeter.h"
 #include "../inc/common.h"
+#include "../inc/Labels.h"
 
 #include <set>
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -53,6 +55,98 @@ bool Loader_sourcemeter::load() {
       }
       
       //TODO: paramsReturn szétszedése, infó kiszedése
+      
+      vector<string> parameterVector;
+      unsigned int i = 0;
+      bool arrayType = false;
+      
+      while ( paramsReturn[i] != ')' ) {
+        //process the params
+        switch ( paramsReturn[i] ) {
+          case '['://array
+                  arrayType = true;
+                  break;
+          case 'L'://class
+                  //.....
+                  string qualifiedClassname;
+                  
+                  if ( arrayType ) {
+                    
+                    while( paramsReturn[i] != ';' ) {
+                      
+                      if ( paramsReturn[i] == '/' )
+                        qualifiedClassname += '.';
+                      else
+                        qualifiedClassname += paramsReturn[i];
+                      
+                      ++i;
+                    }
+                    qualifiedClassname += '[';
+                    qualifiedClassname += ']';
+                  }
+                  else {
+                    
+                    while( paramsReturn[i] != ';' ) {
+                      
+                      if ( paramsReturn[i] == '/' )
+                        qualifiedClassname += '.';
+                      else
+                        qualifiedClassname += paramsReturn[i];
+                      
+                      ++i;
+                    }
+                  }
+            
+                  parameterVector.push_back(qualifiedClassname);
+                  
+                  arrayType = false;
+                  break;
+          case 'D'://double
+                  //.....
+                  parameterVector.push_back("double");
+                  arrayType = false;
+                  break;
+          case 'F'://float
+                    //.....
+                  parameterVector.push_back("float");
+                  arrayType = false;
+                  break;
+          case 'J'://long
+                    //.....
+                  arrayType = false;
+                  break;
+          case 'I'://int
+                    //.....
+                  parameterVector.push_back("int");
+                  arrayType = false;
+                  break;
+          case 'S'://short
+                  //.....
+                  parameterVector.push_back("short");
+                  arrayType = false;
+                  break;
+          case 'C'://char
+                    //.....
+                  parameterVector.push_back("char");
+                  arrayType = false;
+                  break;
+          case 'B'://byte
+                   //.....
+                  parameterVector.push_back("byte");
+                  arrayType = false;
+                  break;
+          case 'Z'://boolean
+                   //.....
+                  parameterVector.push_back("boolean");
+                  arrayType = false;
+                  break;
+          default://throw a new exception
+                  throw Labels::FORMAT_NOT_FOUND_ERROR;
+        }
+        
+        ++i;
+        
+      }
       
     }
   }
