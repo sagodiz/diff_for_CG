@@ -6,6 +6,7 @@
 #include "inc/Loader.h"
 #include "inc/Loader_soot.h"
 #include "inc/Loader_callerhierarchy.h"
+#include "inc/Loader_sourcemeter.h"
 #include "inc/Switch.h"
 
 using namespace std;
@@ -25,6 +26,7 @@ int main( int argc, char** argv ) {
   Switch* switches[] = {
                           new Switch("-s", *(new Loader_soot("soot.out"))),
                           new Switch("-c", *(new Loader_callerhierarchy("callerhierarchy.out"))),
+                          new Switch("-sm", *(new Loader_sourcemeter("sourcemeter.out"))),
                           NULL
                         };
   
