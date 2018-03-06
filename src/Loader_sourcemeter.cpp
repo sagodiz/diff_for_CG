@@ -27,6 +27,8 @@ bool Loader_sourcemeter::load() {
     if ( line.find("label") != string::npos ) {
       //it is a node
       string representation;
+      string pckgClass;
+      string method;
       string infoMine;
       
       stringstream input_stringstream(line);
@@ -46,8 +48,8 @@ bool Loader_sourcemeter::load() {
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
       if ( lastDotPos != string::npos ) {
         
-        string method = pckgClassMethod.substr(lastDotPos + 1);
-        string pckgClass = pckgClassMethod.substr(0, lastDotPos);
+        method = pckgClassMethod.substr(lastDotPos + 1);
+        pckgClass = pckgClassMethod.substr(0, lastDotPos);
         
       }
       else {
@@ -147,11 +149,21 @@ bool Loader_sourcemeter::load() {
         }
         
         ++i;
+      } //end of while
+      
+      Record r(representation, pckgClass, method, parameterVector);
+      
+      if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
+        //so this record is not found in the vector
+        common::storedIds.push_back(r);
+      }
+      else {
         
+        //this record is already in the vector nothing to do
       }
       
-    }
-  }
+    } //end of processing label
+  }//end of processing line
   
   return true;
 }
