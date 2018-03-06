@@ -67,6 +67,7 @@ bool Loader_sourcemeter::load() {
                   arrayType = true;
                   break;
           case 'L'://class
+                  {
                   //.....
                   string qualifiedClassname;
                   
@@ -100,6 +101,7 @@ bool Loader_sourcemeter::load() {
                   parameterVector.push_back(qualifiedClassname);
                   
                   arrayType = false;
+                  }
                   break;
           case 'D'://double
                   //.....
