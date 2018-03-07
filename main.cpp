@@ -8,6 +8,7 @@
 #include "inc/Loader_callerhierarchy.h"
 #include "inc/Loader_sourcemeter.h"
 #include "inc/Switch.h"
+#include "inc/common.h"
 
 using namespace std;
 
@@ -39,12 +40,12 @@ int main( int argc, char** argv ) {
     for ( int i = 1; i < argc; i++ ) {
       
       if ( *(switches[j]) == argv[i] ) {
-        
+
         loaders.push_back( &(switches[j]->getLoader()) );
       }
     }
   }
-  
+
   //create an array for the transformed connections
   set<pair<int, int>> connections[loaders.size()];
   
@@ -52,12 +53,13 @@ int main( int argc, char** argv ) {
     
     loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-  }
-  
-  for ( pair<int, int> it : connections[1] )
-  {
     
-    cout << it.first << "|" << it.second <<  endl;
+    cout << "------" << loaders[i] << "--------" << endl;
+    for ( pair<int, int> it : connections[i] ) {
+      
+      cout << it.first << " " << it.second << endl;
+    }
+    cout << "------------------------------------" << endl;
   }
   
   } catch( const string e ) {

@@ -17,7 +17,7 @@ Loader_sourcemeter::~Loader_sourcemeter() {
 }
 
 bool Loader_sourcemeter::load() {
-  //TODO
+
   string line;
   getline(input, line); //get the "header" line
   getline(input, line); //get the "header" line
@@ -53,10 +53,9 @@ bool Loader_sourcemeter::load() {
         
       }
       else {
-        //TODO hibakezelés
+
+        throw Labels::METHOD_NOT_FOUND_ERROR;
       }
-      
-      //TODO: paramsReturn szétszedése, infó kiszedése
       
       vector<string> parameterVector;
       unsigned int i = 0;
@@ -72,7 +71,7 @@ bool Loader_sourcemeter::load() {
                   {
                   //.....
                   string qualifiedClassname;
-                  
+                  ++i;//get rid of the leading 'L'
                   if ( arrayType ) {
                     
                     while( paramsReturn[i] != ';' ) {
@@ -190,11 +189,10 @@ bool Loader_sourcemeter::load() {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
         if ( *it == representation ) {
-
           //contains this representation
         }
         else {
-          
+
           *it += representation;  //add this representation
         }
       }
@@ -209,16 +207,16 @@ bool Loader_sourcemeter::load() {
 }
 
 set<pair<int, int>> Loader_sourcemeter::transformConnections() {
-  
+
   set<pair<int, int>> connections;
-  //TODO
+
   string line;
   getline(input, line); //get the "header" line
   getline(input, line); //get the "header" line
-  
+
   while ( getline(input, line) ) {
     
-  if ( line.find("label") == string::npos && line != "}" ) {
+  if ( line.find("label") == string::npos && line[0] != '}' ) {
       //it is a connection
       string caller = line.substr(0, line.find("->"));  //left part
       caller.erase(caller.length() - 1, 1);
@@ -261,7 +259,10 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       
       connections.insert(pair<int, int>(callerId, calleeId));
     }
+    else {
+      //do nothing
+    }
   }
-  
+
   return connections;
 }

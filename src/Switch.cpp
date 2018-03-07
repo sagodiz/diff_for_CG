@@ -25,3 +25,11 @@ Loader& Switch::getLoader() const {
   
   return loader;
 }
+
+//friend
+
+ostream& operator<<( ostream& o, Switch s ) {
+  
+  o << s.definer;
+  return o;
+}

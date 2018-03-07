@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 class Record {
   
@@ -22,6 +23,8 @@ class Record {
     std::string getMethodName() const;
     std::vector<std::string> getParameters() const;
     std::vector<std::string> getSameMethods() const;
+    
+    friend std::ostream& operator<<(std::ostream& o, const Record& r);
 };
 
 #endif

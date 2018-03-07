@@ -1,6 +1,6 @@
 #ifdef DEBUG
 #define DDD cout << "records are compared...: " << endl; \\
-  cout << r.getClass() << " " << r.getMethodName() << " to: " << methodClass << " " << methodName << endl;
+  cout << "records compared " << r << "and:" << *this << endl;
 
 #else
 #define DDD ;  
@@ -50,6 +50,7 @@ Record& Record::operator+=( const string nWOR ) {
 
 Record& Record::operator+=( const Record& r ) {
   
+  
   if ( *this == r ) {
     
     for ( auto it = r.getSameMethods().begin(); it != r.getSameMethods().end(); ++it ) {
@@ -76,4 +77,16 @@ vector<string> Record::getParameters() const {
 vector<string> Record::getSameMethods() const {
   
   return sameMethods;
+}
+
+//friend
+ostream& operator<<(ostream& o, const Record& r) {
+      
+  o << r.methodClass << "|" << r.methodName << "|";
+  for ( auto it : r.parameters ) {
+    
+    o << it << "|";
+  }
+  
+  return o;
 }

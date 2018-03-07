@@ -2,9 +2,12 @@
 #define LOADER_H
 
 #include<fstream>
+#include <iostream>
 #include<set>
 
 class Loader {
+  
+    std::string filepath;
   
   protected:
     std::ifstream input;
@@ -24,6 +27,8 @@ class Loader {
     virtual std::set<std::pair<int, int>> transformConnections() = 0;
   
     virtual ~Loader();
+    
+  friend std::ostream& operator<<(std::ostream& o, Loader* l );
   
 };
 

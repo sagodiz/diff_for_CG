@@ -67,10 +67,11 @@ bool Loader_soot::load() {
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
 DDD
+
         common::storedIds.push_back(r);
       }
       else {
-        //TODO: representation check!!!!
+
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
         if ( *it == methodRepresentation ) {
           //contains this representation
