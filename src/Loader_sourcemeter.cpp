@@ -107,51 +107,78 @@ bool Loader_sourcemeter::load() {
                   break;
           case 'D'://double
                   //.....
-                  parameterVector.push_back("double");
+                  if ( arrayType )
+                    parameterVector.push_back("double[]");
+                  else
+                    parameterVector.push_back("double");
+                  
                   arrayType = false;
                   break;
           case 'F'://float
                     //.....
-                  parameterVector.push_back("float");
+                  if ( arrayType )
+                    parameterVector.push_back("float[]");
+                  else
+                    parameterVector.push_back("float");
                   arrayType = false;
                   break;
           case 'J'://long
                     //.....
+                  if ( arrayType )
+                    parameterVector.push_back("long[]");
+                  else
+                    parameterVector.push_back("long");
                   arrayType = false;
                   break;
           case 'I'://int
                     //.....
-                  parameterVector.push_back("int");
+                  if ( arrayType )
+                    parameterVector.push_back("int[]");
+                  else
+                    parameterVector.push_back("int");
                   arrayType = false;
                   break;
           case 'S'://short
                   //.....
-                  parameterVector.push_back("short");
+                  if ( arrayType )
+                    parameterVector.push_back("short[]");
+                  else
+                    parameterVector.push_back("short");
                   arrayType = false;
                   break;
           case 'C'://char
                     //.....
-                  parameterVector.push_back("char");
+                  if ( arrayType )
+                    parameterVector.push_back("char[]");
+                  else
+                    parameterVector.push_back("char");
                   arrayType = false;
                   break;
           case 'B'://byte
                    //.....
-                  parameterVector.push_back("byte");
+                  if ( arrayType )
+                     parameterVector.push_back("byte[]");
+                  else
+                    parameterVector.push_back("byte");
                   arrayType = false;
                   break;
           case 'Z'://boolean
                    //.....
-                  parameterVector.push_back("boolean");
+                  if ( arrayType )
+                    parameterVector.push_back("boolean[]");
+                  else
+                    parameterVector.push_back("boolean");
                   arrayType = false;
                   break;
-          default://throw a new exception
+          default: //throw a new exception
                   throw Labels::FORMAT_NOT_FOUND_ERROR;
         }
         
         ++i;
       } //end of while
       
-      if ( 0 == pckgClass.length() || 0 == method.length()
+      if ( 0 == pckgClass.length() || 0 == method.length() )
+        throw Labels::UNINITIALIZED_RECORD;
       
       Record r(representation, pckgClass, method, parameterVector);
       
@@ -160,12 +187,23 @@ bool Loader_sourcemeter::load() {
         common::storedIds.push_back(r);
       }
       else {
-        
-        //this record is already in the vector nothing to do
+
+        auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
+        if ( *it == representation ) {
+
+          //contains this representation
+        }
+        else {
+          
+          *it += representation;  //add this representation
+        }
       }
       
     } //end of processing label
   }//end of processing line
+  
+  input.clear();
+  input.seekg(0, ios::beg);
   
   return true;
 }
@@ -174,5 +212,56 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
   
   set<pair<int, int>> connections;
   //TODO
+  string line;
+  getline(input, line); //get the "header" line
+  getline(input, line); //get the "header" line
+  
+  while ( getline(input, line) ) {
+    
+  if ( line.find("label") == string::npos && line != "}" ) {
+      //it is a connection
+      string caller = line.substr(0, line.find("->"));  //left part
+      caller.erase(caller.length() - 1, 1);
+      string callee = line.substr(line.find("->")+2);  //right part
+      callee.erase(0, 1);
+      callee.erase(callee.length() - 1, 1);
+      
+      int callerId = -1, calleeId = -1;
+      
+      bool check = false; //to check if the method do be found.
+      
+      for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        
+        if ( common::storedIds[i] == caller ) {
+          
+          check = true;
+          callerId = i;
+          break;
+        }
+      }
+      if ( !check ) {
+        
+        cerr << "Method couldn't be resolved: " << caller << endl;
+      }
+      
+      check = false;
+      for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        
+        if ( common::storedIds[i] == callee ) {
+          
+          check = true;
+          calleeId = i;
+          break;
+        }
+      }
+      if ( !check ) {
+        
+        cerr << "Method couldn't be resolved: " << callee << endl;
+      }
+      
+      connections.insert(pair<int, int>(callerId, calleeId));
+    }
+  }
+  
   return connections;
 }

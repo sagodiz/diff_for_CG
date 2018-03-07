@@ -20,12 +20,12 @@ Record::Record( string rep, string methodClass, string methodName, vector<string
 bool Record::operator==(const Record& r ) const {
 
 DDD
-  
+
   if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
       && r.getParameters() == parameters
       ) {
-    
+        
     return true;
   }
   return false;
@@ -41,14 +41,14 @@ bool Record::operator==( const string method ) const {
   return false;
 }
 
-Record& Record::operator+( const string nWOR ) {
+Record& Record::operator+=( const string nWOR ) {
   
   sameMethods.push_back(nWOR);
   
   return *this;
 }
 
-Record& Record::operator+( const Record& r ) {
+Record& Record::operator+=( const Record& r ) {
   
   if ( *this == r ) {
     

@@ -15,8 +15,8 @@ class Record {
     Record( std::string rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters);
     bool operator==( const Record& r ) const;
     bool operator==( const std::string m ) const;
-    Record& operator+( const std::string newWayOfRepresentation );
-    Record& operator+( const Record& r );
+    Record& operator+=( const std::string newWayOfRepresentation );
+    Record& operator+=( const Record& r );
   
     std::string getClass() const;
     std::string getMethodName() const;

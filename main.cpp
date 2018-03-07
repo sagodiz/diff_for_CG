@@ -54,6 +54,12 @@ int main( int argc, char** argv ) {
     connections[i] = loaders[i]->transformConnections();
   }
   
+  for ( pair<int, int> it : connections[1] )
+  {
+    
+    cout << it.first << "|" << it.second <<  endl;
+  }
+  
   } catch( const string e ) {
     
     cerr << "An error has occurred: " << e << endl;

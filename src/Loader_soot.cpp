@@ -70,8 +70,14 @@ DDD
         common::storedIds.push_back(r);
       }
       else {
-        
-        //this record is already in the vector nothing to do
+        //TODO: representation check!!!!
+        auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
+        if ( *it == methodRepresentation ) {
+          //contains this representation
+        }
+        else {
+          *it += methodRepresentation;  //add this representation
+        }
       }
       
     }
