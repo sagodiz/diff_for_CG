@@ -59,7 +59,9 @@ int main( int argc, char** argv ) {
       
       cout << it.first << " " << it.second << endl;
     }
-    cout << "------------------------------------" << endl;
+    cout << "-------------------------------------" << endl;
+    cout << loaders[i]->getMethodNum() << " method has been processed and " << endl << loaders[i]->getCallNum() << "call has been transformed." << endl;
+    cout << "-------end of " << loaders[i] << "--------" << endl;
   }
   
   } catch( const string e ) {

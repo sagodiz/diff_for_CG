@@ -11,6 +11,8 @@ class Loader {
   
   protected:
     std::ifstream input;
+    unsigned long long methodNum;
+    unsigned long long callNum;
   
   public:
     Loader( std::string filepath );
@@ -27,6 +29,9 @@ class Loader {
     virtual std::set<std::pair<int, int>> transformConnections() = 0;
   
     virtual ~Loader();
+  
+    unsigned long long getMethodNum() const;
+    unsigned long long getCallNum() const;
     
   friend std::ostream& operator<<(std::ostream& o, Loader* l );
   

@@ -29,6 +29,7 @@ bool Loader_soot::load() {
     
     if ( line.find("->") == string::npos && line != "}" ) {
       //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
+      ++methodNum;
       
       string methodRepresentation = line; //save the line for representation
       methodRepresentation.erase(0, 4); //the leading spaces
@@ -101,6 +102,8 @@ set<pair<int, int>> Loader_soot::transformConnections() {
     
     if ( line.find("->") != string::npos && line != "}" ) {
       //it is a connection
+      ++callNum;
+      
       line.erase(line.length()-1, 1); //as connections are closed by ";"
       
       string caller = line.substr(0, line.find("->"));  //left part

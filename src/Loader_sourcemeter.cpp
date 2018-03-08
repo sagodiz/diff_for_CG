@@ -26,6 +26,8 @@ bool Loader_sourcemeter::load() {
     
     if ( line.find("label") != string::npos ) {
       //it is a node
+      ++methodNum;
+      
       string representation;
       string pckgClass;
       string method;
@@ -218,6 +220,8 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
     
   if ( line.find("label") == string::npos && line[0] != '}' ) {
       //it is a connection
+      ++callNum;
+      
       string caller = line.substr(0, line.find("->"));  //left part
       caller.erase(caller.length() - 1, 1);
       string callee = line.substr(line.find("->")+2);  //right part
