@@ -20,10 +20,11 @@ Loader_callerhierarchy::Loader_callerhierarchy( string filepath ) : Loader(filep
 Loader_callerhierarchy::~Loader_callerhierarchy() {
 }
 
-bool Loader_callerhierarchy::load() {
+set<Record> Loader_callerhierarchy::load() {
   
   //TODO
-  return true;
+  set<Record> tmp;
+  return tmp;
 }
 
 set<pair<int, int>> Loader_callerhierarchy::transformConnections() {

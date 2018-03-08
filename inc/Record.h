@@ -18,6 +18,7 @@ class Record {
     bool operator==( const std::string m ) const;
     Record& operator+=( const std::string newWayOfRepresentation );
     Record& operator+=( const Record& r );
+    bool operator<( const Record& r ) const;
   
     std::string getClass() const;
     std::string getMethodName() const;

@@ -20,7 +20,9 @@ Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
 Loader_soot::~Loader_soot() {
 }
 
-bool Loader_soot::load() {
+set<Record> Loader_soot::load() {
+  
+  set<Record> tmpRecords;  //TODO
   
   string line;
   getline(input, line); //get the "header" line
@@ -64,6 +66,7 @@ bool Loader_soot::load() {
       }
       
       Record r(methodRepresentation, f_classWithPckg, method, parameterVector);
+      tmpRecords.insert( r );
       
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
@@ -88,7 +91,7 @@ DDD
   input.clear();
   input.seekg(0, ios::beg);
   
-  return true;
+  return tmpRecords;
 }
 
 set<pair<int, int>> Loader_soot::transformConnections() {

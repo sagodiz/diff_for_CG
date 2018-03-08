@@ -16,8 +16,10 @@ Loader_sourcemeter::Loader_sourcemeter( string filepath ) : Loader(filepath) {
 Loader_sourcemeter::~Loader_sourcemeter() {
 }
 
-bool Loader_sourcemeter::load() {
+set<Record> Loader_sourcemeter::load() {
 
+  set<Record> tmpRecords;  //TODO
+  
   string line;
   getline(input, line); //get the "header" line
   getline(input, line); //get the "header" line
@@ -182,6 +184,7 @@ bool Loader_sourcemeter::load() {
         throw Labels::UNINITIALIZED_RECORD;
       
       Record r(representation, pckgClass, method, parameterVector);
+      tmpRecords.insert( r );
       
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
@@ -205,7 +208,7 @@ bool Loader_sourcemeter::load() {
   input.clear();
   input.seekg(0, ios::beg);
   
-  return true;
+  return tmpRecords;
 }
 
 set<pair<int, int>> Loader_sourcemeter::transformConnections() {

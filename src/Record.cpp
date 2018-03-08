@@ -62,6 +62,14 @@ Record& Record::operator+=( const Record& r ) {
   return *this;
 }
 
+bool Record::operator<( const Record& r ) const {
+  
+  if ( r.getClass().length() < methodClass.length() )
+    return true;
+  
+  return false;
+}
+
 string Record::getClass() const {
   
   return methodClass;

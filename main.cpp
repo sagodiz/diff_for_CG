@@ -2,6 +2,7 @@
 #include <string>
 #include <set>
 #include <vector>
+#include <algorithm>
 
 #include "inc/Labels.h"
 #include "inc/Loader.h"
@@ -10,6 +11,7 @@
 #include "inc/Loader_sourcemeter.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
+#include "inc/Record.h"
 
 #if defined(VERBOSE)
   #define VERBOSE1 \
@@ -28,7 +30,7 @@
 
 using namespace std;
 
-static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, unsigned long long m1, unsigned long long m2, unsigned long long c1, unsigned long long c2);
+static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, set<Record> r1, set<Record> r2);
 
 int main( int argc, char** argv ) {
 
@@ -66,17 +68,18 @@ int main( int argc, char** argv ) {
 
   //create an array for the transformed connections
   set<pair<int, int>> connections[loaders.size()];
+  set<Record> records[loaders.size()];
   
   for ( int i = 0; i < loaders.size(); ++i ) {
     
-    loaders[i]->load();
+    records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
 VERBOSE1
   }
   
   for ( int i = 0; i < loaders.size() - 1; i++ ) {
     
-    makeStat(loaders[i]->getFilePath(), loaders[i + 1]->getFilePath(), connections[i], connections[i + 1], loaders[i]->getMethodNum(), loaders[i + 1]->getMethodNum(), loaders[i]->getCallNum(), loaders[i + 1]->getCallNum());
+    makeStat( connections[i], connections[i + 1], loaders[i], loaders[i + 1], records[i], records[i + 1] );
   }
   
   } catch( const string e ) {
@@ -89,11 +92,12 @@ VERBOSE1
   return 0;
 }
 
-static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, unsigned long long m1, unsigned long long m2, unsigned long long c1, unsigned long long c2) {
+static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, set<Record> r1, set<Record> r2) {
   
   unsigned long long commonCalls = 0;
+  unsigned long long commonMethods = 0;
   
-  ofstream statOut(toCompare1 + "-" + toCompare2 + "-common-calls.txt");
+  ofstream statOut(l1->getFilePath() + "-" + l2->getFilePath() + "-common-calls.txt");
   
   if ( !statOut.is_open() )
     throw Labels::COULD_NOT_WRITE_OUTPUT;
@@ -105,9 +109,17 @@ static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> c
       ++commonCalls;
     }
   }
-  statOut << toCompare1 << " has " << c1 << " calls" << " and " << m1 << " methods" << endl;
-  statOut << toCompare2 << " has " << c2 << " calls" << " and " << m2 << " methods" << endl;
-  statOut << commonCalls << " common calls" << endl;
+  
+  for ( auto it : r1 ) {
+    
+    if ( find(r2.begin(), r2.end(), r1) != r2.end() ) {
+      
+      ++commonMethods;
+    }
+  }
+  statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods" << endl;
+  statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods" << endl;
+  statOut << commonCalls << " common calls and " << commonMethods << " common methods." << endl;
   
   statOut.close();
 }

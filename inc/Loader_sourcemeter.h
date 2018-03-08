@@ -8,7 +8,7 @@ class Loader_sourcemeter : public virtual Loader {
   public:
     Loader_sourcemeter(std::string filepath);
     ~Loader_sourcemeter();
-    bool load();
+    std::set<Record> load();
     std::set<std::pair<int, int>> transformConnections();
 };
 
