@@ -3,6 +3,7 @@
 #include <set>
 #include <vector>
 
+#include "inc/Labels.h"
 #include "inc/Loader.h"
 #include "inc/Loader_soot.h"
 #include "inc/Loader_callerhierarchy.h"
@@ -10,7 +11,24 @@
 #include "inc/Switch.h"
 #include "inc/common.h"
 
+#if defined(VERBOSE)
+  #define VERBOSE1 \
+    cout << "------" << loaders[i] << "--------" << endl;\
+    for ( pair<int, int> it : connections[i] ) {\
+      \
+      cout << it.first << " " << it.second << endl;\
+    }\
+    cout << "-------------------------------------" << endl;\
+    cout << loaders[i]->getMethodNum() << " method has been processed and " << endl << loaders[i]->getCallNum() << "call has been transformed." << endl;\
+    cout << "-------end of " << loaders[i] << "--------" << endl;
+#else
+  #define VERBOSE1 ;
+#endif
+
+
 using namespace std;
+
+static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2);
 
 int main( int argc, char** argv ) {
 
@@ -53,15 +71,12 @@ int main( int argc, char** argv ) {
     
     loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
+VERBOSE1
+  }
+  
+  for ( int i = 0; i < loaders.size() - 1; i++ ) {
     
-    cout << "------" << loaders[i] << "--------" << endl;
-    for ( pair<int, int> it : connections[i] ) {
-      
-      cout << it.first << " " << it.second << endl;
-    }
-    cout << "-------------------------------------" << endl;
-    cout << loaders[i]->getMethodNum() << " method has been processed and " << endl << loaders[i]->getCallNum() << "call has been transformed." << endl;
-    cout << "-------end of " << loaders[i] << "--------" << endl;
+    makeStat(loaders[i]->getFilePath(), loaders[i]->getFilePath(), connections[i], connections[i + 1]);
   }
   
   } catch( const string e ) {
@@ -72,4 +87,14 @@ int main( int argc, char** argv ) {
   cout << "End of program." << endl;
   
   return 0;
+}
+
+static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2) {
+  
+  ofstream statOut(toCompare1 + toCompare2);
+  if ( !statOut.is_open() )
+    throw Labels::COULD_NOT_WRITE_OUTPUT;
+  
+  
+  statOut.close();
 }

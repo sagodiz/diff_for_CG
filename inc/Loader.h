@@ -32,6 +32,7 @@ class Loader {
   
     unsigned long long getMethodNum() const;
     unsigned long long getCallNum() const;
+    std::string getFilePath();
     
   friend std::ostream& operator<<(std::ostream& o, Loader* l );
   

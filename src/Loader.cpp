@@ -25,6 +25,11 @@ unsigned long long Loader::getCallNum() const {
   return callNum;
 }
 
+string Loader::getFilePath() {
+  
+  return filepath;
+}
+
 
 //friend
 ostream& operator<<(ostream& o, Loader* l ) {
