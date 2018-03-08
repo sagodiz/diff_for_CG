@@ -16,9 +16,9 @@ Loader_sourcemeter::Loader_sourcemeter( string filepath ) : Loader(filepath) {
 Loader_sourcemeter::~Loader_sourcemeter() {
 }
 
-set<Record> Loader_sourcemeter::load() {
+vector<Record> Loader_sourcemeter::load() {
 
-  set<Record> tmpRecords;  //TODO
+  vector<Record> tmpRecords;  //TODO
   
   string line;
   getline(input, line); //get the "header" line
@@ -184,7 +184,7 @@ set<Record> Loader_sourcemeter::load() {
         throw Labels::UNINITIALIZED_RECORD;
       
       Record r(representation, pckgClass, method, parameterVector);
-      tmpRecords.insert( r );
+      tmpRecords.push_back( r );
       
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector

@@ -20,10 +20,10 @@ Loader_callerhierarchy::Loader_callerhierarchy( string filepath ) : Loader(filep
 Loader_callerhierarchy::~Loader_callerhierarchy() {
 }
 
-set<Record> Loader_callerhierarchy::load() {
+vector<Record> Loader_callerhierarchy::load() {
   
   //TODO
-  set<Record> tmp;
+  vector<Record> tmp;
   return tmp;
 }
 

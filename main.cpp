@@ -30,7 +30,7 @@
 
 using namespace std;
 
-static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, set<Record> r1, set<Record> r2);
+static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
 
 int main( int argc, char** argv ) {
 
@@ -68,7 +68,7 @@ int main( int argc, char** argv ) {
 
   //create an array for the transformed connections
   set<pair<int, int>> connections[loaders.size()];
-  set<Record> records[loaders.size()];
+  vector<Record> records[loaders.size()];
   
   for ( int i = 0; i < loaders.size(); ++i ) {
     
@@ -92,7 +92,7 @@ VERBOSE1
   return 0;
 }
 
-static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, set<Record> r1, set<Record> r2) {
+static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2) {
   
   unsigned long long commonCalls = 0;
   unsigned long long commonMethods = 0;
@@ -110,9 +110,9 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
     }
   }
   
-  for ( auto it : r1 ) {
+  for ( int i = 0; i < r1.size(); i++ ) {
     
-    if ( find(r2.begin(), r2.end(), r1) != r2.end() ) {
+    if ( find(r2.begin(), r2.end(), r1[i]) != r2.end() ) {
       
       ++commonMethods;
     }

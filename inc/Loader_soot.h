@@ -8,7 +8,7 @@ class Loader_soot : public virtual Loader {
   public:
     Loader_soot(std::string filepath);
     ~Loader_soot();
-    std::set<Record> load();
+    std::vector<Record> load();
     std::set<std::pair<int, int>> transformConnections();
 };
 

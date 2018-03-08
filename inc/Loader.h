@@ -21,7 +21,7 @@ class Loader {
     /**
     * Loads the nodes to the method store, if no matching method is found creates a new one with a new id
     */
-    virtual std::set<Record> load() = 0;
+    virtual std::vector<Record> load() = 0;
   
     /**
     * Uses the ids (ones that is used by every other tool) instead of it's own method names

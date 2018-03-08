@@ -8,7 +8,7 @@ class Loader_callerhierarchy : public virtual Loader {
   public:
     Loader_callerhierarchy(std::string filepath);
     ~Loader_callerhierarchy();
-    std::set<Record> load();
+    std::vector<Record> load();
     std::set<std::pair<int, int>> transformConnections();
 };
 
