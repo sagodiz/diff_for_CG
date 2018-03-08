@@ -28,7 +28,7 @@
 
 using namespace std;
 
-static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2);
+static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, unsigned long long m1, unsigned long long m2, unsigned long long c1, unsigned long long c2);
 
 int main( int argc, char** argv ) {
 
@@ -76,7 +76,7 @@ VERBOSE1
   
   for ( int i = 0; i < loaders.size() - 1; i++ ) {
     
-    makeStat(loaders[i]->getFilePath(), loaders[i]->getFilePath(), connections[i], connections[i + 1]);
+    makeStat(loaders[i]->getFilePath(), loaders[i + 1]->getFilePath(), connections[i], connections[i + 1], loaders[i]->getMethodNum(), loaders[i + 1]->getMethodNum(), loaders[i]->getCallNum(), loaders[i + 1]->getCallNum());
   }
   
   } catch( const string e ) {
@@ -89,12 +89,25 @@ VERBOSE1
   return 0;
 }
 
-static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2) {
+static void makeStat(string toCompare1, string toCompare2, set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, unsigned long long m1, unsigned long long m2, unsigned long long c1, unsigned long long c2) {
   
-  ofstream statOut(toCompare1 + toCompare2);
+  unsigned long long commonCalls = 0;
+  
+  ofstream statOut(toCompare1 + "-" + toCompare2 + "-common-calls.txt");
+  
   if ( !statOut.is_open() )
     throw Labels::COULD_NOT_WRITE_OUTPUT;
-  
+
+  for ( auto it1 : compareSet1 ) {
+    
+    if ( compareSet2.find(it1) != compareSet2.end() ) {
+      //found
+      ++commonCalls;
+    }
+  }
+  statOut << toCompare1 << " has " << c1 << " calls" << " and " << m1 << " methods" << endl;
+  statOut << toCompare2 << " has " << c2 << " calls" << " and " << m2 << " methods" << endl;
+  statOut << commonCalls << " common calls" << endl;
   
   statOut.close();
 }
