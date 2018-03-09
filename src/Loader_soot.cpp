@@ -71,7 +71,7 @@ vector<Record> Loader_soot::load() {
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
 DDD
-
+        ++uniqueMethodNum;
         common::storedIds.push_back(r);
       }
       else {
@@ -81,7 +81,9 @@ DDD
           //contains this representation
         }
         else {
+          
           *it += methodRepresentation;  //add this representation
+          ++uniqueMethodNum;
         }
       }
       

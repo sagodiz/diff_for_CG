@@ -117,8 +117,8 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
       ++commonMethods;
     }
   }
-  statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods" << endl;
-  statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods" << endl;
+  statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods. " << l1->getUniqueMethodNum() << " unique method." << endl;
+  statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods. " << l2->getUniqueMethodNum() << " unique method." << endl;
   statOut << commonCalls << " common calls and " << commonMethods << " common methods." << endl;
   
   statOut.close();

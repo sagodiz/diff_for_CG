@@ -14,6 +14,7 @@ class Loader {
     std::ifstream input;
     unsigned long long methodNum;
     unsigned long long callNum;
+    unsigned long long uniqueMethodNum;
   
   public:
     Loader( std::string filepath );
@@ -34,6 +35,7 @@ class Loader {
     unsigned long long getMethodNum() const;
     unsigned long long getCallNum() const;
     std::string getFilePath();
+    unsigned long long getUniqueMethodNum() const;
     
   friend std::ostream& operator<<(std::ostream& o, Loader* l );
   

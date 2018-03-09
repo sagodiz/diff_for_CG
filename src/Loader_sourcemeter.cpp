@@ -189,6 +189,7 @@ vector<Record> Loader_sourcemeter::load() {
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
         common::storedIds.push_back(r);
+        ++uniqueMethodNum;
       }
       else {
 
@@ -197,11 +198,10 @@ vector<Record> Loader_sourcemeter::load() {
           //contains this representation
         }
         else {
-
+          ++uniqueMethodNum;
           *it += representation;  //add this representation
         }
       }
-      
     } //end of processing label
   }//end of processing line
   

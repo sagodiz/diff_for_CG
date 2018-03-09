@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Loader::Loader( string filepath ) : filepath(filepath), methodNum(0), callNum(0) {
+Loader::Loader( string filepath ) : filepath(filepath), methodNum(0), callNum(0), uniqueMethodNum(0) {
   
   input.open(filepath);
   if ( !input.is_open() )
@@ -30,6 +30,10 @@ string Loader::getFilePath() {
   return filepath;
 }
 
+unsigned long long Loader::getUniqueMethodNum() const {
+  
+  return uniqueMethodNum;
+}
 
 //friend
 ostream& operator<<(ostream& o, Loader* l ) {
