@@ -35,7 +35,7 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
 
 int main( int argc, char** argv ) {
 
-  if ( argc < 2 ) {
+  if ( argc < 3 ) {
     
     cout << "At least 1 tool have to be given." << endl;
     return 1;
@@ -60,11 +60,11 @@ int main( int argc, char** argv ) {
   unsigned char j = -1;
   while( switches[++j] ) {
     
-    for ( int i = 1; i < argc; i++ ) {
+    for ( int i = 1; i < argc - 1; i++ ) {
       
       if ( *(switches[j]) == argv[i] ) {
 
-        switches[j]->init(argv[i++]);
+        switches[j]->init(argv[++i]);
         loaders.push_back( switches[j]->getLoaderPointer() );
       }
     }
