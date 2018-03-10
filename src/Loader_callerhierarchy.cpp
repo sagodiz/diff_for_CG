@@ -18,32 +18,32 @@ Loader_callerhierarchy::~Loader_callerhierarchy() {
 
 vector<Record> Loader_callerhierarchy::load() {
   
-  //TODO
   vector<Record> tmpRecords;
   
-  string prefix = "Method call hierarchy callees of ";
-  bool readyToProcess = false;
   string line;
   string representation;
-  
-  //clearInput();//TODO: remove the unneccessary texts and tabs.
-  /*
-  * Result should look like this:
-  * Method
-  * [Callee]*
-  * <Closes with empty Line>
-  */
   
   while ( getline(input, line) ) {
     
     representation = line;
-    readyToProcess = false;
     
     if ( 0 == line.length() ) {
       //empty line
     }
     else {
       //caller or calle, but a node
+      
+      if ( '\t' == line[0] ) {
+        
+        line.erase(0, 1);
+        representation.erase(0, 1);
+      }
+      else {
+        
+        line.erase(0, prefix.length());
+        representation.erase(0, prefix.length());
+      }
+      
       string pckgClassMethod, params, method, pckgClass;
       stringstream input_stringstream(line);
       
@@ -103,6 +103,76 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
   
   set<pair<int, int>> connections;
   
-  //TODO
+  bool changeCaller = false;
+  
+  string line;
+  string caller;
+  string callee;
+  
+  unsigned int callerId = -1;
+  unsigned int calleeId = -1;
+  
+  while ( getline(input, line) ) {
+    
+    if ( 0 == line.length() ) {
+      //empty line
+    }
+    else {
+      //caller or calle, but a node so in a connection, set the 
+      
+      if ( '\t' == line[0] ) {
+        
+        line.erase(0, 1);
+        callee = line;
+      }
+      else {
+        
+        line.erase(0, prefix.length());
+        caller = line;
+        changeCaller = true;
+      }
+      
+      if ( changeCaller ) {
+        //do nothing as here comes a new "list" os connections
+      }
+      else {
+        //the remaining caller calls the callees
+        bool check = false; //to check if the method do be found.
+      
+        for ( int i = 0; i < common::storedIds.size(); i++ ) {
+
+          if ( common::storedIds[i] == caller ) {
+
+            check = true;
+            callerId = i;
+            break;
+          }
+        }
+        if ( !check ) {
+
+          cerr << "Method couldn't be resolved: " << caller << endl;
+        }
+
+        check = false;
+        for ( int i = 0; i < common::storedIds.size(); i++ ) {
+
+          if ( common::storedIds[i] == callee ) {
+
+            check = true;
+            calleeId = i;
+            break;
+          }
+        }
+        if ( !check ) {
+
+          cerr << "Method couldn't be resolved: " << callee << endl;
+        }
+
+        connections.insert(pair<int, int>(callerId, calleeId));
+      }
+    }
+  }
+
+  
   return connections;
 }

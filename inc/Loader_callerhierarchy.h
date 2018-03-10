@@ -5,6 +5,8 @@
 
 class Loader_callerhierarchy : public virtual Loader {
   
+  std::string prefix = "Method call hierarchy callees of ";
+  
   public:
     Loader_callerhierarchy(std::string filepath);
     ~Loader_callerhierarchy();

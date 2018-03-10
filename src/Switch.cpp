@@ -2,7 +2,9 @@
 
 using namespace std;
 
-Switch::Switch( string activationString, Loader& loader ) : definer(activationString), loader(loader) {
+Switch::Switch( string activationString ) : definer(activationString) {
+  
+  if ( 
 }
 
 bool Switch::operator==( const string str ) const {
