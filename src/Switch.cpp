@@ -2,9 +2,7 @@
 
 using namespace std;
 
-Switch::Switch( string activationString ) : definer(activationString) {
-  
-  if ( 
+Switch::Switch( string activationString, Factory& factory ) : definer(activationString), factory(factory) {
 }
 
 bool Switch::operator==( const string str ) const {
@@ -13,6 +11,11 @@ bool Switch::operator==( const string str ) const {
     return true;
   
   return false;
+}
+
+void Switch::init(string filePath) {
+  
+  loader = factory.getLoaderPointer( definer, filePath );
 }
 
 bool Switch::operator==(const char* str ) const {
@@ -24,6 +27,11 @@ bool Switch::operator==(const char* str ) const {
 }
 
 Loader& Switch::getLoader() const {
+  
+  return *loader;
+}
+
+Loader* Switch::getLoaderPointer() const {
   
   return loader;
 }

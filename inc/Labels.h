@@ -8,6 +8,7 @@ namespace Labels {
   const std::string UNINITIALIZED_RECORD = "Record couldn't be initialized. className packageName or methodName is missing.";
   const std::string METHOD_NOT_FOUND_ERROR = "Couldn't find method in the format.";
   const std::string COULD_NOT_WRITE_OUTPUT = "Couldn't write output file whilst making statistics.";
+  const std::string UNRECOGNIZED_SWITCH = "The given switch could not be found: ";
 }
 
 #endif

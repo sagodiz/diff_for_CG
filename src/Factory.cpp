@@ -1,0 +1,42 @@
+#include "../inc/Factory.h"
+#include "../inc/Loader.h"
+#include "../inc/Loader_soot.h"
+#include "../inc/Loader_sourcemeter.h"
+#include "../inc/Loader_callerhierarchy.h"
+#include "../inc/Labels.h"
+
+using namespace std;
+
+bool Factory::factoryExist = false;
+Factory* Factory::factory = NULL;
+Factory::Factory() {
+}
+
+Loader* Factory::getLoaderPointer( string str, string filePath ) const {
+  
+  if ( "-s" == str ) {
+    
+    return new Loader_soot(filePath);
+  }
+  else if ( "-sm" == str ) {
+    return new Loader_sourcemeter(filePath);
+  }
+  else if ( "-c" == str ) {
+    return new Loader_callerhierarchy(filePath);
+  }
+  else { 
+    throw Labels::UNRECOGNIZED_SWITCH + str;
+  }
+}
+
+Factory& Factory::createFactory() {
+  
+  if ( factoryExist )
+    return *factory;
+  
+  Factory::factory = new Factory();
+  factoryExist = true;
+  
+  return *factory;
+  
+}

@@ -12,6 +12,7 @@
 #include "inc/Switch.h"
 #include "inc/common.h"
 #include "inc/Record.h"
+#include "inc/Factory.h"
 
 #if defined(VERBOSE)
   #define VERBOSE1 \
@@ -44,10 +45,12 @@ int main( int argc, char** argv ) {
   
   try {
   
+  Factory factory = Factory::createFactory();
+  
   Switch* switches[] = {
-                          new Switch("-s", *(new Loader_soot("soot.out"))),
-                          new Switch("-c", *(new Loader_callerhierarchy("callerhierarchy.out"))),
-                          new Switch("-sm", *(new Loader_sourcemeter("sourcemeter.out"))),
+                          new Switch("-s", factory ),
+                          new Switch("-c", factory ),
+                          new Switch("-sm", factory ),
                           NULL
                         };
   
@@ -61,7 +64,8 @@ int main( int argc, char** argv ) {
       
       if ( *(switches[j]) == argv[i] ) {
 
-        loaders.push_back( &(switches[j]->getLoader()) );
+        switches[j]->init(argv[i++]);
+        loaders.push_back( switches[j]->getLoaderPointer() );
       }
     }
   }
