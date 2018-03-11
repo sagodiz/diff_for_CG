@@ -18,6 +18,9 @@ Loader_callerhierarchy::~Loader_callerhierarchy() {
 
 vector<Record> Loader_callerhierarchy::load() {
   
+  //TODO: ha generikus, akkor az osztály végéről le kell vágni, s majd a paraméterekben is Object-re kell cserélni azt a dolgot.
+  //mmint azokon végigmenni s az összeset kivenni, cserélni
+  
   vector<Record> tmpRecords;
   
   string line;
