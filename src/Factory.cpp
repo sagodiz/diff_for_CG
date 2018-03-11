@@ -3,6 +3,7 @@
 #include "../inc/Loader_soot.h"
 #include "../inc/Loader_sourcemeter.h"
 #include "../inc/Loader_callerhierarchy.h"
+#include "../inc/Loader_spoon.h"
 #include "../inc/Labels.h"
 
 using namespace std;
@@ -23,6 +24,9 @@ Loader* Factory::getLoaderPointer( string str, string filePath ) const {
   }
   else if ( "-c" == str ) {
     return new Loader_callerhierarchy(filePath);
+  }
+  else if ( "-sp" == str ) {
+    return new Loader_spoon(filePath);
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;

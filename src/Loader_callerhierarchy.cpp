@@ -45,35 +45,45 @@ vector<Record> Loader_callerhierarchy::load() {
       }
       
       string pckgClassMethod, params, method, pckgClass;
-      stringstream input_stringstream(line);
       
-      getline(input_stringstream, pckgClassMethod , '(');
-      getline(input_stringstream, params , '(');
-      params.erase(params.size() - 1, 1); //remove ')'
-      
-      size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
-      if ( lastDotPos != string::npos ) {
+      if ( line.find("(") != string::npos ) {
         
-        method = pckgClassMethod.substr(lastDotPos + 1);
-        pckgClass = pckgClassMethod.substr(0, lastDotPos);
+        stringstream input_stringstream(line);
+        //it is a method that has at least 1 parameter
+        getline(input_stringstream, pckgClassMethod , '(');
+        getline(input_stringstream, params , '(');
+        params.erase(params.size() - 1, 1); //remove ')'
         
+        size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
+        if ( lastDotPos != string::npos ) {
+          
+          method = pckgClassMethod.substr(lastDotPos + 1);
+          pckgClass = pckgClassMethod.substr(0, lastDotPos);
+          
+        }
+        else {
+
+          throw Labels::METHOD_NOT_FOUND_ERROR;
+        }
+        
+        vector<string> parameterVector;
+        stringstream iss(params);
+        string parameter;
+        while( getline(iss, parameter, ',') ) {
+          
+          if ( ' ' == parameter[0] )
+            parameter.erase(0, 1);
+          
+          parameterVector.push_back(parameter);
+        }
+        
+        if ( 0 == pckgClass.length() || 0 == method.length() )
+          throw Labels::UNINITIALIZED_RECORD;
       }
       else {
-
-        throw Labels::METHOD_NOT_FOUND_ERROR;
+        //method without parameters
+        //find the last dot. that separates the method
       }
-      
-      vector<string> parameterVector;
-      stringstream iss(params);
-      string parameter;
-      while( getline(iss, parameter, ',') ) {
-        
-        parameterVector.push_back(parameter);
-      }
-      
-      if ( 0 == pckgClass.length() || 0 == method.length() )
-        throw Labels::UNINITIALIZED_RECORD;
-      
       Record r(representation, pckgClass, method, parameterVector);
       tmpRecords.push_back( r );
       
