@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <vector>
 
+#define DDD cout << __FILE__ << ":" << __LINE__ << endl;
+
 using namespace std;
 
 Loader_callerhierarchy::Loader_callerhierarchy( string filepath ) : Loader(filepath) {
@@ -25,10 +27,9 @@ vector<Record> Loader_callerhierarchy::load() {
   
   string line;
   string representation;
+  vector<string> genericStrings;
   
   while ( getline(input, line) ) {
-    
-    representation = line;
     
     if ( 1 == line.length() ) {
       //empty line
@@ -39,14 +40,14 @@ vector<Record> Loader_callerhierarchy::load() {
       if ( '\t' == line[0] ) {
         
         line.erase(0, 1);
-        representation.erase(0, 1);
       }
       else {
         
         line.erase(0, prefix.length());
-        representation.erase(0, prefix.length());
       }
       
+      representation = line;
+    
       string pckgClassMethod, params, method, pckgClass;
         
       stringstream input_stringstream(line);
@@ -56,11 +57,12 @@ vector<Record> Loader_callerhierarchy::load() {
       if ( pckgClassMethod == line ) {
         //there were no '('
         params = "";
+        
       }
       else {
-       
+        
         getline(input_stringstream, params , '(');
-        params.erase(params.size() - 1, 1); //remove ')'
+        params.erase(params.length() - 1, 1); //remove ')'
       }
         
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
@@ -72,6 +74,28 @@ vector<Record> Loader_callerhierarchy::load() {
         
         //check if it is a constructor, so method equals the className that is after the "remaining" lastDot
         //if it is make it an init method
+        
+        size_t genPos = pckgClass.find("<");
+        if ( genPos != string::npos ) {
+          
+          //it is a generic class
+          string generics = pckgClass.substr(genPos);
+          pckgClass.erase(genPos, pckgClass.length() - genPos + 1);
+          generics.erase(0,1);  //<
+          generics.erase(generics.length() - 1, 1); //>
+
+          stringstream giss(generics);
+          string Genparameter;
+          while ( getline(giss, Genparameter, ',') ) {
+            
+            //TODO: ,space vagy csak , van.
+            if ( ' ' == Genparameter[0] ) {
+              Genparameter.erase(0,1);
+              
+            }
+            genericStrings.push_back(Genparameter);
+          }
+        }
         
         if ( method == pckgClass.substr(pckgClass.rfind(".") + 1) )
           method = "<init>";
@@ -90,15 +114,20 @@ vector<Record> Loader_callerhierarchy::load() {
         if ( ' ' == parameter[0] )
           parameter.erase(0, 1);
         
+        if ( find(genericStrings.begin(), genericStrings.end(), parameter) != genericStrings.end() ) {
+          //so this parameter !MAY! come from generic params.
+          parameter = "java.lang.Object";
+        }
+        
         parameterVector.push_back(parameter);
       }
       
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
-
+      
       Record r(representation, pckgClass, method, parameterVector);
       tmpRecords.push_back( r );
-      
+cout << r << endl;
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
         common::storedIds.push_back(r);
