@@ -2,6 +2,7 @@
 
 RED='\033[1;31m'
 GREEN='\033[1;32m'
+NC='\033[0m'
 
 if [ $# -eq 1 ]; then
   if [ "$1" == "c" ]; then
@@ -14,7 +15,7 @@ fi
 g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp src/Switch.cpp src/Loader_callerhierarchy.cpp src/common.cpp src/Loader_sourcemeter.cpp src/Factory.cpp src/Loader_spoon.cpp -o main -std=c++11
 
 if [ $? -eq 0 ]; then
-  echo -e "${GREEN}Sikeres fordítás"
+  echo -e "${GREEN}Sikeres fordítás${NC}"
 else
-  echo -e "${RED}Sikertelen fordítás"
+  echo -e "${RED}Sikertelen fordítás${NC}"
 fi

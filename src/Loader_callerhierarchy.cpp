@@ -9,8 +9,6 @@
 #include <algorithm>
 #include <vector>
 
-#define DDD cout << __FILE__ << ":" << __LINE__ << endl;
-
 using namespace std;
 
 Loader_callerhierarchy::Loader_callerhierarchy( string filepath ) : Loader(filepath) {
@@ -19,9 +17,6 @@ Loader_callerhierarchy::~Loader_callerhierarchy() {
 }
 
 vector<Record> Loader_callerhierarchy::load() {
-  
-  //TODO: ha generikus, akkor az osztály végéről le kell vágni, s majd a paraméterekben is Object-re kell cserélni azt a dolgot.
-  //mmint azokon végigmenni s az összeset kivenni, cserélni
   
   vector<Record> tmpRecords;
   
@@ -35,7 +30,8 @@ vector<Record> Loader_callerhierarchy::load() {
       //empty line
     }
     else {
-      //caller or calle, but a node
+      //caller or callee, but a node
+      ++methodNum;
       
       if ( '\t' == line[0] ) {
         
@@ -127,7 +123,7 @@ vector<Record> Loader_callerhierarchy::load() {
       
       Record r(representation, pckgClass, method, parameterVector);
       tmpRecords.push_back( r );
-cout << r << endl;
+
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector
         common::storedIds.push_back(r);
@@ -147,6 +143,9 @@ cout << r << endl;
     }
   }
   
+  input.clear();
+  input.seekg(0, ios::beg);
+  
   return tmpRecords;
 }
 
@@ -165,11 +164,13 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
   
   while ( getline(input, line) ) {
     
+    changeCaller = false;
+    
     if ( 0 == line.length() ) {
       //empty line
     }
     else {
-      //caller or calle, but a node so in a connection, set the 
+      //caller or callee, but a node so in a connection, set the 
       
       if ( '\t' == line[0] ) {
         
@@ -188,6 +189,8 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
       }
       else {
         //the remaining caller calls the callees
+        ++callNum;
+        
         bool check = false; //to check if the method do be found.
       
         for ( int i = 0; i < common::storedIds.size(); i++ ) {
