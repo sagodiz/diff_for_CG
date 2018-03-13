@@ -1,0 +1,5 @@
+Method call hierarchy callees of StaticUsesImportedClass.main(java.lang.String[])
+	StaticUsesImportedClass.foo
+		java.security.SecureRandom.SecureRandom
+		java.util.Random.nextInt
+

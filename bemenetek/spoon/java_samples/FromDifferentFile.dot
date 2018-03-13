@@ -1,0 +1,24 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.FromDifferentFile.FromDifferentFile()"]
+7 [label="root.FromDifferentFile2.FromDifferentFile2()"]
+9 [label="root.FromDifferentFile2.foo()"]
+3 [label="java.lang.Class.forName(java.lang.String)"]
+5 [label="java.lang.Class.isInstance(java.lang.Object)"]
+4 [label="java.lang.Integer(int)"]
+1 [label="java.lang.Object()"]
+2 [label="root.FromDifferentFile.main(java.lang.String[])"]
+6 [label="java.io.PrintStream.println(boolean)"]
+8 [label="java.io.PrintStream.println(java.lang.Object)"]
+10 [label="java.io.PrintStream.println(java.lang.String)"]
+0 -> 1
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 6
+2 -> 7
+2 -> 8
+7 -> 1
+7 -> 9
+9 -> 10
+}

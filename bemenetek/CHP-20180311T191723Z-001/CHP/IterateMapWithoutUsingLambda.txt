@@ -1,0 +1,12 @@
+Method call hierarchy callees of IterateMapUsingLambda.main(java.lang.String[])
+	java.util.HashMap<java.lang.String, java.lang.Integer>.HashMap
+	java.util.Map<java.lang.String, java.lang.Integer>.put(java.lang.String, java.lang.Integer)
+	java.util.Map<java.lang.String, java.lang.Integer>.put(java.lang.String, java.lang.Integer)
+	java.util.Map<java.lang.String, java.lang.Integer>.put(java.lang.String, java.lang.Integer)
+	java.util.Map<java.lang.String, java.lang.Integer>.put(java.lang.String, java.lang.Integer)
+	java.util.Map<java.lang.String, java.lang.Integer>.put(java.lang.String, java.lang.Integer)
+	java.util.Map<java.lang.String, java.lang.Integer>.entrySet
+	java.io.PrintStream.println(java.lang.String)
+	java.util.Map.Entry<java.lang.String, java.lang.Integer>.getKey
+	java.util.Map.Entry<java.lang.String, java.lang.Integer>.getValue
+

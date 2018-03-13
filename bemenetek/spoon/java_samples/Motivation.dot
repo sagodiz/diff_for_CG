@@ -1,0 +1,29 @@
+digraph graphname {
+rankdir="LR";
+6 [label="root.Motivation$1.Motivation$1()"]
+0 [label="root.Motivation.Motivation()"]
+7 [label="root.Motivation$1.actionPerformed(java.awt.event.ActionEvent)"]
+10 [label="java.awt.Container.add(java.awt.Component)"]
+9 [label="java.awt.Button.addActionListener(java.awt.event.ActionListener)"]
+4 [label="java.awt.Button(java.lang.String)"]
+3 [label="java.awt.Frame(java.lang.String)"]
+1 [label="java.lang.Object()"]
+2 [label="root.Motivation.main(java.lang.String[])"]
+8 [label="java.io.PrintStream.println(java.lang.String)"]
+5 [label="java.awt.Component.setBounds(int,int,int,int)"]
+12 [label="java.awt.Container.setLayout(java.awt.LayoutManager)"]
+11 [label="java.awt.Window.setSize(int,int)"]
+13 [label="java.awt.Window.setVisible(boolean)"]
+0 -> 1
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 9
+2 -> 10
+2 -> 11
+2 -> 12
+2 -> 13
+6 -> 1
+7 -> 8
+9 -> 6
+}

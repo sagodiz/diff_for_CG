@@ -1,0 +1,13 @@
+Method call hierarchy callees of SetUsageOwn.main(java.lang.String[])
+	java.util.TreeSet<SetUsageOwnClass>.TreeSet
+	java.util.Set<SetUsageOwnClass>.add(SetUsageOwnClass)
+	SetUsageOwnClass.SetUsageOwnClass(int)
+	java.util.Set<SetUsageOwnClass>.add(SetUsageOwnClass)
+	SetUsageOwnClass.SetUsageOwnClass(int)
+	java.util.Set<SetUsageOwnClass>.add(SetUsageOwnClass)
+	SetUsageOwnClass.SetUsageOwnClass(int)
+	java.util.Set<SetUsageOwnClass>.add(SetUsageOwnClass)
+	SetUsageOwnClass.SetUsageOwnClass(int)
+	SetUsageOwnClass.foo
+		java.io.PrintStream.println(java.lang.String)
+

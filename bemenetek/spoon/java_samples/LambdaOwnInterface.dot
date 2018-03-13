@@ -1,0 +1,11 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.LambdaOwnInterface.LambdaOwnInterface()"]
+1 [label="java.lang.Object()"]
+2 [label="root.LambdaOwnInterface.main(java.lang.String[])"]
+4 [label="java.io.PrintStream.println(java.lang.String)"]
+3 [label="root.MyFunctionalInterface.sayHello()"]
+0 -> 1
+2 -> 3
+2 -> 4
+}

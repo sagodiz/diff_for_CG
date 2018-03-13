@@ -1,0 +1,11 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.MainCallsStatic.MainCallsStatic()"]
+3 [label="root.MainCallsStatic.foo()"]
+1 [label="java.lang.Object()"]
+2 [label="root.MainCallsStatic.main(java.lang.String[])"]
+4 [label="java.io.PrintStream.println(java.lang.String)"]
+0 -> 1
+2 -> 3
+3 -> 4
+}

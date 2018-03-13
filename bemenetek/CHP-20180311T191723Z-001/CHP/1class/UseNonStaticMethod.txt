@@ -1,0 +1,4 @@
+Method call hierarchy callees of UseNonStaticMethod.main(java.lang.String[])
+	UseNonStaticMethod.UseNonStaticMethod
+	UseNonStaticMethod.foo
+		java.io.PrintStream.println(java.lang.String)

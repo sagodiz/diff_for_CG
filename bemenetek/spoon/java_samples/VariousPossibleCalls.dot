@@ -1,0 +1,38 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.VariousPossibleCalls.VariousPossibleCalls()"]
+4 [label="root.VariousPossibleCalls.foo()"]
+5 [label="root.VariousPossibleCalls.foo2()"]
+6 [label="root.VariousPossibleCalls.foo3(int)"]
+10 [label="root.VariousPossibleCalls.foo4()"]
+7 [label="root.VariousPossibleCalls.goo(int)"]
+8 [label="root.VariousPossibleCalls.goo2()"]
+9 [label="root.VariousPossibleCalls.goo3()"]
+1 [label="java.lang.Object()"]
+2 [label="root.VariousPossibleCalls.main(java.lang.String[])"]
+13 [label="root.VariousPossibleCalls.neverUsedEither()"]
+12 [label="root.VariousPossibleCalls.neverUsedStatic()"]
+11 [label="java.io.PrintStream.println(java.lang.String)"]
+3 [label="java.lang.Math.random()"]
+0 -> 1
+2 -> 0
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 6
+2 -> 7
+2 -> 8
+2 -> 9
+2 -> 10
+4 -> 11
+5 -> 11
+6 -> 11
+7 -> 6
+7 -> 11
+8 -> 4
+8 -> 11
+9 -> 11
+10 -> 11
+12 -> 11
+13 -> 11
+}

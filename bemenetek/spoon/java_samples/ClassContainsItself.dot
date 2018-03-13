@@ -1,0 +1,8 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.ClassContainsItself.ClassContainsItself()"]
+1 [label="java.lang.Object()"]
+2 [label="root.ClassContainsItself.main(java.lang.String[])"]
+0 -> 1
+2 -> 0
+}

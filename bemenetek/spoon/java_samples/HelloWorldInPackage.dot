@@ -1,0 +1,9 @@
+digraph graphname {
+rankdir="LR";
+0 [label="Test.HelloWorldInPackage()"]
+1 [label="java.lang.Object()"]
+2 [label="Test.HelloWorldInPackage.main(java.lang.String[])"]
+3 [label="java.io.PrintStream.println(java.lang.String)"]
+0 -> 1
+2 -> 3
+}

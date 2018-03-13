@@ -1,0 +1,3 @@
+Method call hierarchy callees of ClassContainsItself.main(java.lang.String[])
+	ClassContainsItself.ClassContainsItself
+

@@ -1,0 +1,12 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.UseNonStaticMethod.UseNonStaticMethod()"]
+3 [label="root.UseNonStaticMethod.foo()"]
+1 [label="java.lang.Object()"]
+2 [label="root.UseNonStaticMethod.main(java.lang.String[])"]
+4 [label="java.io.PrintStream.println(java.lang.String)"]
+0 -> 1
+2 -> 0
+2 -> 3
+3 -> 4
+}

@@ -1,0 +1,13 @@
+Method call hierarchy callees of SetUsage.main(java.lang.String[])
+	java.util.HashSet<java.lang.String>.HashSet
+	java.util.TreeSet<java.lang.Integer>.TreeSet
+	java.util.Set<java.lang.String>.add(java.lang.String)
+	java.util.Set<java.lang.String>.add(java.lang.String)
+	java.lang.String.String(java.lang.String)
+	java.util.TreeSet<java.lang.Integer>.add(java.lang.Integer)
+	java.lang.Integer.Integer(int)
+	java.lang.Integer.Integer(int)
+	java.util.TreeSet<java.lang.Integer>.add(java.lang.Integer)
+	java.io.PrintStream.println(java.lang.Object)
+	java.io.PrintStream.println(java.lang.Object)
+
