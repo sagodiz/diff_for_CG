@@ -1,0 +1,21 @@
+digraph graphname {
+rankdir="LR";
+127 [label="SetPolimorfBase.<init>(I)V"]
+132 [label="SetPolimorfBase.foo()V"]
+136 [label="SetPolimorfBase.goo()V"]
+138 [label="SetPolimorfBase.hoo()V"]
+150 [label="SetPolimorfB.<init>(I)V"]
+154 [label="SetPolimorfB.foo()V"]
+160 [label="SetPolimorfA.<init>(I)V"]
+162 [label="SetPolimorfA.goo()V"]
+163 [label="SetPolimorfA.hoo()V"]
+166 [label="SetPolimorfMain.main([Ljava/lang/String;)V"]
+132 -> 136
+132 -> 138
+150 -> 127
+160 -> 127
+166 -> 127
+166 -> 132
+166 -> 150
+166 -> 160
+}

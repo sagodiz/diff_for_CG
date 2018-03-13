@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Loader_sourcemeter::Loader_sourcemeter( string filepath ) : Loader(filepath) {
+Loader_sourcemeter::Loader_sourcemeter( string filepath, string name ) : Loader(filepath, name) {
 }
 Loader_sourcemeter::~Loader_sourcemeter() {
 }

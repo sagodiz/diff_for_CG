@@ -1,0 +1,6 @@
+digraph graphname {
+rankdir="LR";
+120 [label="Loops.main([Ljava/lang/String;)V"]
+139 [label="Loops.foo()V"]
+120 -> 139
+}

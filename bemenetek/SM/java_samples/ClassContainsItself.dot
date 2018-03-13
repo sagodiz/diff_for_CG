@@ -1,0 +1,8 @@
+digraph graphname {
+rankdir="LR";
+117 [label="ClassContainsItself.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="ClassContainsItself.main([Ljava/lang/String;)V"]
+117 -> 118
+120 -> 117
+}

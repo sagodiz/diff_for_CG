@@ -17,16 +17,16 @@ Loader* Factory::getLoaderPointer( string str, string filePath ) const {
   
   if ( "-s" == str ) {
     
-    return new Loader_soot(filePath);
+    return new Loader_soot(filePath, "soot");
   }
   else if ( "-sm" == str ) {
-    return new Loader_sourcemeter(filePath);
+    return new Loader_sourcemeter(filePath, "sourceMeter");
   }
   else if ( "-c" == str ) {
-    return new Loader_callerhierarchy(filePath);
+    return new Loader_callerhierarchy(filePath, "CHP");
   }
   else if ( "-sp" == str ) {
-    return new Loader_spoon(filePath);
+    return new Loader_spoon(filePath, "spoon");
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;

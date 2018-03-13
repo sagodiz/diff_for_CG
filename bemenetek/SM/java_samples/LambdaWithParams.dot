@@ -1,0 +1,11 @@
+digraph graphname {
+rankdir="LR";
+114 [label="StringConcat.sconcat(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"]
+124 [label="LambdaWithParams.<init>()V"]
+125 [label="java.lang.Object.<init>()V"]
+127 [label="LambdaWithParams.main([Ljava/lang/String;)V"]
+136 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+124 -> 125
+127 -> 114
+127 -> 136
+}

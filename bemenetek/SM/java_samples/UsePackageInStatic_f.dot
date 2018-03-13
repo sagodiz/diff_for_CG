@@ -1,0 +1,6 @@
+digraph graphname {
+rankdir="LR";
+120 [label="UsePackageInStatic.main([Ljava/lang/String;)V"]
+133 [label="UsePackageInStatic.foo()I"]
+120 -> 133
+}

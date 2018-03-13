@@ -15,7 +15,7 @@
 
 using namespace std;
 
-Loader_soot::Loader_soot( string filepath ) : Loader(filepath) {
+Loader_soot::Loader_soot( string filepath, string name ) : Loader(filepath, name) {
 }
 Loader_soot::~Loader_soot() {
 }

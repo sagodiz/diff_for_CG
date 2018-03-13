@@ -8,7 +8,7 @@ class Loader_callerhierarchy : public virtual Loader {
   std::string prefix = "Method call hierarchy callees of ";
   
   public:
-    Loader_callerhierarchy(std::string filepath);
+    Loader_callerhierarchy(std::string filepath, std::string name);
     ~Loader_callerhierarchy();
     std::vector<Record> load();
     std::set<std::pair<int, int>> transformConnections();

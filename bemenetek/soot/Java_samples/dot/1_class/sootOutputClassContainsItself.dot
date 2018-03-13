@@ -1,0 +1,9 @@
+digraph "call-graph" {
+    "<ClassContainsItself: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<ClassContainsItself: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<ClassContainsItself: void <init>()>"
+    "<ClassContainsItself: void main(java.lang.String[])>"->"<ClassContainsItself: void <init>()>";
+    "<java.lang.Object: void <init>()>"
+    "<ClassContainsItself: void <init>()>"->"<java.lang.Object: void <init>()>";
+}

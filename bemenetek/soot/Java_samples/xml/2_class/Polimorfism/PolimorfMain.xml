@@ -1,0 +1,448 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 15 14:22:24 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir 2_class/Polimorfism -output-dir results/2_class/Polimorfism" timestamp="Thu Feb 15 14:22:24 CET 2018" />
+  </history>
+  <class name="PolimorfMain" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="0" />
+    <fields count="0" />
+    <methods count="3">
+      <method name="_init_" returntype="void" class="PolimorfMain">
+        <declaration length="20"><![CDATA[public void <init>()]]></declaration>
+        <parameters method="_init_" count="0" />
+        <locals count="1">
+          <local id="0" method="_init_" name="r0" type="PolimorfMain">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="1">
+            <type id="0" type="PolimorfMain" count="1">
+              <local id="0" method="_init_" name="r0" type="PolimorfMain">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="3" stmtpercentage="100" />
+        </labels>
+        <statements count="3">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="26"><![CDATA[r0 := @this: PolimorfMain]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="main" returntype="void" class="PolimorfMain">
+        <declaration length="43"><![CDATA[public static void main(java.lang.String[])]]></declaration>
+        <parameters method="main" count="1">
+          <parameter id="0" type="java.lang.String[]" method="main" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="0" method="main" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="6">
+          <local id="0" method="main" name="r0" type="java.lang.String[]">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="main" />
+            </soot_local>
+          </local>
+          <local id="1" method="main" name="$r6" type="PolimorfA">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="2" method="main" />
+              <use id="1" line="11" method="main" />
+              <definition id="0" line="1" method="main" />
+            </soot_local>
+          </local>
+          <local id="2" method="main" name="$r7" type="PolimorfB">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="4" method="main" />
+              <use id="1" line="12" method="main" />
+              <definition id="0" line="3" method="main" />
+            </soot_local>
+          </local>
+          <local id="3" method="main" name="$r8" type="PolimorfA">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="6" method="main" />
+              <use id="1" line="13" method="main" />
+              <definition id="0" line="5" method="main" />
+            </soot_local>
+          </local>
+          <local id="4" method="main" name="$r9" type="PolimorfB">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="8" method="main" />
+              <use id="1" line="14" method="main" />
+              <definition id="0" line="7" method="main" />
+            </soot_local>
+          </local>
+          <local id="5" method="main" name="$r10" type="PolimorfBase">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="10" method="main" />
+              <use id="1" line="15" method="main" />
+              <definition id="0" line="9" method="main" />
+            </soot_local>
+          </local>
+          <types count="4">
+            <type id="0" type="java.lang.String[]" count="1">
+              <local id="0" method="main" name="r0" type="java.lang.String[]">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="PolimorfA" count="2">
+              <local id="1" method="main" name="$r6" type="PolimorfA">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="2" method="main" />
+                  <use id="1" line="11" method="main" />
+                  <definition id="0" line="1" method="main" />
+                </soot_local>
+              </local>
+              <local id="3" method="main" name="$r8" type="PolimorfA">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="6" method="main" />
+                  <use id="1" line="13" method="main" />
+                  <definition id="0" line="5" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="PolimorfB" count="2">
+              <local id="2" method="main" name="$r7" type="PolimorfB">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="4" method="main" />
+                  <use id="1" line="12" method="main" />
+                  <definition id="0" line="3" method="main" />
+                </soot_local>
+              </local>
+              <local id="4" method="main" name="$r9" type="PolimorfB">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="8" method="main" />
+                  <use id="1" line="14" method="main" />
+                  <definition id="0" line="7" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="3" type="PolimorfBase" count="1">
+              <local id="5" method="main" name="$r10" type="PolimorfBase">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="10" method="main" />
+                  <use id="1" line="15" method="main" />
+                  <definition id="0" line="9" method="main" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="main" stmtcount="17" stmtpercentage="100" />
+        </labels>
+        <statements count="17">
+          <statement id="0" label="default" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="main" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="38"><![CDATA[r0 := @parameter0: java.lang.String[]]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="main" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r6" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="20"><![CDATA[$r6 = new PolimorfA]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r6" method="main" />
+              <livevariables incount="1" outcount="1">
+                <in id="0" local="$r6" method="main" />
+                <out id="0" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="47"><![CDATA[specialinvoke $r6.<PolimorfA: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="main" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r7" method="main" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="$r6" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="20"><![CDATA[$r7 = new PolimorfB]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="main" labelid="4">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r7" method="main" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r7" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="47"><![CDATA[specialinvoke $r7.<PolimorfB: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="default" method="main" labelid="5">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r8" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r7" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r7" method="main" />
+                <out id="2" local="$r8" method="main" />
+              </livevariables>
+              <jimple length="20"><![CDATA[$r8 = new PolimorfA]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="6" label="default" method="main" labelid="6">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r8" method="main" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r7" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r7" method="main" />
+                <out id="2" local="$r8" method="main" />
+              </livevariables>
+              <jimple length="47"><![CDATA[specialinvoke $r8.<PolimorfA: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="7" label="default" method="main" labelid="7">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r9" method="main" />
+              <livevariables incount="3" outcount="4">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r7" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+                <out id="3" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="20"><![CDATA[$r9 = new PolimorfB]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="8" label="default" method="main" labelid="8">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r9" method="main" />
+              <livevariables incount="4" outcount="4">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <in id="3" local="$r7" method="main" />
+                <out id="0" local="$r6" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+                <out id="3" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="47"><![CDATA[specialinvoke $r9.<PolimorfB: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="9" label="default" method="main" labelid="9">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r10" method="main" />
+              <livevariables incount="4" outcount="5">
+                <in id="0" local="$r6" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <in id="3" local="$r7" method="main" />
+                <out id="0" local="$r10" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+                <out id="3" local="$r7" method="main" />
+                <out id="4" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="24"><![CDATA[$r10 = new PolimorfBase]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="10" label="default" method="main" labelid="10">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r10" method="main" />
+              <livevariables incount="5" outcount="5">
+                <in id="0" local="$r10" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <in id="3" local="$r7" method="main" />
+                <in id="4" local="$r6" method="main" />
+                <out id="0" local="$r10" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+                <out id="3" local="$r7" method="main" />
+                <out id="4" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="51"><![CDATA[specialinvoke $r10.<PolimorfBase: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="11" label="default" method="main" labelid="11">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r6" method="main" />
+              <livevariables incount="5" outcount="4">
+                <in id="0" local="$r10" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <in id="3" local="$r7" method="main" />
+                <in id="4" local="$r6" method="main" />
+                <out id="0" local="$r10" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+                <out id="3" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="57"><![CDATA[staticinvoke <PolimorfMain: void foo(PolimorfBase)>($r6)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="12" label="default" method="main" labelid="12">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r7" method="main" />
+              <livevariables incount="4" outcount="3">
+                <in id="0" local="$r10" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <in id="3" local="$r7" method="main" />
+                <out id="0" local="$r10" method="main" />
+                <out id="1" local="$r9" method="main" />
+                <out id="2" local="$r8" method="main" />
+              </livevariables>
+              <jimple length="57"><![CDATA[staticinvoke <PolimorfMain: void foo(PolimorfBase)>($r7)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="13" label="default" method="main" labelid="13">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r8" method="main" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="$r10" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <out id="0" local="$r10" method="main" />
+                <out id="1" local="$r9" method="main" />
+              </livevariables>
+              <jimple length="57"><![CDATA[staticinvoke <PolimorfMain: void foo(PolimorfBase)>($r8)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="14" label="default" method="main" labelid="14">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r9" method="main" />
+              <livevariables incount="2" outcount="1">
+                <in id="0" local="$r10" method="main" />
+                <in id="1" local="$r9" method="main" />
+                <out id="0" local="$r10" method="main" />
+              </livevariables>
+              <jimple length="57"><![CDATA[staticinvoke <PolimorfMain: void foo(PolimorfBase)>($r9)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="15" label="default" method="main" labelid="15">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r10" method="main" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r10" method="main" />
+              </livevariables>
+              <jimple length="58"><![CDATA[staticinvoke <PolimorfMain: void foo(PolimorfBase)>($r10)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="16" label="default" method="main" labelid="16">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="foo" returntype="void" class="PolimorfMain">
+        <declaration length="36"><![CDATA[public static void foo(PolimorfBase)]]></declaration>
+        <parameters method="foo" count="1">
+          <parameter id="0" type="PolimorfBase" method="foo" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="0" method="foo" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="1">
+          <local id="0" method="foo" name="r0" type="PolimorfBase">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="foo" />
+              <definition id="0" line="0" method="foo" />
+            </soot_local>
+          </local>
+          <types count="1">
+            <type id="0" type="PolimorfBase" count="1">
+              <local id="0" method="foo" name="r0" type="PolimorfBase">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="foo" />
+                  <definition id="0" line="0" method="foo" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="foo" stmtcount="3" stmtpercentage="100" />
+        </labels>
+        <statements count="3">
+          <statement id="0" label="default" method="foo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="foo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="foo" />
+              </livevariables>
+              <jimple length="32"><![CDATA[r0 := @parameter0: PolimorfBase]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="foo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="foo" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="foo" />
+              </livevariables>
+              <jimple length="46"><![CDATA[virtualinvoke r0.<PolimorfBase: void goo()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="foo" labelid="2">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+    </methods>
+  </class>
+</jil>
+

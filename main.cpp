@@ -13,6 +13,8 @@
 #include "inc/common.h"
 #include "inc/Record.h"
 #include "inc/Factory.h"
+#include "inc/OptionMethods.h"
+#include "inc/Option.h"
 
 #if defined(VERBOSE)
   #define VERBOSE1 \
@@ -43,7 +45,7 @@ int main( int argc, char** argv ) {
   
   cout << "Starting transforming and making stat..." << endl;
   
-  try {
+  try { 
   
   Factory factory = Factory::createFactory();
   
@@ -51,10 +53,15 @@ int main( int argc, char** argv ) {
                           new Switch("-s", factory ),
                           new Switch("-c", factory ),
                           new Switch("-sm", factory ),
-                          new Switch("-sp", factory),
+                          new Switch("-sp", factory ),
                           NULL
                         };
   
+  Option* options[] = {
+                          new Option("-projectName", &projectNameMethod),
+                          NULL
+                      };
+    
   //need pointer otherwise vector do not accept as Loader is abstract
   vector<Loader*> loaders;
   
@@ -67,6 +74,17 @@ int main( int argc, char** argv ) {
 
         switches[j]->init(argv[++i]);
         loaders.push_back( switches[j]->getLoaderPointer() );
+      }
+    }
+  }
+  j = -1;
+  while( options[++j] ) {
+    
+    for ( int i = 1; i < argc - 1; i++ ) {
+      
+      if ( *(options[j]) == argv[i] ) {
+
+        options[j]->foo(argv, i);
       }
     }
   }
@@ -97,12 +115,12 @@ VERBOSE1
   return 0;
 }
 
-static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2) {
+static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
   
   unsigned long long commonCalls = 0;
   unsigned long long commonMethods = 0;
   
-  ofstream statOut(l1->getFilePath() + "-" + l2->getFilePath() + "-common-calls.txt");
+  ofstream statOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "-common-calls.txt");
   
   if ( !statOut.is_open() )
     throw Labels::COULD_NOT_WRITE_OUTPUT;

@@ -6,7 +6,7 @@
 class Loader_sourcemeter : public virtual Loader {
   
   public:
-    Loader_sourcemeter(std::string filepath);
+    Loader_sourcemeter(std::string filepath, std::string name);
     ~Loader_sourcemeter();
     std::vector<Record> load();
     std::set<std::pair<int, int>> transformConnections();

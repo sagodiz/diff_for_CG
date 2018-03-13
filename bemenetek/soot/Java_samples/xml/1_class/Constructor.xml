@@ -1,0 +1,476 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 08 19:27:12 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir test/1_class -output-dir results/test/1_class" timestamp="Thu Feb 08 19:27:12 CET 2018" />
+  </history>
+  <class name="Constructor" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="0" />
+    <fields count="1">
+      <field id="0" name="v" type="int">
+        <modifiers count="1">
+          <modifier name="private" />
+        </modifiers>
+      </field>
+    </fields>
+    <methods count="3">
+      <method name="main" returntype="void" class="Constructor">
+        <declaration length="43"><![CDATA[public static void main(java.lang.String[])]]></declaration>
+        <parameters method="main" count="1">
+          <parameter id="0" type="java.lang.String[]" method="main" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="0" method="main" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="3">
+          <local id="0" method="main" name="r0" type="java.lang.String[]">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="main" />
+            </soot_local>
+          </local>
+          <local id="1" method="main" name="$r3" type="Constructor">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="2" method="main" />
+              <definition id="0" line="1" method="main" />
+            </soot_local>
+          </local>
+          <local id="2" method="main" name="$r4" type="Constructor">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="4" method="main" />
+              <definition id="0" line="3" method="main" />
+            </soot_local>
+          </local>
+          <types count="2">
+            <type id="0" type="java.lang.String[]" count="1">
+              <local id="0" method="main" name="r0" type="java.lang.String[]">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="Constructor" count="2">
+              <local id="1" method="main" name="$r3" type="Constructor">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="2" method="main" />
+                  <definition id="0" line="1" method="main" />
+                </soot_local>
+              </local>
+              <local id="2" method="main" name="$r4" type="Constructor">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="4" method="main" />
+                  <definition id="0" line="3" method="main" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="main" stmtcount="6" stmtpercentage="100" />
+        </labels>
+        <statements count="6">
+          <statement id="0" label="default" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="main" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="38"><![CDATA[r0 := @parameter0: java.lang.String[]]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="main" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r3" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r3" method="main" />
+              </livevariables>
+              <jimple length="22"><![CDATA[$r3 = new Constructor]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r3" method="main" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r3" method="main" />
+              </livevariables>
+              <jimple length="49"><![CDATA[specialinvoke $r3.<Constructor: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="main" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r4" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="22"><![CDATA[$r4 = new Constructor]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="main" labelid="4">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="main" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="55"><![CDATA[specialinvoke $r4.<Constructor: void <init>(int)>(252)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="default" method="main" labelid="5">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="_init_" returntype="void" class="Constructor">
+        <declaration length="20"><![CDATA[public void <init>()]]></declaration>
+        <parameters method="_init_" count="0" />
+        <locals count="2">
+          <local id="0" method="_init_" name="r0" type="Constructor">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="1" method="_init_" name="$r1" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="3" method="_init_" />
+              <definition id="0" line="2" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="2">
+            <type id="0" type="Constructor" count="1">
+              <local id="0" method="_init_" name="r0" type="Constructor">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.io.PrintStream" count="1">
+              <local id="1" method="_init_" name="$r1" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="3" method="_init_" />
+                  <definition id="0" line="2" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="5" stmtpercentage="100" />
+        </labels>
+        <statements count="5">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="25"><![CDATA[r0 := @this: Constructor]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r1" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r1" method="_init_" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r1 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="_init_" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r1" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r1" method="_init_" />
+              </livevariables>
+              <jimple length="95"><![CDATA[virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("Without parameters.")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="_init_" labelid="4">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="_init_" returntype="void" class="Constructor">
+        <declaration length="23"><![CDATA[public void <init>(int)]]></declaration>
+        <parameters method="_init_" count="1">
+          <parameter id="0" type="int" method="_init_" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="1" method="_init_" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="7">
+          <local id="0" method="_init_" name="r0" type="Constructor">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="2" method="_init_" />
+              <use id="1" line="3" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="1" method="_init_" name="i0" type="int">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="3" method="_init_" />
+              <use id="1" line="8" method="_init_" />
+              <definition id="0" line="1" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="2" method="_init_" name="$r1" type="java.lang.StringBuilder">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="6" method="_init_" />
+              <use id="1" line="7" method="_init_" />
+              <definition id="0" line="5" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="3" method="_init_" name="$r2" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="10" method="_init_" />
+              <definition id="0" line="4" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="4" method="_init_" name="$r3" type="java.lang.StringBuilder">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="8" method="_init_" />
+              <definition id="0" line="7" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="5" method="_init_" name="$r4" type="java.lang.StringBuilder">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="9" method="_init_" />
+              <definition id="0" line="8" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="6" method="_init_" name="$r5" type="java.lang.String">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="10" method="_init_" />
+              <definition id="0" line="9" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="5">
+            <type id="0" type="Constructor" count="1">
+              <local id="0" method="_init_" name="r0" type="Constructor">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="2" method="_init_" />
+                  <use id="1" line="3" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="int" count="1">
+              <local id="1" method="_init_" name="i0" type="int">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="3" method="_init_" />
+                  <use id="1" line="8" method="_init_" />
+                  <definition id="0" line="1" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="java.lang.StringBuilder" count="3">
+              <local id="2" method="_init_" name="$r1" type="java.lang.StringBuilder">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="6" method="_init_" />
+                  <use id="1" line="7" method="_init_" />
+                  <definition id="0" line="5" method="_init_" />
+                </soot_local>
+              </local>
+              <local id="4" method="_init_" name="$r3" type="java.lang.StringBuilder">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="8" method="_init_" />
+                  <definition id="0" line="7" method="_init_" />
+                </soot_local>
+              </local>
+              <local id="5" method="_init_" name="$r4" type="java.lang.StringBuilder">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="9" method="_init_" />
+                  <definition id="0" line="8" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="3" type="java.io.PrintStream" count="1">
+              <local id="3" method="_init_" name="$r2" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="10" method="_init_" />
+                  <definition id="0" line="4" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="4" type="java.lang.String" count="1">
+              <local id="6" method="_init_" name="$r5" type="java.lang.String">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="10" method="_init_" />
+                  <definition id="0" line="9" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="12" stmtpercentage="100" />
+        </labels>
+        <statements count="12">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="25"><![CDATA[r0 := @this: Constructor]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="i0" method="_init_" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="r0" method="_init_" />
+                <out id="0" local="i0" method="_init_" />
+                <out id="1" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="23"><![CDATA[i0 := @parameter0: int]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="i0" method="_init_" />
+                <in id="1" local="r0" method="_init_" />
+                <out id="0" local="i0" method="_init_" />
+                <out id="1" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="_init_" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <uses id="1" local="i0" method="_init_" />
+              <livevariables incount="2" outcount="1">
+                <in id="0" local="i0" method="_init_" />
+                <in id="1" local="r0" method="_init_" />
+                <out id="0" local="i0" method="_init_" />
+              </livevariables>
+              <jimple length="29"><![CDATA[r0.<Constructor: int v> = i0]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="_init_" labelid="4">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r2" method="_init_" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="i0" method="_init_" />
+                <out id="0" local="$r2" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r2 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="default" method="_init_" labelid="5">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r1" method="_init_" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r2" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+                <out id="0" local="$r2" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+                <out id="2" local="$r1" method="_init_" />
+              </livevariables>
+              <jimple length="34"><![CDATA[$r1 = new java.lang.StringBuilder]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="6" label="default" method="_init_" labelid="6">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r1" method="_init_" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r2" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+                <in id="2" local="$r1" method="_init_" />
+                <out id="0" local="$r2" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+                <out id="2" local="$r1" method="_init_" />
+              </livevariables>
+              <jimple length="61"><![CDATA[specialinvoke $r1.<java.lang.StringBuilder: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="7" label="default" method="_init_" labelid="7">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r1" method="_init_" />
+              <defines id="0" local="$r3" method="_init_" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r2" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+                <in id="2" local="$r1" method="_init_" />
+                <out id="0" local="$r2" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+                <out id="2" local="$r3" method="_init_" />
+              </livevariables>
+              <jimple length="131"><![CDATA[$r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Constructor with parameter:")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="8" label="default" method="_init_" labelid="8">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="i0" method="_init_" />
+              <uses id="1" local="$r3" method="_init_" />
+              <defines id="0" local="$r4" method="_init_" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="$r2" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+                <in id="2" local="$r3" method="_init_" />
+                <out id="0" local="$r2" method="_init_" />
+                <out id="1" local="$r4" method="_init_" />
+              </livevariables>
+              <jimple length="91"><![CDATA[$r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i0)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="9" label="default" method="_init_" labelid="9">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="_init_" />
+              <defines id="0" local="$r5" method="_init_" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="$r2" method="_init_" />
+                <in id="1" local="$r4" method="_init_" />
+                <out id="0" local="$r5" method="_init_" />
+                <out id="1" local="$r2" method="_init_" />
+              </livevariables>
+              <jimple length="81"><![CDATA[$r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="10" label="default" method="_init_" labelid="10">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r5" method="_init_" />
+              <uses id="1" local="$r2" method="_init_" />
+              <livevariables incount="2" outcount="0">
+                <in id="0" local="$r5" method="_init_" />
+                <in id="1" local="$r2" method="_init_" />
+              </livevariables>
+              <jimple length="77"><![CDATA[virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>($r5)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="11" label="default" method="_init_" labelid="11">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+    </methods>
+  </class>
+</jil>
+

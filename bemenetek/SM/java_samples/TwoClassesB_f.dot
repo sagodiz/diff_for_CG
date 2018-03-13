@@ -1,0 +1,6 @@
+digraph graphname {
+rankdir="LR";
+124 [label="TwoClassesA.foo()I"]
+131 [label="TwoClassesB.main([Ljava/lang/String;)V"]
+131 -> 124
+}

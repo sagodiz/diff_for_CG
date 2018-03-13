@@ -1,0 +1,587 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 15 14:22:27 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir Generics/SetContainsOwnClass -output-dir results/Generics/SetContainsOwnClass" timestamp="Thu Feb 15 14:22:27 CET 2018" />
+  </history>
+  <class name="SetUsageOwnClass" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="1">
+      <implements class="java.lang.Comparable" />
+    </interfaces>
+    <fields count="1">
+      <field id="0" name="id" type="int">
+        <modifiers count="1">
+          <modifier name="private" />
+        </modifiers>
+      </field>
+    </fields>
+    <methods count="4">
+      <method name="_init_" returntype="void" class="SetUsageOwnClass">
+        <declaration length="23"><![CDATA[public void <init>(int)]]></declaration>
+        <parameters method="_init_" count="1">
+          <parameter id="0" type="int" method="_init_" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="1" method="_init_" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="2">
+          <local id="0" method="_init_" name="r0" type="SetUsageOwnClass">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="2" method="_init_" />
+              <use id="1" line="3" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <local id="1" method="_init_" name="i0" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="3" method="_init_" />
+              <definition id="0" line="1" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="2">
+            <type id="0" type="SetUsageOwnClass" count="1">
+              <local id="0" method="_init_" name="r0" type="SetUsageOwnClass">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="2" method="_init_" />
+                  <use id="1" line="3" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="int" count="1">
+              <local id="1" method="_init_" name="i0" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="3" method="_init_" />
+                  <definition id="0" line="1" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="5" stmtpercentage="100" />
+        </labels>
+        <statements count="5">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="30"><![CDATA[r0 := @this: SetUsageOwnClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="i0" method="_init_" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="r0" method="_init_" />
+                <out id="0" local="r0" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+              </livevariables>
+              <jimple length="23"><![CDATA[i0 := @parameter0: int]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="r0" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+                <out id="0" local="r0" method="_init_" />
+                <out id="1" local="i0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="_init_" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <uses id="1" local="i0" method="_init_" />
+              <livevariables incount="2" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+                <in id="1" local="i0" method="_init_" />
+              </livevariables>
+              <jimple length="35"><![CDATA[r0.<SetUsageOwnClass: int id> = i0]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="_init_" labelid="4">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="foo" returntype="void" class="SetUsageOwnClass">
+        <declaration length="17"><![CDATA[public void foo()]]></declaration>
+        <parameters method="foo" count="0" />
+        <locals count="2">
+          <local id="0" method="foo" name="r0" type="SetUsageOwnClass">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="foo" />
+            </soot_local>
+          </local>
+          <local id="1" method="foo" name="$r1" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="2" method="foo" />
+              <definition id="0" line="1" method="foo" />
+            </soot_local>
+          </local>
+          <types count="2">
+            <type id="0" type="SetUsageOwnClass" count="1">
+              <local id="0" method="foo" name="r0" type="SetUsageOwnClass">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="foo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.io.PrintStream" count="1">
+              <local id="1" method="foo" name="$r1" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="2" method="foo" />
+                  <definition id="0" line="1" method="foo" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="foo" stmtcount="4" stmtpercentage="100" />
+        </labels>
+        <statements count="4">
+          <statement id="0" label="default" method="foo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="foo" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="30"><![CDATA[r0 := @this: SetUsageOwnClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="foo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r1" method="foo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r1" method="foo" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r1 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="foo" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r1" method="foo" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r1" method="foo" />
+              </livevariables>
+              <jimple length="77"><![CDATA[virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("a")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="foo" labelid="3">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="compareTo" returntype="int" class="SetUsageOwnClass">
+        <declaration length="38"><![CDATA[public int compareTo(SetUsageOwnClass)]]></declaration>
+        <parameters method="compareTo" count="1">
+          <parameter id="0" type="SetUsageOwnClass" method="compareTo" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="1" method="compareTo" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="7">
+          <local id="0" method="compareTo" name="r0" type="SetUsageOwnClass">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="2" method="compareTo" />
+              <use id="1" line="7" method="compareTo" />
+              <definition id="0" line="0" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="1" method="compareTo" name="r1" type="SetUsageOwnClass">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="3" method="compareTo" />
+              <use id="1" line="6" method="compareTo" />
+              <definition id="0" line="1" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="2" method="compareTo" name="$i0" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="4" method="compareTo" />
+              <definition id="0" line="3" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="3" method="compareTo" name="$i1" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="4" method="compareTo" />
+              <definition id="0" line="2" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="4" method="compareTo" name="$i2" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="8" method="compareTo" />
+              <definition id="0" line="7" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="5" method="compareTo" name="$i3" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="8" method="compareTo" />
+              <definition id="0" line="6" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="6" method="compareTo" name="$b4" type="byte">
+            <soot_local uses="1" defines="2">
+              <use id="0" line="12" method="compareTo" />
+              <definition id="0" line="9" method="compareTo" />
+              <definition id="1" line="11" method="compareTo" />
+            </soot_local>
+          </local>
+          <types count="3">
+            <type id="0" type="SetUsageOwnClass" count="2">
+              <local id="0" method="compareTo" name="r0" type="SetUsageOwnClass">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="2" method="compareTo" />
+                  <use id="1" line="7" method="compareTo" />
+                  <definition id="0" line="0" method="compareTo" />
+                </soot_local>
+              </local>
+              <local id="1" method="compareTo" name="r1" type="SetUsageOwnClass">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="3" method="compareTo" />
+                  <use id="1" line="6" method="compareTo" />
+                  <definition id="0" line="1" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="int" count="4">
+              <local id="2" method="compareTo" name="$i0" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="4" method="compareTo" />
+                  <definition id="0" line="3" method="compareTo" />
+                </soot_local>
+              </local>
+              <local id="3" method="compareTo" name="$i1" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="4" method="compareTo" />
+                  <definition id="0" line="2" method="compareTo" />
+                </soot_local>
+              </local>
+              <local id="4" method="compareTo" name="$i2" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="8" method="compareTo" />
+                  <definition id="0" line="7" method="compareTo" />
+                </soot_local>
+              </local>
+              <local id="5" method="compareTo" name="$i3" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="8" method="compareTo" />
+                  <definition id="0" line="6" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="byte" count="1">
+              <local id="6" method="compareTo" name="$b4" type="byte">
+                <soot_local uses="1" defines="2">
+                  <use id="0" line="12" method="compareTo" />
+                  <definition id="0" line="9" method="compareTo" />
+                  <definition id="1" line="11" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="4">
+          <label id="0" name="default" method="compareTo" stmtcount="6" stmtpercentage="100" />
+          <label id="1" name="label1" method="compareTo" stmtcount="5" stmtpercentage="82" />
+          <label id="2" name="label2" method="compareTo" stmtcount="1" stmtpercentage="15" />
+          <label id="3" name="label3" method="compareTo" stmtcount="1" stmtpercentage="15" />
+        </labels>
+        <statements count="13">
+          <statement id="0" label="default" method="compareTo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="compareTo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="compareTo" />
+              </livevariables>
+              <jimple length="30"><![CDATA[r0 := @this: SetUsageOwnClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="compareTo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r1" method="compareTo" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="r0" method="compareTo" />
+                <out id="0" local="r0" method="compareTo" />
+                <out id="1" local="r1" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[r1 := @parameter0: SetUsageOwnClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="compareTo" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="compareTo" />
+              <defines id="0" local="$i1" method="compareTo" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="r0" method="compareTo" />
+                <in id="1" local="r1" method="compareTo" />
+                <out id="0" local="r0" method="compareTo" />
+                <out id="1" local="r1" method="compareTo" />
+                <out id="2" local="$i1" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[$i1 = r0.<SetUsageOwnClass: int id>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="compareTo" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r1" method="compareTo" />
+              <defines id="0" local="$i0" method="compareTo" />
+              <livevariables incount="3" outcount="4">
+                <in id="0" local="r0" method="compareTo" />
+                <in id="1" local="r1" method="compareTo" />
+                <in id="2" local="$i1" method="compareTo" />
+                <out id="0" local="r0" method="compareTo" />
+                <out id="1" local="r1" method="compareTo" />
+                <out id="2" local="$i1" method="compareTo" />
+                <out id="3" local="$i0" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[$i0 = r1.<SetUsageOwnClass: int id>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="compareTo" labelid="4">
+            <soot_statement branches="true" fallsthrough="true">
+              <uses id="0" local="$i1" method="compareTo" />
+              <uses id="1" local="$i0" method="compareTo" />
+              <livevariables incount="4" outcount="2">
+                <in id="0" local="r0" method="compareTo" />
+                <in id="1" local="r1" method="compareTo" />
+                <in id="2" local="$i1" method="compareTo" />
+                <in id="3" local="$i0" method="compareTo" />
+                <out id="0" local="r0" method="compareTo" />
+                <out id="1" local="r1" method="compareTo" />
+              </livevariables>
+              <jimple length="26"><![CDATA[if $i1 != $i0 goto label1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="default" method="compareTo" labelid="5">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="9"><![CDATA[return 0]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="6" label="label1" method="compareTo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r1" method="compareTo" />
+              <defines id="0" local="$i3" method="compareTo" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="r0" method="compareTo" />
+                <in id="1" local="r1" method="compareTo" />
+                <out id="0" local="$i3" method="compareTo" />
+                <out id="1" local="r0" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[$i3 = r1.<SetUsageOwnClass: int id>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="7" label="label1" method="compareTo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="compareTo" />
+              <defines id="0" local="$i2" method="compareTo" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="$i3" method="compareTo" />
+                <in id="1" local="r0" method="compareTo" />
+                <out id="0" local="$i3" method="compareTo" />
+                <out id="1" local="$i2" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[$i2 = r0.<SetUsageOwnClass: int id>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="8" label="label1" method="compareTo" labelid="2">
+            <soot_statement branches="true" fallsthrough="true">
+              <uses id="0" local="$i3" method="compareTo" />
+              <uses id="1" local="$i2" method="compareTo" />
+              <livevariables incount="2" outcount="0">
+                <in id="0" local="$i3" method="compareTo" />
+                <in id="1" local="$i2" method="compareTo" />
+              </livevariables>
+              <jimple length="26"><![CDATA[if $i3 <= $i2 goto label2]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="9" label="label1" method="compareTo" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$b4" method="compareTo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$b4" method="compareTo" />
+              </livevariables>
+              <jimple length="8"><![CDATA[$b4 = 1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="10" label="label1" method="compareTo" labelid="4">
+            <soot_statement branches="true" fallsthrough="false">
+              <livevariables incount="1" outcount="1">
+                <in id="0" local="$b4" method="compareTo" />
+                <out id="0" local="$b4" method="compareTo" />
+              </livevariables>
+              <jimple length="12"><![CDATA[goto label3]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="11" label="label2" method="compareTo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$b4" method="compareTo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$b4" method="compareTo" />
+              </livevariables>
+              <jimple length="9"><![CDATA[$b4 = -1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="12" label="label3" method="compareTo" labelid="0">
+            <soot_statement branches="false" fallsthrough="false">
+              <uses id="0" local="$b4" method="compareTo" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$b4" method="compareTo" />
+              </livevariables>
+              <jimple length="11"><![CDATA[return $b4]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="compareTo" returntype="int" class="SetUsageOwnClass">
+        <declaration length="47"><![CDATA[public volatile int compareTo(java.lang.Object)]]></declaration>
+        <parameters method="compareTo" count="1">
+          <parameter id="0" type="java.lang.Object" method="compareTo" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="1" method="compareTo" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="4">
+          <local id="0" method="compareTo" name="r0" type="SetUsageOwnClass">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="3" method="compareTo" />
+              <definition id="0" line="0" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="1" method="compareTo" name="r1" type="java.lang.Object">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="2" method="compareTo" />
+              <definition id="0" line="1" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="2" method="compareTo" name="$r2" type="SetUsageOwnClass">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="3" method="compareTo" />
+              <definition id="0" line="2" method="compareTo" />
+            </soot_local>
+          </local>
+          <local id="3" method="compareTo" name="$i0" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="4" method="compareTo" />
+              <definition id="0" line="3" method="compareTo" />
+            </soot_local>
+          </local>
+          <types count="3">
+            <type id="0" type="SetUsageOwnClass" count="2">
+              <local id="0" method="compareTo" name="r0" type="SetUsageOwnClass">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="3" method="compareTo" />
+                  <definition id="0" line="0" method="compareTo" />
+                </soot_local>
+              </local>
+              <local id="2" method="compareTo" name="$r2" type="SetUsageOwnClass">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="3" method="compareTo" />
+                  <definition id="0" line="2" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.lang.Object" count="1">
+              <local id="1" method="compareTo" name="r1" type="java.lang.Object">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="2" method="compareTo" />
+                  <definition id="0" line="1" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="int" count="1">
+              <local id="3" method="compareTo" name="$i0" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="4" method="compareTo" />
+                  <definition id="0" line="3" method="compareTo" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="compareTo" stmtcount="5" stmtpercentage="100" />
+        </labels>
+        <statements count="5">
+          <statement id="0" label="default" method="compareTo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="compareTo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="compareTo" />
+              </livevariables>
+              <jimple length="30"><![CDATA[r0 := @this: SetUsageOwnClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="compareTo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r1" method="compareTo" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="r0" method="compareTo" />
+                <out id="0" local="r0" method="compareTo" />
+                <out id="1" local="r1" method="compareTo" />
+              </livevariables>
+              <jimple length="36"><![CDATA[r1 := @parameter0: java.lang.Object]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="compareTo" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r1" method="compareTo" />
+              <defines id="0" local="$r2" method="compareTo" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="r0" method="compareTo" />
+                <in id="1" local="r1" method="compareTo" />
+                <out id="0" local="$r2" method="compareTo" />
+                <out id="1" local="r0" method="compareTo" />
+              </livevariables>
+              <jimple length="28"><![CDATA[$r2 = (SetUsageOwnClass) r1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="compareTo" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r2" method="compareTo" />
+              <uses id="1" local="r0" method="compareTo" />
+              <defines id="0" local="$i0" method="compareTo" />
+              <livevariables incount="2" outcount="1">
+                <in id="0" local="$r2" method="compareTo" />
+                <in id="1" local="r0" method="compareTo" />
+                <out id="0" local="$i0" method="compareTo" />
+              </livevariables>
+              <jimple length="80"><![CDATA[$i0 = virtualinvoke r0.<SetUsageOwnClass: int compareTo(SetUsageOwnClass)>($r2)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="compareTo" labelid="4">
+            <soot_statement branches="false" fallsthrough="false">
+              <uses id="0" local="$i0" method="compareTo" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$i0" method="compareTo" />
+              </livevariables>
+              <jimple length="11"><![CDATA[return $i0]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+    </methods>
+  </class>
+</jil>
+

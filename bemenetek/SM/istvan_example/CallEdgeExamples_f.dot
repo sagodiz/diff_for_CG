@@ -1,0 +1,139 @@
+digraph graphname {
+rankdir="LR";
+121 [label="M.sg(Ljava/lang/String;)V"]
+134 [label="Interface.foo()V"]
+135 [label="Interface.goo()V"]
+138 [label="Base.base()V"]
+147 [label="Abstract.foo()V"]
+153 [label="Child1.goo()V"]
+154 [label="Child1.foo()V"]
+155 [label="Child1.child1()V"]
+158 [label="Child2.goo()V"]
+161 [label="Helper.interfaceTest(LInterface;)V"]
+164 [label="Helper.genericMethod(LInterface;)V"]
+169 [label="Helper.instantiateChild1()LChild1;"]
+175 [label="Generic1.generic(LInterface;)V"]
+182 [label="Generic2.generic(LInterface;LGeneric1;)V"]
+203 [label="Generic3.foo()V"]
+206 [label="Outer.inner()V"]
+207 [label="Outer$Inner.inner()V"]
+216 [label="Outer$Nested.staticNested()V"]
+217 [label="Outer$Nested.nested()V"]
+232 [label="Init.<init>(LInterface;)V"]
+243 [label="StaticInit.staticInit()V"]
+245 [label="Lambda.compare(II)Z"]
+255 [label="Constructor.<init>()V"]
+258 [label="Overload.foo()V"]
+259 [label="Overload.foo(I)V"]
+261 [label="Overload.foo(Ljava/lang/Object;)V"]
+266 [label="Overload.foo(I[Ljava/lang/Object;)V"]
+280 [label="ForParser.foo()V"]
+281 [label="ForParser.goo()V"]
+282 [label="ForParser.validMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+303 [label="ForParser.validGenericMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+317 [label="CallEdgeExamples.main([Ljava/lang/String;)V"]
+323 [label="CallEdgeExamples.polimorphic()V"]
+325 [label="CallEdgeExamples.innerClass()V"]
+327 [label="CallEdgeExamples.anonim()V"]
+329 [label="CallEdgeExamples.nested()V"]
+331 [label="CallEdgeExamples.local()V"]
+333 [label="CallEdgeExamples.generic()V"]
+335 [label="CallEdgeExamples.init()V"]
+337 [label="CallEdgeExamples.lambda()V"]
+339 [label="CallEdgeExamples.contructor()V"]
+341 [label="CallEdgeExamples.overload()V"]
+343 [label="CallEdgeExamples.parser()V"]
+356 [label="CallEdgeExamples$1.foo()V"]
+361 [label="CallEdgeExamples$2.generic(LChild1;)V"]
+370 [label="CallEdgeExamples$1Local.foo()V"]
+138 -> 121
+147 -> 121
+153 -> 121
+154 -> 121
+155 -> 121
+158 -> 121
+161 -> 121
+161 -> 134
+164 -> 121
+164 -> 134
+169 -> 121
+175 -> 121
+175 -> 134
+182 -> 121
+182 -> 134
+182 -> 175
+203 -> 121
+203 -> 175
+206 -> 121
+206 -> 207
+207 -> 121
+216 -> 121
+217 -> 121
+232 -> 121
+243 -> 121
+255 -> 121
+258 -> 121
+259 -> 121
+261 -> 121
+266 -> 121
+280 -> 121
+281 -> 121
+282 -> 121
+282 -> 182
+303 -> 121
+303 -> 182
+317 -> 323
+317 -> 325
+317 -> 327
+317 -> 329
+317 -> 331
+317 -> 333
+317 -> 335
+317 -> 337
+317 -> 339
+317 -> 341
+317 -> 343
+323 -> 121
+323 -> 134
+323 -> 135
+323 -> 147
+323 -> 154
+323 -> 161
+325 -> 121
+325 -> 206
+327 -> 121
+327 -> 153
+327 -> 154
+327 -> 175
+329 -> 121
+329 -> 216
+329 -> 217
+331 -> 121
+331 -> 370
+333 -> 121
+333 -> 164
+333 -> 175
+333 -> 182
+333 -> 203
+333 -> 282
+333 -> 303
+335 -> 121
+335 -> 232
+335 -> 243
+337 -> 121
+337 -> 245
+339 -> 121
+339 -> 255
+341 -> 121
+341 -> 258
+341 -> 259
+341 -> 261
+341 -> 266
+343 -> 121
+343 -> 280
+343 -> 281
+356 -> 121
+361 -> 121
+361 -> 154
+370 -> 121
+}

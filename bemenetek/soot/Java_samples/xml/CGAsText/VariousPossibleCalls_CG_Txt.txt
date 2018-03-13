@@ -1,0 +1,41 @@
+VariousPossibleCalls
+--_init_
+----specialinvoke r0.<java.lang.Object: void <init>()>()
+--main
+----$d0 = staticinvoke <java.lang.Math: double random()>()
+----staticinvoke <VariousPossibleCalls: void foo()>()
+----staticinvoke <VariousPossibleCalls: void foo2()>()
+----staticinvoke <VariousPossibleCalls: void foo3(int)>(33)
+----specialinvoke $r2.<VariousPossibleCalls: void <init>()>()
+----staticinvoke <VariousPossibleCalls: void goo(int)>(33)
+----staticinvoke <VariousPossibleCalls: void goo2()>()
+----staticinvoke <VariousPossibleCalls: void goo3()>()
+----staticinvoke <VariousPossibleCalls: void foo4()>()
+--foo
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Foo")
+--foo2
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Foo2)")
+--foo3
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Foo3")
+--foo4
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Foo4")
+--goo
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Goo")
+----staticinvoke <VariousPossibleCalls: void foo3(int)>(i0)
+--goo2
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Goo")
+----staticinvoke <VariousPossibleCalls: void foo()>()
+--goo3
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("Goo3")
+--neverUsedStatic
+----virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>("How did You get here?!")
+--neverUsedEither
+----virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("You\'d better leave NOW!")
+Vege
+/*
+Látszódik, hogy a VariousPossibleCalls class main metódusa melyik metódusokat hívja meg, hova ugorhat.
+Igaz, hogy nem ugrottam oda az xml-ben és onnan írtam ki, de onnan is csak ezen információkat tudnám leszürni: melyik osztály melyik metódusa.
+Ha a main-ben hívott goo hívásai érdekelnek, akkor az lejjebb ugyan úgy kideríthető lenne.
+
+Azért gondoltam így, mert akkor csak az van ott, hogy mit hív közvetlenül, és a manuális checkelést szerintem így egyszerűbb megoldani, mintha egy teljes levezetett CG-t kellene szemmel összehasonlítani.
+*/

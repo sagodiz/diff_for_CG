@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 15 14:22:24 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir 2_class/ClassUsesClass -output-dir results/2_class/ClassUsesClass" timestamp="Thu Feb 15 14:22:24 CET 2018" />
+  </history>
+  <class name="TwoClassesA" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="0" />
+    <fields count="1">
+      <field id="0" name="a" type="int">
+        <modifiers count="1">
+          <modifier name="private" />
+        </modifiers>
+      </field>
+    </fields>
+    <methods count="2">
+      <method name="_init_" returntype="void" class="TwoClassesA">
+        <declaration length="20"><![CDATA[public void <init>()]]></declaration>
+        <parameters method="_init_" count="0" />
+        <locals count="1">
+          <local id="0" method="_init_" name="r0" type="TwoClassesA">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="1">
+            <type id="0" type="TwoClassesA" count="1">
+              <local id="0" method="_init_" name="r0" type="TwoClassesA">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="3" stmtpercentage="100" />
+        </labels>
+        <statements count="3">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="25"><![CDATA[r0 := @this: TwoClassesA]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="foo" returntype="int" class="TwoClassesA">
+        <declaration length="16"><![CDATA[public int foo()]]></declaration>
+        <parameters method="foo" count="0" />
+        <locals count="2">
+          <local id="0" method="foo" name="r0" type="TwoClassesA">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="foo" />
+            </soot_local>
+          </local>
+          <local id="1" method="foo" name="$r1" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="2" method="foo" />
+              <definition id="0" line="1" method="foo" />
+            </soot_local>
+          </local>
+          <types count="2">
+            <type id="0" type="TwoClassesA" count="1">
+              <local id="0" method="foo" name="r0" type="TwoClassesA">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="foo" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.io.PrintStream" count="1">
+              <local id="1" method="foo" name="$r1" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="2" method="foo" />
+                  <definition id="0" line="1" method="foo" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="foo" stmtcount="4" stmtpercentage="100" />
+        </labels>
+        <statements count="4">
+          <statement id="0" label="default" method="foo" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="foo" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="25"><![CDATA[r0 := @this: TwoClassesA]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="foo" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r1" method="foo" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r1" method="foo" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r1 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="foo" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r1" method="foo" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="$r1" method="foo" />
+              </livevariables>
+              <jimple length="81"><![CDATA[virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("A foo")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="foo" labelid="3">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="9"><![CDATA[return 1]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+    </methods>
+  </class>
+</jil>
+

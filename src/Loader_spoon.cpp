@@ -9,7 +9,7 @@
 
 using namespace std;
 
-Loader_spoon::Loader_spoon( string filepath ) : Loader(filepath) {
+Loader_spoon::Loader_spoon( string filepath, string name ) : Loader(filepath, name) {
 }
 Loader_spoon::~Loader_spoon() {
 }

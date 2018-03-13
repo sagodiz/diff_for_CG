@@ -12,7 +12,7 @@ if [ $# -eq 1 ]; then
   fi
 fi
 
-g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp src/Switch.cpp src/Loader_callerhierarchy.cpp src/common.cpp src/Loader_sourcemeter.cpp src/Factory.cpp src/Loader_spoon.cpp -o main -std=c++11
+g++ main.cpp src/Loader.cpp src/Loader_soot.cpp src/Record.cpp src/Switch.cpp src/Loader_callerhierarchy.cpp src/common.cpp src/Loader_sourcemeter.cpp src/Factory.cpp src/Loader_spoon.cpp src/Option.cpp src/OptionMethods.cpp src/Labels.cpp -o main -std=c++11
 
 if [ $? -eq 0 ]; then
   echo -e "${GREEN}Sikeres fordítás${NC}"

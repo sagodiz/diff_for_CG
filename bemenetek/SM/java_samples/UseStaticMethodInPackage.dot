@@ -1,0 +1,11 @@
+digraph graphname {
+rankdir="LR";
+117 [label="UseStaticMethodInPackage.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="UseStaticMethodInPackage.main([Ljava/lang/String;)V"]
+133 [label="java.lang.Math.random()D"]
+135 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+117 -> 118
+120 -> 133
+120 -> 135
+}

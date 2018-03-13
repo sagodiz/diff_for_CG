@@ -1,0 +1,9 @@
+digraph graphname {
+rankdir="LR";
+117 [label="Test.HelloWorldInPackage.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="Test.HelloWorldInPackage.main([Ljava/lang/String;)V"]
+130 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+117 -> 118
+120 -> 130
+}

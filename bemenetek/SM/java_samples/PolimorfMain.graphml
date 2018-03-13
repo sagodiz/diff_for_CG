@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="117">
+	<data key="d0">PolimorfA.&lt;init&gt;()V</data>
+</node>
+<node id="118">
+	<data key="d0">PolimorfBase.&lt;init&gt;()V</data>
+</node>
+<node id="120">
+	<data key="d0">PolimorfA.goo()V</data>
+</node>
+<node id="124">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<node id="129">
+	<data key="d0">PolimorfB.&lt;init&gt;()V</data>
+</node>
+<node id="130">
+	<data key="d0">PolimorfB.goo()V</data>
+</node>
+<node id="134">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="136">
+	<data key="d0">PolimorfBase.goo()V</data>
+</node>
+<node id="138">
+	<data key="d0">PolimorfMain.&lt;init&gt;()V</data>
+</node>
+<node id="139">
+	<data key="d0">PolimorfMain.main([Ljava/lang/String;)V</data>
+</node>
+<node id="152">
+	<data key="d0">PolimorfMain.foo(LPolimorfBase;)V</data>
+</node>
+<edge source="117"  target="118"/>
+<edge source="118"  target="134"/>
+<edge source="120"  target="124"/>
+<edge source="129"  target="118"/>
+<edge source="130"  target="124"/>
+<edge source="136"  target="124"/>
+<edge source="138"  target="134"/>
+<edge source="139"  target="117"/>
+<edge source="139"  target="118"/>
+<edge source="139"  target="129"/>
+<edge source="139"  target="152"/>
+<edge source="152"  target="136"/>
+</graph></graphml>

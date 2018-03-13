@@ -1,0 +1,6 @@
+digraph graphname {
+rankdir="LR";
+120 [label="StaticCallInAssignment.main([Ljava/lang/String;)V"]
+133 [label="StaticCallInAssignment.foo()I"]
+120 -> 133
+}

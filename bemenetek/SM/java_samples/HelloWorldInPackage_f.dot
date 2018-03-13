@@ -1,0 +1,4 @@
+digraph graphname {
+rankdir="LR";
+120 [label="Test.HelloWorldInPackage.main([Ljava/lang/String;)V"]
+}

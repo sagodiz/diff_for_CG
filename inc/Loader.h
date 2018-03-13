@@ -15,9 +15,10 @@ class Loader {
     unsigned long long methodNum;
     unsigned long long callNum;
     unsigned long long uniqueMethodNum;
+    std::string name;
   
   public:
-    Loader( std::string filepath );
+    Loader( std::string filepath, std::string name );
     
     /**
     * Loads the nodes to the method store, if no matching method is found creates a new one with a new id
@@ -36,6 +37,7 @@ class Loader {
     unsigned long long getCallNum() const;
     std::string getFilePath();
     unsigned long long getUniqueMethodNum() const;
+    std::string getName() const;
     
   friend std::ostream& operator<<(std::ostream& o, Loader* l );
   

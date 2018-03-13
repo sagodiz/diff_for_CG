@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="126">
+	<data key="d0">SetUsageBad.&lt;init&gt;()V</data>
+</node>
+<node id="127">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="133">
+	<data key="d0">java.util.HashSet.&lt;init&gt;()V</data>
+</node>
+<node id="136">
+	<data key="d0">java.util.TreeSet.&lt;init&gt;()V</data>
+</node>
+<node id="139">
+	<data key="d0">java.util.TreeSet.add(Ljava/lang/Object;)Z</data>
+</node>
+<node id="144">
+	<data key="d0">java.lang.String.&lt;init&gt;(Ljava/lang/String;)V</data>
+</node>
+<node id="149">
+	<data key="d0">java.lang.Integer.&lt;init&gt;(Ljava/lang/String;)V</data>
+</node>
+<node id="151">
+	<data key="d0">java.util.Set.add(Ljava/lang/Object;)Z</data>
+</node>
+<node id="153">
+	<data key="d0">SetUsageBad.main([Ljava/lang/String;)V</data>
+</node>
+<edge source="126"  target="127"/>
+<edge source="126"  target="133"/>
+<edge source="126"  target="136"/>
+<edge source="126"  target="139"/>
+<edge source="126"  target="144"/>
+<edge source="126"  target="149"/>
+<edge source="126"  target="151"/>
+<edge source="153"  target="126"/>
+</graph></graphml>

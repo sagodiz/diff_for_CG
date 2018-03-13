@@ -1,0 +1,16 @@
+digraph "call-graph" {
+    "<UseNonStaticMethod: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<UseNonStaticMethod: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<UseNonStaticMethod: void <init>()>"
+    "<UseNonStaticMethod: void main(java.lang.String[])>"->"<UseNonStaticMethod: void <init>()>";
+    "<UseNonStaticMethod: void foo()>"
+    "<UseNonStaticMethod: void main(java.lang.String[])>"->"<UseNonStaticMethod: void foo()>";
+    "<java.lang.System: void <clinit>()>"
+    "<UseNonStaticMethod: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<UseNonStaticMethod: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Object: void <init>()>"
+    "<UseNonStaticMethod: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<UseNonStaticMethod: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+}

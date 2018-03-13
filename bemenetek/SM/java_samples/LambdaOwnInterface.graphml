@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="117">
+	<data key="d0">MyFunctionalInterface.sayHello()Ljava/lang/String;</data>
+</node>
+<node id="126">
+	<data key="d0">LambdaOwnInterface.&lt;init&gt;()V</data>
+</node>
+<node id="127">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="129">
+	<data key="d0">LambdaOwnInterface.main([Ljava/lang/String;)V</data>
+</node>
+<node id="138">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<edge source="126"  target="127"/>
+<edge source="129"  target="117"/>
+<edge source="129"  target="138"/>
+</graph></graphml>

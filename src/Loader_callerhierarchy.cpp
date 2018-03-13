@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Loader_callerhierarchy::Loader_callerhierarchy( string filepath ) : Loader(filepath) {
+Loader_callerhierarchy::Loader_callerhierarchy( string filepath, string name ) : Loader(filepath, name) {
 }
 Loader_callerhierarchy::~Loader_callerhierarchy() {
 }
