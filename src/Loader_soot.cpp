@@ -22,7 +22,7 @@ Loader_soot::~Loader_soot() {
 
 vector<Record> Loader_soot::load() {
   
-  vector<Record> tmpRecords;  //TODO
+  vector<Record> tmpRecords; 
   
   string line;
   getline(input, line); //get the "header" line

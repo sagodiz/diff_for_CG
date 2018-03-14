@@ -117,11 +117,19 @@ VERBOSE1
   
   return 0;
 }
+//########################################################################x
+//########################################################################x
+//########################################################################x
+//########################################################################x
 
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
   
   unsigned long long commonCalls = 0;
   unsigned long long commonMethods = 0;
+  unsigned long long commonMethodsCheck = 0;
+  
+  vector<Record> onlyFirst;
+  vector<Record> onlySecond;
   
   ofstream statOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "-common-calls.txt");
   
@@ -135,17 +143,52 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
       ++commonCalls;
     }
   }
-  
-  for ( int i = 0; i < r1.size(); i++ ) {
+  //check the methods
+  for ( unsigned long long i = 0; i < r1.size(); i++ ) {
     
     if ( find(r2.begin(), r2.end(), r1[i]) != r2.end() ) {
       
       ++commonMethods;
     }
+    else {
+      //this method is not in the second tool's vector
+      onlyFirst.push_back(r1[i]);
+    }
   }
+  
+  for ( unsigned long long i = 0; i < r2.size(); i++ ) {
+    
+    if ( find(r1.begin(), r1.end(), r2[i]) != r1.end() ) {
+      
+      ++commonMethodsCheck;
+    }
+    else {
+      //this method is not in the second tool's vector
+      onlySecond.push_back(r2[i]);
+    }
+  }
+  
+  if ( commonMethodsCheck != commonMethods )
+    cerr << "The search for common methods failed" << endl;
+  
   statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods. " << l1->getUniqueMethodNum() << " unique method." << endl;
   statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods. " << l2->getUniqueMethodNum() << " unique method." << endl;
   statOut << commonCalls << " common calls and " << commonMethods << " common methods." << endl;
+  
+  //write the differences
+  statOut << "Only the " << l1->getName() << " contains this/these method(s):" << endl;
+  
+  for ( unsigned long long i = 0; i < onlyFirst.size(); i++ ) {
+    
+    statOut << onlyFirst[i] << endl;
+  }
+  
+  statOut << "Only the " << l2->getName() << " contains this/these method(s):" << endl;
+  
+  for ( unsigned long long i = 0; i < onlySecond.size(); i++ ) {
+    
+    statOut << onlySecond[i] << endl;
+  }
   
   statOut.close();
 }
