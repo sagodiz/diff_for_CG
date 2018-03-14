@@ -102,7 +102,10 @@ VERBOSE1
   
   for ( int i = 0; i < loaders.size() - 1; i++ ) {
     
-    makeStat( connections[i], connections[i + 1], loaders[i], loaders[i + 1], records[i], records[i + 1] );
+    for ( int j = i + 1; j < loaders.size(); j++ ) {
+      
+      makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
+    }
   }
   
   } catch( const string e ) {
