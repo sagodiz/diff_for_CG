@@ -193,7 +193,7 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
         
         bool check = false; //to check if the method do be found.
       
-        for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
           if ( common::storedIds[i] == caller ) {
 
@@ -208,7 +208,7 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
         }
 
         check = false;
-        for ( int i = 0; i < common::storedIds.size(); i++ ) {
+        for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
           if ( common::storedIds[i] == callee ) {
 

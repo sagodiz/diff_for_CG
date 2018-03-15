@@ -90,19 +90,21 @@ int main( int argc, char** argv ) {
   }
 
   //create an array for the transformed connections
-  set<pair<int, int>> connections[loaders.size()];
-  vector<Record> records[loaders.size()];
+  std::vector<set<pair<int, int>>> connections;
+  connections.resize(loaders.size());
+  std::vector<vector<Record>> records;
+  records.resize(loaders.size());
   
-  for ( int i = 0; i < loaders.size(); ++i ) {
+  for (unsigned i = 0; i < loaders.size(); ++i ) {
     
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
 VERBOSE1
   }
   
-  for ( int i = 0; i < loaders.size() - 1; i++ ) {
+  for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
     
-    for ( int j = i + 1; j < loaders.size(); j++ ) {
+    for (unsigned j = i + 1; j < loaders.size(); j++ ) {
       
       makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
     }
@@ -144,7 +146,7 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
     }
   }
   //check the methods
-  for ( unsigned long long i = 0; i < r1.size(); i++ ) {
+  for ( unsigned i = 0; i < r1.size(); i++ ) {
     
     if ( find(r2.begin(), r2.end(), r1[i]) != r2.end() ) {
       
@@ -156,7 +158,7 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
     }
   }
   
-  for ( unsigned long long i = 0; i < r2.size(); i++ ) {
+  for ( unsigned i = 0; i < r2.size(); i++ ) {
     
     if ( find(r1.begin(), r1.end(), r2[i]) != r1.end() ) {
       
@@ -178,14 +180,14 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
   //write the differences
   statOut << "Only the " << l1->getName() << " contains this/these method(s):" << endl;
   
-  for ( unsigned long long i = 0; i < onlyFirst.size(); i++ ) {
+  for ( unsigned i = 0; i < onlyFirst.size(); i++ ) {
     
     statOut << onlyFirst[i] << endl;
   }
   
   statOut << "Only the " << l2->getName() << " contains this/these method(s):" << endl;
   
-  for ( unsigned long long i = 0; i < onlySecond.size(); i++ ) {
+  for ( unsigned i = 0; i < onlySecond.size(); i++ ) {
     
     statOut << onlySecond[i] << endl;
   }
