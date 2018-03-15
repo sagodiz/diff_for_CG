@@ -33,6 +33,7 @@ vector<Record> Loader_spoon::load() {
 
 			string representation;
 			string pckgClass;
+			string className;
 			string method;
 			string infoMine;
 
@@ -78,10 +79,28 @@ vector<Record> Loader_spoon::load() {
 				method = pckgClassMethod.substr(lastDotPos + 1);
 				pckgClass = pckgClassMethod.substr(0, lastDotPos);
 
+				size_t classNamePos = pckgClass.rfind("$");
+				if (classNamePos != string::npos) {
+					className = pckgClass.substr(classNamePos + 1);
+				}
+				else {
+					lastDotPos = pckgClass.rfind(".");
+					if (lastDotPos != string::npos) {
+						className = pckgClass.substr(lastDotPos + 1);
+					}
+					else {
+						className = pckgClass;
+					}
+				}
+
 			}
 			else {
 
 				throw Labels::METHOD_NOT_FOUND_ERROR;
+			}
+
+			if (className.compare(method) == 0) {
+				method = "<init>";
 			}
 
 			vector<string> parameterVector;

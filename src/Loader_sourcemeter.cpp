@@ -225,11 +225,12 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       //it is a connection
       ++callNum;
       
-      string caller = line.substr(0, line.find("->"));  //left part
-      caller.erase(caller.length() - 1, 1);
-      string callee = line.substr(line.find("->")+2);  //right part
-      callee.erase(0, 1);
-      callee.erase(callee.length() - 1, 1);
+	  std::string delimiter = "->";
+	  size_t delimiter_pos = line.find(delimiter);
+	  string caller = line.substr(0, delimiter_pos);  //left part
+	  common::trim(caller);
+	  string callee = line.substr(delimiter_pos + delimiter.length());  //right part
+	  common::trim(callee);
       
       int callerId = -1, calleeId = -1;
       
