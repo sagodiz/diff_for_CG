@@ -133,17 +133,21 @@ VERBOSE1
 
 static void writeTSV( vector<Record> records, string name ) {
   
-  if ( !common::TSV.is_open() )
+  ofstream TSV(Labels::PROJECT_NAME + "loadedMethods.tsv");
+  
+  if ( !TSV.is_open() )
     throw Labels::COULD_NOT_WRITE_TSV;
   
-  common::TSV << "name" << "\t" << "transformed rep." << "\t" << "tool. rep" << endl;
+  TSV << "name" << "\t" << "transformed rep." << "\t" << "tool. rep" << endl;
   
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
-    common::TSV << name << "\t" << records[i] << "\t";
+    TSV << name << "\t" << records[i] << "\t";
+    
     if ( records[i].getSameMethods().size() > 1 )
       throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
-    common::TSV << records[i].getSameMethods().at(0) + records[i].getSecondaryRepresentation() << endl;
+    
+    TSV << records[i].getSameMethods().at(0) + records[i].getSecondaryRepresentation() << endl;
   }
 }
 
