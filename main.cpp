@@ -154,14 +154,19 @@ static void writeTSV( vector<Record> records, string name ) {
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
   
   unsigned long long commonCalls = 0;
+  unsigned long long commonCallsCheck = 0;
   unsigned long long commonMethods = 0;
   unsigned long long commonMethodsCheck = 0;
   
   vector<Record> onlyFirst;
   vector<Record> onlySecond;
   
+  vector<pair<int, int>> onlyFirstCall;
+  vector<pair<int, int>> onlySecondCall;
+  
   ofstream statOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "-common-calls.txt");
   
+  //check calls
   if ( !statOut.is_open() )
     throw Labels::COULD_NOT_WRITE_OUTPUT;
 
@@ -171,7 +176,27 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
       //found
       ++commonCalls;
     }
+    else {
+      
+      onlyFirstCall.push_back(it1);
+    }
   }
+  
+  for ( auto it2 : compareSet2 ) {
+    
+    if ( compareSet1.find(it2) != compareSet1.end() ) {
+      //found
+      ++commonCallsCheck;
+    }
+    else {
+
+      onlySecondCall.push_back(it2);
+    }
+  }
+  
+  if ( commonCalls != commonCallsCheck )
+    cerr << "The search for common calls failed" << endl;
+   
   //check the methods
   for ( unsigned i = 0; i < r1.size(); i++ ) {
     
@@ -217,6 +242,20 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
   for ( unsigned i = 0; i < onlySecond.size(); i++ ) {
     
     statOut << onlySecond[i] << endl;
+  }
+  
+  statOut << "Only the " << l1->getName() << " contains this/these call(s):" << endl;
+  
+  for ( unsigned i = 0; i < onlyFirstCall.size(); i++ ) {
+    
+    statOut << onlyFirstCall[i].first << " [" /*<< ..meghatározni a metódust..*/ << "] " << onlyFirstCall[i].second << " [" /*<< ..meghatározni a metódust..*/ << " ]" << endl;
+  }
+  
+  statOut << "Only the " << l2->getName() << " contains this/these call(s):" << endl;
+  
+  for ( unsigned i = 0; i < onlySecondCall.size(); i++ ) {
+    
+    statOut << onlySecondCall[i].first << " [" /*<< ..meghatározni a metódust..*/ << "] " << onlySecondCall[i].second << " [" /*<< ..meghatározni a metódust..*/ << " ]" << endl;
   }
   
   statOut.close();
