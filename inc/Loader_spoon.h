@@ -10,7 +10,6 @@ class Loader_spoon : public virtual Loader {
     ~Loader_spoon();
     std::vector<Record> load();
     std::set<std::pair<int, int>> transformConnections();
-	std::set<std::string> trashedIds;
 };
 
 #endif

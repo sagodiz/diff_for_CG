@@ -44,21 +44,6 @@ vector<Record> Loader_spoon::load() {
 			infoMine.erase(0, 8); //[label=" --> 8 chars
 			infoMine.erase(infoMine.length() - 2, 2); //"] at the end
 
-			std::array<std::string, 2> trash{ "<cinit>", "<init>" };
-
-			bool trashline = false;
-
-			for (unsigned i = 0; i < trash.size(); ++i) {
-				if (infoMine.find(trash[i]) != string::npos) {
-					trashline = true;
-					trashedIds.insert(representation);
-					break;
-				}
-			}
-
-			if (trashline) {
-				continue;
-			}
 
 			std::string default_pck = "root.";
 			if (infoMine.length() > default_pck.length() && infoMine.substr(0, default_pck.length()).compare(default_pck) == 0) {
@@ -79,19 +64,15 @@ vector<Record> Loader_spoon::load() {
 				method = pckgClassMethod.substr(lastDotPos + 1);
 				pckgClass = pckgClassMethod.substr(0, lastDotPos);
 
-				size_t classNamePos = pckgClass.rfind("$");
-				if (classNamePos != string::npos) {
-					className = pckgClass.substr(classNamePos + 1);
+
+				lastDotPos = pckgClass.rfind(".");
+				if (lastDotPos != string::npos) {
+					className = pckgClass.substr(lastDotPos + 1);
 				}
 				else {
-					lastDotPos = pckgClass.rfind(".");
-					if (lastDotPos != string::npos) {
-						className = pckgClass.substr(lastDotPos + 1);
-					}
-					else {
-						className = pckgClass;
-					}
+					className = pckgClass;
 				}
+
 
 			}
 			else {
@@ -107,6 +88,7 @@ vector<Record> Loader_spoon::load() {
 			std::string delimiter = ",", generic_delimiter = " extends ";
 			paramsReturn.erase(paramsReturn.length() - 1, 1); // )
 
+
 			size_t pos = 0;
 			std::string token;
 			while ((pos = paramsReturn.find(delimiter)) != std::string::npos || paramsReturn.length() > 0) {
@@ -116,7 +98,12 @@ vector<Record> Loader_spoon::load() {
 				if (generic_pos != string::npos) {
 					token.erase(0, generic_pos + generic_delimiter.length());
 				}
-
+				if (token.length() == 1) {//generikus parameterek
+					token = "java.lang.Object";
+				}
+				else if (token.length() == 1 && token.substr(1).compare("[]") == 0) {
+					token = "java.lang.Object[]";
+				}
 
 				parameterVector.push_back(token);
 				if (pos == std::string::npos) {
@@ -183,9 +170,6 @@ set<pair<int, int>> Loader_spoon::transformConnections() {
 			common::trim(caller);
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
-			if (trashedIds.find(caller) != trashedIds.end() || trashedIds.find(callee) != trashedIds.end()) {
-				continue;
-			}
 
 			int callerId = -1, calleeId = -1;
 
