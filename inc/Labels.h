@@ -11,6 +11,8 @@ namespace Labels {
   extern const std::string METHOD_NOT_FOUND_ERROR;
   extern const std::string COULD_NOT_WRITE_OUTPUT;
   extern const std::string UNRECOGNIZED_SWITCH;
+  extern const std::string COULD_NOT_WRITE_TSV;
+  extern const std::string TOOL_HAS_MORE_THAN_ONE_REP;
   extern std::string PROJECT_NAME;
 }
 

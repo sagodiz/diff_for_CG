@@ -183,7 +183,7 @@ vector<Record> Loader_sourcemeter::load() {
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
       
-      Record r(representation, pckgClass, method, parameterVector);
+      Record r(representation, pckgClass, method, parameterVector, infoMine);
       tmpRecords.push_back( r );
       
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {

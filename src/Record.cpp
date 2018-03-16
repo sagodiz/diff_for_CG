@@ -17,6 +17,11 @@ Record::Record( string rep, string methodClass, string methodName, vector<string
   sameMethods.push_back(rep);
 }
 
+//-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
+Record::Record( string rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep) {
+  sameMethods.push_back(rep);
+}
+//----------------------------------------------------------------------------------------------------------------
 bool Record::operator==(const Record& r ) const {
 
 DDD
@@ -86,6 +91,12 @@ vector<string> Record::getSameMethods() const {
   
   return sameMethods;
 }
+
+string Record::getSecondaryRepresentation() const {
+  
+  return secondaryRep;
+}
+
 
 //friend
 ostream& operator<<(ostream& o, const Record& r) {

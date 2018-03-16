@@ -1,12 +1,14 @@
 #include <vector>
 #include <algorithm> 
 #include <cctype>
+#include <fstream>
 #include "Record.h"
 
 
 namespace common {
   
-  extern std::vector<Record> storedIds; 
+  extern std::vector<Record> storedIds;
+  extern std::ofstream TSV;  //tab separated values. every loaded method must be written here with the representation and with the generating tool's name
 
   static inline void ltrim(std::string &s) {
 	  s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {

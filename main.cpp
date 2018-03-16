@@ -35,6 +35,8 @@ using namespace std;
 
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
 
+static void writeTSV(vector<Record>, string);
+
 int main( int argc, char** argv ) {
 
   if ( argc < 3 ) {
@@ -102,6 +104,11 @@ int main( int argc, char** argv ) {
 VERBOSE1
   }
   
+  for ( unsigned i = 0; i < records.size(); i++ ) {
+    
+    writeTSV(records[i], loaders[i]->getName());
+  }
+  
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
     
     for (unsigned j = i + 1; j < loaders.size(); j++ ) {
@@ -123,6 +130,22 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 //########################################################################x
+
+static void writeTSV( vector<Record> records, string name ) {
+  
+  if ( !common::TSV.is_open() )
+    throw Labels::COULD_NOT_WRITE_TSV;
+  
+  common::TSV << "name" << "\t" << "transformed rep." << "\t" << "tool. rep" << endl;
+  
+  for ( unsigned i = 0; i < records.size(); i++ ) {
+    
+    common::TSV << name << "\t" << records[i] << "\t";
+    if ( records[i].getSameMethods().size() > 1 )
+      throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
+    common::TSV << records[i].getSameMethods().at(0) + records[i].getSecondaryRepresentation() << endl;
+  }
+}
 
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
   
