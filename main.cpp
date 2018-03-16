@@ -35,7 +35,7 @@ using namespace std;
 
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
 
-static void writeTSV(vector<Record>, string);
+static void writeTSV(vector<Record>, string, string);
 
 int main( int argc, char** argv ) {
 
@@ -106,7 +106,7 @@ VERBOSE1
   
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
-    writeTSV(records[i], loaders[i]->getName());
+    writeTSV(records[i], loaders[i]->getName(), loaders[i]->getName());
   }
   
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
@@ -131,9 +131,9 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 
-static void writeTSV( vector<Record> records, string name ) {
+static void writeTSV( vector<Record> records, string name, string tool ) {
   
-  ofstream TSV(Labels::PROJECT_NAME + "loadedMethods.tsv");
+  ofstream TSV(Labels::PROJECT_NAME + tool + "loadedMethods.tsv");
   
   if ( !TSV.is_open() )
     throw Labels::COULD_NOT_WRITE_TSV;
@@ -248,14 +248,14 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
   
   for ( unsigned i = 0; i < onlyFirstCall.size(); i++ ) {
     
-    statOut << onlyFirstCall[i].first << " [" /*<< ..meghatározni a metódust..*/ << "] " << onlyFirstCall[i].second << " [" /*<< ..meghatározni a metódust..*/ << " ]" << endl;
+    statOut << onlyFirstCall[i].first << " [" << common::getMethodById(onlyFirstCall[i].first) << "] " << onlyFirstCall[i].second << " [" << common::getMethodById(onlyFirstCall[i].second) << " ]" << endl;
   }
   
   statOut << "Only the " << l2->getName() << " contains this/these call(s):" << endl;
   
   for ( unsigned i = 0; i < onlySecondCall.size(); i++ ) {
     
-    statOut << onlySecondCall[i].first << " [" /*<< ..meghatározni a metódust..*/ << "] " << onlySecondCall[i].second << " [" /*<< ..meghatározni a metódust..*/ << " ]" << endl;
+    statOut << onlySecondCall[i].first << " [" << common::getMethodById(onlySecondCall[i].first) << "] " << onlySecondCall[i].second << " [" << common::getMethodById(onlySecondCall[i].second) << " ]" << endl;
   }
   
   statOut.close();

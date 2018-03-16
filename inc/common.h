@@ -8,6 +8,14 @@ namespace common {
   
   extern std::vector<Record> storedIds;
 
+  static inline std::string getMethodById( const unsigned int& id ) {
+    
+    if ( id < storedIds.size() )
+      return storedIds[id].getClass() + storedIds[id].getMethodName();
+    
+    return "";
+  }
+  
   static inline void ltrim(std::string &s) {
 	  s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
 		  return !std::isspace(ch);
