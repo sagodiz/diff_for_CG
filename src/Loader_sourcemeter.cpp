@@ -18,7 +18,7 @@ Loader_sourcemeter::~Loader_sourcemeter() {
 
 vector<Record> Loader_sourcemeter::load() {
 
-  vector<Record> tmpRecords;  //TODO
+  vector<Record> tmpRecords;
   
   string line;
   getline(input, line); //get the "header" line

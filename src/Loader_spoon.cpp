@@ -18,7 +18,7 @@ Loader_spoon::~Loader_spoon() {
 
 vector<Record> Loader_spoon::load() {
 
-	vector<Record> tmpRecords;  //TODO
+	vector<Record> tmpRecords;
 
 
 	string line;
@@ -120,7 +120,7 @@ vector<Record> Loader_spoon::load() {
 			if (0 == pckgClass.length() || 0 == method.length())
 				throw Labels::UNINITIALIZED_RECORD;
 
-			Record r(representation, pckgClass, method, parameterVector);
+			Record r(representation, pckgClass, method, parameterVector, infoMine);
 			tmpRecords.push_back(r);
 
 			if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
