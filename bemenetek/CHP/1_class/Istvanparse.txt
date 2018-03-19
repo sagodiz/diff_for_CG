@@ -1,0 +1,193 @@
+
+Method call hierarchy callees of Abstract.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Base.base
+	M.sg(java.lang.String)
+Method call hierarchy callees of CallEdgeExamples.main(java.lang.String[])
+	CallEdgeExamples.CallEdgeExamples
+	CallEdgeExamples.polimorphic
+	CallEdgeExamples.innerClass
+	CallEdgeExamples.anonim
+	CallEdgeExamples.nested
+	CallEdgeExamples.local
+	CallEdgeExamples.generic
+	CallEdgeExamples.init
+	CallEdgeExamples.contructor
+	CallEdgeExamples.overload
+	CallEdgeExamples.parser
+Method call hierarchy callees of CallEdgeExamples.polimorphic
+	M.sg(java.lang.String)
+	Child1.Child1
+	Interface.foo
+	Interface.goo
+	Child1.Child1
+	Abstract.foo
+	Child1.foo
+	Child1.Child1
+	Child2.Child2
+	Interface.foo
+	Helper.interfaceTest(Interface)
+	Helper.Helper
+Method call hierarchy callees of CallEdgeExamples.innerClass
+	M.sg(java.lang.String)
+	Outer.Outer
+	Outer.inner
+Method call hierarchy callees of CallEdgeExamples.anonim
+	M.sg(java.lang.String)
+	Child1.Child1
+	M.sg(java.lang.String)
+	Child1.foo
+	Child1.goo
+	Generic1<Child1>.Generic1
+	M.sg(java.lang.String)
+	Child1.foo
+	Generic1<Child1>.generic(Child1)
+Method call hierarchy callees of CallEdgeExamples.nested
+	M.sg(java.lang.String)
+	Outer.Nested.nested
+	Outer.Nested.Nested
+	Outer.Nested.staticNested
+Method call hierarchy callees of CallEdgeExamples.local
+	M.sg(java.lang.String)
+	java.lang.Object.Object
+	M.sg(java.lang.String)
+	Local.foo
+	Local.Local
+Method call hierarchy callees of CallEdgeExamples.generic
+	M.sg(java.lang.String)
+	Generic1<Child1>.Generic1
+	Generic1<Child1>.generic(Child1)
+	Child1.Child1
+	Generic1<Child2>.Generic1
+	Generic1<Child2>.generic(Child2)
+	Child2.Child2
+	Generic2<Child2, Generic1<Child2>>.Generic2
+	Generic2<Child2, Generic1<Child2>>.generic(Child2, Generic1<Child2>)
+	Child2.Child2
+	Generic3.foo
+	Generic3.Generic3
+	Generic2<Child2, Generic1<Child2>>.generic(Child2, Generic1<Child2>)
+	ForParser.validMethod(Child2, Generic1<Child2>, java.lang.Class<?>[])
+	ForParser.ForParser
+	Child2.Child2
+	Child2.Child2
+	Generic2<Child2, Generic1<Child2>>.generic(Child2, Generic1<Child2>)
+	ForParser.validGenericMethod(Child2, Generic1<Child2>, java.lang.Class<?>[])
+	ForParser.ForParser
+	Child2.Child2
+	Child2.Child2
+	Helper.genericMethod(Child2)
+	Helper.Helper
+	Child2.Child2
+Method call hierarchy callees of CallEdgeExamples.init
+	M.sg(java.lang.String)
+	Init.Init(Interface)
+	Child1.Child1
+	StaticInit.staticInit
+Method call hierarchy callees of CallEdgeExamples.contructor
+	M.sg(java.lang.String)
+	Constructor.Constructor
+Method call hierarchy callees of CallEdgeExamples.overload
+	M.sg(java.lang.String)
+	Overload.Overload
+	Overload.foo
+	Overload.foo(int)
+	Overload.foo(Overload)
+	Overload.foo(int, java.lang.Object[])
+Method call hierarchy callees of CallEdgeExamples.parser
+	M.sg(java.lang.String)
+	ForParser.ForParser
+	ForParser.foo
+	ForParser.foo
+	ForParser.goo
+Method call hierarchy callees of Child1.goo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Child1.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Child1.child1
+	M.sg(java.lang.String)
+Method call hierarchy callees of Child2.goo
+	M.sg(java.lang.String)
+Method call hierarchy callees of ForParser.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of ForParser.goo
+	M.sg(java.lang.String)
+Method call hierarchy callees of ForParser.validMethod(Child2, Generic1<Child2>, java.lang.Class<?>[])
+	M.sg(java.lang.String)
+	Generic2<Child2, Generic1<Child2>>.Generic2
+	Generic2<Child2, Generic1<Child2>>.generic(Child2, Generic1<Child2>)
+Method call hierarchy callees of ForParser.validGenericMethod(K, Generic1<K>, java.lang.Class<?>[])
+	M.sg(java.lang.String)
+	Generic2<Child2, Generic1<Child2>>.Generic2
+	Generic2<Child2, Generic1<Child2>>.generic(Child2, Generic1<Child2>)
+	Generic1<Child2>.Generic1
+Method call hierarchy callees of Generic1.generic(T)
+	M.sg(java.lang.String)
+	Interface.foo
+Method call hierarchy callees of Generic2.generic(T, K)
+	M.sg(java.lang.String)
+	Interface.foo
+	Generic1<T>.generic(T)
+Method call hierarchy callees of Generic3.foo
+	M.sg(java.lang.String)
+	Generic1<Child1>.generic(Child1)
+	Child1.Child1
+Method call hierarchy callees of Helper.interfaceTest(Interface)
+	M.sg(java.lang.String)
+	Interface.foo
+Method call hierarchy callees of Helper.genericMethod(T)
+	M.sg(java.lang.String)
+	Interface.foo
+Method call hierarchy callees of Helper.instantiateChild1
+	M.sg(java.lang.String)
+	Child1.Child1
+Method call hierarchy callees of M.sg(java.lang.String)
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of Outer.inner
+	M.sg(java.lang.String)
+	Outer.Inner.inner
+	Outer.Inner.Inner
+Method call hierarchy callees of Outer.Inner.inner
+	M.sg(java.lang.String)
+Method call hierarchy callees of Outer.Nested.staticNested
+	M.sg(java.lang.String)
+Method call hierarchy callees of Outer.Nested.nested
+	M.sg(java.lang.String)
+Found 4 matching methods...
+Method call hierarchy callees of Overload.foo(int, java.lang.Object[])
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(int)
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(T)
+	M.sg(java.lang.String)
+Found 4 matching methods...
+Method call hierarchy callees of Overload.foo(int, java.lang.Object[])
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(int)
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(T)
+	M.sg(java.lang.String)
+Found 4 matching methods...
+Method call hierarchy callees of Overload.foo(int, java.lang.Object[])
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(int)
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(T)
+	M.sg(java.lang.String)
+Found 4 matching methods...
+Method call hierarchy callees of Overload.foo(int, java.lang.Object[])
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(int)
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo
+	M.sg(java.lang.String)
+Method call hierarchy callees of Overload.foo(T)
+	M.sg(java.lang.String)
+Method call hierarchy callees of StaticInit.staticInit
+	M.sg(java.lang.String)

@@ -1,0 +1,2 @@
+M:HelloWorld:<init>() (O)java.lang.Object:<init>()
+M:HelloWorld:main(java.lang.String[]) (M)java.io.PrintStream:println(java.lang.String)

@@ -1,0 +1,4 @@
+
+No method containing `BasicBuiltIn.Reflect2BuiltInClass.main` found.
+No method containing `ReflectForOwnClass.FromDifferentFile.main` found.
+No method containing `ReflectForOwnClass.InSameFile.main` found.

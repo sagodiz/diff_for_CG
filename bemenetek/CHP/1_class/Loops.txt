@@ -1,0 +1,10 @@
+
+Method call hierarchy callees of Loops.main(java.lang.String[])
+	java.io.PrintStream.println(java.lang.String)
+	java.lang.Math.random
+	Loops.foo
+	java.io.PrintStream.print(int)
+	java.io.PrintStream.println(java.lang.Object)
+	Loops.foo
+Method call hierarchy callees of Loops.foo
+	java.io.PrintStream.println(java.lang.String)

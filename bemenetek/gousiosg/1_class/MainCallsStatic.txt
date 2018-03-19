@@ -1,0 +1,3 @@
+M:MainCallsStatic:<init>() (O)java.lang.Object:<init>()
+M:MainCallsStatic:main(java.lang.String[]) (S)MainCallsStatic:foo()
+M:MainCallsStatic:foo() (M)java.io.PrintStream:println(java.lang.String)

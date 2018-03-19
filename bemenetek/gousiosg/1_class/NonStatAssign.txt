@@ -1,0 +1,3 @@
+M:NonStaticMethodInAssignment:<init>() (O)java.lang.Object:<init>()
+M:NonStaticMethodInAssignment:main(java.lang.String[]) (O)NonStaticMethodInAssignment:<init>()
+M:NonStaticMethodInAssignment:main(java.lang.String[]) (M)NonStaticMethodInAssignment:foo()

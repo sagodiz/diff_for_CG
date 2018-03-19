@@ -1,0 +1,5 @@
+M:TwoClassesA:<init>() (O)java.lang.Object:<init>()
+M:TwoClassesA:foo() (M)java.io.PrintStream:println(java.lang.String)
+M:TwoClassesB:<init>() (O)java.lang.Object:<init>()
+M:TwoClassesB:main(java.lang.String[]) (O)TwoClassesA:<init>()
+M:TwoClassesB:main(java.lang.String[]) (M)TwoClassesA:foo()
