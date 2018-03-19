@@ -55,6 +55,8 @@ int main(int argc, char** argv) {
   soot >> tool >> trans >> rep; //get the header
   cout << "soot" << endl;
   string line;
+  getline(soot, line);
+  cout << line << endl;
   while( getline(soot, line) ) {
     
     stringstream input_stringstream(line);
