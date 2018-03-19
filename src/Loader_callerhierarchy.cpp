@@ -72,9 +72,7 @@ vector<Record> Loader_callerhierarchy::load() {
         //if it is make it an init method
         
         size_t genPos = pckgClass.find("<");
-        if ( genPos != string::npos ) {
-          
-          
+        if ( common::options::CHPTransform && genPos != string::npos ) {
           
           //it is a generic class
           string generics = pckgClass.substr(genPos);
