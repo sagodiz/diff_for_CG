@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of Loops.main(java.lang.String[])
 	java.io.PrintStream.println(java.lang.String)
 	java.lang.Math.random

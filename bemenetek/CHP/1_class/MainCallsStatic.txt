@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of MainCallsStatic.main(java.lang.String[])
 	MainCallsStatic.foo
 Method call hierarchy callees of MainCallsStatic.foo

@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of SetUsageBad.main(java.lang.String[])
 	SetUsageBad.SetUsageBad
 Method call hierarchy callees of SetUsage.main(java.lang.String[])

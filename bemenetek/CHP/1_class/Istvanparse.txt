@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of Abstract.foo
 	M.sg(java.lang.String)
 Method call hierarchy callees of Base.base

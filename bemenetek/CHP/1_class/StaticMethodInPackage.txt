@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of UseStaticMethodInPackage.main(java.lang.String[])
 	java.lang.Math.random
 	java.io.PrintStream.println(java.lang.String)

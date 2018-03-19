@@ -1,3 +1,2 @@
-
 Method call hierarchy callees of Test.HelloWorldInPackage.main(java.lang.String[])
 	java.io.PrintStream.println(java.lang.String)

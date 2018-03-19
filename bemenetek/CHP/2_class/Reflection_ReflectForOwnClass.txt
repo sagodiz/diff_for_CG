@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of FromDifferentFile.main(java.lang.String[])
 	java.lang.Class.forName(java.lang.String)
 	java.lang.Class.isInstance(java.lang.Object)

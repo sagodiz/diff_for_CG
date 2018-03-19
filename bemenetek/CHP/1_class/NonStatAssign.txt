@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of NonStaticMethodInAssignment.main(java.lang.String[])
 	NonStaticMethodInAssignment.NonStaticMethodInAssignment
 	NonStaticMethodInAssignment.foo
