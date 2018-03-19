@@ -1,3 +1,5 @@
+//TODO: sorvégek!!!! most éppen jó. SPOON windows-os sorvéggel dolgozik
+
 #include "../inc/Loader_spoon.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -86,7 +88,9 @@ vector<Record> Loader_spoon::load() {
 
 			vector<string> parameterVector;
 			std::string delimiter = ",", generic_delimiter = " extends ";
-			paramsReturn.erase(paramsReturn.length() - 1, 1); // )
+      
+//TODO: most így fixálva van, de majd meg kell oldani, hogy a sorvégek jók legyenek!!!
+			paramsReturn.erase(paramsReturn.length() - 2, 2); // )
 
 
 			size_t pos = 0;
