@@ -74,6 +74,8 @@ vector<Record> Loader_callerhierarchy::load() {
         size_t genPos = pckgClass.find("<");
         if ( genPos != string::npos ) {
           
+          
+          
           //it is a generic class
           string generics = pckgClass.substr(genPos);
           pckgClass.erase(genPos, pckgClass.length() - genPos + 1);

@@ -61,6 +61,7 @@ int main( int argc, char** argv ) {
   
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
+                          new Option("-CHPtransformation", &cHPTransformationMethod),
                           NULL
                       };
     
