@@ -147,7 +147,7 @@ static void writeTSV( vector<Record> records, string name, string tool ) {
   if ( !TSV.is_open() )
     throw Labels::COULD_NOT_WRITE_TSV;
   
-  TSV << "name" << "\t" << "transformed rep." << "\t" << "tool. rep" << endl;
+  TSV << "name" << "\t" << "transformed rep." << "\t" << "tool.rep" << endl;
   
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
