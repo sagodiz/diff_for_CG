@@ -123,6 +123,47 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
   
   set<pair<int, int>> connections;  //TODO
   
+  string member1, member2;
+  
+  while ( cin >> member1 >> member2 ) {
+    
+    ++callNum;
+    string caller = member1;
+    string callee = member2;
+    int callerId = -1, calleeId = -1;
+    bool check = false;
+    
+    for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
+
+      if ( common::storedIds[i] == caller ) {
+
+        check = true;
+        callerId = i;
+        break;
+      }
+    }
+    if ( !check ) {
+
+      cerr << "Method couldn't be resolved: " << caller << endl;
+    }
+
+    check = false;
+    for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
+
+      if ( common::storedIds[i] == callee ) {
+
+        check = true;
+        calleeId = i;
+        break;
+      }
+    }
+    if ( !check ) {
+
+      cerr << "Method couldn't be resolved: " << callee << endl;
+    }
+
+    connections.insert(pair<int, int>(callerId, calleeId));
+  }
   
   return connections;
 }
