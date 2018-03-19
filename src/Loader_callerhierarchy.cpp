@@ -99,7 +99,7 @@ vector<Record> Loader_callerhierarchy::load() {
       }
       else {
 
-        throw Labels::METHOD_NOT_FOUND_ERROR;
+        throw Labels::METHOD_NOT_FOUND_ERROR + pckgClassMethod;
       }
       
       vector<string> parameterVector;

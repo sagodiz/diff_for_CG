@@ -125,7 +125,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
   
   string member1, member2;
   
-  while ( cin >> member1 >> member2 ) {
+  while ( input >> member1 >> member2 ) {
     
     ++callNum;
     string caller = member1;
