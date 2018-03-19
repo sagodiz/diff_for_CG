@@ -9,6 +9,7 @@
 #include "inc/Loader_soot.h"
 #include "inc/Loader_callerhierarchy.h"
 #include "inc/Loader_sourcemeter.h"
+#include "inc/Loader_gousiosg..h"
 #include "inc/Switch.h"
 #include "inc/common.h"
 #include "inc/Record.h"
