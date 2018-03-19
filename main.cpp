@@ -80,6 +80,10 @@ int main( int argc, char** argv ) {
       }
     }
   }
+    
+  if ( 0 == loaders.size() )
+    throw Labels::NO_LOADER_WERE_GIVEN;
+    
   j = -1;
   while( options[++j] ) {
     
@@ -104,7 +108,8 @@ int main( int argc, char** argv ) {
     connections[i] = loaders[i]->transformConnections();
 VERBOSE1
   }
-  
+
+  //start generating various outputs, statistics..
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
     writeTSV(records[i], loaders[i]->getName(), loaders[i]->getName());
@@ -118,6 +123,7 @@ VERBOSE1
     }
   }
   
+  //catch "all" thrown error...
   } catch( const string e ) {
     
     cerr << "An error has occurred: " << e << endl;
