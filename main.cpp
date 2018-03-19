@@ -9,6 +9,7 @@
 #include "inc/Loader_soot.h"
 #include "inc/Loader_callerhierarchy.h"
 #include "inc/Loader_sourcemeter.h"
+#include "inc/Loader_gousiosg.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
 #include "inc/Record.h"
@@ -56,11 +57,13 @@ int main( int argc, char** argv ) {
                           new Switch("-c", factory ),
                           new Switch("-sm", factory ),
                           new Switch("-sp", factory ),
+                          new Switch("-g", factory ),
                           NULL
                         };
   
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
+                          new Option("-CHPtransformation", &cHPTransformationMethod),
                           NULL
                       };
     
@@ -79,6 +82,10 @@ int main( int argc, char** argv ) {
       }
     }
   }
+    
+  if ( 0 == loaders.size() )
+    throw Labels::NO_LOADER_WERE_GIVEN;
+    
   j = -1;
   while( options[++j] ) {
     
@@ -103,7 +110,8 @@ int main( int argc, char** argv ) {
     connections[i] = loaders[i]->transformConnections();
 VERBOSE1
   }
-  
+
+  //start generating various outputs, statistics..
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
     writeTSV(records[i], loaders[i]->getName(), loaders[i]->getName());
@@ -117,6 +125,7 @@ VERBOSE1
     }
   }
   
+  //catch "all" thrown error...
   } catch( const string e ) {
     
     cerr << "An error has occurred: " << e << endl;

@@ -1,0 +1,2 @@
+M:ClassContainsItself:<init>() (O)java.lang.Object:<init>()
+M:ClassContainsItself:main(java.lang.String[]) (O)ClassContainsItself:<init>()

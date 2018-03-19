@@ -1,0 +1,8 @@
+M:Loops:<init>() (O)java.lang.Object:<init>()
+M:Loops:main(java.lang.String[]) (M)java.io.PrintStream:println(java.lang.String)
+M:Loops:main(java.lang.String[]) (S)java.lang.Math:random()
+M:Loops:main(java.lang.String[]) (S)Loops:foo()
+M:Loops:main(java.lang.String[]) (M)java.io.PrintStream:print(int)
+M:Loops:main(java.lang.String[]) (M)java.io.PrintStream:println(java.lang.Object)
+M:Loops:main(java.lang.String[]) (S)Loops:foo()
+M:Loops:foo() (M)java.io.PrintStream:println(java.lang.String)

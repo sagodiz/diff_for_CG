@@ -43,3 +43,11 @@ namespace common {
 	  return false;
   };
 }
+
+namespace common {
+  
+  namespace options {
+    
+    extern bool CHPTransform;
+  }
+}

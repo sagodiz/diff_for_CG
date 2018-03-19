@@ -1,0 +1,44 @@
+
+Method call hierarchy callees of VariousPossibleCalls.main(java.lang.String[])
+	java.lang.Math.random
+	VariousPossibleCalls.foo
+	VariousPossibleCalls.foo2
+	VariousPossibleCalls.foo3(int)
+	VariousPossibleCalls.VariousPossibleCalls
+	VariousPossibleCalls.goo(int)
+	VariousPossibleCalls.goo2
+	VariousPossibleCalls.goo3
+	VariousPossibleCalls.foo4
+Found 4 matching methods...
+Method call hierarchy callees of VariousPossibleCalls.foo4
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo2
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo3(int)
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo2
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo3(int)
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.foo4
+	java.io.PrintStream.println(java.lang.String)
+Found 3 matching methods...
+Method call hierarchy callees of VariousPossibleCalls.goo2
+	java.io.PrintStream.println(java.lang.String)
+	VariousPossibleCalls.foo
+Method call hierarchy callees of VariousPossibleCalls.goo3
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.goo(int)
+	java.io.PrintStream.println(java.lang.String)
+	VariousPossibleCalls.foo3(int)
+Method call hierarchy callees of VariousPossibleCalls.goo2
+	java.io.PrintStream.println(java.lang.String)
+	VariousPossibleCalls.foo
+Method call hierarchy callees of VariousPossibleCalls.goo3
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.neverUsedStatic
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of VariousPossibleCalls.neverUsedEither
+	java.io.PrintStream.println(java.lang.String)

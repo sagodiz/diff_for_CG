@@ -1,0 +1,19 @@
+
+Method call hierarchy callees of FromDifferentFile.main(java.lang.String[])
+	java.lang.Class.forName(java.lang.String)
+	java.lang.Class.isInstance(java.lang.Object)
+	java.lang.Integer.Integer(int)
+	java.io.PrintStream.println(boolean)
+	java.lang.Class.isInstance(java.lang.Object)
+	FromDifferentFile2.FromDifferentFile2
+	java.io.PrintStream.println(boolean)
+	java.io.PrintStream.println(java.lang.Object)
+Method call hierarchy callees of InSameFile.main(java.lang.String[])
+	java.lang.Class.forName(java.lang.String)
+	java.lang.Class.isInstance(java.lang.Object)
+	java.lang.Integer.Integer(int)
+	java.io.PrintStream.println(boolean)
+	java.lang.Class.isInstance(java.lang.Object)
+	A.A
+	java.io.PrintStream.println(boolean)
+	java.io.PrintStream.println(java.lang.Object)

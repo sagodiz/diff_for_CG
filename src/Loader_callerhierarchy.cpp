@@ -72,7 +72,7 @@ vector<Record> Loader_callerhierarchy::load() {
         //if it is make it an init method
         
         size_t genPos = pckgClass.find("<");
-        if ( genPos != string::npos ) {
+        if ( common::options::CHPTransform && genPos != string::npos ) {
           
           //it is a generic class
           string generics = pckgClass.substr(genPos);
@@ -99,7 +99,7 @@ vector<Record> Loader_callerhierarchy::load() {
       }
       else {
 
-        throw Labels::METHOD_NOT_FOUND_ERROR;
+        throw Labels::METHOD_NOT_FOUND_ERROR + pckgClassMethod;
       }
       
       vector<string> parameterVector;

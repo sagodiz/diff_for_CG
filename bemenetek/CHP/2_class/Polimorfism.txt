@@ -1,0 +1,20 @@
+
+Method call hierarchy callees of PolimorfA.goo
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of PolimorfBase.goo
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of PolimorfB.goo
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of PolimorfMain.main(java.lang.String[])
+	PolimorfA.PolimorfA
+	PolimorfB.PolimorfB
+	PolimorfA.PolimorfA
+	PolimorfB.PolimorfB
+	PolimorfBase.PolimorfBase
+	PolimorfMain.foo(PolimorfBase)
+	PolimorfMain.foo(PolimorfBase)
+	PolimorfMain.foo(PolimorfBase)
+	PolimorfMain.foo(PolimorfBase)
+	PolimorfMain.foo(PolimorfBase)
+Method call hierarchy callees of PolimorfMain.foo(PolimorfBase)
+	PolimorfBase.goo

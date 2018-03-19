@@ -10,5 +10,6 @@ namespace Labels {
   const std::string UNRECOGNIZED_SWITCH = "The given switch could not be found: ";
   const std::string COULD_NOT_WRITE_TSV = "Could not write tsv (tab separated file).";
   const std::string TOOL_HAS_MORE_THAN_ONE_REP = "Tool has more than one representation for method.";
+  const std::string NO_LOADER_WERE_GIVEN = "No loader was given. Please give at least 1 loader.";
   std::string PROJECT_NAME = "Default";
 }

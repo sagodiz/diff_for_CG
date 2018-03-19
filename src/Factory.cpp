@@ -4,6 +4,7 @@
 #include "../inc/Loader_sourcemeter.h"
 #include "../inc/Loader_callerhierarchy.h"
 #include "../inc/Loader_spoon.h"
+#include "../inc/Loader_gousiosg.h"
 #include "../inc/Labels.h"
 
 using namespace std;
@@ -27,6 +28,9 @@ Loader* Factory::getLoaderPointer( string str, string filePath ) const {
   }
   else if ( "-sp" == str ) {
     return new Loader_spoon(filePath, "spoon");
+  }
+  else if ( "-g" == str ) {
+    return new Loader_gousiosg(filePath, "gousiosg");
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;

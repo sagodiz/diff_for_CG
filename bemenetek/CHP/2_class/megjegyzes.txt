@@ -1,0 +1,1 @@
+gondoltam bennhagyom a reflectionra az errort, mert a gousiosg nem akadt fenn rajta, hogy a reflection mappa alkönyvtárai igazából nem package-k, hanem külön projektmappák, a CHP viszont nem ette meg egybe
