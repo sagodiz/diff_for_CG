@@ -44,7 +44,9 @@ vector<Record> Loader_spoon::load() {
 			getline(input_stringstream, infoMine);
 
 			infoMine.erase(0, 8); //[label=" --> 8 chars
-			infoMine.erase(infoMine.length() - 2, 2); //"] at the end
+			size_t ending = infoMine.rfind("\"]");
+			if (ending != string::npos)
+				infoMine.erase(ending);
 
 
 			std::string default_pck = "root.";
@@ -88,9 +90,10 @@ vector<Record> Loader_spoon::load() {
 
 			vector<string> parameterVector;
 			std::string delimiter = ",", generic_delimiter = " extends ";
-      
-//TODO: most így fixálva van, de majd meg kell oldani, hogy a sorvégek jók legyenek!!!
-			paramsReturn.erase(paramsReturn.length() - 2, 2); // )
+
+			size_t close_pos = paramsReturn.rfind(")");
+			if (close_pos != string::npos)
+				paramsReturn.erase(close_pos); // )
 
 
 			size_t pos = 0;

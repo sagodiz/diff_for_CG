@@ -42,7 +42,9 @@ vector<Record> Loader_sourcemeter::load() {
       getline(input_stringstream, infoMine, ' ');
       
       infoMine.erase(0, 8); //[label=" --> 8 chars
-      infoMine.erase(infoMine.length() - 2, 2); //"] at the end
+	  size_t ending = infoMine.rfind("\"]");
+	  if (ending != string::npos)
+		  infoMine.erase(ending);
       
       string pckgClassMethod;
       string paramsReturn;
