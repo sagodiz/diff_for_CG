@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of StaticCallInAssignment.main(java.lang.String[])
 	StaticCallInAssignment.foo
 Method call hierarchy callees of StaticCallInAssignment.foo

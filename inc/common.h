@@ -11,7 +11,7 @@ namespace common {
   static inline std::string getMethodById( const unsigned int& id ) {
     
     if ( id < storedIds.size() )
-      return storedIds[id].getClass() + storedIds[id].getMethodName();
+      return storedIds[id].getClass() + "." + storedIds[id].getMethodName();
     
     return "";
   }

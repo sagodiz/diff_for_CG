@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of PolimorfA.goo
 	java.io.PrintStream.println(java.lang.String)
 Method call hierarchy callees of PolimorfBase.goo

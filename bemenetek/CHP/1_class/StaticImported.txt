@@ -1,4 +1,3 @@
-
 Method call hierarchy callees of StaticUsesImportedClass.main(java.lang.String[])
 	StaticUsesImportedClass.foo
 Method call hierarchy callees of StaticUsesImportedClass.foo

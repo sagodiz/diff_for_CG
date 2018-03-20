@@ -1,3 +1,5 @@
+//TODO: sorvégek!!!! most éppen jó. SPOON windows-os sorvéggel dolgozik
+
 #include "../inc/Loader_spoon.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -18,7 +20,7 @@ Loader_spoon::~Loader_spoon() {
 
 vector<Record> Loader_spoon::load() {
 
-	vector<Record> tmpRecords;  //TODO
+	vector<Record> tmpRecords;
 
 
 	string line;
@@ -86,7 +88,9 @@ vector<Record> Loader_spoon::load() {
 
 			vector<string> parameterVector;
 			std::string delimiter = ",", generic_delimiter = " extends ";
-			paramsReturn.erase(paramsReturn.length() - 1, 1); // )
+      
+//TODO: most így fixálva van, de majd meg kell oldani, hogy a sorvégek jók legyenek!!!
+			paramsReturn.erase(paramsReturn.length() - 2, 2); // )
 
 
 			size_t pos = 0;
@@ -120,7 +124,7 @@ vector<Record> Loader_spoon::load() {
 			if (0 == pckgClass.length() || 0 == method.length())
 				throw Labels::UNINITIALIZED_RECORD;
 
-			Record r(representation, pckgClass, method, parameterVector);
+			Record r(representation, pckgClass, method, parameterVector, infoMine);
 			tmpRecords.push_back(r);
 
 			if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {

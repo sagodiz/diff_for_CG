@@ -1,3 +1,5 @@
+//TODO: sorvégek rendberakása. Most ez windowsos sorvéggel dolgozik, éppen jó
+
 #include "../inc/Loader_sourcemeter.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -18,7 +20,7 @@ Loader_sourcemeter::~Loader_sourcemeter() {
 
 vector<Record> Loader_sourcemeter::load() {
 
-  vector<Record> tmpRecords;  //TODO
+  vector<Record> tmpRecords;
   
   string line;
   getline(input, line); //get the "header" line
