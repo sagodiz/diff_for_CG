@@ -42,8 +42,7 @@ vector<Record> Loader_soot::load() {
       size_t ending = line.rfind(">\"");
 			if (ending != string::npos)
 				line.erase(ending);
-      
-      cout << line << endl;
+
       //get the needed info. for a Record then algorithm::find(.., r) can be used...
      //----------------------------------------------------------------------------------------
      
