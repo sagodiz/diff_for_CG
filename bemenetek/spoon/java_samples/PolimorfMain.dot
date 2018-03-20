@@ -8,7 +8,7 @@ rankdir="LR";
 2 [label="root.PolimorfA.goo()"]
 7 [label="root.PolimorfBase.goo()"]
 5 [label="root.PolimorfB.goo()"]
-6 [label="java.lang.Object()"]
+6 [label="java.lang.Object.Object()"]
 9 [label="root.PolimorfMain.main(java.lang.String[])"]
 3 [label="java.io.PrintStream.println(java.lang.String)"]
 0 -> 1

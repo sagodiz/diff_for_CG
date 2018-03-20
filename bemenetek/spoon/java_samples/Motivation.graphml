@@ -18,13 +18,13 @@
 	<data key="d0">java.awt.Button.addActionListener(java.awt.event.ActionListener)</data>
 </node>
 <node id="4">
-	<data key="d0">java.awt.Button(java.lang.String)</data>
+	<data key="d0">java.awt.Button.Button(java.lang.String)</data>
 </node>
 <node id="3">
-	<data key="d0">java.awt.Frame(java.lang.String)</data>
+	<data key="d0">java.awt.Frame.Frame(java.lang.String)</data>
 </node>
 <node id="1">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="2">
 	<data key="d0">root.Motivation.main(java.lang.String[])</data>

@@ -36,10 +36,10 @@
 	<data key="d0">root.SetPolimorfBase.hoo()</data>
 </node>
 <node id="7">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="13">
-	<data key="d0">java.util.TreeSet()</data>
+	<data key="d0">java.util.TreeSet.TreeSet()</data>
 </node>
 <node id="12">
 	<data key="d0">root.SetPolimorfMain.main(java.lang.String[])</data>

@@ -11,8 +11,8 @@ rankdir="LR";
 9 [label="root.SetPolimorfBase.goo()"]
 4 [label="root.SetPolimorfA.hoo()"]
 10 [label="root.SetPolimorfBase.hoo()"]
-7 [label="java.lang.Object()"]
-13 [label="java.util.TreeSet()"]
+7 [label="java.lang.Object.Object()"]
+13 [label="java.util.TreeSet.TreeSet()"]
 12 [label="root.SetPolimorfMain.main(java.lang.String[])"]
 3 [label="java.io.PrintStream.println(java.lang.String)"]
 0 -> 1

@@ -9,10 +9,10 @@
 	<data key="d0">root.UsePackageInStatic.foo()</data>
 </node>
 <node id="1">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="4">
-	<data key="d0">java.security.SecureRandom()</data>
+	<data key="d0">java.security.SecureRandom.SecureRandom()</data>
 </node>
 <node id="2">
 	<data key="d0">root.UsePackageInStatic.main(java.lang.String[])</data>

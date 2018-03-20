@@ -3,7 +3,7 @@ rankdir="LR";
 0 [label="root.TwoClassesA.TwoClassesA()"]
 4 [label="root.TwoClassesB.TwoClassesB()"]
 2 [label="root.TwoClassesA.foo()"]
-1 [label="java.lang.Object()"]
+1 [label="java.lang.Object.Object()"]
 5 [label="root.TwoClassesB.main(java.lang.String[])"]
 3 [label="java.io.PrintStream.println(java.lang.String)"]
 0 -> 1

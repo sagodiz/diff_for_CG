@@ -4,8 +4,8 @@ rankdir="LR";
 4 [label="root.SetUsageOwnClass.SetUsageOwnClass(int)"]
 5 [label="java.util.Set.add(E)"]
 6 [label="root.SetUsageOwnClass.foo()"]
-1 [label="java.lang.Object()"]
-3 [label="java.util.TreeSet()"]
+1 [label="java.lang.Object.Object()"]
+3 [label="java.util.TreeSet.TreeSet()"]
 2 [label="root.SetUsageOwn.main(java.lang.String[])"]
 7 [label="java.io.PrintStream.println(java.lang.String)"]
 0 -> 1

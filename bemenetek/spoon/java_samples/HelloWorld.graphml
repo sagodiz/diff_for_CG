@@ -6,7 +6,7 @@
 	<data key="d0">root.HelloWorld.HelloWorld()</data>
 </node>
 <node id="1">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="2">
 	<data key="d0">root.HelloWorld.main(java.lang.String[])</data>

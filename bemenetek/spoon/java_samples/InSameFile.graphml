@@ -18,10 +18,10 @@
 	<data key="d0">java.lang.Class.isInstance(java.lang.Object)</data>
 </node>
 <node id="7">
-	<data key="d0">java.lang.Integer(int)</data>
+	<data key="d0">java.lang.Integer.Integer(int)</data>
 </node>
 <node id="1">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="5">
 	<data key="d0">root.InSameFile.main(java.lang.String[])</data>

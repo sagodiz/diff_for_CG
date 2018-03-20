@@ -3,11 +3,11 @@ rankdir="LR";
 0 [label="root.SetUsageBad.SetUsageBad()"]
 5 [label="java.util.TreeSet.add(E)"]
 7 [label="java.util.Set.add(E)"]
-6 [label="java.lang.Integer(java.lang.String)"]
-1 [label="java.lang.Object()"]
-4 [label="java.lang.String(java.lang.String)"]
-2 [label="java.util.HashSet()"]
-3 [label="java.util.TreeSet()"]
+6 [label="java.lang.Integer.Integer(java.lang.String)"]
+1 [label="java.lang.Object.Object()"]
+4 [label="java.lang.String.String(java.lang.String)"]
+2 [label="java.util.HashSet.HashSet()"]
+3 [label="java.util.TreeSet.TreeSet()"]
 8 [label="root.SetUsageBad.main(java.lang.String[])"]
 0 -> 1
 0 -> 2

@@ -9,7 +9,7 @@
 	<data key="d0">root.Constructor.Constructor(int)</data>
 </node>
 <node id="3">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="0">
 	<data key="d0">root.Constructor.main(java.lang.String[])</data>

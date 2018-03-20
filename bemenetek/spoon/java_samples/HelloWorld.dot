@@ -1,7 +1,7 @@
 digraph graphname {
 rankdir="LR";
 0 [label="root.HelloWorld.HelloWorld()"]
-1 [label="java.lang.Object()"]
+1 [label="java.lang.Object.Object()"]
 2 [label="root.HelloWorld.main(java.lang.String[])"]
 3 [label="java.io.PrintStream.println(java.lang.String)"]
 0 -> 1

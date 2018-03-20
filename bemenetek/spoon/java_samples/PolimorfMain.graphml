@@ -27,7 +27,7 @@
 	<data key="d0">root.PolimorfB.goo()</data>
 </node>
 <node id="6">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="9">
 	<data key="d0">root.PolimorfMain.main(java.lang.String[])</data>

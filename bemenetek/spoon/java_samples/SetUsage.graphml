@@ -12,19 +12,19 @@
 	<data key="d0">java.util.Set.add(E)</data>
 </node>
 <node id="7">
-	<data key="d0">java.lang.Integer(int)</data>
+	<data key="d0">java.lang.Integer.Integer(int)</data>
 </node>
 <node id="1">
-	<data key="d0">java.lang.Object()</data>
+	<data key="d0">java.lang.Object.Object()</data>
 </node>
 <node id="6">
-	<data key="d0">java.lang.String(java.lang.String)</data>
+	<data key="d0">java.lang.String.String(java.lang.String)</data>
 </node>
 <node id="3">
-	<data key="d0">java.util.HashSet()</data>
+	<data key="d0">java.util.HashSet.HashSet()</data>
 </node>
 <node id="4">
-	<data key="d0">java.util.TreeSet()</data>
+	<data key="d0">java.util.TreeSet.TreeSet()</data>
 </node>
 <node id="2">
 	<data key="d0">root.SetUsage.main(java.lang.String[])</data>
