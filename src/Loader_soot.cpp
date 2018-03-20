@@ -37,8 +37,13 @@ vector<Record> Loader_soot::load() {
       methodRepresentation.erase(0, 4); //the leading spaces
       
       line.erase(0, 6); //remove the '<4 spaces>"<' beginning
-      line.erase(line.length()-2, 2); //remove the '">' ending
+      //line.erase(line.length()-2, 2); replace it, as the other is the same if there is end or not or linux or win end...
+      //remove the '">' ending
+      size_t ending = line.rfind(">\"");
+			if (ending != string::npos)
+				line.erase(ending);
       
+      cout << line << endl;
       //get the needed info. for a Record then algorithm::find(.., r) can be used...
      //----------------------------------------------------------------------------------------
      
