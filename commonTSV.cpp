@@ -52,9 +52,10 @@ int main(int argc, char** argv) {
   ifstream gous(argv[5]);
   
   string tool, trans, rep;
+  string line;
   soot >> tool >> trans >> rep; //get the header
   cout << "soot" << endl;
-  string line;
+  
   getline(soot, line);
   cout << line << endl;
   while( getline(soot, line) ) {
@@ -80,7 +81,16 @@ int main(int argc, char** argv) {
   //----
   cout << "sm" << endl;
   sm >> tool >> trans >> rep; //get the header
-  while( sm >> tool >> trans >> rep ) {
+  getline(sm, line);
+  cout << line << endl;
+  while( getline(sm, line) ) {
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
     cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
@@ -96,7 +106,16 @@ int main(int argc, char** argv) {
   //-------
   cout << "spoon" <<endl;
   spoon >> tool >> trans >> rep; //get the header
-  while( spoon >> tool >> trans >> rep ) {
+  getline(spoon, line);
+  cout << line << endl;
+  while( getline(spoon, line) ) {
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
     cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
@@ -110,10 +129,19 @@ int main(int argc, char** argv) {
     }
   }
   //-------
-  cout << "chp" << endl;
   chp >> tool >> trans >> rep; //get the header
-  while( chp >> tool >> trans >> rep ) {
-    cout << tool << " " << trans << " " << rep << endl;
+  cout << "chp" << endl;
+  getline(chp, line);
+  cout << line << endl;
+  while( getline(chp, line) ) {
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
+    //cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
       //megtalalta
@@ -125,10 +153,21 @@ int main(int argc, char** argv) {
       methods.push_back(r);
     }
   }
+  
+  
   //-------
-cout << "gous" << endl;
+  cout << "gous" << endl;
   gous >> tool >> trans >> rep; //get the header
-  while( gous >> tool >> trans >> rep ) {
+  getline(gous, line);
+  cout << line << endl;
+  while( getline(gous, line) ) {
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
     cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
