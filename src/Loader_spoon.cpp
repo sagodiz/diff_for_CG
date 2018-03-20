@@ -105,7 +105,7 @@ vector<Record> Loader_spoon::load() {
 				if (token.length() == 1) {//generikus parameterek
 					token = "java.lang.Object";
 				}
-				else if (token.length() == 1 && token.substr(1).compare("[]") == 0) {
+				else if (token.length() == 3 && token.substr(1).compare("[]") == 0) {
 					token = "java.lang.Object[]";
 				}
 
