@@ -42,6 +42,9 @@ vector<Record> Loader_callerhierarchy::load() {
         line.erase(0, prefix.length());
       }
       
+      if ( 0 == line.length() )
+        continue;
+      
       representation = line;
     
       string pckgClassMethod, params, method, pckgClass;
@@ -62,7 +65,7 @@ vector<Record> Loader_callerhierarchy::load() {
       }
         
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
-
+cout << pckgClassMethod << "|" << lastDotPos << endl;
       if ( lastDotPos != string::npos ) {
         
         method = pckgClassMethod.substr(lastDotPos + 1);
@@ -98,7 +101,7 @@ vector<Record> Loader_callerhierarchy::load() {
         
       }
       else {
-
+cout << "----" << pckgClassMethod << endl;
         throw Labels::METHOD_NOT_FOUND_ERROR + pckgClassMethod;
       }
       
