@@ -24,6 +24,23 @@ class Record {
       chp = "x";
       gous = "x";
     }
+  
+    int commonNum() {
+      
+      int num = 0;
+      if ( "x" != soot )
+        ++num;
+      if ( "x" != sm )
+        ++num;
+      if ( "x" != spoon )
+        ++num;
+      if ( "x" != chp )
+        ++num;
+      if ( "x" != gous )
+        ++num;
+      
+      return num;
+    }
     
     bool operator==(const string& str ) const {
       
@@ -182,11 +199,11 @@ int main(int argc, char** argv) {
   }
   //-------
 
-  out << "Transformed" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << endl;
+  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << endl;
   
   for ( int i = 0; i < methods.size(); i++ ) {
     
-    out << methods[i].transformed << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << endl;
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << endl;
   }
   
   return 0;
