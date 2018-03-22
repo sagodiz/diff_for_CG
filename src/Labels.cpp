@@ -11,5 +11,6 @@ namespace Labels {
   const std::string COULD_NOT_WRITE_TSV = "Could not write tsv (tab separated file).";
   const std::string TOOL_HAS_MORE_THAN_ONE_REP = "Tool has more than one representation for method.";
   const std::string NO_LOADER_WERE_GIVEN = "No loader was given. Please give at least 1 loader.";
+  const std::string COULD_NOT_WRITE_FILE_LIST = "Could not write list of tsv files.";
   std::string PROJECT_NAME = "Default";
 }

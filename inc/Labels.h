@@ -15,6 +15,7 @@ namespace Labels {
   extern const std::string TOOL_HAS_MORE_THAN_ONE_REP;
   extern const std::string NO_LOADER_WERE_GIVEN;
   extern std::string PROJECT_NAME;
+  extern const std::string COULD_NOT_WRITE_FILE_LIST;;
 }
 
 #endif

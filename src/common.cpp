@@ -3,6 +3,7 @@
 namespace common {
   
   std::vector<Record> storedIds;
+  std::vector<std::string> tsvFiles;
 }
 
 namespace common {

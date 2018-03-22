@@ -7,6 +7,12 @@
 
 using namespace std;
 
+#ifdef DEBUG
+  #define DDD cout << line << endl;
+#else
+  #define DDD ;
+#endif
+
 class Record {
   public:
     string transformed;
@@ -53,28 +59,116 @@ class Record {
 
 int main(int argc, char** argv) {
   
-  if ( 6 != argc ) {
+  ifstream soot ;
+  ifstream sm;
+  ifstream spoon;
+  ifstream chp;
+  ifstream gous;
+  
+  if ( 2 == argc ) {
+    ifstream input(argv[1]);
+    string file2open;
     
-    cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: soot SM spoon CHP g..." << endl;
-    return 1;
+    input >> file2open;
+    chp.open(file2open);
+    
+    input >> file2open;
+    gous.open(file2open);
+    
+    input >> file2open;
+    soot.open(file2open);
+    
+    input >> file2open;
+    sm.open(file2open);
+    
+    input >> file2open;
+    spoon.open(file2open);
+    
+  }
+  else {
+    
+    if ( 6 != argc ) {
+
+      cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: chp g... soot sm spoon" << endl;
+      return 1;
+    }
+    soot.open(argv[3]);
+    sm.open(argv[4]);
+    spoon.open(argv[5]);
+    chp.open(argv[1]);
+    gous.open(argv[2]);
   }
   
   vector<Record> methods;
   
   ofstream out("common.tsv");
-  ifstream soot(argv[1]);
-  ifstream sm(argv[2]);
-  ifstream spoon(argv[3]);
-  ifstream chp(argv[4]);
-  ifstream gous(argv[5]);
+  /*ifstream soot(argv[3]);
+  ifstream sm(argv[4]);
+  ifstream spoon(argv[5]);
+  ifstream chp(argv[1]);
+  ifstream gous(argv[2]);*/
   
   string tool, trans, rep;
   string line;
+  
+  //-------
+  chp >> tool >> trans >> rep; //get the header
+  cout << "chp" << endl;
+  getline(chp, line);
+  
+DDD
+  while( getline(chp, line) ) {
+DDD    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
+    auto it = find(methods.begin(), methods.end(), trans);
+    if ( it != methods.end() ) {
+      //megtalalta
+      it->chp = rep;
+    }
+    else {
+      Record r(trans);
+      r.chp = rep;
+      methods.push_back(r);
+    }
+  }
+  //---------------------------------
+  
+  cout << "gous" << endl;
+
+  gous >> tool >> trans >> rep; //get the header
+  getline(gous, line);
+DDD
+  while( getline(gous, line) ) {
+DDD    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
+    auto it = find(methods.begin(), methods.end(), trans);
+    if ( it != methods.end() ) {
+      //megtalalta
+      it->gous = rep;
+    }
+    else {
+      Record r(trans);
+      r.gous = rep;
+      methods.push_back(r);
+    }
+  }
+  //------------------------------------------
+  
   soot >> tool >> trans >> rep; //get the header
   cout << "soot" << endl;
-  
+ 
   getline(soot, line);
-  cout << line << endl;
+DDD
   while( getline(soot, line) ) {
     
     stringstream input_stringstream(line);
@@ -82,8 +176,7 @@ int main(int argc, char** argv) {
     getline(input_stringstream, tool , '\t');
     getline(input_stringstream, trans , '\t');
     getline(input_stringstream, rep , '\t');
-    
-    cout << tool << " " << trans << " " << rep << endl;
+
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
       //megtalalta
@@ -96,10 +189,12 @@ int main(int argc, char** argv) {
     }
   }
   //----
+  
   cout << "sm" << endl;
+
   sm >> tool >> trans >> rep; //get the header
   getline(sm, line);
-  cout << line << endl;
+DDD
   while( getline(sm, line) ) {
     
     stringstream input_stringstream(line);
@@ -108,7 +203,6 @@ int main(int argc, char** argv) {
     getline(input_stringstream, trans , '\t');
     getline(input_stringstream, rep , '\t');
     
-    cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
       //megtalalta
@@ -121,19 +215,20 @@ int main(int argc, char** argv) {
     }
   }
   //-------
+  
   cout << "spoon" <<endl;
+
   spoon >> tool >> trans >> rep; //get the header
   getline(spoon, line);
-  cout << line << endl;
+DDD
   while( getline(spoon, line) ) {
-    
+DDD
     stringstream input_stringstream(line);
 
     getline(input_stringstream, tool , '\t');
     getline(input_stringstream, trans , '\t');
     getline(input_stringstream, rep , '\t');
     
-    cout << tool << " " << trans << " " << rep << endl;
     auto it = find(methods.begin(), methods.end(), trans);
     if ( it != methods.end() ) {
       //megtalalta
@@ -144,59 +239,7 @@ int main(int argc, char** argv) {
       r.spoon = rep;
       methods.push_back(r);
     }
-  }
-  //-------
-  chp >> tool >> trans >> rep; //get the header
-  cout << "chp" << endl;
-  getline(chp, line);
-  cout << line << endl;
-  while( getline(chp, line) ) {
-    
-    stringstream input_stringstream(line);
-
-    getline(input_stringstream, tool , '\t');
-    getline(input_stringstream, trans , '\t');
-    getline(input_stringstream, rep , '\t');
-    
-    //cout << tool << " " << trans << " " << rep << endl;
-    auto it = find(methods.begin(), methods.end(), trans);
-    if ( it != methods.end() ) {
-      //megtalalta
-      it->chp = rep;
-    }
-    else {
-      Record r(trans);
-      r.chp = rep;
-      methods.push_back(r);
-    }
-  }
-  
-  
-  //-------
-  cout << "gous" << endl;
-  gous >> tool >> trans >> rep; //get the header
-  getline(gous, line);
-  cout << line << endl;
-  while( getline(gous, line) ) {
-    
-    stringstream input_stringstream(line);
-
-    getline(input_stringstream, tool , '\t');
-    getline(input_stringstream, trans , '\t');
-    getline(input_stringstream, rep , '\t');
-    
-    cout << tool << " " << trans << " " << rep << endl;
-    auto it = find(methods.begin(), methods.end(), trans);
-    if ( it != methods.end() ) {
-      //megtalalta
-      it->gous = rep;
-    }
-    else {
-      Record r(trans);
-      r.gous = rep;
-      methods.push_back(r);
-    }
-  }
+  } 
   //-------
 
   out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << endl;
