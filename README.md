@@ -13,7 +13,6 @@ Returns the connection set. It is a set of pairs of ids.
 
 Tools can be compared by their sets of connection.
 
-#TODO
-- New loaders for other tools.
-- Save the sets and the storedIds vector in file.
-- Make a method that computes stat. based on the sets.
+# sum up the results
+
+The tool will create a lot of tsv files and txt files, and a list file. If You want to sum up the tsv files run the commonTSV program with the parameter of teh resulting lst file, or pass the tsv-s one by one. You'll get a common.tsv file, which contains all the tsvs' information in one table.
