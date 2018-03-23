@@ -132,18 +132,32 @@ vector<Record> Loader_callerhierarchy::load() {
 
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         
-        if ( talánmáshogyvanbenne ) {
+        bool finallyFound = false;
+        unsigned index = -1;
+        for ( unsigned i = 0; i < common::storedIds.size(); i++ ) {
+
+          if ( r ? common::storedIds[i] ) {//TODO ? operator
+            //after replacing '$' s found it
+            common::storedIds[i] += representation;
+            finallyFound = true;
+          }
+        }
+        
+        if ( finallyFound ) {
           
-          
+          Record r2(representation, common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
+          tmpRecords.push_back(r2);
         }
         else {
           //so this record is not found in the vector
+          tmpRecords.push_back(r);
           common::storedIds.push_back(r);
           ++uniqueMethodNum;
         }
       }
       else {
         
+        tmpRecords.push_back(r);
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
         if ( *it == representation ) {
           //contains this representation
