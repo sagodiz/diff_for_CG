@@ -52,7 +52,8 @@ class Record {
       
       if ( str == transformed )
         return true;
-      false;
+      
+      return false;
     }
 };
 
@@ -244,7 +245,7 @@ DDD
 
   out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << endl;
   
-  for ( int i = 0; i < methods.size(); i++ ) {
+  for ( unsigned i = 0; i < methods.size(); i++ ) {
     
     out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << endl;
   }

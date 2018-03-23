@@ -146,6 +146,8 @@ VERBOSE1
 
   cout << "End of program." << endl;
   
+  system("./commonTSV tsvfiles.list");
+  
   return 0;
 }
 //########################################################################x
