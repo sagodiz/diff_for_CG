@@ -115,8 +115,21 @@ VERBOSE1
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
     writeTSV(records[i], loaders[i]->getName(), loaders[i]->getName());
+    common::tsvFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "loadedMethods.tsv");
   }
   
+  {
+    sort( common::tsvFiles.begin(), common::tsvFiles.end() );
+    ofstream TSVFILE("tsvfiles.list");
+    if ( !TSVFILE.is_open() )
+      throw Labels::COULD_NOT_WRITE_FILE_LIST;
+    
+    for ( unsigned i = 0; i < common::tsvFiles.size(); i++ ) {
+      
+      TSVFILE << common::tsvFiles[i] << endl;
+    }
+  }
+    
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
     
     for (unsigned j = i + 1; j < loaders.size(); j++ ) {
