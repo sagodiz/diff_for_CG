@@ -46,6 +46,23 @@ bool Record::operator==( const string method ) const {
   return false;
 }
 
+bool Record::operator>>=(const Record& r ) const {
+
+DDD
+
+  string classStr = r.getClass();
+  replace( classStr.begin(), classStr.end(), '$', '.'); // replace all '$' to '.'
+
+  if ( classStr == methodClass
+      && r.getMethodName() == methodName
+      && r.getParameters() == parameters
+      ) {
+        
+    return true;
+  }
+  return false;
+}
+
 Record& Record::operator+=( const string nWOR ) {
   
   sameMethods.push_back(nWOR);

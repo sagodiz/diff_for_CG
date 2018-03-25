@@ -1,3 +1,5 @@
+//TODO: ha van akkor a chp fusson le utoljára
+
 #include <iostream>
 #include <string>
 #include <set>
@@ -70,17 +72,34 @@ int main( int argc, char** argv ) {
   //need pointer otherwise vector do not accept as Loader is abstract
   vector<Loader*> loaders;
   
+Switch* chp = NULL;
+int chpArgIndex = -1;
+
   unsigned char j = -1;
   while( switches[++j] ) {
     
     for ( int i = 1; i < argc - 1; i++ ) {
       
       if ( *(switches[j]) == argv[i] ) {
-
-        switches[j]->init(argv[++i]);
-        loaders.push_back( switches[j]->getLoaderPointer() );
+        
+        if ( *(switches[j]) == "-c" ) {
+          //if it is chp note it and add it later so it wold run for last.
+          chp = switches[j];
+          chpArgIndex = ++i;
+        }
+        else {
+          //it is not chp. add it.
+          switches[j]->init(argv[++i]);
+          loaders.push_back( switches[j]->getLoaderPointer() );
+        }
       }
     }
+  }
+    
+  if ( chp ) {
+    
+    chp->init(argv[chpArgIndex]);
+    loaders.push_back( chp->getLoaderPointer() );
   }
     
   if ( 0 == loaders.size() )

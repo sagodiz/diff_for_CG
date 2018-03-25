@@ -76,7 +76,7 @@ vector<Record> Loader_callerhierarchy::load() {
         
         size_t genPos = pckgClass.find("<");
         if ( common::options::CHPTransform && genPos != string::npos ) {
-          
+
           //it is a generic class
           string generics = pckgClass.substr(genPos);
           pckgClass.erase(genPos, pckgClass.length() - genPos + 1);
@@ -86,8 +86,7 @@ vector<Record> Loader_callerhierarchy::load() {
           stringstream giss(generics);
           string Genparameter;
           while ( getline(giss, Genparameter, ',') ) {
-            
-            //TODO: ,space vagy csak , van.
+
             if ( ' ' == Genparameter[0] ) {
               Genparameter.erase(0,1);
               
@@ -125,6 +124,7 @@ vector<Record> Loader_callerhierarchy::load() {
         throw Labels::UNINITIALIZED_RECORD;
       
       Record r(representation, pckgClass, method, parameterVector);
+
       //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?
       //mert ide nem tudom berakni a $ jeleket, azonban ha megtaláltam, hogy melyik lenne, akkor annak le tudom kérni az osztály nevét
       //és azzal már tudok csinálni egy új rekordot.
@@ -136,9 +136,10 @@ vector<Record> Loader_callerhierarchy::load() {
         unsigned index = -1;
         for ( unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-          if ( r ? common::storedIds[i] ) {//TODO ? operator
+          if ( r >>= common::storedIds[i] ) {//TODO ? operator
             //after replacing '$' s found it
             common::storedIds[i] += representation;
+            index = i;
             finallyFound = true;
           }
         }

@@ -21,6 +21,11 @@ class Record {
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::string m ) const;
+    /**
+    * \param  A record, but this time the record is not compared to the original classname but every '$' is replaced with '.'
+    * \return a bool value if the 2 records, this and the parameter, are equal
+    */
+    bool operator>>=( const Record& r ) const;
     Record& operator+=( const std::string newWayOfRepresentation );
     Record& operator+=( const Record& r );
     bool operator<( const Record& r ) const;
