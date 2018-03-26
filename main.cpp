@@ -51,7 +51,7 @@ int main( int argc, char** argv ) {
   cout << "Starting transforming and making stat..." << endl;
   
   try { 
-  
+
   Factory factory = Factory::createFactory();
   
   Switch* switches[] = {
@@ -62,17 +62,17 @@ int main( int argc, char** argv ) {
                           new Switch("-g", factory ),
                           NULL
                         };
-  
+
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
-                          new Option("-anyonymTransformation", &anonymClassNameTransformationMethod),
+                          new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
                       };
     
   //need pointer otherwise vector do not accept as Loader is abstract
   vector<Loader*> loaders;
-  
+
 Switch* chp = NULL;
 int chpArgIndex = -1;
 
@@ -96,7 +96,7 @@ int chpArgIndex = -1;
       }
     }
   }
-    
+  
   if ( chp ) {
     
     chp->init(argv[chpArgIndex]);
@@ -105,14 +105,14 @@ int chpArgIndex = -1;
     
   if ( 0 == loaders.size() )
     throw Labels::NO_LOADER_WERE_GIVEN;
-    
+  
   j = -1;
   while( options[++j] ) {
     
     for ( int i = 1; i < argc - 1; i++ ) {
       
       if ( *(options[j]) == argv[i] ) {
-
+        
         options[j]->foo(argv, i);
         break;
       }
@@ -124,7 +124,7 @@ int chpArgIndex = -1;
   connections.resize(loaders.size());
   std::vector<vector<Record>> records;
   records.resize(loaders.size());
-  
+
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     
     records[i] = loaders[i]->load();
@@ -166,7 +166,7 @@ VERBOSE1
   }
 
   cout << "End of program." << endl;
-  
+
   system("./commonTSV tsvfiles.list");
   
   return 0;

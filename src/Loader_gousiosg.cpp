@@ -62,7 +62,7 @@ vector<Record> Loader_gousiosg::load() {
         throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
       }
     }
-    
+ 
     Record r(member1, f_classWithPckg, method, parameterVector);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r );
@@ -125,8 +125,7 @@ vector<Record> Loader_gousiosg::load() {
         throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
       }
     }
-    
-    
+      
     Record r2(member2, f_classWithPckg2, method2, parameterVector2);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r2 );

@@ -1,5 +1,5 @@
 #include "../inc/common.h"
-
+#include<iostream>
 namespace common {
   
   std::vector<Record> storedIds;
@@ -13,7 +13,9 @@ namespace common {
       
       if ( '$' == str[i] && str[i + 1] >= '0' && str[i + 1] <= '9' ) {
         //so it is an inner class, what's more an anonym class
-        str.replace(i+1, str.length() - i - 2, "UNIFIEDANONYMCLASSNAME");
+        //str.replace(i+1, str.length(), "UNIFIEDANONYMCLASSNAME");
+        str.erase(i+1);
+        str += "UNIFIEDANONYMCLASSNAME";
         replaced = true;
         break;
       }

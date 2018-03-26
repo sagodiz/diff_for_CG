@@ -144,7 +144,6 @@ vector<Record> Loader_spoon::load() {
         }
       }
       
-      
 			Record r(representation, pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back(r);

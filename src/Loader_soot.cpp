@@ -86,7 +86,7 @@ vector<Record> Loader_soot::load() {
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
         }
       }
-      
+     
       Record r(methodRepresentation, f_classWithPckg, method, parameterVector);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );

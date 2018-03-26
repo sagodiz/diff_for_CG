@@ -202,7 +202,7 @@ vector<Record> Loader_sourcemeter::load() {
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
         }
       }
-      
+   
       Record r(representation, pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );

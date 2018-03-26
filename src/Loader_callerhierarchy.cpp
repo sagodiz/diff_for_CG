@@ -116,12 +116,13 @@ vector<Record> Loader_callerhierarchy::load() {
           //so this parameter !MAY! come from generic params.
           switch( common::options::CHPTransform ) {
             
-            case 1://class is alread transormed
+            case 1: //class is alread transormed
                   break;
-            case 2://remove generic signature from param
-                  parameter.erase(parameter.find("<"));
+            case 2: //remove generic signature from param
+                  if ( parameter.find("<") != string::npos )
+                    parameter.erase(parameter.find("<"));
                   break;
-            case 3://change ecery generic param type to object
+            case 3: //change ecery generic param type to object
                   parameter = "java.lang.Object";
                   break;
             default: //mst not happen
@@ -151,7 +152,7 @@ vector<Record> Loader_callerhierarchy::load() {
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
         }
       }
-      
+     
       Record r(representation, pckgClass, method, parameterVector);
 
       //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?

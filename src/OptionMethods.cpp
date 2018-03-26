@@ -3,6 +3,7 @@
 #include "../inc/common.h"
 
 #include <cstring>
+#include <iostream>
 
 void projectNameMethod( char** argV, int argI ) {
   
