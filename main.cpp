@@ -66,6 +66,7 @@ int main( int argc, char** argv ) {
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
+                          new Option("-anyonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
                       };
     
@@ -113,6 +114,7 @@ int chpArgIndex = -1;
       if ( *(options[j]) == argv[i] ) {
 
         options[j]->foo(argv, i);
+        break;
       }
     }
   }

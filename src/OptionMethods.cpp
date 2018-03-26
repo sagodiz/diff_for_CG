@@ -32,3 +32,23 @@ void cHPTransformationMethod( char** argV, int argI ) {
     common::options::CHPTransform = 0;
   }
 }
+
+void anonymClassNameTransformationMethod( char** argV, int argI ) {
+  
+  if ( !strcmp(argV[argI + 1], "0") ) {
+    //do not do any transformation
+    common::options::anonymClassNameTransform = 0;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") ) {
+    //turn every anonym class into a common anonymclass
+    common::options::anonymClassNameTransform = 1;
+  }
+  else if ( !strcmp(argV[argI + 1], "2") ) {  //TODO!!!!
+    //anonym in anonym continue numbering, TODO!!!!!!!!!!!!!!!
+    common::options::anonymClassNameTransform = 2;
+  }
+  else {
+    
+    common::options::anonymClassNameTransform = 0;
+  }
+}

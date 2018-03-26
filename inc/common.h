@@ -49,5 +49,6 @@ namespace common {
   namespace options {
     
     extern unsigned char CHPTransform;
+    extern unsigned char anonymClassNameTransform;
   }
 }
