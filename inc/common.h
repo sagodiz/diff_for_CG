@@ -48,6 +48,6 @@ namespace common {
   
   namespace options {
     
-    extern bool CHPTransform;
+    extern unsigned char CHPTransform;
   }
 }

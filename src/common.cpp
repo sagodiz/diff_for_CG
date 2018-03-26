@@ -10,6 +10,6 @@ namespace common {
   
   namespace options {
     
-    bool CHPTransform = true;
+    unsigned char CHPTransform = 0;
   }
 }

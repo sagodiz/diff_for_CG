@@ -46,7 +46,8 @@ vector<Record> Loader_gousiosg::load() {
     }
     
     Record r(member1, f_classWithPckg, method, parameterVector);
-    tmpRecords.push_back( r );
+    if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
+      tmpRecords.push_back( r );
     
   if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
       //so this record is not found in the vector
@@ -92,7 +93,8 @@ vector<Record> Loader_gousiosg::load() {
     }
     
     Record r2(member2, f_classWithPckg2, method2, parameterVector2);
-    tmpRecords.push_back( r2 );
+    if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
+      tmpRecords.push_back( r2 );
 
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
       //so this record is not found in the vector

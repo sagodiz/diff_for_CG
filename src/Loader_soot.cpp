@@ -70,7 +70,8 @@ vector<Record> Loader_soot::load() {
       }
       
       Record r(methodRepresentation, f_classWithPckg, method, parameterVector);
-      tmpRecords.push_back( r );
+      if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
+        tmpRecords.push_back( r );
       
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         //so this record is not found in the vector

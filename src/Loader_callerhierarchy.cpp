@@ -75,7 +75,7 @@ vector<Record> Loader_callerhierarchy::load() {
         //if it is make it an init method
         
         size_t genPos = pckgClass.find("<");
-        if ( common::options::CHPTransform && genPos != string::npos ) {
+        if ( common::options::CHPTransform > 0 && genPos != string::npos ) {
 
           //it is a generic class
           string generics = pckgClass.substr(genPos);
@@ -114,7 +114,19 @@ vector<Record> Loader_callerhierarchy::load() {
         
         if ( find(genericStrings.begin(), genericStrings.end(), parameter) != genericStrings.end() ) {
           //so this parameter !MAY! come from generic params.
-          parameter = "java.lang.Object";
+          switch( common::options::CHPTransform ) {
+            
+            case 1://class is alread transormed
+                  break;
+            case 2://remove generic signature from param
+                  parameter.erase(parameter.find("<"));
+                  break;
+            case 3://change ecery generic param type to object
+                  parameter = "java.lang.Object";
+                  break;
+            default: //mst not happen
+                    throw Labels::CHP_TRANSFORMATION_OPTION_ERROR;
+          } 
         }
         
         parameterVector.push_back(parameter);
@@ -145,20 +157,23 @@ vector<Record> Loader_callerhierarchy::load() {
         }
         
         if ( finallyFound ) {
-          
+          //new record is pushed back as it is used later.. no other way to create the appropiate class name only by copying it.
           Record r2(representation, common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
-          tmpRecords.push_back(r2);
+          if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )
+            tmpRecords.push_back(r2);
         }
         else {
           //so this record is not found in the vector
-          tmpRecords.push_back(r);
+          if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() ) //here it should always happen but who knows
+            tmpRecords.push_back(r);
           common::storedIds.push_back(r);
           ++uniqueMethodNum;
         }
       }
       else {
         
-        tmpRecords.push_back(r);
+        if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )
+          tmpRecords.push_back(r);
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
         if ( *it == representation ) {
           //contains this representation
