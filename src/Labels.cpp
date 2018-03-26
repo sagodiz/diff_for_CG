@@ -13,5 +13,6 @@ namespace Labels {
   const std::string NO_LOADER_WERE_GIVEN = "No loader was given. Please give at least 1 loader.";
   const std::string COULD_NOT_WRITE_FILE_LIST = "Could not write list of tsv files.";
   const std::string CHP_TRANSFORMATION_OPTION_ERROR = "The transformation value is unrecognized.";
+  const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN = "Transformation option for anonym classes is invalid.";
   std::string PROJECT_NAME = "Default";
 }

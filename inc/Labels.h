@@ -17,6 +17,7 @@ namespace Labels {
   extern std::string PROJECT_NAME;
   extern const std::string COULD_NOT_WRITE_FILE_LIST;
   extern const std::string CHP_TRANSFORMATION_OPTION_ERROR;
+  extern const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
 }
 
 #endif

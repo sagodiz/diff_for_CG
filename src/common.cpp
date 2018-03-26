@@ -4,6 +4,23 @@ namespace common {
   
   std::vector<Record> storedIds;
   std::vector<std::string> tsvFiles;
+
+  bool unifyeAnonymClasses( std::string& str ) {
+    
+    bool replaced = false;
+    
+    for ( unsigned i = 0; i < str.length() - 1; i++ ) {
+      
+      if ( '$' == str[i] && str[i + 1] >= '0' && str[i + 1] <= '9' ) {
+        //so it is an inner class, what's more an anonym class
+        str.replace(i+1, str.length() - i - 2, "UNIFIEDANONYMCLASSNAME");
+        replaced = true;
+        break;
+      }
+    }
+    
+    return replaced;
+  }
 }
 
 namespace common {
