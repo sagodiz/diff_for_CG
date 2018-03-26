@@ -4,6 +4,7 @@ namespace common {
   
   std::vector<Record> storedIds;
   std::vector<std::string> tsvFiles;
+  std::vector<std::string> connTSVFiles;
 
   bool unifyeAnonymClasses( std::string& str ) {
     

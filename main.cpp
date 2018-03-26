@@ -39,6 +39,7 @@ using namespace std;
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
 
 static void writeTSV(vector<Record>, string, string);
+static void writeConnTSV( set<pair<int, int>>, string);
 
 int main( int argc, char** argv ) {
 
@@ -150,6 +151,24 @@ VERBOSE1
       TSVFILE << common::tsvFiles[i] << endl;
     }
   }
+  
+  for ( unsigned i = 0; i < connections.size(); i++ ) {
+    
+    writeConnTSV(connections[i], loaders[i]->getName());
+    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "calls.tsv");
+  }
+  
+  {
+    sort( common::connTSVFiles.begin(), common::connTSVFiles.end() );
+    ofstream CONNTSVFILE("conntsvfiles.list");
+    if ( !CONNTSVFILE.is_open() )
+      throw Labels::COULD_NOT_WRITE_FILE_LIST;
+    
+    for ( unsigned i = 0; i < common::connTSVFiles.size(); i++ ) {
+      
+      CONNTSVFILE << common::connTSVFiles[i] << endl;
+    }
+  }
     
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
     
@@ -175,6 +194,21 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 //########################################################################x
+
+static void writeConnTSV( set<pair<int, int>> connections, string name) {
+  
+  ofstream TSV(Labels::PROJECT_NAME + name + "connections.tsv");
+  
+  if ( !TSV.is_open() )
+    throw Labels::COULD_NOT_WRITE_TSV;
+  
+  TSV << "caller->callee" << "\t" << name << endl;
+  
+  for ( pair<int, int> it : connections ) {
+    
+    TSV << "(" << it.first << ")" << common::getMethodById(it.first) << "->(" << it.second << ")" << common::getMethodById(it.second) << "\t" << name << endl;
+  }
+}
 
 static void writeTSV( vector<Record> records, string name, string tool ) {
   
