@@ -1,0 +1,73 @@
+digraph "call-graph" {
+    "<Anonym3RefForward: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void test2(AnonymTest2)>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward: void test2(AnonymTest2)>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward: void test2(AnonymTest2)>";
+    "<Anonym3RefForward: void test1(AnonymTest1)>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward: void test1(AnonymTest1)>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward: void test1(AnonymTest1)>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$1: void <init>()>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward$1: void <init>()>";
+    "<Anonym3RefForward$2: void <init>()>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward$2: void <init>()>";
+    "<Anonym3RefForward$3: void <init>()>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward$3: void <init>()>";
+    "<Anonym3RefForward$4: void <init>()>"
+    "<Anonym3RefForward: void main(java.lang.String[])>"->"<Anonym3RefForward$4: void <init>()>";
+    "<Anonym3RefForward$4: void foo()>"
+    "<Anonym3RefForward: void test2(AnonymTest2)>"->"<Anonym3RefForward$4: void foo()>";
+    "<Anonym3RefForward$3: void foo()>"
+    "<Anonym3RefForward: void test2(AnonymTest2)>"->"<Anonym3RefForward$3: void foo()>";
+    "<Anonym3RefForward$4: void goo()>"
+    "<Anonym3RefForward: void test2(AnonymTest2)>"->"<Anonym3RefForward$4: void goo()>";
+    "<Anonym3RefForward$3: void goo()>"
+    "<Anonym3RefForward: void test2(AnonymTest2)>"->"<Anonym3RefForward$3: void goo()>";
+    "<java.lang.System: void <clinit>()>"
+    "<Anonym3RefForward$4: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<Anonym3RefForward$4: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$3: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<Anonym3RefForward$3: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$4: void goo()>"->"<java.lang.System: void <clinit>()>";
+    "<Anonym3RefForward$4: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$3: void goo()>"->"<java.lang.System: void <clinit>()>";
+    "<Anonym3RefForward$3: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$2: void foo()>"
+    "<Anonym3RefForward: void test1(AnonymTest1)>"->"<Anonym3RefForward$2: void foo()>";
+    "<Anonym3RefForward$1: void foo()>"
+    "<Anonym3RefForward: void test1(AnonymTest1)>"->"<Anonym3RefForward$1: void foo()>";
+    "<Anonym3RefForward$2: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<Anonym3RefForward$2: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym3RefForward$1: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<AnonymTest1: void <init>()>"
+    "<Anonym3RefForward$1: void <init>()>"->"<AnonymTest1: void <init>()>";
+    "<Anonym3RefForward$2: void <init>()>"->"<AnonymTest1: void <init>()>";
+    "<AnonymTest2: void <init>()>"
+    "<Anonym3RefForward$3: void <init>()>"->"<AnonymTest2: void <init>()>";
+    "<Anonym3RefForward$4: void <init>()>"->"<AnonymTest2: void <init>()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<Anonym3RefForward$4: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Anonym3RefForward$3: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Anonym3RefForward$4: void goo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Anonym3RefForward$3: void goo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Anonym3RefForward$2: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Anonym3RefForward$1$1: void <init>(Anonym3RefForward$1)>"
+    "<Anonym3RefForward$1: void foo()>"->"<Anonym3RefForward$1$1: void <init>(Anonym3RefForward$1)>";
+    "<Anonym3RefForward$1: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<java.lang.Object: void <init>()>"
+    "<AnonymTest1: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<AnonymTest2: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<AnonymTest3: void <init>()>"
+    "<Anonym3RefForward$1$1: void <init>(Anonym3RefForward$1)>"->"<AnonymTest3: void <init>()>";
+    "<AnonymTest3: void <init>()>"->"<java.lang.Object: void <init>()>";
+}

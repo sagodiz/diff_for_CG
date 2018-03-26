@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="118">
+	<data key="d0">AnonymTest1.&lt;init&gt;()V</data>
+</node>
+<node id="119">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="121">
+	<data key="d0">AnonymTest1.foo()V</data>
+</node>
+<node id="126">
+	<data key="d0">AnonymTest2.&lt;init&gt;()V</data>
+</node>
+<node id="127">
+	<data key="d0">AnonymTest2.foo()V</data>
+</node>
+<node id="128">
+	<data key="d0">AnonymTest2.goo()V</data>
+</node>
+<node id="130">
+	<data key="d0">Anonym2.&lt;init&gt;()V</data>
+</node>
+<node id="131">
+	<data key="d0">Anonym2.test1(LAnonymTest1;)V</data>
+</node>
+<node id="136">
+	<data key="d0">Anonym2.test2(LAnonymTest2;)V</data>
+</node>
+<node id="142">
+	<data key="d0">Anonym2.main([Ljava/lang/String;)V</data>
+</node>
+<node id="150">
+	<data key="d0">Anonym2$1.&lt;init&gt;()V</data>
+</node>
+<node id="154">
+	<data key="d0">Anonym2$1.foo()V</data>
+</node>
+<node id="155">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<node id="159">
+	<data key="d0">Anonym2$2.&lt;init&gt;()V</data>
+</node>
+<node id="162">
+	<data key="d0">Anonym2$2.foo()V</data>
+</node>
+<node id="164">
+	<data key="d0">Anonym2$3.&lt;init&gt;()V</data>
+</node>
+<node id="168">
+	<data key="d0">Anonym2$3.foo()V</data>
+</node>
+<node id="169">
+	<data key="d0">Anonym2$3.goo()V</data>
+</node>
+<node id="170">
+	<data key="d0">Anonym2$4.&lt;init&gt;()V</data>
+</node>
+<node id="173">
+	<data key="d0">Anonym2$4.foo()V</data>
+</node>
+<node id="174">
+	<data key="d0">Anonym2$4.goo()V</data>
+</node>
+<edge source="118"  target="119"/>
+<edge source="126"  target="119"/>
+<edge source="130"  target="119"/>
+<edge source="131"  target="121"/>
+<edge source="136"  target="127"/>
+<edge source="136"  target="128"/>
+<edge source="142"  target="131"/>
+<edge source="142"  target="136"/>
+<edge source="142"  target="150"/>
+<edge source="142"  target="159"/>
+<edge source="142"  target="164"/>
+<edge source="142"  target="170"/>
+<edge source="150"  target="118"/>
+<edge source="154"  target="155"/>
+<edge source="159"  target="118"/>
+<edge source="162"  target="155"/>
+<edge source="164"  target="126"/>
+<edge source="168"  target="155"/>
+<edge source="169"  target="155"/>
+<edge source="170"  target="126"/>
+<edge source="173"  target="155"/>
+<edge source="174"  target="155"/>
+</graph></graphml>

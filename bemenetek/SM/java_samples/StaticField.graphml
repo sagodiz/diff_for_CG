@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="120">
+	<data key="d0">StaticField.&lt;init&gt;()V</data>
+</node>
+<node id="121">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="130">
+	<data key="d0">StaticField.&lt;clinit&gt;()</data>
+</node>
+<node id="132">
+	<data key="d0">java.util.ArrayList.&lt;init&gt;()V</data>
+</node>
+<node id="134">
+	<data key="d0">StaticField.staticfoo()V</data>
+</node>
+<node id="139">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<node id="143">
+	<data key="d0">StaticField.main([Ljava/lang/String;)V</data>
+</node>
+<edge source="120"  target="121"/>
+<edge source="130"  target="132"/>
+<edge source="130"  target="134"/>
+<edge source="134"  target="139"/>
+<edge source="143"  target="139"/>
+</graph></graphml>

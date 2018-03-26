@@ -1,0 +1,15 @@
+digraph graphname {
+rankdir="LR";
+118 [label="AnonymTest.<init>()V"]
+119 [label="java.lang.Object.<init>()V"]
+126 [label="Anonym1.<init>()V"]
+127 [label="Anonym1.main([Ljava/lang/String;)V"]
+136 [label="Anonym1$1.<init>()V"]
+140 [label="Anonym1$1.foo()V"]
+141 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+118 -> 119
+126 -> 119
+127 -> 136
+136 -> 118
+140 -> 141
+}

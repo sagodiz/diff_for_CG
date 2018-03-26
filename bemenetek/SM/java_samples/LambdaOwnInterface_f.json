@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "MyFunctionalInterface.sayHello()Ljava/lang/String;", "id": 117}, {"label": "LambdaOwnInterface.main([Ljava/lang/String;)V", "id": 129}], "links": [{"source": 129, "target": 117}]}

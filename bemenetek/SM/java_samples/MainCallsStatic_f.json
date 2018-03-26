@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "MainCallsStatic.main([Ljava/lang/String;)V", "id": 120}, {"label": "MainCallsStatic.foo()I", "id": 130}], "links": [{"source": 120, "target": 130}]}

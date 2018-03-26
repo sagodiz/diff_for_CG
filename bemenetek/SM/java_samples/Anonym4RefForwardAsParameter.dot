@@ -1,0 +1,56 @@
+digraph graphname {
+rankdir="LR";
+118 [label="AnonymTest1.<init>()V"]
+119 [label="java.lang.Object.<init>()V"]
+121 [label="AnonymTest1.foo(LAnonymTest3;)V"]
+130 [label="AnonymTest2.<init>()V"]
+131 [label="AnonymTest2.foo()V"]
+132 [label="AnonymTest2.goo()V"]
+133 [label="AnonymTest3.<init>()V"]
+134 [label="AnonymTest3.hoo()V"]
+136 [label="Anonym4RefForwardAsParameter.<init>()V"]
+137 [label="Anonym4RefForwardAsParameter.test1(LAnonymTest1;)V"]
+142 [label="Anonym4RefForwardAsParameter$1.<init>()V"]
+146 [label="Anonym4RefForwardAsParameter$1.hoo()V"]
+147 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+151 [label="Anonym4RefForwardAsParameter.test2(LAnonymTest2;)V"]
+157 [label="Anonym4RefForwardAsParameter.main([Ljava/lang/String;)V"]
+165 [label="Anonym4RefForwardAsParameter$2.<init>()V"]
+169 [label="Anonym4RefForwardAsParameter$2.foo(LAnonymTest3;)V"]
+172 [label="Anonym4RefForwardAsParameter$3.<init>()V"]
+175 [label="Anonym4RefForwardAsParameter$3.foo(LAnonymTest3;)V"]
+178 [label="Anonym4RefForwardAsParameter$4.<init>()V"]
+182 [label="Anonym4RefForwardAsParameter$4.foo()V"]
+183 [label="Anonym4RefForwardAsParameter$4.goo()V"]
+184 [label="Anonym4RefForwardAsParameter$5.<init>()V"]
+187 [label="Anonym4RefForwardAsParameter$5.foo()V"]
+188 [label="Anonym4RefForwardAsParameter$5.goo()V"]
+118 -> 119
+130 -> 119
+133 -> 119
+136 -> 119
+137 -> 121
+137 -> 142
+142 -> 133
+146 -> 147
+151 -> 131
+151 -> 132
+157 -> 137
+157 -> 151
+157 -> 165
+157 -> 172
+157 -> 178
+157 -> 184
+165 -> 118
+169 -> 134
+169 -> 147
+172 -> 118
+175 -> 134
+175 -> 147
+178 -> 130
+182 -> 147
+183 -> 147
+184 -> 130
+187 -> 147
+188 -> 147
+}

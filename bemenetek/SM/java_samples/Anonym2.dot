@@ -1,0 +1,46 @@
+digraph graphname {
+rankdir="LR";
+118 [label="AnonymTest1.<init>()V"]
+119 [label="java.lang.Object.<init>()V"]
+121 [label="AnonymTest1.foo()V"]
+126 [label="AnonymTest2.<init>()V"]
+127 [label="AnonymTest2.foo()V"]
+128 [label="AnonymTest2.goo()V"]
+130 [label="Anonym2.<init>()V"]
+131 [label="Anonym2.test1(LAnonymTest1;)V"]
+136 [label="Anonym2.test2(LAnonymTest2;)V"]
+142 [label="Anonym2.main([Ljava/lang/String;)V"]
+150 [label="Anonym2$1.<init>()V"]
+154 [label="Anonym2$1.foo()V"]
+155 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+159 [label="Anonym2$2.<init>()V"]
+162 [label="Anonym2$2.foo()V"]
+164 [label="Anonym2$3.<init>()V"]
+168 [label="Anonym2$3.foo()V"]
+169 [label="Anonym2$3.goo()V"]
+170 [label="Anonym2$4.<init>()V"]
+173 [label="Anonym2$4.foo()V"]
+174 [label="Anonym2$4.goo()V"]
+118 -> 119
+126 -> 119
+130 -> 119
+131 -> 121
+136 -> 127
+136 -> 128
+142 -> 131
+142 -> 136
+142 -> 150
+142 -> 159
+142 -> 164
+142 -> 170
+150 -> 118
+154 -> 155
+159 -> 118
+162 -> 155
+164 -> 126
+168 -> 155
+169 -> 155
+170 -> 126
+173 -> 155
+174 -> 155
+}

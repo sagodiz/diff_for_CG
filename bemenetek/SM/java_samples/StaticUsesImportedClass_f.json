@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "StaticUsesImportedClass.main([Ljava/lang/String;)V", "id": 120}, {"label": "StaticUsesImportedClass.foo()I", "id": 133}], "links": [{"source": 120, "target": 133}]}

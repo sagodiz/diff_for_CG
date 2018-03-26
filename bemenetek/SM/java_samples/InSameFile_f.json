@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "A.<init>()V", "id": 117}, {"label": "A.foo()V", "id": 120}, {"label": "InSameFile.main([Ljava/lang/String;)V", "id": 131}], "links": [{"source": 117, "target": 120}, {"source": 131, "target": 117}]}

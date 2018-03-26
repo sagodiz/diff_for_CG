@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="120">
+	<data key="d0">ConstructorInStatic.&lt;init&gt;()V</data>
+</node>
+<node id="121">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="130">
+	<data key="d0">ConstructorInStatic.main([Ljava/lang/String;)V</data>
+</node>
+<node id="140">
+	<data key="d0">ConstructorInStatic.foo()V</data>
+</node>
+<node id="143">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<edge source="120"  target="121"/>
+<edge source="130"  target="140"/>
+<edge source="140"  target="143"/>
+</graph></graphml>
