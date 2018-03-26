@@ -1,0 +1,4 @@
+Method call hierarchy callees of Anonym1.main(java.lang.String[])
+	AnonymTest.AnonymTest
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of AnonymTest.foo
