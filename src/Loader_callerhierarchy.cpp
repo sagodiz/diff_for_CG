@@ -135,6 +135,23 @@ vector<Record> Loader_callerhierarchy::load() {
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
       
+      
+      if ( common::options::anonymClassNameTransform > 0 ) {
+        //there is a kind of transformation
+        if ( 1 == common::options::anonymClassNameTransform ) {
+          //turn every anonym class into a constant anonym class
+          common::unifyeAnonymClasses(pckgClass);
+        }
+        else if ( 2 == common::options::anonymClassNameTransform ) {
+          //continue numbering in inner anonym classes
+          //TODO!!! 
+        }
+        else {
+          
+          throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+        }
+      }
+      
       Record r(representation, pckgClass, method, parameterVector);
 
       //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?
