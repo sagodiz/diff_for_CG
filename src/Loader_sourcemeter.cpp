@@ -186,6 +186,22 @@ vector<Record> Loader_sourcemeter::load() {
       
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
+       
+      if ( common::options::anonymClassNameTransform > 0 ) {
+        //there is a kind of transformation
+        if ( 1 == common::options::anonymClassNameTransform ) {
+          //turn every anonym class into a constant anonym class
+          common::unifyeAnonymClasses(pckgClass);
+        }
+        else if ( 2 == common::options::anonymClassNameTransform ) {
+          //continue numbering in inner anonym classes
+          //TODO!!! 
+        }
+        else {
+          
+          throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+        }
+      }
       
       Record r(representation, pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
