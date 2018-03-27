@@ -18,6 +18,7 @@ namespace Labels {
   extern const std::string COULD_NOT_WRITE_FILE_LIST;
   extern const std::string CHP_TRANSFORMATION_OPTION_ERROR;
   extern const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+  extern const std::string WALA_NON_INNERCLASS_EXISTENCE;
 }
 
 #endif
