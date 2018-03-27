@@ -39,6 +39,7 @@ using namespace std;
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
 
 static void writeTSV(vector<Record>, string, string);
+static void writeConnTSV( set<pair<int, int>>, string);
 
 int main( int argc, char** argv ) {
 
@@ -51,7 +52,7 @@ int main( int argc, char** argv ) {
   cout << "Starting transforming and making stat..." << endl;
   
   try { 
-  
+
   Factory factory = Factory::createFactory();
   
   Switch* switches[] = {
@@ -62,17 +63,17 @@ int main( int argc, char** argv ) {
                           new Switch("-g", factory ),
                           NULL
                         };
-  
+
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
-                          new Option("-anyonymTransformation", &anonymClassNameTransformationMethod),
+                          new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
                       };
     
   //need pointer otherwise vector do not accept as Loader is abstract
   vector<Loader*> loaders;
-  
+
 Switch* chp = NULL;
 int chpArgIndex = -1;
 
@@ -96,7 +97,7 @@ int chpArgIndex = -1;
       }
     }
   }
-    
+  
   if ( chp ) {
     
     chp->init(argv[chpArgIndex]);
@@ -105,14 +106,14 @@ int chpArgIndex = -1;
     
   if ( 0 == loaders.size() )
     throw Labels::NO_LOADER_WERE_GIVEN;
-    
+  
   j = -1;
   while( options[++j] ) {
     
     for ( int i = 1; i < argc - 1; i++ ) {
       
       if ( *(options[j]) == argv[i] ) {
-
+        
         options[j]->foo(argv, i);
         break;
       }
@@ -124,7 +125,7 @@ int chpArgIndex = -1;
   connections.resize(loaders.size());
   std::vector<vector<Record>> records;
   records.resize(loaders.size());
-  
+
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     
     records[i] = loaders[i]->load();
@@ -150,6 +151,24 @@ VERBOSE1
       TSVFILE << common::tsvFiles[i] << endl;
     }
   }
+  
+  for ( unsigned i = 0; i < connections.size(); i++ ) {
+    
+    writeConnTSV(connections[i], loaders[i]->getName());
+    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "calls.tsv");
+  }
+  
+  {
+    sort( common::connTSVFiles.begin(), common::connTSVFiles.end() );
+    ofstream CONNTSVFILE("conntsvfiles.list");
+    if ( !CONNTSVFILE.is_open() )
+      throw Labels::COULD_NOT_WRITE_FILE_LIST;
+    
+    for ( unsigned i = 0; i < common::connTSVFiles.size(); i++ ) {
+      
+      CONNTSVFILE << common::connTSVFiles[i] << endl;
+    }
+  }
     
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
     
@@ -166,7 +185,7 @@ VERBOSE1
   }
 
   cout << "End of program." << endl;
-  
+
   system("./commonTSV tsvfiles.list");
   
   return 0;
@@ -175,6 +194,21 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 //########################################################################x
+
+static void writeConnTSV( set<pair<int, int>> connections, string name) {
+  
+  ofstream TSV(Labels::PROJECT_NAME + name + "connections.tsv");
+  
+  if ( !TSV.is_open() )
+    throw Labels::COULD_NOT_WRITE_TSV;
+  
+  TSV << "caller->callee" << "\t" << name << endl;
+  
+  for ( pair<int, int> it : connections ) {
+    
+    TSV << "(" << it.first << ")" << common::getMethodById(it.first) << "->(" << it.second << ")" << common::getMethodById(it.second) << "\t" << name << endl;
+  }
+}
 
 static void writeTSV( vector<Record> records, string name, string tool ) {
   

@@ -1,0 +1,5 @@
+M:Anonym1$1:<init>() (O)AnonymTest:<init>()
+M:Anonym1$1:foo() (M)java.io.PrintStream:println(java.lang.String)
+M:Anonym1:<init>() (O)java.lang.Object:<init>()
+M:Anonym1:main(java.lang.String[]) (O)Anonym1$1:<init>()
+M:AnonymTest:<init>() (O)java.lang.Object:<init>()

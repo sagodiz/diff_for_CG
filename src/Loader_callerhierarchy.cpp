@@ -115,18 +115,29 @@ vector<Record> Loader_callerhierarchy::load() {
         if ( find(genericStrings.begin(), genericStrings.end(), parameter) != genericStrings.end() ) {
           //so this parameter !MAY! come from generic params.
           switch( common::options::CHPTransform ) {
-            
-            case 1://class is alread transormed
+
+            case 2: //class is alread transormed
                   break;
-            case 2://remove generic signature from param
-                  parameter.erase(parameter.find("<"));
+            case 1: //since it is the same in this case
+            case 3: //remove generic signature from param
+                  if ( parameter.find("<") != string::npos ) {
+                    
+                    parameter.erase(parameter.find("<"), parameter.find_last_of(">")-parameter.find("<") + 1);
+                  }
                   break;
-            case 3://change ecery generic param type to object
+            case 4: //change ecery generic param type to object
                   parameter = "java.lang.Object";
                   break;
             default: //mst not happen
                     throw Labels::CHP_TRANSFORMATION_OPTION_ERROR;
           } 
+        }
+        else if ( 1 == common::options::CHPTransform ) {
+          //do totally different things. if it is set change even if it is not generic parameter.
+          if ( parameter.find("<") != string::npos ) {
+            
+            parameter.erase(parameter.find("<"), parameter.find_last_of(">")-parameter.find("<") + 1);
+          }
         }
         
         parameterVector.push_back(parameter);
@@ -151,7 +162,7 @@ vector<Record> Loader_callerhierarchy::load() {
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
         }
       }
-      
+     
       Record r(representation, pckgClass, method, parameterVector);
 
       //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?

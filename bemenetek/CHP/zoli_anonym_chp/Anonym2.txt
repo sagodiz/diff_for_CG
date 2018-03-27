@@ -1,0 +1,23 @@
+Method call hierarchy callees of Anonym2.test1(AnonymTest1)
+	AnonymTest1.foo
+Method call hierarchy callees of Anonym2.test2(AnonymTest2)
+	AnonymTest2.foo
+	AnonymTest2.goo
+Method call hierarchy callees of Anonym2.main(java.lang.String[])
+	Anonym2.test1(AnonymTest1)
+	AnonymTest1.AnonymTest1
+	java.io.PrintStream.println(java.lang.String)
+	Anonym2.test1(AnonymTest1)
+	AnonymTest1.AnonymTest1
+	java.io.PrintStream.println(java.lang.String)
+	Anonym2.test2(AnonymTest2)
+	AnonymTest2.AnonymTest2
+	java.io.PrintStream.println(java.lang.String)
+	java.io.PrintStream.println(java.lang.String)
+	Anonym2.test2(AnonymTest2)
+	AnonymTest2.AnonymTest2
+	java.io.PrintStream.println(java.lang.String)
+	java.io.PrintStream.println(java.lang.String)
+Method call hierarchy callees of AnonymTest1.foo
+Method call hierarchy callees of AnonymTest2.foo
+Method call hierarchy callees of AnonymTest2.goo

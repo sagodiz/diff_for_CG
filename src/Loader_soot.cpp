@@ -6,6 +6,7 @@
 
 #include "../inc/Loader_soot.h"
 #include "../inc/common.h"
+#include "../inc/Labels.h"
 
 #include <set>
 #include <iostream>
@@ -69,6 +70,23 @@ vector<Record> Loader_soot::load() {
         parameterVector.push_back(parameter);
       }
       
+      
+      if ( common::options::anonymClassNameTransform > 0 ) {
+        //there is a kind of transformation
+        if ( 1 == common::options::anonymClassNameTransform ) {
+          //turn every anonym class into a constant anonym class
+          common::unifyeAnonymClasses(f_classWithPckg);
+        }
+        else if ( 2 == common::options::anonymClassNameTransform ) {
+          //continue numbering in inner anonym classes
+          //TODO!!! 
+        }
+        else {
+          
+          throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+        }
+      }
+     
       Record r(methodRepresentation, f_classWithPckg, method, parameterVector);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
