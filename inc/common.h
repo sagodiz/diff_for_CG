@@ -2,7 +2,7 @@
 #include <algorithm> 
 #include <cctype>
 #include "Record.h"
-
+#include <string>
 
 namespace common {
   
@@ -12,8 +12,17 @@ namespace common {
   bool unifyeAnonymClasses( std::string& str );
   static inline std::string getMethodById( const unsigned int& id ) {
     
-    if ( id < storedIds.size() )
-      return storedIds[id].getClass() + "." + storedIds[id].getMethodName();
+    if ( id < storedIds.size() ) {
+      
+      std::string params = "";
+      for ( unsigned i = 0; i < storedIds[id].getParameters().size(); i++ ) {
+        
+        params += (storedIds[id].getParameters())[i] + ",";
+      }
+      //params.erase(params.length() - 1, 1); //the closing ','
+      params[params.length()-1] = ')';
+      return storedIds[id].getClass() + "." + storedIds[id].getMethodName() + "(" + params;// + ")";
+    }
     
     return "";
   }
