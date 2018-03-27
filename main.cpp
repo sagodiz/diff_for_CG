@@ -222,6 +222,7 @@ static void writeTSV( vector<Record> records, string name, string tool ) {
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
     TSV << name << "\t" << records[i] << "\t";
+    //TODO: nem csak kiíratom, vagy a kiíratás lehetne mostmár szebb is
     
     if ( records[i].getSameMethods().size() > 1 )
       throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
