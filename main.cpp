@@ -1,5 +1,3 @@
-//TODO: ha van akkor a chp fusson le utoljára
-
 #include <iostream>
 #include <string>
 #include <set>
@@ -155,7 +153,7 @@ VERBOSE1
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
     writeConnTSV(connections[i], loaders[i]->getName());
-    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "calls.tsv");
+    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "connections.tsv");
   }
   
   {

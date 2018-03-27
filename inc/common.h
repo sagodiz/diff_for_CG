@@ -20,7 +20,10 @@ namespace common {
         params += (storedIds[id].getParameters())[i] + ",";
       }
       //params.erase(params.length() - 1, 1); //the closing ','
-      params[params.length()-1] = ')';
+      if ( ',' == params[params.length()-1] )
+        params[params.length()-1] = ')';
+      else
+        params += ")";
       return storedIds[id].getClass() + "." + storedIds[id].getMethodName() + "(" + params;// + ")";
     }
     

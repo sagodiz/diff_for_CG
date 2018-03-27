@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <sstream>
 
+
+//TODO: while előtti getline-ok. Ja igen, az az enter miatt van azt hiszem
 using namespace std;
 
 #ifdef DEBUG
@@ -57,6 +59,49 @@ class Record {
     }
 };
 
+class RecordConn {
+  
+  public:
+    string connection;
+    string soot;
+    string spoon;
+    string sm;
+    string gous;
+    string chp;
+    
+    RecordConn( string str ) : connection(str) {
+      
+      soot = "";
+      spoon = "";
+      sm = "";
+      gous = "";
+      chp = "";
+    }
+    
+    int commonNum() {
+      
+      int num = 0;
+      if ( "" != soot )
+        ++num;
+      if ( "" != sm )
+        ++num;
+      if ( "" != spoon )
+        ++num;
+      if ( "" != chp )
+        ++num;
+      if ( "" != gous )
+        ++num;
+      
+      return num;
+    }
+    
+    bool operator==(const string& str ) const {
+      
+      if ( str == connection )
+        return true;
+      return false;
+    }
+};
 
 int main(int argc, char** argv) {
   
@@ -93,20 +138,25 @@ int main(int argc, char** argv) {
     //--------------------------------------
     input.close();
     input.open(argv[2]);
-    //--------------------------------------TODO:ez is ilyen sorrendben kerül be?
+    //--------------------------------------
     input >> file2open;
+    cout << "To open: " << file2open << endl;
     chpConn.open(file2open);
-    
+
     input >> file2open;
+    cout << "To open: " << file2open << endl;
     gousConn.open(file2open);
     
     input >> file2open;
+    cout << "To open: " << file2open << endl;
     sootConn.open(file2open);
     
     input >> file2open;
+    cout << "To open: " << file2open << endl;
     smConn.open(file2open);
     
     input >> file2open;
+    cout << "To open: " << file2open << endl;
     spoonConn.open(file2open);
     
     input.close();
@@ -131,14 +181,146 @@ int main(int argc, char** argv) {
     gousConn.open(argv[7]);
   }
   
+//------load connections-------
+  vector<RecordConn> connections;
+  string linec, connStr, toolc;
+  
+  ofstream connout("commonConnections.tsv");
+  
+  //----chpConn--------------
+  chpConn >> connStr >> toolc; 
+  cout << "chp connections" << endl;
+  
+  getline(chpConn, linec);
+  
+  while ( getline(chpConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->chp = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.chp = "X";
+      connections.push_back(r);
+    }
+  }
+  //-------------------------gous---------------
+  gousConn >> connStr >> toolc; 
+  cout << "gous connections" << endl;
+  
+  getline(gousConn, linec);
+  
+  while ( getline(gousConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->gous = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.gous = "X";
+      connections.push_back(r);
+    }
+  }
+  //-----------------soot----------
+  sootConn >> connStr >> toolc;
+  cout << "soot connections" << endl;
+  
+  getline(sootConn, linec);
+  
+  while ( getline(sootConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->soot = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.soot = "X";
+      connections.push_back(r);
+    }
+  }
+  //-------------sm-------------
+  smConn >> connStr >> toolc; 
+  cout << "sm connections" << endl;
+  
+  getline(smConn, linec);
+  
+  while ( getline(smConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->sm = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.sm = "X";
+      connections.push_back(r);
+    }
+  }
+  //----------spoon-----------
+  spoonConn >> connStr >> toolc; 
+  cout << "spoon connections" << endl;
+  
+  getline(spoonConn, linec);
+  
+  while ( getline(spoonConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->spoon = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.spoon = "X";
+      connections.push_back(r);
+    }
+  }
+  
+  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "chp" << "\t" << "gous" << endl;
+  
+  for ( unsigned i = 0; i < connections.size(); i++ ) {
+    
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << endl;
+  }
+  
+  connout.close();
+  
+//-----load methods----------  
   vector<Record> methods;
   
-  ofstream out("common.tsv");
-  /*ifstream soot(argv[3]);
-  ifstream sm(argv[4]);
-  ifstream spoon(argv[5]);
-  ifstream chp(argv[1]);
-  ifstream gous(argv[2]);*/
+  ofstream out("commonMethods.tsv");
   
   string tool, trans, rep;
   string line;
@@ -280,6 +462,8 @@ DDD
     
     out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << endl;
   }
+  
+  out.close();
   
   return 0;
 }
