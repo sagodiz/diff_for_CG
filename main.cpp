@@ -10,6 +10,7 @@
 #include "inc/Loader_callerhierarchy.h"
 #include "inc/Loader_sourcemeter.h"
 #include "inc/Loader_gousiosg.h"
+#include "inc/Loader_wala.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
 #include "inc/Record.h"
@@ -59,6 +60,7 @@ int main( int argc, char** argv ) {
                           new Switch("-sm", factory ),
                           new Switch("-sp", factory ),
                           new Switch("-g", factory ),
+                          new Switch("-w", factory ),
                           NULL
                         };
 

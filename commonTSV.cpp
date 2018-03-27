@@ -23,6 +23,7 @@ class Record {
     string spoon;
     string chp;
     string gous;
+    string wala;
     
     Record(string t) : transformed(t) {
       
@@ -31,6 +32,7 @@ class Record {
       spoon = "x";
       chp = "x";
       gous = "x";
+      wala = "x";
     }
   
     int commonNum() {
@@ -45,6 +47,8 @@ class Record {
       if ( "x" != chp )
         ++num;
       if ( "x" != gous )
+        ++num;
+      if ( "x" != wala )
         ++num;
       
       return num;
@@ -68,6 +72,7 @@ class RecordConn {
     string sm;
     string gous;
     string chp;
+    string wala;
     
     RecordConn( string str ) : connection(str) {
       
@@ -76,6 +81,7 @@ class RecordConn {
       sm = "";
       gous = "";
       chp = "";
+      wala = "";
     }
     
     int commonNum() {
@@ -90,6 +96,8 @@ class RecordConn {
       if ( "" != chp )
         ++num;
       if ( "" != gous )
+        ++num;
+      if ( "" != wala )
         ++num;
       
       return num;
@@ -110,12 +118,14 @@ int main(int argc, char** argv) {
   ifstream spoon;
   ifstream chp;
   ifstream gous;
+  ifstream wala;
   
   ifstream sootConn;
   ifstream smConn;
   ifstream spoonConn;
   ifstream chpConn;
   ifstream gousConn;
+  ifstream walaConn;
   
   if ( 3 == argc ) {
     ifstream input(argv[1]);
@@ -135,29 +145,30 @@ int main(int argc, char** argv) {
     
     input >> file2open;
     spoon.open(file2open);
+    
+    input >> file2open;
+    wala.open(file2open);
     //--------------------------------------
     input.close();
     input.open(argv[2]);
     //--------------------------------------
     input >> file2open;
-    cout << "To open: " << file2open << endl;
     chpConn.open(file2open);
 
     input >> file2open;
-    cout << "To open: " << file2open << endl;
     gousConn.open(file2open);
     
     input >> file2open;
-    cout << "To open: " << file2open << endl;
     sootConn.open(file2open);
     
     input >> file2open;
-    cout << "To open: " << file2open << endl;
     smConn.open(file2open);
     
     input >> file2open;
-    cout << "To open: " << file2open << endl;
     spoonConn.open(file2open);
+    
+    input >> file2open;
+    walaConn.open(file2open);
     
     input.close();
   }
@@ -168,17 +179,21 @@ int main(int argc, char** argv) {
       cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: chp g... soot sm spoon chpConn g...Conn sootConn smConn spoonConn" << endl;
       return 1;
     }
-    soot.open(argv[3]);
-    sm.open(argv[4]);
-    spoon.open(argv[5]);
-    chp.open(argv[1]);
-    gous.open(argv[2]);
+    int index = 1;
     
-    sootConn.open(argv[8]);
-    smConn.open(argv[9]);
-    spoonConn.open(argv[10]);
-    chpConn.open(argv[6]);
-    gousConn.open(argv[7]);
+    chp.open(argv[index++]);
+    gous.open(argv[index++]);
+    soot.open(argv[index++]);
+    sm.open(argv[index++]);
+    spoon.open(argv[index++]);
+    
+    
+    chpConn.open(argv[index++]);
+    gousConn.open(argv[index++]);
+    sootConn.open(argv[index++]);
+    smConn.open(argv[index++]);
+    spoonConn.open(argv[index++]);
+  
   }
   
 //------load connections-------
@@ -307,12 +322,36 @@ int main(int argc, char** argv) {
       connections.push_back(r);
     }
   }
+  //-----wala------
+  walaConn >> connStr >> toolc; 
+  cout << "wala connections" << endl;
   
-  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "chp" << "\t" << "gous" << endl;
+  getline(walaConn, linec);
+  
+  while ( getline(walaConn, linec) ) {
+    
+    stringstream input_stringstream(linec);
+
+    getline(input_stringstream, connStr , '\t');
+    getline(input_stringstream, toolc , '\t');
+    
+    auto it = find(connections.begin(), connections.end(), connStr);
+    if ( it != connections.end() ) {
+      //megtalalta
+      it->wala = "X";
+    }
+    else {
+      RecordConn r(connStr);
+      r.wala = "X";
+      connections.push_back(r);
+    }
+  }
+  //-----kiiras
+  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "chp" << "\t" << "gous" << "\t" << "wala" << endl;
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << endl;
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << connections[i].wala << endl;
   }
   
   connout.close();
@@ -456,11 +495,37 @@ DDD
   } 
   //-------
 
-  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << endl;
+  cout << "wala" << endl;
+
+  wala >> tool >> trans >> rep; //get the header
+  getline(wala, line);
+DDD
+  while( getline(wala, line) ) {
+DDD    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, tool , '\t');
+    getline(input_stringstream, trans , '\t');
+    getline(input_stringstream, rep , '\t');
+    
+    auto it = find(methods.begin(), methods.end(), trans);
+    if ( it != methods.end() ) {
+      //megtalalta
+      it->wala = rep;
+    }
+    else {
+      Record r(trans);
+      r.wala = rep;
+      methods.push_back(r);
+    }
+  }
+  
+  //---kiírás
+  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << "\t" << "wala.rep" << endl;
   
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
-    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << endl;
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << "\t" << methods[i].wala << endl;
   }
   
   out.close();

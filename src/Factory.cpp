@@ -5,6 +5,7 @@
 #include "../inc/Loader_callerhierarchy.h"
 #include "../inc/Loader_spoon.h"
 #include "../inc/Loader_gousiosg.h"
+#include "../inc/Loader_wala.h"
 #include "../inc/Labels.h"
 
 using namespace std;
@@ -31,6 +32,9 @@ Loader* Factory::getLoaderPointer( string str, string filePath ) const {
   }
   else if ( "-g" == str ) {
     return new Loader_gousiosg(filePath, "gousiosg");
+  }
+  else if ( "-w" == str ) {
+    return new Loader_wala(filePath, "wala");
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;
