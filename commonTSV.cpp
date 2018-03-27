@@ -66,7 +66,13 @@ int main(int argc, char** argv) {
   ifstream chp;
   ifstream gous;
   
-  if ( 2 == argc ) {
+  ifstream sootConn;
+  ifstream smConn;
+  ifstream spoonConn;
+  ifstream chpConn;
+  ifstream gousConn;
+  
+  if ( 3 == argc ) {
     ifstream input(argv[1]);
     string file2open;
     
@@ -84,13 +90,32 @@ int main(int argc, char** argv) {
     
     input >> file2open;
     spoon.open(file2open);
+    //--------------------------------------
+    input.close();
+    input.open(argv[2]);
+    //--------------------------------------TODO:ez is ilyen sorrendben kerül be?
+    input >> file2open;
+    chpConn.open(file2open);
     
+    input >> file2open;
+    gousConn.open(file2open);
+    
+    input >> file2open;
+    sootConn.open(file2open);
+    
+    input >> file2open;
+    smConn.open(file2open);
+    
+    input >> file2open;
+    spoonConn.open(file2open);
+    
+    input.close();
   }
   else {
     
     if ( 6 != argc ) {
 
-      cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: chp g... soot sm spoon" << endl;
+      cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: chp g... soot sm spoon chpConn g...Conn sootConn smConn spoonConn" << endl;
       return 1;
     }
     soot.open(argv[3]);
@@ -98,6 +123,12 @@ int main(int argc, char** argv) {
     spoon.open(argv[5]);
     chp.open(argv[1]);
     gous.open(argv[2]);
+    
+    sootConn.open(argv[8]);
+    smConn.open(argv[9]);
+    spoonConn.open(argv[10]);
+    chpConn.open(argv[6]);
+    gousConn.open(argv[7]);
   }
   
   vector<Record> methods;
