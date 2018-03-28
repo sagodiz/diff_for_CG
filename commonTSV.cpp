@@ -351,7 +351,7 @@ int main(int argc, char** argv) {
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << connections[i].wala << endl;
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << "\t" << connections[i].wala << endl;
   }
   
   connout.close();
