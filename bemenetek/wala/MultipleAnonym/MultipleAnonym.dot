@@ -1,0 +1,36 @@
+digraph graphname {
+rankdir="LR";
+13 [label="AnonymTest1.<init>()V"]
+11 [label="AnonymTest2.<init>()V"]
+7 [label="AnonymTest3.<init>()V"]
+1 [label="MultipleAnonymDifferentOrder$1.<init>()V"]
+9 [label="MultipleAnonymDifferentOrder$1.hoo()V"]
+3 [label="MultipleAnonymDifferentOrder$2.<init>()V"]
+12 [label="MultipleAnonymDifferentOrder$2.goo()V"]
+5 [label="MultipleAnonymDifferentOrder$3.<init>()V"]
+14 [label="MultipleAnonymDifferentOrder$3.foo()V"]
+0 [label="MultipleAnonymDifferentOrder.main([Ljava/lang/String;)V"]
+6 [label="MultipleAnonymDifferentOrder.test1(LAnonymTest1;)V"]
+4 [label="MultipleAnonymDifferentOrder.test2(LAnonymTest2;)V"]
+2 [label="MultipleAnonymDifferentOrder.test3(LAnonymTest3;)V"]
+10 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+8 [label="java.lang.Object.<init>()V"]
+0 -> 1
+0 -> 2
+0 -> 3
+0 -> 4
+0 -> 5
+0 -> 6
+1 -> 7
+2 -> 9
+3 -> 11
+4 -> 12
+5 -> 13
+6 -> 14
+7 -> 8
+9 -> 10
+11 -> 8
+12 -> 10
+13 -> 8
+14 -> 10
+}
