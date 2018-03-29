@@ -131,8 +131,8 @@ int main(int argc, char** argv) {
     ifstream input(argv[1]);
     string file2open;
     
-    input >> file2open;
-    chp.open(file2open);
+    /*input >> file2open;
+    chp.open(file2open);*/
     
     input >> file2open;
     gous.open(file2open);
@@ -152,8 +152,8 @@ int main(int argc, char** argv) {
     input.close();
     input.open(argv[2]);
     //--------------------------------------
-    input >> file2open;
-    chpConn.open(file2open);
+    /*input >> file2open;
+    chpConn.open(file2open);*/
 
     input >> file2open;
     gousConn.open(file2open);
@@ -181,14 +181,14 @@ int main(int argc, char** argv) {
     }
     int index = 1;
     
-    chp.open(argv[index++]);
+    //chp.open(argv[index++]);
     gous.open(argv[index++]);
     soot.open(argv[index++]);
     sm.open(argv[index++]);
     spoon.open(argv[index++]);
     
     
-    chpConn.open(argv[index++]);
+    //chpConn.open(argv[index++]);
     gousConn.open(argv[index++]);
     sootConn.open(argv[index++]);
     smConn.open(argv[index++]);
@@ -203,7 +203,7 @@ int main(int argc, char** argv) {
   ofstream connout("commonConnections.tsv");
   
   //----chpConn--------------
-  chpConn >> connStr >> toolc; 
+  /*chpConn >> connStr >> toolc; 
   cout << "chp connections" << endl;
   
   getline(chpConn, linec);
@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
       r.chp = "X";
       connections.push_back(r);
     }
-  }
+  }*/
   //-------------------------gous---------------
   gousConn >> connStr >> toolc; 
   cout << "gous connections" << endl;
@@ -347,11 +347,11 @@ int main(int argc, char** argv) {
     }
   }
   //-----kiiras
-  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "chp" << "\t" << "gous" << "\t" << "wala" << endl;
+  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "gous" << "\t" << "wala" << endl;
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].chp << "\t" << connections[i].gous << "\t" << connections[i].wala << endl;
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << /*connections[i].chp << "\t" <<*/ connections[i].gous << "\t" << connections[i].wala << endl;
   }
   
   connout.close();
@@ -365,7 +365,7 @@ int main(int argc, char** argv) {
   string line;
   
   //-------
-  chp >> tool >> trans >> rep; //get the header
+  /*chp >> tool >> trans >> rep; //get the header
   cout << "chp" << endl;
   getline(chp, line);
   
@@ -388,7 +388,7 @@ DDD
       r.chp = rep;
       methods.push_back(r);
     }
-  }
+  }*/
   //---------------------------------
   
   cout << "gous" << endl;
@@ -521,11 +521,11 @@ DDD
   }
   
   //---kiírás
-  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "chp.rep" << "\t" << "gous.rep" << "\t" << "wala.rep" << endl;
+  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "gous.rep" << "\t" << "wala.rep" << endl;
   
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
-    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].chp << "\t" << methods[i].gous << "\t" << methods[i].wala << endl;
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << /*methods[i].chp << "\t" <<*/ methods[i].gous << "\t" << methods[i].wala << endl;
   }
   
   out.close();

@@ -19,8 +19,10 @@ vector<Record> Loader_gousiosg::load() {
   
   vector<Record> tmpRecords; 
   string member1, member2;
-  
+  cout << "Gousis started" << endl;
   while( input >> member1 >> member2 ) {
+    
+    cout << member1 << member2 << endl;
     
     string pckgClassMethod = member1;
     pckgClassMethod.erase(0, 2);  //erase "M:"
@@ -30,7 +32,6 @@ vector<Record> Loader_gousiosg::load() {
     stringstream input_stringstream(pckgClassMethod);
     getline(input_stringstream, f_classWithPckg , ':');
     getline(input_stringstream, method, ':');
-    
     
     string parameters = method.substr(method.find("("));
     method.erase(method.find("("), method.length()-method.find("("));
@@ -95,7 +96,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
     
-    
+    cerr << method2 << endl;
     string parameters2 = method2.substr(method2.find("("));
     method2.erase(method2.find("("), method2.length()-method2.find("("));
     parameters2.erase(parameters2.length()-1, 1);
