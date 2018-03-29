@@ -19,10 +19,10 @@ vector<Record> Loader_gousiosg::load() {
   
   vector<Record> tmpRecords; 
   string member1, member2;
-  cout << "Gousis started" << endl;
+
   while( input >> member1 >> member2 ) {
     
-    cout << member1 << member2 << endl;
+    methodNum += 2; //as it has 2 methods in a row
     
     string pckgClassMethod = member1;
     pckgClassMethod.erase(0, 2);  //erase "M:"
