@@ -22,9 +22,13 @@ vector<Record> Loader_gousiosg::load() {
 
   while( input >> member1 >> member2 ) {
     
+    cout << "----" << member1 << "*" << member2 << endl;
+    
+    
     methodNum += 2; //as it has 2 methods in a row
     
     string pckgClassMethod = member1;
+    member1.erase(0,2);
     pckgClassMethod.erase(0, 2);  //erase "M:"
     
     string f_classWithPckg;
@@ -71,6 +75,7 @@ vector<Record> Loader_gousiosg::load() {
   if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
+    cout << r << "??" << member1 << endl;
       common::storedIds.push_back(r);
     }
     else {
@@ -83,11 +88,13 @@ vector<Record> Loader_gousiosg::load() {
 
         *it += member1;  //add this representation
         ++uniqueMethodNum;
+        cout << r << "?" << member1 << endl;
       }
     }
     
     //here comes the next node in the line
     string pckgClassMethod2 = member2;
+    member2.erase(0,3);
     pckgClassMethod2.erase(0, 3);  //erase "(.)"
     
     string f_classWithPckg2;
@@ -96,7 +103,6 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
     
-    cerr << method2 << endl;
     string parameters2 = method2.substr(method2.find("("));
     method2.erase(method2.find("("), method2.length()-method2.find("("));
     parameters2.erase(parameters2.length()-1, 1);
@@ -134,6 +140,7 @@ vector<Record> Loader_gousiosg::load() {
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
+      cout << r2 << "!" << member2 << endl;
       common::storedIds.push_back(r2);
     }
     else {
@@ -143,7 +150,7 @@ vector<Record> Loader_gousiosg::load() {
         //contains this representation
       }
       else {
-
+cout << r2 << "!!" << member2 << endl ;
         *it += member2;  //add this representation
         ++uniqueMethodNum;
       }
@@ -163,6 +170,9 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
   string member1, member2;
   
   while ( input >> member1 >> member2 ) {
+    
+    member1.erase(0,2);
+    member2.erase(0,3);
     
     ++callNum;
     string caller = member1;
