@@ -20,7 +20,7 @@ namespace common {
         params += (storedIds[id].getParameters())[i] + ",";
       }
       //params.erase(params.length() - 1, 1); //the closing ','
-      if ( ',' == params[params.length()-1] )
+      if (params.length() > 0 && ',' == params[params.length()-1] )
         params[params.length()-1] = ')';
       else
         params += ")";
