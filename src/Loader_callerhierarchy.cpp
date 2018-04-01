@@ -163,7 +163,7 @@ vector<Record> Loader_callerhierarchy::load() {
         }
       }
      
-      Record r(representation, pckgClass, method, parameterVector);
+      Record r(pair<string, string>(representation, "chp"), pckgClass, method, parameterVector);
 
       //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?
       //mert ide nem tudom berakni a $ jeleket, azonban ha megtaláltam, hogy melyik lenne, akkor annak le tudom kérni az osztály nevét
@@ -178,7 +178,7 @@ vector<Record> Loader_callerhierarchy::load() {
 
           if ( r >>= common::storedIds[i] ) {//TODO ? operator
             //after replacing '$' s found it
-            common::storedIds[i] += representation;
+            common::storedIds[i] += pair<string, string>(representation, "chp");
             index = i;
             finallyFound = true;
           }
@@ -186,7 +186,7 @@ vector<Record> Loader_callerhierarchy::load() {
         
         if ( finallyFound ) {
           //new record is pushed back as it is used later.. no other way to create the appropiate class name only by copying it.
-          Record r2(representation, common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
+          Record r2(pair<string, string>(representation, "chp"), common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
           if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )
             tmpRecords.push_back(r2);
         }
@@ -203,12 +203,12 @@ vector<Record> Loader_callerhierarchy::load() {
         if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )
           tmpRecords.push_back(r);
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == representation ) {
+        if ( *it == pair<string, string>(representation, "chp") ) {
           //contains this representation
         }
         else {
           ++uniqueMethodNum;
-          *it += representation;  //add this representation
+          *it += pair<string, string>(representation, "chp");  //add this representation
         }
       }
     }
@@ -266,7 +266,7 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
       
         for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-          if ( common::storedIds[i] == caller ) {
+          if ( common::storedIds[i] == pair<string, string>(caller, "chp") ) {
 
             check = true;
             callerId = i;
@@ -281,7 +281,7 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
         check = false;
         for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-          if ( common::storedIds[i] == callee ) {
+          if ( common::storedIds[i] == pair<string, string>(callee, "chp") ) {
 
             check = true;
             calleeId = i;

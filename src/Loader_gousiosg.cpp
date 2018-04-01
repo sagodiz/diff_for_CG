@@ -22,9 +22,6 @@ vector<Record> Loader_gousiosg::load() {
 
   while( input >> member1 >> member2 ) {
     
-    cout << "----" << member1 << "*" << member2 << endl;
-    
-    
     methodNum += 2; //as it has 2 methods in a row
     
     string pckgClassMethod = member1;
@@ -68,27 +65,27 @@ vector<Record> Loader_gousiosg::load() {
       }
     }
  
-    Record r(member1, f_classWithPckg, method, parameterVector);
+    Record r(pair<string, string>(member1, "gous"), f_classWithPckg, method, parameterVector);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r );
     
   if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
-    cout << r << "??" << member1 << endl;
+    //cout << r << "??" << member1 << endl;
       common::storedIds.push_back(r);
     }
     else {
 
       auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-      if ( *it == member1 ) {
+      if ( *it == pair<string, string>(member1, "gous") ) {
         //contains this representation
       }
       else {
 
-        *it += member1;  //add this representation
+        *it += pair<string, string>(member1, "gous");  //add this representation
         ++uniqueMethodNum;
-        cout << r << "?" << member1 << endl;
+        //cout << r << "?" << member1 << endl;
       }
     }
     
@@ -133,25 +130,25 @@ vector<Record> Loader_gousiosg::load() {
       }
     }
       
-    Record r2(member2, f_classWithPckg2, method2, parameterVector2);
+    Record r2(pair<string, string>(member2, "gous"), f_classWithPckg2, method2, parameterVector2);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r2 );
 
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
-      cout << r2 << "!" << member2 << endl;
+      //cout << r2 << "!" << member2 << endl;
       common::storedIds.push_back(r2);
     }
     else {
 
       auto it = find( common::storedIds.begin(), common::storedIds.end(), r2 );
-      if ( *it == member2 ) {
+      if ( *it == pair<string, string>(member2, "gous") ) {
         //contains this representation
       }
       else {
-cout << r2 << "!!" << member2 << endl ;
-        *it += member2;  //add this representation
+//cout << r2 << "!!" << member2 << endl ;
+        *it += pair<string, string>(member2, "gous");  //add this representation
         ++uniqueMethodNum;
       }
     }
@@ -182,7 +179,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-      if ( common::storedIds[i] == caller ) {
+      if ( common::storedIds[i] == pair<string, string>(caller, "gous") ) {
 
         check = true;
         callerId = i;
@@ -197,7 +194,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     check = false;
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-      if ( common::storedIds[i] == callee ) {
+      if ( common::storedIds[i] == pair<string, string>(callee, "gous") ) {
 
         check = true;
         calleeId = i;

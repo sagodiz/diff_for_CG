@@ -13,12 +13,12 @@
 
 using namespace std;
 
-Record::Record( string rep, string methodClass, string methodName, vector<string> parameters ) : methodClass(methodClass), methodName(methodName), parameters(parameters) {
+Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters ) : methodClass(methodClass), methodName(methodName), parameters(parameters) {
   sameMethods.push_back(rep);
 }
 
 //-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
-Record::Record( string rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep) {
+Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep) {
   sameMethods.push_back(rep);
 }
 //----------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ DDD
   return false;
 }
 
-bool Record::operator==( const string method ) const {
+bool Record::operator==( const pair<string, string> method ) const {
   
   if ( find( sameMethods.begin(), sameMethods.end(), method ) != sameMethods.end() ) {
 
@@ -63,7 +63,7 @@ DDD
   return false;
 }
 
-Record& Record::operator+=( const string nWOR ) {
+Record& Record::operator+=( const pair<string, string> nWOR ) {
   
   sameMethods.push_back(nWOR);
   
@@ -104,7 +104,7 @@ vector<string> Record::getParameters() const {
   
   return parameters;
 }
-vector<string> Record::getSameMethods() const {
+vector<pair<string, string>> Record::getSameMethods() const {
   
   return sameMethods;
 }

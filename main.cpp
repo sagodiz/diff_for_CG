@@ -227,7 +227,7 @@ static void writeTSV( vector<Record> records, string name, string tool ) {
     if ( records[i].getSameMethods().size() > 1 )
       throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
     
-    TSV << records[i].getSameMethods().at(0) + records[i].getSecondaryRepresentation() << endl;
+    TSV << records[i].getSameMethods().at(0).first + records[i].getSecondaryRepresentation() << endl;
   }
 }
 

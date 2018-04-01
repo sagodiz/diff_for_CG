@@ -47,9 +47,9 @@ namespace common {
 	  rtrim(s);
   }
 
-  static inline bool checkAndSetId(const std::string& id_str, int& id_num) {
+  static inline bool checkAndSetId(const std::string& id_str, int& id_num, const std::string& tool_str) {
 	  for (unsigned i = 0; i < common::storedIds.size(); i++) {
-		  if (common::storedIds[i] == id_str) {
+		  if (common::storedIds[i] == std::pair<std::string, std::string>(id_str, tool_str) ) {
 			  id_num = i;
 			  return true;
 		  }

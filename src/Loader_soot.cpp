@@ -87,7 +87,7 @@ vector<Record> Loader_soot::load() {
         }
       }
      
-      Record r(methodRepresentation, f_classWithPckg, method, parameterVector);
+      Record r(pair<string, string>(methodRepresentation, "soot"), f_classWithPckg, method, parameterVector);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -100,12 +100,12 @@ DDD
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == methodRepresentation ) {
+        if ( *it == pair<string, string>(methodRepresentation, "soot") ) {
           //contains this representation
         }
         else {
           
-          *it += methodRepresentation;  //add this representation
+          *it += pair<string, string>(methodRepresentation, "soot");  //add this representation
           ++uniqueMethodNum;
         }
       }
@@ -143,7 +143,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == caller ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, "soot") ) {
           
           check = true;
           callerId = i;
@@ -158,7 +158,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == callee ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, "soot") ) {
           
           check = true;
           calleeId = i;
