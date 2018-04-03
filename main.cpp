@@ -13,6 +13,7 @@
 #include "inc/Loader_wala.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
+#include "inc/GraphDBCommon.h"
 #include "inc/Record.h"
 #include "inc/Factory.h"
 #include "inc/OptionMethods.h"
@@ -66,6 +67,7 @@ int main( int argc, char** argv ) {
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
+						  new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
@@ -176,6 +178,16 @@ VERBOSE1
       
       makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
     }
+  }
+
+  if (common::options::loadToGraph) {
+	  for (unsigned i = 0; i < records.size(); i++) {
+		  static const string graphml_ext = ".graphml";
+		  static const string json_ext = ".json";
+		  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
+		  GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
+		  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
+	  }
   }
   
   //catch "all" thrown error...

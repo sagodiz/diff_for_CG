@@ -10,6 +10,23 @@ void projectNameMethod( char** argV, int argI ) {
   Labels::PROJECT_NAME = argV[argI + 1];
 }
 
+void transformToGraphDB(char** argV, int argI) {
+
+	if (!strcmp(argV[argI + 1], "0")) {
+		//do not produce graphml with unified names
+		common::options::loadToGraph = 0;
+	}
+	else if (!strcmp(argV[argI + 1], "1")) {
+		//produce graphml with unified names
+		common::options::loadToGraph = 1;
+	}
+	else {
+
+		common::options::loadToGraph = 0;
+	}
+}
+
+
 void cHPTransformationMethod( char** argV, int argI ) {
   
   if ( !strcmp(argV[argI + 1], "0") ) {

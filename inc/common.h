@@ -61,8 +61,9 @@ namespace common {
 namespace common {
   
   namespace options {
-    
+	extern unsigned char loadToGraph;
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
   }
+
 }

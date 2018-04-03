@@ -15,5 +15,6 @@ namespace Labels {
   const std::string CHP_TRANSFORMATION_OPTION_ERROR = "The transformation value is unrecognized.";
   const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN = "Transformation option for anonym classes is invalid.";
   const std::string WALA_NON_INNERCLASS_EXISTENCE = "Wala is among the nodes, but could not remove it as there is no '$'.";
+  const std::string COULD_NOT_WRITE_GRAPHML = "Could not write graphml file";
   std::string PROJECT_NAME = "Default";
 }
