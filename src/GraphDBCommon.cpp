@@ -67,5 +67,5 @@ bool GraphDBCommon::convertGraphmlToJson(const std::string& in_filename, const s
 	std::cout << result << std::endl;
 	std::cout << returnCode << std::endl;
 
-	return true;
+	return returnCode == 0;
 }
