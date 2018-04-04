@@ -37,6 +37,7 @@
 using namespace std;
 
 static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
+static void makeGraphDBStat(const std::vector<std::string>& labels);
 
 static void writeTSV(vector<Record>, string, string);
 static void writeConnTSV( set<pair<int, int>>, string);
@@ -112,7 +113,7 @@ int chpArgIndex = -1;
   j = -1;
   while( options[++j] ) {
     
-    for ( int i = 1; i < argc - 1; i++ ) {
+    for ( int i = 0; i < argc - 1; i++ ) {
       
       if ( *(options[j]) == argv[i] ) {
         
@@ -120,6 +121,13 @@ int chpArgIndex = -1;
         break;
       }
     }
+  }
+
+  if (common::options::loadToGraph == 2) {//csak graf db stat
+	  std::vector<std::string> graph_ids;
+	  GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
+	  makeGraphDBStat(graph_ids);
+	  return 0;
   }
 
   //create an array for the transformed connections
@@ -180,14 +188,22 @@ VERBOSE1
     }
   }
 
-  if (common::options::loadToGraph) {
-	  for (unsigned i = 0; i < records.size(); i++) {
-		  static const string graphml_ext = ".graphml";
-		  static const string json_ext = ".json";
-		  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
-		  GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
-		  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
+  if (common::options::loadToGraph != 0) {
+	  std::vector<std::string> graph_ids;
+	  if (common::options::loadToGraph == 1) {
+		  for (unsigned i = 0; i < records.size(); i++) {
+			  static const string graphml_ext = ".graphml";
+			  static const string json_ext = ".json";
+			  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
+			  graph_ids.push_back(filename);
+			  GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
+			  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
+			  GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
+		  }
+		  GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
 	  }
+	  makeGraphDBStat(graph_ids);
+	  
   }
   
   //catch "all" thrown error...
@@ -206,6 +222,19 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 //########################################################################x
+
+static void makeGraphDBStat(const std::vector<std::string>& graph_ids) {
+	if (graph_ids.size() == 0) {
+		std::cout << "No graph ids!" << std::endl;
+	}
+	else {
+		for (unsigned i = 0; i < graph_ids.size() - 1; i++) {
+			for (unsigned j = i + 1; j < graph_ids.size(); j++) {
+				GraphDBCommon::compareInGraphDB(graph_ids[i], graph_ids[j]);
+			}
+		}
+	}
+}
 
 static void writeConnTSV( set<pair<int, int>> connections, string name) {
   

@@ -20,6 +20,10 @@ void transformToGraphDB(char** argV, int argI) {
 		//produce graphml with unified names
 		common::options::loadToGraph = 1;
 	}
+	else if (!strcmp(argV[argI + 1], "2")) {
+		//produce graphml with unified names
+		common::options::loadToGraph = 2;
+	}
 	else {
 
 		common::options::loadToGraph = 0;
