@@ -11,7 +11,7 @@ import os.path
 import re
 
 MAP_FILE_SEPARATOR = '-->'
-KNOWN_FILE_FORMATS = ['json','graphml']
+KNOWN_FILE_FORMATS = ['json','graphml', 'dot']
 
 def format_from_filename(fname):
     ext = os.path.splitext(fname)[-1][1:]
@@ -28,6 +28,9 @@ def read_graph():
             return nx.readwrite.json_graph.node_link_graph(json.load(jsonfile))
     elif clargs.in_format == 'graphml':
         return nx.read_graphml(clargs.ifile, int)
+    elif clargs.in_format == 'dot':
+        print("Not supported")
+        return False
     return False
 
 def read_map():
@@ -47,8 +50,6 @@ def map_graph(graph, mapping):
         if label in mapping:
             graph.node[node]['label'] = mapping[label]
 			
-def genlabel(x):
-    return x*2
 
 def filter_graph(graph):
     global clargs
@@ -68,6 +69,14 @@ def write_graph(graph):
             json.dump(nx.readwrite.json_graph.node_link_data(graph), jsonfile)
     elif clargs.out_format == 'graphml':
         nx.write_graphml(graph, clargs.ofile)
+    elif clargs.out_format == 'dot':
+        with open(clargs.ofile, 'w') as dotfile:
+            dotfile.write("digraph graphname {\nrankdir=\"LR\";")
+            for node in graph.node:
+                dotfile.write(str(node) +" [label=\""+ graph.node[node]['label']+"\"]\n");
+            for edge in graph.edges:
+                dotfile.write(str(edge[0]) + " -> " + str(edge[1]) + "\n");			    
+            dotfile.write("}")
 
 clap = ap.ArgumentParser(description = 'This script converts between graph formats.');
 clap.add_argument('-q', '--quiet',    dest='verbose',    action='store_false',
