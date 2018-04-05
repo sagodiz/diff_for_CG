@@ -102,7 +102,7 @@ void GraphDBCommon::saveDBLabelsToFile(const std::vector<std::string>& labels, c
 	if (!ofs.is_open()) {
 		return;
 	}
-	for (int i = 0; i < labels.size(); ++i) {
+	for (unsigned i = 0; i < labels.size(); ++i) {
 		ofs << labels[i] << std::endl;;
 	}
 	ofs.close();

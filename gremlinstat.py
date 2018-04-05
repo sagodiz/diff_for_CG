@@ -52,17 +52,22 @@ output_graph = Graph().traversal().withRemote(DriverRemoteConnection(clargs.outp
 printX()
 
 nodesInOne = output_graph.V().has("source_name", clargs.project_name1).order().by("original_id").group().by("original_id").by("label").toList()
-printX("total nodes in %s graph: %d" % (clargs.project_name1, len(nodesInOne)))
 edgesInOne = output_graph.V().has("source_name", clargs.project_name1).as_("a").outE().inV().as_("b").select("a", "b").by("original_id").toList()
-printX("total edges in %s graph: %d" % (clargs.project_name1, len(edgesInOne)))
-printX()
+
+
 nodesInTwo = output_graph.V().has("source_name", clargs.project_name2).order().by("original_id").group().by("original_id").by("label").toList()
-printX("total nodes in %s graph: %d" % (clargs.project_name2, len(nodesInTwo)))
 edgesInTwo = output_graph.V().has("source_name", clargs.project_name2).as_("a").outE().inV().as_("b").select("a", "b").by("original_id").toList()
-printX("total edges in %s graph: %d" % (clargs.project_name2, len(edgesInTwo)))
+
 
 nodesInOneSet = keysToSet(nodesInOne)
 nodesInTwoSet = keysToSet(nodesInTwo)
+
+printX("total nodes in %s graph: %d" % (clargs.project_name1, len(nodesInOneSet)))
+printX("total edges in %s graph: %d" % (clargs.project_name1, len(edgesInOne)))
+printX()
+printX("total nodes in %s graph: %d" % (clargs.project_name2, len(nodesInTwoSet)))
+printX("total edges in %s graph: %d" % (clargs.project_name2, len(edgesInTwo)))
+
 
 unmachedInTwo = nodesInTwoSet - nodesInOneSet
 unmatchedInOne = nodesInOneSet - nodesInTwoSet

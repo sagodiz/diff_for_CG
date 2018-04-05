@@ -63,6 +63,7 @@ int main( int argc, char** argv ) {
                           new Switch("-sp", factory ),
                           new Switch("-g", factory ),
                           new Switch("-w", factory ),
+						  new Switch("-t", factory),
                           NULL
                         };
 

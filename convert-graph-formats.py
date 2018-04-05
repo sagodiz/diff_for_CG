@@ -10,7 +10,7 @@ import json
 import os.path
 import re
 
-MAP_FILE_SEPARATOR = '-->'
+MAP_FILE_SEPARATOR = ':'
 KNOWN_FILE_FORMATS = ['json','graphml', 'dot']
 
 def format_from_filename(fname):
@@ -71,7 +71,7 @@ def write_graph(graph):
         nx.write_graphml(graph, clargs.ofile)
     elif clargs.out_format == 'dot':
         with open(clargs.ofile, 'w') as dotfile:
-            dotfile.write("digraph graphname {\nrankdir=\"LR\";")
+            dotfile.write("digraph graphname {\nrankdir=\"LR\";\n")
             for node in graph.node:
                 dotfile.write(str(node) +" [label=\""+ graph.node[node]['label']+"\"]\n");
             for edge in graph.edges:

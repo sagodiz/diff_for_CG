@@ -1,11 +1,13 @@
 #include "../inc/Factory.h"
 #include "../inc/Loader.h"
+#include "../inc/GraphDBCommon.h"
 #include "../inc/Loader_soot.h"
 #include "../inc/Loader_sourcemeter.h"
 #include "../inc/Loader_callerhierarchy.h"
 #include "../inc/Loader_spoon.h"
 #include "../inc/Loader_gousiosg.h"
 #include "../inc/Loader_wala.h"
+#include "../inc/Loader_trace.h"
 #include "../inc/Labels.h"
 
 using namespace std;
@@ -35,6 +37,9 @@ Loader* Factory::getLoaderPointer( string str, string filePath ) const {
   }
   else if ( "-w" == str ) {
     return new Loader_wala(filePath, "wala");
+  }
+  else if ("-t" == str) {
+	  return new Loader_trace(filePath, "trace");
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;
