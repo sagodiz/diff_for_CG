@@ -28,7 +28,22 @@ def printX(obj=""):
 		
 def printSet(a_set):
     for element in a_set:
-	    printX(element)
+	    printX(element)	
+		
+def getMethodName(methodList, id):
+    for item in methodList:
+        for key, value in item.items():
+            if key == id:
+                return str(id)+":"+value[0]
+    return str(id)
+
+def keysToSet(methodList):
+    ls = set()
+    for item in methodList:
+        for key, value in item.items():
+            ls.add(str(key) +":"+value[0])
+    return ls
+	
 
 printX("output Gremlin server: %s, %s" % (clargs.output_server, clargs.output_source))
 output_graph = Graph().traversal().withRemote(DriverRemoteConnection(clargs.output_server, clargs.output_source))
@@ -36,19 +51,18 @@ output_graph = Graph().traversal().withRemote(DriverRemoteConnection(clargs.outp
 
 printX()
 
-nodesInOne = output_graph.V().has("source_name", clargs.project_name1).values("label").toList()
+nodesInOne = output_graph.V().has("source_name", clargs.project_name1).order().by("original_id").group().by("original_id").by("label").toList()
 printX("total nodes in %s graph: %d" % (clargs.project_name1, len(nodesInOne)))
-edgesInOne = output_graph.V().has("source_name", clargs.project_name1).as_("a").outE().inV().as_("b").select("a", "b").by("label").toList()
+edgesInOne = output_graph.V().has("source_name", clargs.project_name1).as_("a").outE().inV().as_("b").select("a", "b").by("original_id").toList()
 printX("total edges in %s graph: %d" % (clargs.project_name1, len(edgesInOne)))
 printX()
-nodesInTwo = output_graph.V().has("source_name", clargs.project_name2).values("label").toList()
+nodesInTwo = output_graph.V().has("source_name", clargs.project_name2).order().by("original_id").group().by("original_id").by("label").toList()
 printX("total nodes in %s graph: %d" % (clargs.project_name2, len(nodesInTwo)))
-edgesInTwo = output_graph.V().has("source_name", clargs.project_name2).as_("a").outE().inV().as_("b").select("a", "b").by("label").toList()
+edgesInTwo = output_graph.V().has("source_name", clargs.project_name2).as_("a").outE().inV().as_("b").select("a", "b").by("original_id").toList()
 printX("total edges in %s graph: %d" % (clargs.project_name2, len(edgesInTwo)))
 
-
-nodesInOneSet = set(nodesInOne)
-nodesInTwoSet = set(nodesInTwo)
+nodesInOneSet = keysToSet(nodesInOne)
+nodesInTwoSet = keysToSet(nodesInTwo)
 
 unmachedInTwo = nodesInTwoSet - nodesInOneSet
 unmatchedInOne = nodesInOneSet - nodesInTwoSet
@@ -69,17 +83,17 @@ printSet(unmatchedInOne)
 edgesInOneSet = set()
 edgesInTwoSet = set()
 
-def createSetFromDict(dict, dictSet):
+def createSetFromDict(dict, dictSet, nodeList):
     for element in dict:
         edge = ""
         for key, value in element.items():
 	        if key == "b":
 		        edge += " -> "
-	        edge += value
+	        edge += getMethodName(nodeList, value)
         dictSet.add(edge)
 
-createSetFromDict(edgesInOne, edgesInOneSet)
-createSetFromDict(edgesInTwo, edgesInTwoSet)
+createSetFromDict(edgesInOne, edgesInOneSet, nodesInOne)
+createSetFromDict(edgesInTwo, edgesInTwoSet, nodesInTwo)
 
 unmatchededgesInOne = edgesInOneSet - edgesInTwoSet
 unmatchededgesInTwo = edgesInTwoSet - edgesInOneSet
