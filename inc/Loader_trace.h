@@ -4,7 +4,7 @@
 #include "Loader.h"
 
 class Loader_trace : public virtual Loader {
-
+	static const std::string entry_node;
 	std::string entry_representation;
 
 public:

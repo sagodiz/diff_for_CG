@@ -13,6 +13,8 @@
 
 using namespace std;
 
+const std::string Loader_trace::entry_node = "ENTRY";
+
 Loader_trace::Loader_trace(string filepath, string name) : Loader(filepath, name) {
 }
 Loader_trace::~Loader_trace() {
@@ -43,8 +45,8 @@ vector<Record> Loader_trace::load() {
 			size_t ending = infoMine.rfind("\"]");
 			if (ending != string::npos)
 				infoMine.erase(ending);
-			if (infoMine.compare("ENTRY") == 0) {
-				infoMine = "__trace.__entry()";
+			if (infoMine.compare(entry_node) == 0) {
+				//infoMine = "__trace.__entry()"; todo: lehet kell majd
 				entry_representation = representation;
 				continue;
 			}
@@ -256,7 +258,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 			size_t delimiter_pos = line.find(delimiter);
 			string caller = line.substr(0, delimiter_pos);  //left part
 			common::trim(caller);
-			if (caller == entry_representation) {
+			if (caller == entry_representation || caller == entry_node) {
 				continue;
 			}
 
