@@ -186,7 +186,7 @@ VERBOSE1
       CONNTSVFILE << common::connTSVFiles[i] << endl;
     }
   }
-
+//Edit's edit --------------------------------------------------------------------------
   std::vector<std::vector<unsigned>> statMatrix;
 
   for (unsigned i = 0; i < loaders.size() - 1; i++) {
@@ -220,6 +220,9 @@ VERBOSE1
   std::string fname = Labels::PROJECT_NAME + "_common_calls_methods.csv";
   FILE * common_file = fopen(fname.c_str(), "w");
 
+  if ( !common_file )
+    throw Labels::PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN + Labels::PROJECT_NAME + "_common_calls_methods.csv";
+    
   auto printMatrix = [](const std::vector<Loader*> loaders, const std::vector<std::vector<float>> mat, FILE * common_file, const std::string& type) {
 	  fprintf(common_file, "%s;", type.c_str());
 	  for (unsigned i = 0; i < mat.size(); ++i) {
@@ -259,7 +262,7 @@ VERBOSE1
 	  makeGraphDBStat(graph_ids);
 	  
   }
-  
+//edit of Edit :P end--------------------------------------------------------------  
   //catch "all" thrown error...
   } catch( const string e ) {
     
