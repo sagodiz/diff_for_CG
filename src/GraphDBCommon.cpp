@@ -4,6 +4,12 @@
 #include <fstream>
 #include <stdio.h>
 
+#ifndef _WIN32
+#define _popen popen
+#define _pclose pclose
+#endif
+
+
 using namespace std;
 
 void GraphDBCommon::writeUnifiedGraphToGraphml(string filename, const vector<Record>& records, const set<pair<int, int>>& connections) {
