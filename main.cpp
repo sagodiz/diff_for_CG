@@ -219,32 +219,27 @@ VERBOSE1
   }
   std::string fname = Labels::PROJECT_NAME + "_common_calls_methods.csv";
   FILE * common_file = fopen(fname.c_str(), "w");
-  fprintf(common_file, ";");
-  for (unsigned i = 0; i < matrixCalls.size(); ++i) {
-	  fprintf(common_file, "%s;",loaders[i]->getName().c_str());
-  }
-  fprintf(common_file, "\n");
-  
-  for (unsigned i = 0; i < matrixCalls.size(); ++i) {
-	  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
-	  for (unsigned j = 0; j < matrixCalls.size(); ++j) {
-		  fprintf(common_file, "%.2f;", matrixCalls[i][j]);
-	  }
-	  fprintf(common_file, "\n");
-  }
-  fprintf(common_file, "\n;");
-  for (unsigned i = 0; i < matrixMethods.size(); ++i) {
-	  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
-  }
-  fprintf(common_file, "\n");
 
-  for (unsigned i = 0; i <matrixMethods.size(); ++i) {
-	  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
-	  for (unsigned j = 0; j < matrixMethods.size(); ++j) {
-		  fprintf(common_file, "%.2f;", matrixMethods[i][j]);
+  auto printMatrix = [](const std::vector<Loader*> loaders, const std::vector<std::vector<float>> mat, FILE * common_file, const std::string& type) {
+	  fprintf(common_file, "%s;", type.c_str());
+	  for (unsigned i = 0; i < mat.size(); ++i) {
+		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
 	  }
 	  fprintf(common_file, "\n");
-  }
+
+	  for (unsigned i = 0; i < mat.size(); ++i) {
+		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+		  for (unsigned j = 0; j < mat.size(); ++j) {
+			  fprintf(common_file, "%.4f;", mat[i][j]);
+		  }
+		  fprintf(common_file, "\n");
+	  }
+	  fprintf(common_file, "\n");
+  };
+ 
+  printMatrix(loaders, matrixCalls, common_file, "calls");
+  printMatrix(loaders, matrixMethods, common_file, "methods");
+
   fclose(common_file);
 
   if (common::options::loadToGraph != 0) {

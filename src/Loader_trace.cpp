@@ -29,9 +29,7 @@ vector<Record> Loader_trace::load() {
 	while (getline(input, line)) {
 
 		if (line.find("label") != string::npos) {
-			//it is a node
-			++methodNum;
-
+			
 			string representation;
 			string pckgClass;
 			string method;
@@ -47,7 +45,14 @@ vector<Record> Loader_trace::load() {
 				infoMine.erase(ending);
 			if (infoMine.compare("ENTRY") == 0) {
 				infoMine = "__trace.__entry()";
+				entry_representation = representation;
+				continue;
 			}
+
+			//it is a node
+			++methodNum;
+
+
 			string pckgClassMethod;
 			string paramsReturn;
 
@@ -245,13 +250,18 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 	while (getline(input, line)) {
 
 		if (line.find("label") == string::npos && line[0] != '}') {
-			//it is a connection
-			++callNum;
+			
 
 			std::string delimiter = "->";
 			size_t delimiter_pos = line.find(delimiter);
 			string caller = line.substr(0, delimiter_pos);  //left part
 			common::trim(caller);
+			if (caller == entry_representation) {
+				continue;
+			}
+
+			//it is a connection
+			++callNum;
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
 

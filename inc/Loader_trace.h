@@ -5,6 +5,8 @@
 
 class Loader_trace : public virtual Loader {
 
+	std::string entry_representation;
+
 public:
 	Loader_trace(std::string filepath, std::string name);
 	~Loader_trace();
