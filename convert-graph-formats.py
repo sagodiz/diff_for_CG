@@ -14,7 +14,7 @@ MAP_FILE_SEPARATOR = ':'
 KNOWN_FILE_FORMATS = ['json','graphml', 'dot']
 
 #usage
-#python convert-graph-formats.py -q  -d -i graphml -o dot  -m D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\joda-time-v2.9.9-trace-names.txt D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\graph D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\joda_time_merged.dot
+#python convert-graph-formats.py -q -s -d -i graphml -o dot  -m D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\joda-time-v2.9.9-trace-names.txt D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\graph D:\Users\epengo\Documents\diff_for_CG\bemenetek\trace\joda-time-2.9.9\joda_time_merged.dot
 
 def format_from_filename(fname):
     ext = os.path.splitext(fname)[-1][1:]
@@ -98,6 +98,8 @@ clap.add_argument('-f', '--filter-regexp', dest='fregex',     action='store',
                 help='remove nodes whose labels match the regexp (after mapping)')
 clap.add_argument('-d', '--directory',    dest='dir',    action='store_true',
                 help='input files are given in a folder and will be merged in one output')
+clap.add_argument('-s', '--skip_duplicates',    dest='skip_duplicates',    action='store_true',
+                help='in directory mode remove the duplicated edges')
 clap.add_argument('ifile', help='input file')
 clap.add_argument('ofile', help='out file')
 
@@ -147,8 +149,11 @@ if clargs.dir:
                 if label not in used_nodes and label in mapping:
                     dotfile.write(str(label) +" [label=\""+ mapping[label] +"\"]\n")
                     used_nodes.add(label)
+        used_edges = set()
         for g in graph_list:
             for edge in g.edges:
-                dotfile.write(str(g.node[edge[0]]['label']) + " -> " + str(g.node[edge[1]]['label']) + "\n")
+                if not clargs.skip_duplicates or (g.node[edge[0]]['label'], g.node[edge[1]]['label']) not in used_edges:
+                    dotfile.write(str(g.node[edge[0]]['label']) + " -> " + str(g.node[edge[1]]['label']) + "\n")
+                    used_edges.add((g.node[edge[0]]['label'], g.node[edge[1]]['label']))
         dotfile.write("}")
 
