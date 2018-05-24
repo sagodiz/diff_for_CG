@@ -29,7 +29,7 @@ namespace common {
 namespace common {
   
   namespace options {
-    
+	unsigned char loadToGraph = 0;
     unsigned char CHPTransform = 0;
     unsigned char anonymClassNameTransform = 0;
   }

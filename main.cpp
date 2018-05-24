@@ -13,6 +13,7 @@
 #include "inc/Loader_wala.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
+#include "inc/GraphDBCommon.h"
 #include "inc/Record.h"
 #include "inc/Factory.h"
 #include "inc/OptionMethods.h"
@@ -35,7 +36,14 @@
 
 using namespace std;
 
-static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
+struct StatData {
+	unsigned methodCountForLoader1, methodCountForLoader2;
+	unsigned callCountForLoader1, callCountForLoader2;
+	unsigned commonMethodCount, commonCallCount;
+};
+
+static std::pair<float, float> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
+static void makeGraphDBStat(const std::vector<std::string>& labels);
 
 static void writeTSV(vector<Record>, string, string);
 static void writeConnTSV( set<pair<int, int>>, string);
@@ -61,11 +69,13 @@ int main( int argc, char** argv ) {
                           new Switch("-sp", factory ),
                           new Switch("-g", factory ),
                           new Switch("-w", factory ),
+						  new Switch("-t", factory),
                           NULL
                         };
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
+						  new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
@@ -110,7 +120,7 @@ int chpArgIndex = -1;
   j = -1;
   while( options[++j] ) {
     
-    for ( int i = 1; i < argc - 1; i++ ) {
+    for ( int i = 0; i < argc - 1; i++ ) {
       
       if ( *(options[j]) == argv[i] ) {
         
@@ -118,6 +128,13 @@ int chpArgIndex = -1;
         break;
       }
     }
+  }
+
+  if (common::options::loadToGraph == 2) {//csak graf db stat
+	  std::vector<std::string> graph_ids;
+	  GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
+	  makeGraphDBStat(graph_ids);
+	  return 0;
   }
 
   //create an array for the transformed connections
@@ -169,13 +186,78 @@ VERBOSE1
       CONNTSVFILE << common::connTSVFiles[i] << endl;
     }
   }
+
+  std::vector<std::vector<unsigned>> statMatrix;
+
+  for (unsigned i = 0; i < loaders.size() - 1; i++) {
+	  statMatrix.resize(loaders.size());
+  }
+
+  std::vector<std::vector<float>> matrixCalls, matrixMethods;
+  matrixCalls.resize(loaders.size());
+  matrixMethods.resize(loaders.size());
+  for (unsigned i = 0; i < loaders.size(); i++) {
+	  matrixCalls[i].resize(loaders.size());
+	  matrixMethods[i].resize(loaders.size());
+  }
     
   for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
-    
+	  
     for (unsigned j = i + 1; j < loaders.size(); j++ ) {
       
-      makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
+      std::pair<float, float> commonVals = makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
+	  matrixCalls[i][i] = (float)loaders[i]->getCallNum();
+	  matrixMethods[i][i] = (float)loaders[i]->getMethodNum();
+	  matrixMethods[i][j] = commonVals.first / loaders[i]->getMethodNum();
+	  matrixCalls[i][j] = commonVals.second / loaders[i]->getCallNum();
+
+	  matrixCalls[j][j] = (float)loaders[j]->getCallNum();
+	  matrixMethods[j][j] = (float)loaders[j]->getMethodNum();
+	  matrixMethods[j][i] = commonVals.first / loaders[j]->getMethodNum();
+	  matrixCalls[j][i] = commonVals.second / loaders[j]->getCallNum();
     }
+  }
+  std::string fname = Labels::PROJECT_NAME + "_common_calls_methods.csv";
+  FILE * common_file = fopen(fname.c_str(), "w");
+
+  auto printMatrix = [](const std::vector<Loader*> loaders, const std::vector<std::vector<float>> mat, FILE * common_file, const std::string& type) {
+	  fprintf(common_file, "%s;", type.c_str());
+	  for (unsigned i = 0; i < mat.size(); ++i) {
+		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+	  }
+	  fprintf(common_file, "\n");
+
+	  for (unsigned i = 0; i < mat.size(); ++i) {
+		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+		  for (unsigned j = 0; j < mat.size(); ++j) {
+			  fprintf(common_file, "%.4f;", mat[i][j]);
+		  }
+		  fprintf(common_file, "\n");
+	  }
+	  fprintf(common_file, "\n");
+  };
+ 
+  printMatrix(loaders, matrixCalls, common_file, "calls");
+  printMatrix(loaders, matrixMethods, common_file, "methods");
+
+  fclose(common_file);
+
+  if (common::options::loadToGraph != 0) {
+	  std::vector<std::string> graph_ids;
+	  if (common::options::loadToGraph == 1) {
+		  for (unsigned i = 0; i < records.size(); i++) {
+			  static const string graphml_ext = ".graphml";
+			  static const string json_ext = ".json";
+			  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
+			  graph_ids.push_back(filename);
+			  GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
+			  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
+			  GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
+		  }
+		  GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
+	  }
+	  makeGraphDBStat(graph_ids);
+	  
   }
   
   //catch "all" thrown error...
@@ -194,6 +276,19 @@ VERBOSE1
 //########################################################################x
 //########################################################################x
 //########################################################################x
+
+static void makeGraphDBStat(const std::vector<std::string>& graph_ids) {
+	if (graph_ids.size() == 0) {
+		std::cout << "No graph ids!" << std::endl;
+	}
+	else {
+		for (unsigned i = 0; i < graph_ids.size() - 1; i++) {
+			for (unsigned j = i + 1; j < graph_ids.size(); j++) {
+				GraphDBCommon::compareInGraphDB(graph_ids[i], graph_ids[j]);
+			}
+		}
+	}
+}
 
 static void writeConnTSV( set<pair<int, int>> connections, string name) {
   
@@ -231,7 +326,7 @@ static void writeTSV( vector<Record> records, string name, string tool ) {
   }
 }
 
-static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
+static std::pair<float, float> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
   
   unsigned long long commonCalls = 0;
   unsigned long long commonCallsCheck = 0;
@@ -303,7 +398,7 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
   }
   
   if ( commonMethodsCheck != commonMethods )
-    cerr << "The search for common methods failed" << endl;
+    cerr << "The search for common methods failed" << endl; 
   
   statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods. " << l1->getUniqueMethodNum() << " unique method." << endl;
   statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods. " << l2->getUniqueMethodNum() << " unique method." << endl;
@@ -339,4 +434,6 @@ static void makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compar
   }
   
   statOut.close();
+
+  return std::make_pair<float, float>((float)commonMethods, (float)commonCalls);
 }
