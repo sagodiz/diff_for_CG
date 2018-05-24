@@ -83,13 +83,13 @@ bool GraphDBCommon::executeCommand(const std::string& cmd, std::string& result) 
 
 
 bool GraphDBCommon::convertGraphmlToJson(const std::string& in_filename, const std::string& o_filename) {
-	std::string command("python convert-graph-formats.py -i graphml -o json "+ in_filename + " " + o_filename), result;
+	std::string command("python GraphDBScripst/convert-graph-formats.py -i graphml -o json "+ in_filename + " " + o_filename), result;
 	return executeCommand(command, result);
 }
 
 bool GraphDBCommon::uploadToDraphDB(const std::string& filename, bool clearGraph, const std::string& node_id) {
 	//python3 json2gremlin.py -i "samples\totinfo.dynamic.json" -os "ws://localhost:8182/gremlin" -ots "g"
-	std::string command("python gremlin-uploader.py -os \"ws://localhost:8182/gremlin\" -ots \"g\" -i \"" + filename + "\" -nid \""+node_id + "\""), result;
+	std::string command("python GraphDBScripst/gremlin-uploader.py -os \"ws://localhost:8182/gremlin\" -ots \"g\" -i \"" + filename + "\" -nid \""+node_id + "\""), result;
 	if (!clearGraph) {
 		command += " -k";
 	}
@@ -123,7 +123,7 @@ void GraphDBCommon::loadDBLabelsFromFile(std::vector<std::string>& labels, const
 
 
 bool GraphDBCommon::compareInGraphDB(const std::string& graph_id1, const std::string& graph_id2) {
-	std::string command("python gremlinstat.py -os \"ws://localhost:8182/gremlin\" -ots \"g\" -pr1 \""+graph_id1+"\" -pr2 \""+graph_id2+"\""), result;
+	std::string command("python GraphDBScripst/gremlinstat.py -os \"ws://localhost:8182/gremlin\" -ots \"g\" -pr1 \""+graph_id1+"\" -pr2 \""+graph_id2+"\""), result;
 	bool retVal = executeCommand(command, result);
 	if (!retVal)
 		return false;
