@@ -69,13 +69,13 @@ int main( int argc, char** argv ) {
                           new Switch("-sp", factory ),
                           new Switch("-g", factory ),
                           new Switch("-w", factory ),
-						  new Switch("-t", factory),
+						              new Switch("-t", factory),
                           NULL
                         };
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
-						  new Option("-transformToGraphDB", &transformToGraphDB),
+						              new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
