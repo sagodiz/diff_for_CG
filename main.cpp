@@ -223,7 +223,7 @@ VERBOSE1
   if ( !common_file )
     throw Labels::PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN + Labels::PROJECT_NAME + "_common_calls_methods.csv";
     
-  auto printMatrix = [](const std::vector<Loader*> loaders, const std::vector<std::vector<float>> mat, FILE * common_file, const std::string& type) {
+  auto printMatrix = [](const std::vector<Loader*>& loaders, const std::vector<std::vector<float>>& mat, FILE * common_file, const std::string& type) {
 	  fprintf(common_file, "%s;", type.c_str());
 	  for (unsigned i = 0; i < mat.size(); ++i) {
 		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
