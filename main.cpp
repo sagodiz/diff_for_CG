@@ -267,6 +267,8 @@ VERBOSE1
   } catch( const string e ) {
     
     cerr << "An error has occurred: " << e << endl;
+    
+    return 1;
   }
 
   cout << "End of program." << endl;
