@@ -34,7 +34,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream, f_classWithPckg , ':');
     getline(input_stringstream, method, ':');
 
-	if (Loader::isExclude(f_classWithPckg)) {
+	if (isExclude(f_classWithPckg)) {
 		excludedIds.insert(member1);
 		skipMember1 = true;
 	}
@@ -111,7 +111,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
 
-	if (Loader::isExclude(f_classWithPckg2)) {
+	if (isExclude(f_classWithPckg2)) {
 		excludedIds.insert(member2);
 		continue;
 	}

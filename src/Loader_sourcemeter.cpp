@@ -52,7 +52,7 @@ vector<Record> Loader_sourcemeter::load() {
       getline(iss, pckgClassMethod , '(');
       getline(iss, paramsReturn , '(');
 
-	  if (Loader::isExclude(pckgClassMethod)) {
+	  if (isExclude(pckgClassMethod)) {
 		  excludedIds.insert(representation);
 		  continue;
 	  }

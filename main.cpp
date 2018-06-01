@@ -75,6 +75,7 @@ int main( int argc, char** argv ) {
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
+						  new Option("-filterLevel", &filterLevelMethod),
 						  new Option("-projectPath", &projectPathMethod),
 						  new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),

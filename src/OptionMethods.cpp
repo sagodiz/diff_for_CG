@@ -10,6 +10,26 @@ void projectNameMethod( char** argV, int argI ) {
   Labels::PROJECT_NAME = argV[argI + 1];
 }
 
+void filterLevelMethod(char** argV, int argI) {
+
+	if (!strcmp(argV[argI + 1], "0")) {
+		//no filtering at all
+		common::options::filterLevel = 0;
+	}
+	else if (!strcmp(argV[argI + 1], "1")) {
+		//filter java libs
+		common::options::filterLevel = 1;
+	}
+	else if (!strcmp(argV[argI + 1], "2")) {
+		//filter java libs and inits, constructors
+		common::options::filterLevel = 2;
+	}
+	else {
+
+		common::options::filterLevel = 0;
+	}
+}
+
 void projectPathMethod(char** argV, int argI) {
 
 	Labels::PROJECT_PATH = argV[argI + 1];

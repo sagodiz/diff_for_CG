@@ -50,7 +50,7 @@ vector<Record> Loader_trace::load() {
 				entry_representation = representation;
 				continue;
 			}
-			if (Loader::isExclude(infoMine)) {
+			if (isExclude(infoMine)) {
 				excludedIds.insert(representation);
 				continue;
 			}

@@ -63,7 +63,7 @@ vector<Record> Loader_spoon::load() {
 			getline(iss, paramsReturn, '(');
 
 
-			if (Loader::isExclude(pckgClassMethod)) {
+			if (isExclude(pckgClassMethod)) {
 				excludedIds.insert(representation);
 				continue;
 			}

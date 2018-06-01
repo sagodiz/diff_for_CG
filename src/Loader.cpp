@@ -1,5 +1,6 @@
 #include "../inc/Loader.h"
 #include "../inc/Labels.h"
+#include "../inc/common.h"
 #include <iostream>
 
 using namespace std;
@@ -30,7 +31,7 @@ void Loader::printNotFilteredMethodNames() {
 	of.close();
 }
 
-bool Loader::isExclude(const std::string& method) {
+bool Loader::isJavaLib(const std::string& method) {
 	for (const std::string& anExclude : excludes) {
 		if (method.find(anExclude) == 0) {
 			return true;
@@ -41,6 +42,25 @@ bool Loader::isExclude(const std::string& method) {
 	}
 
 	return false;
+}
+
+bool Loader::isExcludableInit(const std::string& name) {
+	return false;
+}
+
+bool Loader::isExclude(const std::string& method) {
+	switch (common::options::filterLevel) {
+	case 0:
+		return false;
+	case 1: 
+		return isJavaLib(method);
+	case 2: 
+		return isJavaLib(method) || isExcludableInit(method);
+	default: 
+		return false;
+	}
+
+
 }
 
 unsigned long long Loader::getMethodNum() const {

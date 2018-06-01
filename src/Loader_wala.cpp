@@ -51,7 +51,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
       getline(iss, pckgClassMethod , '(');
       getline(iss, paramsReturn , '(');
 
-	  if (Loader::isExclude(pckgClassMethod)) {
+	  if (isExclude(pckgClassMethod)) {
 		  excludedIds.insert(representation);
 		  continue;
 	  }

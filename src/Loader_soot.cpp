@@ -55,7 +55,7 @@ vector<Record> Loader_soot::load() {
 
       f_classWithPckg.erase(f_classWithPckg.length()-1, 1); //removing the ":"
 
-	  if (Loader::isExclude(f_classWithPckg)) {
+	  if (isExclude(f_classWithPckg)) {
 		  excludedIds.insert(methodRepresentation);
 		  continue;
 	  }

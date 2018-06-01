@@ -22,11 +22,15 @@ class Loader {
 	std::set<std::string> notFilteredMethodNames;
 
 	void printNotFilteredMethodNames();
+
+	bool isJavaLib(const std::string& name);
+
+	virtual bool isExcludableInit(const std::string& name);
   
   public:
 	const static std::set<std::string> excludes;
 
-	static bool isExclude(const std::string& method);
+	bool isExclude(const std::string& method);
 
     Loader( std::string filepath, std::string name );
     
