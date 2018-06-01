@@ -75,7 +75,8 @@ int main( int argc, char** argv ) {
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
-						              new Option("-transformToGraphDB", &transformToGraphDB),
+						  new Option("-projectPath", &projectPathMethod),
+						  new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
@@ -207,13 +208,13 @@ VERBOSE1
       
       std::pair<float, float> commonVals = makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
 	  matrixCalls[i][i] = (float)loaders[i]->getCallNum();
-	  matrixMethods[i][i] = (float)loaders[i]->getMethodNum();
-	  matrixMethods[i][j] = commonVals.first / loaders[i]->getMethodNum();
+	  matrixMethods[i][i] = (float)loaders[i]->getUniqueMethodNum();
+	  matrixMethods[i][j] = commonVals.first / loaders[i]->getUniqueMethodNum();
 	  matrixCalls[i][j] = commonVals.second / loaders[i]->getCallNum();
 
 	  matrixCalls[j][j] = (float)loaders[j]->getCallNum();
-	  matrixMethods[j][j] = (float)loaders[j]->getMethodNum();
-	  matrixMethods[j][i] = commonVals.first / loaders[j]->getMethodNum();
+	  matrixMethods[j][j] = (float)loaders[j]->getUniqueMethodNum(); 
+	  matrixMethods[j][i] = commonVals.first / loaders[j]->getUniqueMethodNum();
 	  matrixCalls[j][i] = commonVals.second / loaders[j]->getCallNum();
     }
   }
