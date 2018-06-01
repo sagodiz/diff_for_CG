@@ -10,6 +10,11 @@ void projectNameMethod( char** argV, int argI ) {
   Labels::PROJECT_NAME = argV[argI + 1];
 }
 
+void projectPathMethod(char** argV, int argI) {
+
+	Labels::PROJECT_PATH = argV[argI + 1];
+}
+
 void transformToGraphDB(char** argV, int argI) {
 
 	if (!strcmp(argV[argI + 1], "0")) {

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+const std::set<std::string> Loader::excludes = { "java.", "sun.", "javax." };
+
 Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0), callNum(0), uniqueMethodNum(0), name(name) {
   
   input.open(filepath);
@@ -14,6 +16,31 @@ Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0
 Loader::~Loader() {
   
   input.close();
+}
+
+
+void Loader::printNotFilteredMethodNames() {
+	std::ofstream of("non_filtered_methods_"+name);
+	if (!of.is_open()) {
+		return;
+	}
+	for (const auto& meth : notFilteredMethodNames) {
+		of << meth << std::endl;
+	}
+	of.close();
+}
+
+bool Loader::isExclude(const std::string& method) {
+	for (const std::string& anExclude : excludes) {
+		if (method.find(anExclude) == 0) {
+			return true;
+		}
+	}
+	if (Labels::PROJECT_PATH.length() > 0 && method.find(Labels::PROJECT_PATH) != 0) {
+		return true;
+	}
+
+	return false;
 }
 
 unsigned long long Loader::getMethodNum() const {

@@ -16,8 +16,18 @@ class Loader {
     unsigned long long callNum;
     unsigned long long uniqueMethodNum;
     std::string name;
+
+	std::set<std::string> excludedIds;
+
+	std::set<std::string> notFilteredMethodNames;
+
+	void printNotFilteredMethodNames();
   
   public:
+	const static std::set<std::string> excludes;
+
+	static bool isExclude(const std::string& method);
+
     Loader( std::string filepath, std::string name );
     
     /**

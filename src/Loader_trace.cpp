@@ -31,7 +31,7 @@ vector<Record> Loader_trace::load() {
 	while (getline(input, line)) {
 
 		if (line.find("label") != string::npos) {
-			
+
 			string representation;
 			string pckgClass;
 			string method;
@@ -49,6 +49,13 @@ vector<Record> Loader_trace::load() {
 				//infoMine = "__trace.__entry()"; todo: lehet kell majd
 				entry_representation = representation;
 				continue;
+			}
+			if (Loader::isExclude(infoMine)) {
+				excludedIds.insert(representation);
+				continue;
+			}
+			else {
+				notFilteredMethodNames.insert(infoMine);
 			}
 
 			//it is a node
@@ -238,6 +245,8 @@ vector<Record> Loader_trace::load() {
 	input.clear();
 	input.seekg(0, ios::beg);
 
+	printNotFilteredMethodNames();
+
 	return tmpRecords;
 }
 
@@ -252,20 +261,23 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 	while (getline(input, line)) {
 
 		if (line.find("label") == string::npos && line[0] != '}') {
-			
+
 
 			std::string delimiter = "->";
 			size_t delimiter_pos = line.find(delimiter);
 			string caller = line.substr(0, delimiter_pos);  //left part
 			common::trim(caller);
-			if (caller == entry_representation || caller == entry_node) {
+
+			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
+			common::trim(callee);
+
+			if (caller == entry_representation || caller == entry_node || excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
 				continue;
 			}
 
+
 			//it is a connection
 			++callNum;
-			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
-			common::trim(callee);
 
 			int callerId = -1, calleeId = -1;
 
