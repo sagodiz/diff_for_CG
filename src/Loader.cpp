@@ -1,8 +1,11 @@
 #include "../inc/Loader.h"
 #include "../inc/Labels.h"
+#include "../inc/common.h"
 #include <iostream>
 
 using namespace std;
+
+const std::set<std::string> Loader::excludes = { "java.", "sun.", "javax." };
 
 Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0), callNum(0), uniqueMethodNum(0), name(name) {
   
@@ -14,6 +17,50 @@ Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0
 Loader::~Loader() {
   
   input.close();
+}
+
+
+void Loader::printNotFilteredMethodNames() {
+	std::ofstream of("non_filtered_methods_"+name);
+	if (!of.is_open()) {
+		return;
+	}
+	for (const auto& meth : notFilteredMethodNames) {
+		of << meth << std::endl;
+	}
+	of.close();
+}
+
+bool Loader::isJavaLib(const std::string& method) {
+	for (const std::string& anExclude : excludes) {
+		if (method.find(anExclude) == 0) {
+			return true;
+		}
+	}
+	if (Labels::PROJECT_PATH.length() > 0 && method.find(Labels::PROJECT_PATH) != 0) {
+		return true;
+	}
+
+	return false;
+}
+
+bool Loader::isExcludableInit(const std::string& name) {
+	return false;
+}
+
+bool Loader::isExclude(const std::string& method) {
+	switch (common::options::filterLevel) {
+	case 0:
+		return false;
+	case 1: 
+		return isJavaLib(method);
+	case 2: 
+		return isJavaLib(method) || isExcludableInit(method);
+	default: 
+		return false;
+	}
+
+
 }
 
 unsigned long long Loader::getMethodNum() const {

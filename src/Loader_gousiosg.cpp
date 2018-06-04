@@ -22,7 +22,7 @@ vector<Record> Loader_gousiosg::load() {
 
   while( input >> member1 >> member2 ) {
     
-    methodNum += 2; //as it has 2 methods in a row
+	  bool skipMember1 = false;
     
     string pckgClassMethod = member1;
     member1.erase(0,2);
@@ -33,61 +33,72 @@ vector<Record> Loader_gousiosg::load() {
     stringstream input_stringstream(pckgClassMethod);
     getline(input_stringstream, f_classWithPckg , ':');
     getline(input_stringstream, method, ':');
-    
-    string parameters = method.substr(method.find("("));
-    method.erase(method.find("("), method.length()-method.find("("));
-    parameters.erase(parameters.length()-1, 1);
-    parameters.erase(0,1);
 
-    //cut apart parameters
-    vector<string> parameterVector;
-    stringstream iss(parameters);
-    string parameter;
-    while( getline(iss, parameter, ',') ) {
+	if (isExclude(f_classWithPckg)) {
+		excludedIds.insert(member1);
+		skipMember1 = true;
+	}
+	else {
+		notFilteredMethodNames.insert(member1);
+	}
+	if (!skipMember1) {
+		methodNum += 1; //it has 2 methods in a row
 
-      parameterVector.push_back(parameter);
-    }
-    
-    
-    if ( common::options::anonymClassNameTransform > 0 ) {
-      //there is a kind of transformation
-      if ( 1 == common::options::anonymClassNameTransform ) {
-        //turn every anonym class into a constant anonym class
-        common::unifyeAnonymClasses(f_classWithPckg);
-      }
-      else if ( 2 == common::options::anonymClassNameTransform ) {
-        //continue numbering in inner anonym classes
-        //TODO!!! 
-      }
-      else {
-        
-        throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
-      }
-    }
- 
-    Record r(pair<string, string>(member1, "gous"), f_classWithPckg, method, parameterVector);
-    if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
-      tmpRecords.push_back( r );
-    
-  if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
-      //so this record is not found in the vector
-      ++uniqueMethodNum;
-    //cout << r << "??" << member1 << endl;
-      common::storedIds.push_back(r);
-    }
-    else {
+		string parameters = method.substr(method.find("("));
+		method.erase(method.find("("), method.length() - method.find("("));
+		parameters.erase(parameters.length() - 1, 1);
+		parameters.erase(0, 1);
 
-      auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-      if ( *it == pair<string, string>(member1, "gous") ) {
-        //contains this representation
-      }
-      else {
+		//cut apart parameters
+		vector<string> parameterVector;
+		stringstream iss(parameters);
+		string parameter;
+		while (getline(iss, parameter, ',')) {
 
-        *it += pair<string, string>(member1, "gous");  //add this representation
-        ++uniqueMethodNum;
-        //cout << r << "?" << member1 << endl;
-      }
-    }
+			parameterVector.push_back(parameter);
+		}
+
+
+		if (common::options::anonymClassNameTransform > 0) {
+			//there is a kind of transformation
+			if (1 == common::options::anonymClassNameTransform) {
+				//turn every anonym class into a constant anonym class
+				common::unifyeAnonymClasses(f_classWithPckg);
+			}
+			else if (2 == common::options::anonymClassNameTransform) {
+				//continue numbering in inner anonym classes
+				//TODO!!! 
+			}
+			else {
+
+				throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+			}
+		}
+
+		Record r(pair<string, string>(member1, "gous"), f_classWithPckg, method, parameterVector);
+		if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
+			tmpRecords.push_back(r);
+
+		if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
+			//so this record is not found in the vector
+			++uniqueMethodNum;
+			//cout << r << "??" << member1 << endl;
+			common::storedIds.push_back(r);
+		}
+		else {
+
+			auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+			if (*it == pair<string, string>(member1, "gous")) {
+				//contains this representation
+			}
+			else {
+
+				*it += pair<string, string>(member1, "gous");  //add this representation
+				++uniqueMethodNum;
+				//cout << r << "?" << member1 << endl;
+			}
+		}
+	}
     
     //here comes the next node in the line
     string pckgClassMethod2 = member2;
@@ -99,6 +110,15 @@ vector<Record> Loader_gousiosg::load() {
     stringstream input_stringstream2(pckgClassMethod2);
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
+
+	if (isExclude(f_classWithPckg2)) {
+		excludedIds.insert(member2);
+		continue;
+	}
+	else {
+		notFilteredMethodNames.insert(member2);
+	}
+	methodNum++;
     
     string parameters2 = method2.substr(method2.find("("));
     method2.erase(method2.find("("), method2.length()-method2.find("("));
@@ -156,7 +176,9 @@ vector<Record> Loader_gousiosg::load() {
   
   input.clear();
   input.seekg(0, ios::beg);
-  
+
+  printNotFilteredMethodNames();
+
   return tmpRecords;
 }
 
@@ -171,11 +193,17 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     member1.erase(0,2);
     member2.erase(0,3);
     
-    ++callNum;
     string caller = member1;
     string callee = member2;
     int callerId = -1, calleeId = -1;
     bool check = false;
+
+	if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
+		continue;
+	}
+
+	//it is a connection
+	++callNum;
     
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 

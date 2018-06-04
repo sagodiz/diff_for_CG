@@ -29,8 +29,6 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
   while ( getline(input, line) ) {
     
     if ( line.find("label") != string::npos ) {
-      //it is a node
-      ++methodNum;
       
       string representation;
       string pckgClass;
@@ -52,6 +50,17 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
       stringstream iss(infoMine);
       getline(iss, pckgClassMethod , '(');
       getline(iss, paramsReturn , '(');
+
+	  if (isExclude(pckgClassMethod)) {
+		  excludedIds.insert(representation);
+		  continue;
+	  }
+	  else {
+		  notFilteredMethodNames.insert(infoMine);
+	  }
+
+	  //it is a node
+	  ++methodNum;
       
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
       if ( lastDotPos != string::npos ) {
@@ -240,6 +249,8 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
   
   input.clear();
   input.seekg(0, ios::beg);
+
+  printNotFilteredMethodNames();
   
   return tmpRecords;
 }
@@ -255,8 +266,6 @@ set<pair<int, int>> Loader_wala::transformConnections() {
   while ( getline(input, line) ) {
     
   if ( line.find("label") == string::npos && line[0] != '}' ) {
-      //it is a connection
-      ++callNum;
       
 	  std::string delimiter = "->";
 	  size_t delimiter_pos = line.find(delimiter);
@@ -264,6 +273,13 @@ set<pair<int, int>> Loader_wala::transformConnections() {
 	  common::trim(caller);
 	  string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 	  common::trim(callee);
+
+	  if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
+		  continue;
+	  }
+
+	  //it is a connection
+	  ++callNum;
       
       int callerId = -1, calleeId = -1;
       

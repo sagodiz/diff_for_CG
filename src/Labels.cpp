@@ -17,5 +17,6 @@ namespace Labels {
   const std::string WALA_NON_INNERCLASS_EXISTENCE = "Wala is among the nodes, but could not remove it as there is no '$'.";
   const std::string COULD_NOT_WRITE_GRAPHML = "Could not write graphml file";
   std::string PROJECT_NAME = "Default";
+  std::string PROJECT_PATH = "";
   const std::string PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN = "Could not open csv file for percentages: ";
 }

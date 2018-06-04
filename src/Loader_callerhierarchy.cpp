@@ -31,7 +31,6 @@ vector<Record> Loader_callerhierarchy::load() {
     }
     else {
       //caller or callee, but a node
-      ++methodNum;
       
       if ( '\t' == line[0] ) {
         
@@ -52,6 +51,15 @@ vector<Record> Loader_callerhierarchy::load() {
       stringstream input_stringstream(line);
       //if no parameter is given there is no '(' so we get back the whole line
       getline(input_stringstream, pckgClassMethod , '(');
+
+	  if (isExclude(pckgClassMethod)) {
+		  excludedIds.insert(representation);
+		  continue;
+	  }
+	  else {
+		  notFilteredMethodNames.insert(representation);
+	  }
+	  methodNum++;
       
       if ( pckgClassMethod == line ) {
         //there were no '('
@@ -216,7 +224,7 @@ vector<Record> Loader_callerhierarchy::load() {
   
   input.clear();
   input.seekg(0, ios::beg);
-  
+  printNotFilteredMethodNames();
   return tmpRecords;
 }
 
@@ -259,8 +267,13 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
         //do nothing as here comes a new "list" os connections
       }
       else {
-        //the remaining caller calls the callees
-        ++callNum;
+
+		  if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
+			  continue;
+		  }
+
+		  //the remaining caller calls the callees
+		  ++callNum;
         
         bool check = false; //to check if the method do be found.
       
