@@ -214,7 +214,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
    
       //at wala have to check if it is a wala class or not
       
-      if ( pckgClass.find("wala") != string::npos ) {
+      if ( pckgClass.find(name) != string::npos ) {
         //erase everythin till the first '$'
         auto pos = pckgClass.find("$");
         if ( pos == string::npos )
@@ -224,7 +224,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
         pckgClass.erase(0, pos + 1);  //TODO: ez így helyes-e
       }
    
-      Record r(pair<string, string>(representation, "wala"), pckgClass, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -236,12 +236,12 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == pair<string, string>(representation, "wala") ) {
+        if ( *it == pair<string, string>(representation, name) ) {
           //contains this representation
         }
         else {
           ++uniqueMethodNum;
-          *it += pair<string, string>(representation, "wala");  //add this representation
+          *it += pair<string, string>(representation, name);  //add this representation
         }
       }
     } //end of processing label
@@ -287,7 +287,7 @@ set<pair<int, int>> Loader_wala::transformConnections() {
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(caller, "wala") ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
           
           check = true;
           callerId = i;
@@ -302,7 +302,7 @@ set<pair<int, int>> Loader_wala::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(callee, "wala") ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
           
           check = true;
           calleeId = i;

@@ -6,6 +6,8 @@
 class Loader_callerhierarchy : public virtual Loader {
   
   std::string prefix = "Method call hierarchy callees of ";
+
+  bool isExcludableInit(const std::string& name);
   
   public:
     Loader_callerhierarchy(std::string filepath, std::string name);

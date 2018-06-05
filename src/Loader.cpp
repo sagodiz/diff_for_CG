@@ -45,6 +45,12 @@ bool Loader::isJavaLib(const std::string& method) {
 }
 
 bool Loader::isExcludableInit(const std::string& name) {
+	static const std::set<std::string> excludedInits = { "<init>", "<clinit>", "<initblock>" };
+	for (const std::string& anExclude : excludedInits) {
+		if (name.find(anExclude) != string::npos) {
+			return true;
+		}
+	}
 	return false;
 }
 

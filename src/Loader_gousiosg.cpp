@@ -34,7 +34,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream, f_classWithPckg , ':');
     getline(input_stringstream, method, ':');
 
-	if (isExclude(f_classWithPckg)) {
+	if (isExclude(member1)) {
 		excludedIds.insert(member1);
 		skipMember1 = true;
 	}
@@ -75,7 +75,7 @@ vector<Record> Loader_gousiosg::load() {
 			}
 		}
 
-		Record r(pair<string, string>(member1, "gous"), f_classWithPckg, method, parameterVector);
+		Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector);
 		if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
 			tmpRecords.push_back(r);
 
@@ -88,12 +88,12 @@ vector<Record> Loader_gousiosg::load() {
 		else {
 
 			auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
-			if (*it == pair<string, string>(member1, "gous")) {
+			if (*it == pair<string, string>(member1, name)) {
 				//contains this representation
 			}
 			else {
 
-				*it += pair<string, string>(member1, "gous");  //add this representation
+				*it += pair<string, string>(member1, name);  //add this representation
 				++uniqueMethodNum;
 				//cout << r << "?" << member1 << endl;
 			}
@@ -111,7 +111,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
 
-	if (isExclude(f_classWithPckg2)) {
+	if (isExclude(member2)) {
 		excludedIds.insert(member2);
 		continue;
 	}
@@ -150,7 +150,7 @@ vector<Record> Loader_gousiosg::load() {
       }
     }
       
-    Record r2(pair<string, string>(member2, "gous"), f_classWithPckg2, method2, parameterVector2);
+    Record r2(pair<string, string>(member2, name), f_classWithPckg2, method2, parameterVector2);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r2 );
 
@@ -163,12 +163,12 @@ vector<Record> Loader_gousiosg::load() {
     else {
 
       auto it = find( common::storedIds.begin(), common::storedIds.end(), r2 );
-      if ( *it == pair<string, string>(member2, "gous") ) {
+      if ( *it == pair<string, string>(member2, name) ) {
         //contains this representation
       }
       else {
 //cout << r2 << "!!" << member2 << endl ;
-        *it += pair<string, string>(member2, "gous");  //add this representation
+        *it += pair<string, string>(member2, name);  //add this representation
         ++uniqueMethodNum;
       }
     }
@@ -207,7 +207,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-      if ( common::storedIds[i] == pair<string, string>(caller, "gous") ) {
+      if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
 
         check = true;
         callerId = i;
@@ -222,7 +222,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     check = false;
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-      if ( common::storedIds[i] == pair<string, string>(callee, "gous") ) {
+      if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
 
         check = true;
         calleeId = i;

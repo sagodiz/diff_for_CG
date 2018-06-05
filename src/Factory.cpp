@@ -17,29 +17,29 @@ Factory* Factory::factory = NULL;
 Factory::Factory() {
 }
 
-Loader* Factory::getLoaderPointer( string str, string filePath ) const {
+Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter ) const {
   
   if ( "-s" == str ) {
     
-    return new Loader_soot(filePath, "soot");
+    return new Loader_soot(filePath, "soot" + std::to_string(counter));
   }
   else if ( "-sm" == str ) {
-    return new Loader_sourcemeter(filePath, "sourceMeter");
+    return new Loader_sourcemeter(filePath, "sourceMeter" + std::to_string(counter));
   }
   else if ( "-c" == str ) {
-    return new Loader_callerhierarchy(filePath, "CHP");
+    return new Loader_callerhierarchy(filePath, "CHP" + std::to_string(counter));
   }
   else if ( "-sp" == str ) {
-    return new Loader_spoon(filePath, "spoon");
+    return new Loader_spoon(filePath, "spoon" + std::to_string(counter));
   }
   else if ( "-g" == str ) {
-    return new Loader_gousiosg(filePath, "gousiosg");
+    return new Loader_gousiosg(filePath, "gousiosg" + std::to_string(counter));
   }
   else if ( "-w" == str ) {
-    return new Loader_wala(filePath, "wala");
+    return new Loader_wala(filePath, "wala" + std::to_string(counter));
   }
   else if ("-t" == str) {
-	  return new Loader_trace(filePath, "trace");
+	  return new Loader_trace(filePath, "trace" + std::to_string(counter));
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;

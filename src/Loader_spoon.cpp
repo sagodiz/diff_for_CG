@@ -18,6 +18,22 @@ Loader_spoon::Loader_spoon(string filepath, string name) : Loader(filepath, name
 Loader_spoon::~Loader_spoon() {
 }
 
+bool Loader_spoon::isExcludableInit(const std::string& name) {
+	if (Loader::isExcludableInit(name)) {
+		return true;
+	}
+	size_t lastDotPos = name.rfind(".");
+	if (lastDotPos == string::npos) {
+		return false;
+	}
+	string method = name.substr(lastDotPos + 1);
+	string pckgClass = name.substr(0, lastDotPos);
+	if (pckgClass.substr(pckgClass.rfind(".") + 1) == method) {
+		return true;
+	}
+	return false;
+}
+
 vector<Record> Loader_spoon::load() {
 
 	vector<Record> tmpRecords;
@@ -156,7 +172,7 @@ vector<Record> Loader_spoon::load() {
         }
       }
       
-			Record r(pair<string, string>(representation, "spoon"), pckgClass, method, parameterVector, infoMine);
+			Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back(r);
 
@@ -168,12 +184,12 @@ vector<Record> Loader_spoon::load() {
 			else {
 
 				auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
-				if (*it == pair<string, string>(representation, "spoon") ) {
+				if (*it == pair<string, string>(representation, name) ) {
 					//contains this representation
 				}
 				else {
 					++uniqueMethodNum;
-					*it += pair<string, string>(representation, "spoon");  //add this representation
+					*it += pair<string, string>(representation, name);  //add this representation
 				}
 			}
 
@@ -217,12 +233,12 @@ set<pair<int, int>> Loader_spoon::transformConnections() {
 
 			int callerId = -1, calleeId = -1;
 
-			if (!common::checkAndSetId(caller, callerId, "spoon")) {
-				common::checkAndSetId(caller, callerId, "spoon");
+			if (!common::checkAndSetId(caller, callerId, name)) {
+				common::checkAndSetId(caller, callerId, name);
 				cerr << "Method couldn't be resolved: " << caller << endl;
 			}
 
-			if (!common::checkAndSetId(callee, calleeId, "spoon")) {
+			if (!common::checkAndSetId(callee, calleeId, name)) {
 
 				cerr << "Method couldn't be resolved: " << callee << endl;
 			}

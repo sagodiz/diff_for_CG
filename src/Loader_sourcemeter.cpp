@@ -213,7 +213,7 @@ vector<Record> Loader_sourcemeter::load() {
         }
       }
    
-      Record r(pair<string, string>(representation, "sm"), pckgClass, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -225,12 +225,12 @@ vector<Record> Loader_sourcemeter::load() {
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == pair<string, string>(representation, "sm") ) {
+        if ( *it == pair<string, string>(representation, name) ) {
           //contains this representation
         }
         else {
           ++uniqueMethodNum;
-          *it += pair<string, string>(representation, "sm");  //add this representation
+          *it += pair<string, string>(representation, name);  //add this representation
         }
       }
     } //end of processing label
@@ -277,7 +277,7 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(caller, "sm") ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
           
           check = true;
           callerId = i;
@@ -292,7 +292,7 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(callee, "sm") ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
           
           check = true;
           calleeId = i;

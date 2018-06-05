@@ -55,7 +55,7 @@ vector<Record> Loader_soot::load() {
 
       f_classWithPckg.erase(f_classWithPckg.length()-1, 1); //removing the ":"
 
-	  if (isExclude(f_classWithPckg)) {
+	  if (isExclude(f_classWithPckg + "." + method)) {
 		  excludedIds.insert(methodRepresentation);
 		  continue;
 	  }
@@ -97,7 +97,7 @@ vector<Record> Loader_soot::load() {
         }
       }
      
-      Record r(pair<string, string>(methodRepresentation, "soot"), f_classWithPckg, method, parameterVector);
+      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -110,12 +110,12 @@ DDD
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == pair<string, string>(methodRepresentation, "soot") ) {
+        if ( *it == pair<string, string>(methodRepresentation, name) ) {
           //contains this representation
         }
         else {
           
-          *it += pair<string, string>(methodRepresentation, "soot");  //add this representation
+          *it += pair<string, string>(methodRepresentation, name);  //add this representation
           ++uniqueMethodNum;
         }
       }
@@ -161,7 +161,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(caller, "soot") ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
           
           check = true;
           callerId = i;
@@ -176,7 +176,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(callee, "soot") ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
           
           check = true;
           calleeId = i;

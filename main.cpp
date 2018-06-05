@@ -88,7 +88,7 @@ int main( int argc, char** argv ) {
 
 Switch* chp = NULL;
 int chpArgIndex = -1;
-
+unsigned counters[8] = {0};
   unsigned char j = -1;
   while( switches[++j] ) {
     
@@ -104,7 +104,7 @@ int chpArgIndex = -1;
         else {
           //it is not chp. add it.
           switches[j]->init(argv[++i]);
-          loaders.push_back( switches[j]->getLoaderPointer() );
+          loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
         }
       }
     }
@@ -113,7 +113,7 @@ int chpArgIndex = -1;
   if ( chp ) {
     
     chp->init(argv[chpArgIndex]);
-    loaders.push_back( chp->getLoaderPointer() );
+    loaders.push_back( chp->getLoaderPointer(0) ); //fuck the chp
   }
     
   if ( 0 == loaders.size() )
@@ -219,7 +219,7 @@ VERBOSE1
 	  matrixCalls[j][i] = commonVals.second / loaders[j]->getCallNum();
     }
   }
-  std::string fname = Labels::PROJECT_NAME + "_common_calls_methods.csv";
+  std::string fname = Labels::PROJECT_NAME+"_filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
   FILE * common_file = fopen(fname.c_str(), "w");
 
   if ( !common_file )
