@@ -1,2 +1,0 @@
-M:StaticCallInAssignment:<init>() (O)java.lang.Object:<init>()
-M:StaticCallInAssignment:main(java.lang.String[]) (S)StaticCallInAssignment:foo()

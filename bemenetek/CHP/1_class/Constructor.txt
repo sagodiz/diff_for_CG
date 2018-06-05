@@ -1,3 +1,0 @@
-Method call hierarchy callees of Constructor.main(java.lang.String[])
-	Constructor.Constructor
-	Constructor.Constructor(int)

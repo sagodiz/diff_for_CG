@@ -1,5 +1,0 @@
-digraph graphname {
-rankdir="LR";
-120 [label="Motivation.main([Ljava/lang/String;)V"]
-150 [label="Motivation$1.actionPerformed(Ljava/awt/event/ActionEvent;)V"]
-}

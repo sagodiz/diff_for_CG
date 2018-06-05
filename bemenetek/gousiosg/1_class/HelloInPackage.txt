@@ -1,2 +1,0 @@
-M:Test.HelloWorldInPackage:<init>() (O)java.lang.Object:<init>()
-M:Test.HelloWorldInPackage:main(java.lang.String[]) (M)java.io.PrintStream:println(java.lang.String)

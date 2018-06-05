@@ -1,4 +1,0 @@
-Method call hierarchy callees of MainCallsStatic.main(java.lang.String[])
-	MainCallsStatic.foo
-		java.io.PrintStream.println(java.lang.String)
-

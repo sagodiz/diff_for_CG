@@ -1,5 +1,0 @@
-Method call hierarchy callees of UsePackageInStatic.main(java.lang.String[])
-	UsePackageInStatic.foo
-Method call hierarchy callees of UsePackageInStatic.foo
-	java.security.SecureRandom.SecureRandom
-	java.util.Random.nextInt

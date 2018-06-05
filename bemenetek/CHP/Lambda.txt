@@ -1,6 +1,0 @@
-
-There was an error until u tried to run CHP with sourcefolder: smallexamples/Lambda method: IterateMapUsingLambda.main 
-There was an error until u tried to run CHP with sourcefolder: smallexamples/Lambda method: Lambda.main 
-There was an error until u tried to run CHP with sourcefolder: smallexamples/Lambda method: LambdaOwnInterface.main 
-There was an error until u tried to run CHP with sourcefolder: smallexamples/Lambda method: LambdaWithParams.main 
-There was an error until u tried to run CHP with sourcefolder: smallexamples/Lambda method: Motivation.main 

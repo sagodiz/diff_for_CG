@@ -1,2 +1,0 @@
-Method call hierarchy callees of HelloWorld.main(java.lang.String[])
-	java.io.PrintStream.println(java.lang.String)

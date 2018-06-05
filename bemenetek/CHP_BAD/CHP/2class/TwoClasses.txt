@@ -1,5 +1,0 @@
-Method call hierarchy callees of TwoClassesB.main(java.lang.String[])
-	TwoClassesA.TwoClassesA
-	TwoClassesA.foo
-		java.io.PrintStream.println(java.lang.String)
-

@@ -1,2 +1,0 @@
-Method call hierarchy callees of SetUsageBad.main(java.lang.String[])
-	SetUsage.SetUsage

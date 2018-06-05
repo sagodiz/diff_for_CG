@@ -1,6 +1,0 @@
-Method call hierarchy callees of Reflect2BuiltInClass.main(java.lang.String[])
-	java.lang.Class.forName(java.lang.String)
-	java.lang.Class.getDeclaredMethods
-	java.io.PrintStream.println(java.lang.String)
-	java.lang.reflect.Method.toString
-	java.io.PrintStream.println(java.lang.Object)
