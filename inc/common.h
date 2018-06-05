@@ -10,6 +10,7 @@ namespace common {
   extern std::vector<std::string> tsvFiles;
   extern std::vector<std::string> connTSVFiles;
   bool unifyeAnonymClasses( std::string& str );
+  bool unifyeAnonymMethods( std::string& str );
   static inline std::string getMethodById( const unsigned int& id ) {
     
     if ( id < storedIds.size() ) {

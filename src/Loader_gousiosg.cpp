@@ -54,6 +54,7 @@ vector<Record> Loader_gousiosg::load() {
       if ( 1 == common::options::anonymClassNameTransform ) {
         //turn every anonym class into a constant anonym class
         common::unifyeAnonymClasses(f_classWithPckg);
+        common::unifyeAnonymMethods(method);
       }
       else if ( 2 == common::options::anonymClassNameTransform ) {
         //continue numbering in inner anonym classes
@@ -119,6 +120,7 @@ vector<Record> Loader_gousiosg::load() {
       if ( 1 == common::options::anonymClassNameTransform ) {
         //turn every anonym class into a constant anonym class
         common::unifyeAnonymClasses(f_classWithPckg2);
+        common::unifyeAnonymMethods(method2);
       }
       else if ( 2 == common::options::anonymClassNameTransform ) {
         //continue numbering in inner anonym classes

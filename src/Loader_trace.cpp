@@ -201,6 +201,7 @@ vector<Record> Loader_trace::load() {
 				if (1 == common::options::anonymClassNameTransform) {
 					//turn every anonym class into a constant anonym class
 					common::unifyeAnonymClasses(pckgClass);
+          common::unifyeAnonymMethods(method);
 				}
 				else if (2 == common::options::anonymClassNameTransform) {
 					//continue numbering in inner anonym classes

@@ -1,5 +1,3 @@
-//TODO: sorvégek rendberakása. Most ez windowsos sorvéggel dolgozik, éppen jó
-
 #include "../inc/Loader_wala.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -192,6 +190,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
         if ( 1 == common::options::anonymClassNameTransform ) {
           //turn every anonym class into a constant anonym class
           common::unifyeAnonymClasses(pckgClass);
+          common::unifyeAnonymMethods(method);
         }
         else if ( 2 == common::options::anonymClassNameTransform ) {
           //continue numbering in inner anonym classes
