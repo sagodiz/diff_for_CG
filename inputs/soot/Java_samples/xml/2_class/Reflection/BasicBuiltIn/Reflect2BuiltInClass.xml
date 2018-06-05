@@ -1,0 +1,437 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 15 14:22:25 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir 2_class/Reflection/BasicBuiltIn -output-dir results/2_class/Reflection/BasicBuiltIn" timestamp="Thu Feb 15 14:22:25 CET 2018" />
+  </history>
+  <class name="Reflect2BuiltInClass" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="0" />
+    <fields count="0" />
+    <methods count="2">
+      <method name="_init_" returntype="void" class="Reflect2BuiltInClass">
+        <declaration length="20"><![CDATA[public void <init>()]]></declaration>
+        <parameters method="_init_" count="0" />
+        <locals count="1">
+          <local id="0" method="_init_" name="r0" type="Reflect2BuiltInClass">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="1">
+            <type id="0" type="Reflect2BuiltInClass" count="1">
+              <local id="0" method="_init_" name="r0" type="Reflect2BuiltInClass">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="3" stmtpercentage="100" />
+        </labels>
+        <statements count="3">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="34"><![CDATA[r0 := @this: Reflect2BuiltInClass]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="main" returntype="void" class="Reflect2BuiltInClass">
+        <declaration length="43"><![CDATA[public static void main(java.lang.String[])]]></declaration>
+        <parameters method="main" count="1">
+          <parameter id="0" type="java.lang.String[]" method="main" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="0" method="main" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="10">
+          <local id="0" method="main" name="r0" type="java.lang.String[]">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="main" />
+            </soot_local>
+          </local>
+          <local id="1" method="main" name="r1" type="java.lang.reflect.Method[]">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="4" method="main" />
+              <use id="1" line="7" method="main" />
+              <definition id="0" line="2" method="main" />
+            </soot_local>
+          </local>
+          <local id="2" method="main" name="$i0" type="int">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="5" method="main" />
+              <definition id="0" line="4" method="main" />
+            </soot_local>
+          </local>
+          <local id="3" method="main" name="$r2" type="java.lang.reflect.Method">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="8" method="main" />
+              <definition id="0" line="7" method="main" />
+            </soot_local>
+          </local>
+          <local id="4" method="main" name="$r3" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="9" method="main" />
+              <definition id="0" line="6" method="main" />
+            </soot_local>
+          </local>
+          <local id="5" method="main" name="$r4" type="java.lang.String">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="9" method="main" />
+              <definition id="0" line="8" method="main" />
+            </soot_local>
+          </local>
+          <local id="6" method="main" name="$r5" type="java.lang.Throwable">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="15" method="main" />
+              <definition id="0" line="13" method="main" />
+            </soot_local>
+          </local>
+          <local id="7" method="main" name="$r6" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="15" method="main" />
+              <definition id="0" line="14" method="main" />
+            </soot_local>
+          </local>
+          <local id="8" method="main" name="r7" type="java.lang.Class">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="2" method="main" />
+              <definition id="0" line="1" method="main" />
+            </soot_local>
+          </local>
+          <local id="9" method="main" name="i1" type="int">
+            <soot_local uses="3" defines="2">
+              <use id="0" line="5" method="main" />
+              <use id="1" line="7" method="main" />
+              <use id="2" line="10" method="main" />
+              <definition id="0" line="3" method="main" />
+              <definition id="1" line="10" method="main" />
+            </soot_local>
+          </local>
+          <types count="8">
+            <type id="0" type="java.lang.String[]" count="1">
+              <local id="0" method="main" name="r0" type="java.lang.String[]">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.lang.reflect.Method[]" count="1">
+              <local id="1" method="main" name="r1" type="java.lang.reflect.Method[]">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="4" method="main" />
+                  <use id="1" line="7" method="main" />
+                  <definition id="0" line="2" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="int" count="2">
+              <local id="2" method="main" name="$i0" type="int">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="5" method="main" />
+                  <definition id="0" line="4" method="main" />
+                </soot_local>
+              </local>
+              <local id="9" method="main" name="i1" type="int">
+                <soot_local uses="3" defines="2">
+                  <use id="0" line="5" method="main" />
+                  <use id="1" line="7" method="main" />
+                  <use id="2" line="10" method="main" />
+                  <definition id="0" line="3" method="main" />
+                  <definition id="1" line="10" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="3" type="java.lang.reflect.Method" count="1">
+              <local id="3" method="main" name="$r2" type="java.lang.reflect.Method">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="8" method="main" />
+                  <definition id="0" line="7" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="4" type="java.io.PrintStream" count="2">
+              <local id="4" method="main" name="$r3" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="9" method="main" />
+                  <definition id="0" line="6" method="main" />
+                </soot_local>
+              </local>
+              <local id="7" method="main" name="$r6" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="15" method="main" />
+                  <definition id="0" line="14" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="5" type="java.lang.String" count="1">
+              <local id="5" method="main" name="$r4" type="java.lang.String">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="9" method="main" />
+                  <definition id="0" line="8" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="6" type="java.lang.Throwable" count="1">
+              <local id="6" method="main" name="$r5" type="java.lang.Throwable">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="15" method="main" />
+                  <definition id="0" line="13" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="7" type="java.lang.Class" count="1">
+              <local id="8" method="main" name="r7" type="java.lang.Class">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="2" method="main" />
+                  <definition id="0" line="1" method="main" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="6">
+          <label id="0" name="default" method="main" stmtcount="1" stmtpercentage="10" />
+          <label id="1" name="label1" method="main" stmtcount="3" stmtpercentage="36" />
+          <label id="2" name="label2" method="main" stmtcount="8" stmtpercentage="100" />
+          <label id="3" name="label3" method="main" stmtcount="1" stmtpercentage="10" />
+          <label id="4" name="label4" method="main" stmtcount="3" stmtpercentage="36" />
+          <label id="5" name="label5" method="main" stmtcount="1" stmtpercentage="10" />
+        </labels>
+        <statements count="17">
+          <statement id="0" label="default" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="main" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="38"><![CDATA[r0 := @parameter0: java.lang.String[]]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="label1" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r7" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r7" method="main" />
+              </livevariables>
+              <jimple length="98"><![CDATA[r7 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("java.util.Stack")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="label1" method="main" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r7" method="main" />
+              <defines id="0" local="r1" method="main" />
+              <livevariables incount="1" outcount="1">
+                <in id="0" local="r7" method="main" />
+                <out id="0" local="r1" method="main" />
+              </livevariables>
+              <jimple length="91"><![CDATA[r1 = virtualinvoke r7.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="label1" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="i1" method="main" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="r1" method="main" />
+                <out id="0" local="i1" method="main" />
+                <out id="1" local="r1" method="main" />
+              </livevariables>
+              <jimple length="7"><![CDATA[i1 = 0]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="label2" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r1" method="main" />
+              <defines id="0" local="$i0" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="i1" method="main" />
+                <in id="1" local="r1" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+                <out id="2" local="$i0" method="main" />
+              </livevariables>
+              <jimple length="18"><![CDATA[$i0 = lengthof r1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="label2" method="main" labelid="1">
+            <soot_statement branches="true" fallsthrough="true">
+              <uses id="0" local="i1" method="main" />
+              <uses id="1" local="$i0" method="main" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <in id="2" local="$i0" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+              </livevariables>
+              <jimple length="25"><![CDATA[if i1 >= $i0 goto label3]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="6" label="label2" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r3" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+                <out id="2" local="$r3" method="main" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r3 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="7" label="label2" method="main" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r1" method="main" />
+              <uses id="1" local="i1" method="main" />
+              <defines id="0" local="$r2" method="main" />
+              <livevariables incount="3" outcount="4">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <in id="2" local="$r3" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+                <out id="2" local="$r3" method="main" />
+                <out id="3" local="$r2" method="main" />
+              </livevariables>
+              <jimple length="13"><![CDATA[$r2 = r1[i1]]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="8" label="label2" method="main" labelid="4">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r2" method="main" />
+              <defines id="0" local="$r4" method="main" />
+              <livevariables incount="4" outcount="4">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <in id="2" local="$r3" method="main" />
+                <in id="3" local="$r2" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+                <out id="2" local="$r4" method="main" />
+                <out id="3" local="$r3" method="main" />
+              </livevariables>
+              <jimple length="82"><![CDATA[$r4 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.String toString()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="9" label="label2" method="main" labelid="5">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="main" />
+              <uses id="1" local="$r3" method="main" />
+              <livevariables incount="4" outcount="2">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <in id="2" local="$r4" method="main" />
+                <in id="3" local="$r3" method="main" />
+                <out id="0" local="r1" method="main" />
+                <out id="1" local="i1" method="main" />
+              </livevariables>
+              <jimple length="77"><![CDATA[virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r4)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="10" label="label2" method="main" labelid="6">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="i1" method="main" />
+              <defines id="0" local="i1" method="main" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="r1" method="main" />
+                <in id="1" local="i1" method="main" />
+                <out id="0" local="i1" method="main" />
+                <out id="1" local="r1" method="main" />
+              </livevariables>
+              <jimple length="12"><![CDATA[i1 = i1 + 1]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="11" label="label2" method="main" labelid="7">
+            <soot_statement branches="true" fallsthrough="false">
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="i1" method="main" />
+                <in id="1" local="r1" method="main" />
+                <out id="0" local="i1" method="main" />
+                <out id="1" local="r1" method="main" />
+              </livevariables>
+              <jimple length="12"><![CDATA[goto label2]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="12" label="label3" method="main" labelid="0">
+            <soot_statement branches="true" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="12"><![CDATA[goto label5]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="13" label="label4" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r5" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r5" method="main" />
+              </livevariables>
+              <jimple length="24"><![CDATA[$r5 := @caughtexception]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="14" label="label4" method="main" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r6" method="main" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r6 = <java.lang.System: java.io.PrintStream err>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="15" label="label4" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r5" method="main" />
+              <uses id="1" local="$r6" method="main" />
+              <livevariables incount="2" outcount="0">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="77"><![CDATA[virtualinvoke $r6.<java.io.PrintStream: void println(java.lang.Object)>($r5)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="16" label="label5" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="1">
+          <exception id="0" method="main" type="java.lang.Throwable">
+            <begin label="label1" />
+            <end label="label3" />
+            <handler label="label4" />
+          </exception>
+        </exceptions>
+      </method>
+    </methods>
+  </class>
+</jil>
+

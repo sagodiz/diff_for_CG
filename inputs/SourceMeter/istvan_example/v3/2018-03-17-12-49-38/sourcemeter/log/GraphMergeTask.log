@@ -1,0 +1,9 @@
+[2018-03-17 12:49:45] Start:GraphMergeTask
+GraphMerge 8.2.0 (build 8717#45192 Win64) - (C) 2001-2016 FrontEndART Ltd.
+Loading: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\sourcemeter\graph\CallEdgeExamples-AndroidHunter.graph
+Merging: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\sourcemeter\graph\CallEdgeExamples-FaultHunter.graph
+Merging: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\sourcemeter\graph\CallEdgeExamples-RTEHunter.graph
+Merging: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\sourcemeter\graph\CallEdgeExamples-VulnerabilityHunter.graph
+Merging: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\sourcemeter\graph\CallEdgeExamples-metrics.graph
+Saving: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-17-12-49-38\CallEdgeExamples.graph
+[2018-03-17 12:49:45] End:GraphMergeTask Result:OK

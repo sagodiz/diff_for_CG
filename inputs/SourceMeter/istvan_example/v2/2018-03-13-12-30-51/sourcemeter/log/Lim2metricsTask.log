@@ -1,0 +1,11 @@
+[2018-03-13 12:30:55] Start:Lim2metricsTask
+LIM2Metrics 8.2.0 - Java (build 8717#45192 Win64) - (C) 2001-2016 FrontEndART Ltd.
+Saving graph to D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-13-12-30-51\sourcemeter\graph\CallEdgeExamples-metrics.graph
+Exporting rul
+
+Statistics:
+	Calculation time         :       0.03s
+	Export time              :       0.01s
+	Total time               :       0.11s
+	Peak memory usage        :      10.22MB
+[2018-03-13 12:30:56] End:Lim2metricsTask Result:OK

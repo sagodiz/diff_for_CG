@@ -1,0 +1,13 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.UsePackageInStatic.UsePackageInStatic()"]
+3 [label="root.UsePackageInStatic.foo()"]
+1 [label="java.lang.Object.Object()"]
+4 [label="java.security.SecureRandom.SecureRandom()"]
+2 [label="root.UsePackageInStatic.main(java.lang.String[])"]
+5 [label="java.util.Random.nextInt()"]
+0 -> 1
+2 -> 3
+3 -> 4
+3 -> 5
+}

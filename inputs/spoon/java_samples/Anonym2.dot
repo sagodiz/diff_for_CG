@@ -1,0 +1,46 @@
+digraph graphname {
+rankdir="LR";
+7 [label="root.Anonym2$1.Anonym2$1()"]
+12 [label="root.Anonym2$2.Anonym2$2()"]
+14 [label="root.Anonym2$3.Anonym2$3()"]
+18 [label="root.Anonym2$4.Anonym2$4()"]
+0 [label="root.Anonym2.Anonym2()"]
+8 [label="root.AnonymTest1.AnonymTest1()"]
+15 [label="root.AnonymTest2.AnonymTest2()"]
+3 [label="root.AnonymTest1.foo()"]
+5 [label="root.AnonymTest2.foo()"]
+9 [label="root.Anonym2$1.foo()"]
+13 [label="root.Anonym2$2.foo()"]
+16 [label="root.Anonym2$3.foo()"]
+19 [label="root.Anonym2$4.foo()"]
+6 [label="root.AnonymTest2.goo()"]
+17 [label="root.Anonym2$3.goo()"]
+20 [label="root.Anonym2$4.goo()"]
+1 [label="java.lang.Object.Object()"]
+11 [label="root.Anonym2.main(java.lang.String[])"]
+10 [label="java.io.PrintStream.println(java.lang.String)"]
+2 [label="root.Anonym2.test1(AnonymTest1)"]
+4 [label="root.Anonym2.test2(AnonymTest2)"]
+0 -> 1
+2 -> 3
+2 -> 7
+2 -> 12
+4 -> 5
+4 -> 6
+4 -> 14
+4 -> 18
+7 -> 8
+8 -> 1
+9 -> 10
+11 -> 2
+11 -> 4
+12 -> 8
+13 -> 10
+14 -> 15
+15 -> 1
+16 -> 10
+17 -> 10
+18 -> 15
+19 -> 10
+20 -> 10
+}

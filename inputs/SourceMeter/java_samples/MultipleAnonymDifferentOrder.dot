@@ -1,0 +1,41 @@
+digraph graphname {
+rankdir="LR";
+118 [label="AnonymTest1.<init>()V"]
+119 [label="java.lang.Object.<init>()V"]
+121 [label="AnonymTest1.foo()V"]
+126 [label="AnonymTest2.<init>()V"]
+127 [label="AnonymTest2.goo()V"]
+129 [label="AnonymTest3.<init>()V"]
+130 [label="AnonymTest3.hoo()V"]
+132 [label="MultipleAnonymDifferentOrder.<init>()V"]
+133 [label="MultipleAnonymDifferentOrder.test1(LAnonymTest1;)V"]
+138 [label="MultipleAnonymDifferentOrder.test3(LAnonymTest3;)V"]
+143 [label="MultipleAnonymDifferentOrder.test2(LAnonymTest2;)V"]
+148 [label="MultipleAnonymDifferentOrder.main([Ljava/lang/String;)V"]
+156 [label="MultipleAnonymDifferentOrder$1.<init>()V"]
+160 [label="MultipleAnonymDifferentOrder$1.hoo()V"]
+161 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+166 [label="MultipleAnonymDifferentOrder$2.<init>()V"]
+170 [label="MultipleAnonymDifferentOrder$2.goo()V"]
+172 [label="MultipleAnonymDifferentOrder$3.<init>()V"]
+176 [label="MultipleAnonymDifferentOrder$3.foo()V"]
+118 -> 119
+126 -> 119
+129 -> 119
+132 -> 119
+133 -> 121
+138 -> 130
+143 -> 127
+148 -> 133
+148 -> 138
+148 -> 143
+148 -> 156
+148 -> 166
+148 -> 172
+156 -> 129
+160 -> 161
+166 -> 126
+170 -> 161
+172 -> 118
+176 -> 161
+}

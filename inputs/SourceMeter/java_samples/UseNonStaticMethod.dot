@@ -1,0 +1,12 @@
+digraph graphname {
+rankdir="LR";
+117 [label="UseNonStaticMethod.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="UseNonStaticMethod.main([Ljava/lang/String;)V"]
+133 [label="UseNonStaticMethod.foo()V"]
+135 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+117 -> 118
+120 -> 117
+120 -> 133
+133 -> 135
+}

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key attr.name="label" attr.type="string" for="node" id="d0"/>
+<graph edgedefault="directed">
+<node id="127">
+	<data key="d0">SetUsageOwnClass.&lt;init&gt;(I)V</data>
+</node>
+<node id="129">
+	<data key="d0">java.lang.Object.&lt;init&gt;()V</data>
+</node>
+<node id="132">
+	<data key="d0">SetUsageOwnClass.foo()V</data>
+</node>
+<node id="136">
+	<data key="d0">java.io.PrintStream.println(Ljava/lang/String;)V</data>
+</node>
+<node id="145">
+	<data key="d0">SetUsageOwn.&lt;init&gt;()V</data>
+</node>
+<node id="146">
+	<data key="d0">SetUsageOwn.main([Ljava/lang/String;)V</data>
+</node>
+<node id="163">
+	<data key="d0">java.util.TreeSet.&lt;init&gt;()V</data>
+</node>
+<node id="167">
+	<data key="d0">java.util.Set.add(Ljava/lang/Object;)Z</data>
+</node>
+<edge source="127"  target="129"/>
+<edge source="132"  target="136"/>
+<edge source="145"  target="129"/>
+<edge source="146"  target="127"/>
+<edge source="146"  target="132"/>
+<edge source="146"  target="163"/>
+<edge source="146"  target="167"/>
+</graph></graphml>

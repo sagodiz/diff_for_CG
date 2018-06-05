@@ -1,0 +1,222 @@
+digraph graphname {
+rankdir="LR";
+119 [label="M.<init>()V"]
+120 [label="java.lang.Object.<init>()V"]
+122 [label="M.sg(Ljava/lang/String;)V"]
+130 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+135 [label="Interface.foo()V"]
+136 [label="Interface.goo()V"]
+137 [label="Interface.hoo()V"]
+140 [label="Base.<init>()V"]
+141 [label="Base.base()V"]
+147 [label="Abstract.<init>()V"]
+149 [label="Abstract.foo()V"]
+153 [label="Child1.<init>()V"]
+155 [label="Child1.goo()V"]
+156 [label="Child1.foo()V"]
+157 [label="Child1.child1()V"]
+159 [label="Child2.<init>()V"]
+160 [label="Child2.goo()V"]
+161 [label="Child2.hoo()V"]
+163 [label="Helper.<init>()V"]
+164 [label="Helper.interfaceTest(LInterface;)V"]
+167 [label="Helper.genericMethod(LInterface;)V"]
+172 [label="Helper.instantiateChild1()LChild1;"]
+177 [label="Generic1.<init>()V"]
+178 [label="Generic1.generic(LInterface;)V"]
+184 [label="Generic2.<init>()V"]
+185 [label="Generic2.generic(LInterface;LGeneric1;)V"]
+204 [label="Generic3.<init>()V"]
+206 [label="Generic3.foo()V"]
+208 [label="Outer.<init>()V"]
+209 [label="Outer.inner()V"]
+210 [label="Outer$Inner.inner()V"]
+215 [label="Outer$Inner.<init>()V"]
+218 [label="Outer$Nested.<init>()V"]
+219 [label="Outer$Nested.staticNested()V"]
+220 [label="Outer$Nested.nested()V"]
+229 [label="Init.<initblock>()"]
+235 [label="Init.<init>(LInterface;)V"]
+239 [label="StaticInit.<init>()V"]
+242 [label="StaticInit.<clinit>()"]
+246 [label="StaticInit.staticInit()V"]
+248 [label="Lambda.compare(II)Z"]
+258 [label="Constructor.<init>()V"]
+260 [label="Overload.<init>()V"]
+261 [label="Overload.foo()V"]
+262 [label="Overload.foo(I)V"]
+264 [label="Overload.foo(Ljava/lang/Object;)V"]
+269 [label="Overload.foo(I[Ljava/lang/Object;)V"]
+275 [label="ForParser.<init>()V"]
+283 [label="ForParser.foo()V"]
+284 [label="ForParser.goo()V"]
+285 [label="ForParser.validMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+306 [label="ForParser.validGenericMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+319 [label="CallEdgeExamples.<init>()V"]
+324 [label="CallEdgeExamples.main([Ljava/lang/String;)V"]
+330 [label="CallEdgeExamples.polimorphic()V"]
+332 [label="CallEdgeExamples.innerClass()V"]
+334 [label="CallEdgeExamples.anonim()V"]
+336 [label="CallEdgeExamples.nested()V"]
+338 [label="CallEdgeExamples.local()V"]
+340 [label="CallEdgeExamples.generic()V"]
+342 [label="CallEdgeExamples.init()V"]
+344 [label="CallEdgeExamples.lambda()V"]
+346 [label="CallEdgeExamples.contructor()V"]
+348 [label="CallEdgeExamples.overload()V"]
+350 [label="CallEdgeExamples.parser()V"]
+363 [label="CallEdgeExamples$2.<init>()V"]
+366 [label="CallEdgeExamples$2.foo()V"]
+368 [label="CallEdgeExamples$3.<init>()V"]
+371 [label="CallEdgeExamples$3.generic(LChild1;)V"]
+379 [label="CallEdgeExamples$1Local.<init>()V"]
+380 [label="CallEdgeExamples$1Local.foo()V"]
+119 -> 120
+122 -> 130
+137 -> 122
+140 -> 120
+141 -> 122
+147 -> 140
+149 -> 122
+153 -> 147
+155 -> 122
+156 -> 122
+157 -> 122
+159 -> 147
+160 -> 122
+161 -> 122
+163 -> 120
+164 -> 122
+164 -> 135
+167 -> 122
+167 -> 135
+172 -> 122
+172 -> 153
+177 -> 120
+178 -> 122
+178 -> 135
+184 -> 120
+185 -> 122
+185 -> 135
+185 -> 178
+204 -> 177
+206 -> 122
+206 -> 153
+206 -> 178
+208 -> 120
+209 -> 122
+209 -> 210
+209 -> 215
+210 -> 122
+215 -> 120
+218 -> 120
+219 -> 122
+220 -> 122
+229 -> 122
+229 -> 153
+229 -> 159
+235 -> 120
+235 -> 122
+239 -> 120
+242 -> 122
+242 -> 159
+242 -> 163
+242 -> 172
+246 -> 122
+258 -> 120
+258 -> 122
+260 -> 120
+261 -> 122
+262 -> 122
+264 -> 122
+269 -> 122
+275 -> 120
+283 -> 122
+284 -> 122
+285 -> 122
+285 -> 184
+285 -> 185
+306 -> 122
+306 -> 177
+306 -> 184
+306 -> 185
+319 -> 120
+324 -> 141
+324 -> 319
+324 -> 330
+324 -> 332
+324 -> 334
+324 -> 336
+324 -> 338
+324 -> 340
+324 -> 342
+324 -> 344
+324 -> 346
+324 -> 348
+324 -> 350
+330 -> 122
+330 -> 135
+330 -> 136
+330 -> 137
+330 -> 149
+330 -> 153
+330 -> 156
+330 -> 159
+330 -> 163
+330 -> 164
+332 -> 122
+332 -> 208
+332 -> 209
+334 -> 122
+334 -> 155
+334 -> 156
+334 -> 178
+334 -> 363
+334 -> 368
+336 -> 122
+336 -> 218
+336 -> 219
+336 -> 220
+338 -> 122
+338 -> 379
+338 -> 380
+340 -> 122
+340 -> 153
+340 -> 159
+340 -> 163
+340 -> 167
+340 -> 177
+340 -> 178
+340 -> 184
+340 -> 185
+340 -> 204
+340 -> 206
+340 -> 275
+340 -> 285
+340 -> 306
+342 -> 122
+342 -> 153
+342 -> 235
+342 -> 246
+344 -> 122
+344 -> 248
+346 -> 122
+346 -> 258
+348 -> 122
+348 -> 260
+348 -> 261
+348 -> 262
+348 -> 264
+348 -> 269
+350 -> 122
+350 -> 275
+350 -> 283
+350 -> 284
+363 -> 153
+366 -> 122
+368 -> 177
+371 -> 122
+371 -> 156
+379 -> 120
+380 -> 122
+}

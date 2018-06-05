@@ -1,0 +1,281 @@
+digraph "call-graph" {
+    "<SetUsageOwn: void main(java.lang.String[])>"
+    "<java.util.TreeSet: void <clinit>()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: void <clinit>()>";
+    "<java.lang.Object: void <clinit>()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<java.util.TreeSet: void <init>()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: void <init>()>";
+    "<SetUsageOwnClass: void <init>(int)>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<SetUsageOwnClass: void <init>(int)>";
+    "<java.util.TreeSet: boolean add(java.lang.Object)>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: boolean add(java.lang.Object)>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: boolean add(java.lang.Object)>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: boolean add(java.lang.Object)>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: boolean add(java.lang.Object)>";
+    "<java.util.TreeSet: java.util.Iterator iterator()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeSet: java.util.Iterator iterator()>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<SetUsageOwnClass: void <init>(int)>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<SetUsageOwnClass: void <init>(int)>";
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<SetUsageOwnClass: void <init>(int)>";
+    "<java.util.AbstractList$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractList$Itr: boolean hasNext()>";
+    "<java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr: boolean hasNext()>";
+    "<sun.util.PreHashedMap$1$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.util.PreHashedMap$1$1: boolean hasNext()>";
+    "<sun.misc.SoftCache$EntrySet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.misc.SoftCache$EntrySet$1: boolean hasNext()>";
+    "<sun.nio.fs.AbstractPath$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.AbstractPath$1: boolean hasNext()>";
+    "<java.util.Vector$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Vector$Itr: boolean hasNext()>";
+    "<java.util.Collections$EmptyIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$EmptyIterator: boolean hasNext()>";
+    "<sun.misc.Service$LazyIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.misc.Service$LazyIterator: boolean hasNext()>";
+    "<sun.nio.fs.UnixFileSystem$FileStoreIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.UnixFileSystem$FileStoreIterator: boolean hasNext()>";
+    "<java.util.concurrent.ArrayBlockingQueue$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ArrayBlockingQueue$Itr: boolean hasNext()>";
+    "<java.util.Collections$CheckedCollection$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedCollection$1: boolean hasNext()>";
+    "<java.util.ServiceLoader$LazyIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ServiceLoader$LazyIterator: boolean hasNext()>";
+    "<java.util.ArrayList$SubList$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayList$SubList$1: boolean hasNext()>";
+    "<java.util.ArrayDeque$DescendingIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayDeque$DescendingIterator: boolean hasNext()>";
+    "<java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1: boolean hasNext()>";
+    "<java.util.LinkedList$DescendingIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedList$DescendingIterator: boolean hasNext()>";
+    "<java.util.concurrent.LinkedBlockingQueue$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.LinkedBlockingQueue$Itr: boolean hasNext()>";
+    "<sun.nio.fs.UnixDirectoryStream$UnixDirectoryIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.UnixDirectoryStream$UnixDirectoryIterator: boolean hasNext()>";
+    "<java.util.Hashtable$Enumerator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Hashtable$Enumerator: boolean hasNext()>";
+    "<java.util.SubList$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.SubList$1: boolean hasNext()>";
+    "<java.util.concurrent.ConcurrentLinkedQueue$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentLinkedQueue$Itr: boolean hasNext()>";
+    "<java.util.JumboEnumSet$EnumSetIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.JumboEnumSet$EnumSetIterator: boolean hasNext()>";
+    "<javax.security.auth.Subject$SecureSet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<javax.security.auth.Subject$SecureSet$1: boolean hasNext()>";
+    "<java.lang.ProcessEnvironment$StringKeySet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringKeySet$1: boolean hasNext()>";
+    "<java.util.Scanner: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Scanner: boolean hasNext()>";
+    "<java.util.concurrent.ConcurrentHashMap$HashIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentHashMap$HashIterator: boolean hasNext()>";
+    "<java.util.ArrayDeque$DeqIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayDeque$DeqIterator: boolean hasNext()>";
+    "<java.util.RegularEnumSet$EnumSetIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.RegularEnumSet$EnumSetIterator: boolean hasNext()>";
+    "<java.lang.ProcessEnvironment$StringEntrySet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringEntrySet$1: boolean hasNext()>";
+    "<java.nio.charset.Charset$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.nio.charset.Charset$1: boolean hasNext()>";
+    "<sun.nio.cs.FastCharsetProvider$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.cs.FastCharsetProvider$1: boolean hasNext()>";
+    "<java.util.Collections$UnmodifiableCollection$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableCollection$1: boolean hasNext()>";
+    "<java.util.ServiceLoader$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ServiceLoader$1: boolean hasNext()>";
+    "<sun.security.jca.ProviderList$ServiceList$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.security.jca.ProviderList$ServiceList$1: boolean hasNext()>";
+    "<java.util.Collections$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$1: boolean hasNext()>";
+    "<sun.net.www.MessageHeader$HeaderIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.net.www.MessageHeader$HeaderIterator: boolean hasNext()>";
+    "<java.util.Collections$UnmodifiableList$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableList$1: boolean hasNext()>";
+    "<java.util.Collections$CheckedMap$CheckedEntrySet$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedMap$CheckedEntrySet$1: boolean hasNext()>";
+    "<java.util.LinkedList$ListItr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedList$ListItr: boolean hasNext()>";
+    "<java.util.AbstractMap$1$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractMap$1$1: boolean hasNext()>";
+    "<java.util.ArrayList$Itr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayList$Itr: boolean hasNext()>";
+    "<sun.net.www.HeaderParser$ParserIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.net.www.HeaderParser$ParserIterator: boolean hasNext()>";
+    "<java.util.AbstractMap$2$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractMap$2$1: boolean hasNext()>";
+    "<java.util.Collections$CheckedList$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedList$1: boolean hasNext()>";
+    "<java.lang.ProcessEnvironment$StringValues$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringValues$1: boolean hasNext()>";
+    "<sun.util.PreHashedMap$2$1: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.util.PreHashedMap$2$1: boolean hasNext()>";
+    "<java.util.HashMap$HashIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.HashMap$HashIterator: boolean hasNext()>";
+    "<java.util.concurrent.LinkedBlockingDeque$AbstractItr: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.LinkedBlockingDeque$AbstractItr: boolean hasNext()>";
+    "<java.util.WeakHashMap$HashIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.WeakHashMap$HashIterator: boolean hasNext()>";
+    "<java.util.TreeMap$NavigableSubMap$SubMapIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$NavigableSubMap$SubMapIterator: boolean hasNext()>";
+    "<java.util.IdentityHashMap$IdentityHashMapIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.IdentityHashMap$IdentityHashMapIterator: boolean hasNext()>";
+    "<java.util.TreeMap$PrivateEntryIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$PrivateEntryIterator: boolean hasNext()>";
+    "<java.util.LinkedHashMap$LinkedHashIterator: boolean hasNext()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedHashMap$LinkedHashIterator: boolean hasNext()>";
+    "<java.util.AbstractList$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractList$Itr: java.lang.Object next()>";
+    "<java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr: java.lang.Object next()>";
+    "<sun.util.PreHashedMap$1$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.util.PreHashedMap$1$1: java.lang.Object next()>";
+    "<sun.misc.SoftCache$EntrySet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.misc.SoftCache$EntrySet$1: java.lang.Object next()>";
+    "<sun.nio.fs.AbstractPath$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.AbstractPath$1: java.lang.Object next()>";
+    "<java.util.Vector$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Vector$Itr: java.lang.Object next()>";
+    "<java.util.Collections$EmptyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$EmptyIterator: java.lang.Object next()>";
+    "<sun.misc.Service$LazyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.misc.Service$LazyIterator: java.lang.Object next()>";
+    "<sun.nio.fs.UnixFileSystem$FileStoreIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.UnixFileSystem$FileStoreIterator: java.lang.Object next()>";
+    "<java.util.concurrent.ArrayBlockingQueue$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ArrayBlockingQueue$Itr: java.lang.Object next()>";
+    "<java.util.Collections$CheckedCollection$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedCollection$1: java.lang.Object next()>";
+    "<java.util.ServiceLoader$LazyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ServiceLoader$LazyIterator: java.lang.Object next()>";
+    "<java.util.ArrayList$SubList$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayList$SubList$1: java.lang.Object next()>";
+    "<java.util.ArrayDeque$DescendingIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayDeque$DescendingIterator: java.lang.Object next()>";
+    "<java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1: java.lang.Object next()>";
+    "<java.util.LinkedList$DescendingIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedList$DescendingIterator: java.lang.Object next()>";
+    "<java.util.concurrent.LinkedBlockingQueue$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.LinkedBlockingQueue$Itr: java.lang.Object next()>";
+    "<sun.nio.fs.UnixDirectoryStream$UnixDirectoryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.fs.UnixDirectoryStream$UnixDirectoryIterator: java.lang.Object next()>";
+    "<java.util.Hashtable$Enumerator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Hashtable$Enumerator: java.lang.Object next()>";
+    "<java.util.SubList$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.SubList$1: java.lang.Object next()>";
+    "<java.util.concurrent.ConcurrentLinkedQueue$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentLinkedQueue$Itr: java.lang.Object next()>";
+    "<java.util.JumboEnumSet$EnumSetIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.JumboEnumSet$EnumSetIterator: java.lang.Object next()>";
+    "<javax.security.auth.Subject$SecureSet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<javax.security.auth.Subject$SecureSet$1: java.lang.Object next()>";
+    "<java.lang.ProcessEnvironment$StringKeySet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringKeySet$1: java.lang.Object next()>";
+    "<java.util.Scanner: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Scanner: java.lang.Object next()>";
+    "<java.util.concurrent.ConcurrentHashMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentHashMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.concurrent.ConcurrentHashMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentHashMap$EntryIterator: java.lang.Object next()>";
+    "<java.util.ArrayDeque$DeqIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayDeque$DeqIterator: java.lang.Object next()>";
+    "<java.util.RegularEnumSet$EnumSetIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.RegularEnumSet$EnumSetIterator: java.lang.Object next()>";
+    "<java.lang.ProcessEnvironment$StringEntrySet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringEntrySet$1: java.lang.Object next()>";
+    "<java.nio.charset.Charset$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.nio.charset.Charset$1: java.lang.Object next()>";
+    "<sun.nio.cs.FastCharsetProvider$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.nio.cs.FastCharsetProvider$1: java.lang.Object next()>";
+    "<java.util.Collections$UnmodifiableCollection$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableCollection$1: java.lang.Object next()>";
+    "<java.util.concurrent.ConcurrentHashMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.ConcurrentHashMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.ServiceLoader$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ServiceLoader$1: java.lang.Object next()>";
+    "<sun.security.jca.ProviderList$ServiceList$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.security.jca.ProviderList$ServiceList$1: java.lang.Object next()>";
+    "<java.util.Collections$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$1: java.lang.Object next()>";
+    "<sun.net.www.MessageHeader$HeaderIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.net.www.MessageHeader$HeaderIterator: java.lang.Object next()>";
+    "<java.util.Collections$UnmodifiableList$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$UnmodifiableList$1: java.lang.Object next()>";
+    "<java.util.Collections$CheckedMap$CheckedEntrySet$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedMap$CheckedEntrySet$1: java.lang.Object next()>";
+    "<java.util.LinkedList$ListItr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedList$ListItr: java.lang.Object next()>";
+    "<java.util.AbstractMap$1$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractMap$1$1: java.lang.Object next()>";
+    "<java.util.ArrayList$Itr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.ArrayList$Itr: java.lang.Object next()>";
+    "<sun.net.www.HeaderParser$ParserIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.net.www.HeaderParser$ParserIterator: java.lang.Object next()>";
+    "<java.util.AbstractMap$2$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.AbstractMap$2$1: java.lang.Object next()>";
+    "<java.util.Collections$CheckedList$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.Collections$CheckedList$1: java.lang.Object next()>";
+    "<java.lang.ProcessEnvironment$StringValues$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.lang.ProcessEnvironment$StringValues$1: java.lang.Object next()>";
+    "<sun.util.PreHashedMap$2$1: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<sun.util.PreHashedMap$2$1: java.lang.Object next()>";
+    "<java.util.HashMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.HashMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.HashMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.HashMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.HashMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.HashMap$EntryIterator: java.lang.Object next()>";
+    "<java.util.concurrent.LinkedBlockingDeque$AbstractItr: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.concurrent.LinkedBlockingDeque$AbstractItr: java.lang.Object next()>";
+    "<java.util.WeakHashMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.WeakHashMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.WeakHashMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.WeakHashMap$EntryIterator: java.lang.Object next()>";
+    "<java.util.WeakHashMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.WeakHashMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$NavigableSubMap$SubMapKeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$NavigableSubMap$SubMapKeyIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$NavigableSubMap$DescendingSubMapKeyIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$NavigableSubMap$SubMapEntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$NavigableSubMap$SubMapEntryIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$NavigableSubMap$DescendingSubMapEntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$NavigableSubMap$DescendingSubMapEntryIterator: java.lang.Object next()>";
+    "<java.util.IdentityHashMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.IdentityHashMap$EntryIterator: java.lang.Object next()>";
+    "<java.util.IdentityHashMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.IdentityHashMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.IdentityHashMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.IdentityHashMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$DescendingKeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$DescendingKeyIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$EntryIterator: java.lang.Object next()>";
+    "<java.util.TreeMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.TreeMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.LinkedHashMap$ValueIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedHashMap$ValueIterator: java.lang.Object next()>";
+    "<java.util.LinkedHashMap$KeyIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedHashMap$KeyIterator: java.lang.Object next()>";
+    "<java.util.LinkedHashMap$EntryIterator: java.lang.Object next()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<java.util.LinkedHashMap$EntryIterator: java.lang.Object next()>";
+    "<SetUsageOwnClass: void foo()>"
+    "<SetUsageOwn: void main(java.lang.String[])>"->"<SetUsageOwnClass: void foo()>";
+    "<java.lang.System: void <clinit>()>"
+    "<SetUsageOwnClass: void foo()>"->"<java.lang.System: void <clinit>()>";
+    "<SetUsageOwnClass: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Object: void <init>()>"
+    "<SetUsageOwnClass: void <init>(int)>"->"<java.lang.Object: void <init>()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<SetUsageOwnClass: void foo()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<SetUsageOwnClass: int compareTo(java.lang.Object)>"
+    "<SetUsageOwnClass: int compareTo(SetUsageOwnClass)>"
+    "<SetUsageOwnClass: int compareTo(java.lang.Object)>"->"<SetUsageOwnClass: int compareTo(SetUsageOwnClass)>";
+}

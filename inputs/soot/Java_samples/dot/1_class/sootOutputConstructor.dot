@@ -1,0 +1,30 @@
+digraph "call-graph" {
+    "<Constructor: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<Constructor: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void <init>()>"
+    "<Constructor: void main(java.lang.String[])>"->"<Constructor: void <init>()>";
+    "<Constructor: void <init>(int)>"
+    "<Constructor: void main(java.lang.String[])>"->"<Constructor: void <init>(int)>";
+    "<java.lang.System: void <clinit>()>"
+    "<Constructor: void <init>()>"->"<java.lang.System: void <clinit>()>";
+    "<Constructor: void <init>()>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void <init>(int)>"->"<java.lang.System: void <clinit>()>";
+    "<Constructor: void <init>(int)>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void <init>(int)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Object: void <init>()>"
+    "<Constructor: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<Constructor: void <init>()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<Constructor: void <init>(int)>"->"<java.lang.Object: void <init>()>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "<Constructor: void <init>(int)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "<Constructor: void <init>(int)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
+    "<Constructor: void <init>(int)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "<Constructor: void <init>(int)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<Constructor: void <init>(int)>"->"<java.io.PrintStream: void println(java.lang.String)>";
+}

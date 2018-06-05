@@ -1,0 +1,223 @@
+digraph graphname {
+rankdir="LR";
+69 [label="root.StaticInit.<clinit>()"]
+64 [label="root.Init.<initblock>()"]
+0 [label="root.Abstract.Abstract()"]
+1 [label="root.Base.Base()"]
+29 [label="root.CallEdgeExamples$1.CallEdgeExamples$1()"]
+39 [label="root.CallEdgeExamples$1Local.CallEdgeExamples$1Local()"]
+32 [label="root.CallEdgeExamples$2.CallEdgeExamples$2()"]
+6 [label="root.CallEdgeExamples.CallEdgeExamples()"]
+19 [label="root.Child1.Child1()"]
+24 [label="root.Child2.Child2()"]
+51 [label="root.Constructor.Constructor()"]
+45 [label="root.ForParser.ForParser()"]
+33 [label="root.Generic1.Generic1()"]
+41 [label="root.Generic2.Generic2()"]
+43 [label="root.Generic3.Generic3()"]
+25 [label="root.Helper.Helper()"]
+49 [label="root.Init.Init(Interface)"]
+65 [label="root.M.M()"]
+67 [label="root.Outer$Inner.Outer$Inner()"]
+36 [label="root.Outer$Nested.Outer$Nested()"]
+27 [label="root.Outer.Outer()"]
+53 [label="root.Overload.Overload()"]
+70 [label="root.StaticInit.StaticInit()"]
+10 [label="root.CallEdgeExamples.anonim()"]
+5 [label="root.Base.base()"]
+60 [label="root.Child1.child1()"]
+52 [label="root.Lambda.compare(int,int)"]
+16 [label="root.CallEdgeExamples.contructor()"]
+2 [label="root.Abstract.foo()"]
+23 [label="root.Child1.foo()"]
+20 [label="root.Interface.foo()"]
+30 [label="root.CallEdgeExamples$1.foo()"]
+40 [label="root.CallEdgeExamples$1Local.foo()"]
+44 [label="root.Generic3.foo()"]
+58 [label="root.ForParser.foo()"]
+54 [label="root.Overload.foo()"]
+56 [label="root.Overload.foo(T)"]
+55 [label="root.Overload.foo(int)"]
+57 [label="root.Overload.foo(int,java.lang.Object[])"]
+13 [label="root.CallEdgeExamples.generic()"]
+34 [label="root.CallEdgeExamples$2.generic(Child1)"]
+35 [label="root.Generic1.generic(T extends Interface)"]
+42 [label="root.Generic2.generic(T extends Interface,K extends Generic1)"]
+48 [label="root.Helper.genericMethod(T extends Interface)"]
+31 [label="root.Child1.goo()"]
+21 [label="root.Interface.goo()"]
+61 [label="root.Child2.goo()"]
+59 [label="root.ForParser.goo()"]
+22 [label="root.Interface.hoo()"]
+62 [label="root.Child2.hoo()"]
+14 [label="root.CallEdgeExamples.init()"]
+28 [label="root.Outer.inner()"]
+68 [label="root.Outer$Inner.inner()"]
+9 [label="root.CallEdgeExamples.innerClass()"]
+63 [label="root.Helper.instantiateChild1()"]
+26 [label="root.Helper.interfaceTest(Interface)"]
+4 [label="java.lang.Object.Object()"]
+15 [label="root.CallEdgeExamples.lambda()"]
+12 [label="root.CallEdgeExamples.local()"]
+7 [label="root.CallEdgeExamples.main(java.lang.String[])"]
+11 [label="root.CallEdgeExamples.nested()"]
+37 [label="root.Outer$Nested.nested()"]
+17 [label="root.CallEdgeExamples.overload()"]
+18 [label="root.CallEdgeExamples.parser()"]
+8 [label="root.CallEdgeExamples.polimorphic()"]
+66 [label="java.io.PrintStream.println(java.lang.String)"]
+3 [label="root.M.sg(java.lang.String)"]
+50 [label="root.StaticInit.staticInit()"]
+38 [label="root.Outer$Nested.staticNested()"]
+47 [label="root.ForParser.validGenericMethod(K extends Child2,Generic1,java.lang.Class[])"]
+46 [label="root.ForParser.validMethod(Child2,Generic1,java.lang.Class[])"]
+0 -> 1
+1 -> 4
+2 -> 3
+3 -> 66
+5 -> 3
+6 -> 4
+7 -> 6
+7 -> 8
+7 -> 9
+7 -> 10
+7 -> 11
+7 -> 12
+7 -> 13
+7 -> 14
+7 -> 15
+7 -> 16
+7 -> 17
+7 -> 18
+8 -> 2
+8 -> 3
+8 -> 19
+8 -> 20
+8 -> 21
+8 -> 22
+8 -> 23
+8 -> 24
+8 -> 25
+8 -> 26
+9 -> 3
+9 -> 27
+9 -> 28
+10 -> 3
+10 -> 23
+10 -> 29
+10 -> 31
+10 -> 32
+10 -> 35
+11 -> 3
+11 -> 36
+11 -> 37
+11 -> 38
+12 -> 3
+12 -> 39
+12 -> 40
+13 -> 3
+13 -> 19
+13 -> 24
+13 -> 25
+13 -> 33
+13 -> 35
+13 -> 41
+13 -> 42
+13 -> 43
+13 -> 44
+13 -> 45
+13 -> 46
+13 -> 47
+13 -> 48
+14 -> 3
+14 -> 19
+14 -> 49
+14 -> 50
+15 -> 3
+15 -> 52
+16 -> 3
+16 -> 51
+17 -> 3
+17 -> 53
+17 -> 54
+17 -> 55
+17 -> 56
+17 -> 57
+18 -> 3
+18 -> 45
+18 -> 58
+18 -> 59
+19 -> 0
+22 -> 3
+23 -> 3
+24 -> 0
+25 -> 4
+26 -> 3
+26 -> 20
+27 -> 4
+28 -> 3
+28 -> 67
+28 -> 68
+29 -> 19
+30 -> 3
+31 -> 3
+32 -> 33
+33 -> 4
+34 -> 3
+34 -> 23
+35 -> 3
+35 -> 20
+36 -> 4
+37 -> 3
+38 -> 3
+39 -> 4
+40 -> 3
+41 -> 4
+42 -> 3
+42 -> 20
+42 -> 35
+43 -> 33
+44 -> 3
+44 -> 19
+44 -> 35
+45 -> 4
+46 -> 3
+46 -> 41
+46 -> 42
+47 -> 3
+47 -> 33
+47 -> 41
+47 -> 42
+48 -> 3
+48 -> 20
+49 -> 3
+49 -> 4
+50 -> 3
+51 -> 3
+51 -> 4
+53 -> 4
+54 -> 3
+55 -> 3
+56 -> 3
+57 -> 3
+58 -> 3
+59 -> 3
+60 -> 3
+61 -> 3
+62 -> 3
+63 -> 3
+63 -> 19
+64 -> 3
+64 -> 19
+64 -> 24
+64 -> 25
+64 -> 63
+65 -> 4
+67 -> 4
+68 -> 3
+69 -> 3
+69 -> 24
+69 -> 25
+69 -> 63
+70 -> 4
+}

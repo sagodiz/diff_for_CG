@@ -1,0 +1,29 @@
+digraph graphname {
+rankdir="LR";
+117 [label="Motivation.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="Motivation.main([Ljava/lang/String;)V"]
+133 [label="java.awt.Frame.<init>(Ljava/lang/String;)V"]
+138 [label="java.awt.Button.<init>(Ljava/lang/String;)V"]
+140 [label="java.awt.Component.setBounds(IIII)V"]
+142 [label="java.awt.Button.addActionListener(Ljava/awt/event/ActionListener;)V"]
+147 [label="Motivation$1.<init>()V"]
+150 [label="Motivation$1.actionPerformed(Ljava/awt/event/ActionEvent;)V"]
+155 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+159 [label="java.awt.Container.add(Ljava/awt/Component;)Ljava/awt/Component;"]
+161 [label="java.awt.Window.setSize(II)V"]
+163 [label="java.awt.Container.setLayout(Ljava/awt/LayoutManager;)V"]
+165 [label="java.awt.Window.setVisible(Z)V"]
+117 -> 118
+120 -> 133
+120 -> 138
+120 -> 140
+120 -> 142
+120 -> 147
+120 -> 159
+120 -> 161
+120 -> 163
+120 -> 165
+147 -> 118
+150 -> 155
+}

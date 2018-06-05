@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jil SYSTEM "http://www.sable.mcgill.ca/~flynn/jil/jil10.dtd">
+<jil>
+  <history created="Thu Feb 15 14:22:29 CET 2018">
+    <soot version="trunk" command="-cp . -pp -f X -process-dir Generics/SetUsage -output-dir results/Generics/SetUsage" timestamp="Thu Feb 15 14:22:29 CET 2018" />
+  </history>
+  <class name="SetUsage" extends="java.lang.Object">
+    <modifiers count="1">
+      <modifier name="public" />
+    </modifiers>
+    <interfaces count="0" />
+    <fields count="0" />
+    <methods count="2">
+      <method name="_init_" returntype="void" class="SetUsage">
+        <declaration length="20"><![CDATA[public void <init>()]]></declaration>
+        <parameters method="_init_" count="0" />
+        <locals count="1">
+          <local id="0" method="_init_" name="r0" type="SetUsage">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="1" method="_init_" />
+              <definition id="0" line="0" method="_init_" />
+            </soot_local>
+          </local>
+          <types count="1">
+            <type id="0" type="SetUsage" count="1">
+              <local id="0" method="_init_" name="r0" type="SetUsage">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="1" method="_init_" />
+                  <definition id="0" line="0" method="_init_" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="_init_" stmtcount="3" stmtpercentage="100" />
+        </labels>
+        <statements count="3">
+          <statement id="0" label="default" method="_init_" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="_init_" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="22"><![CDATA[r0 := @this: SetUsage]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="_init_" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="r0" method="_init_" />
+              <livevariables incount="1" outcount="0">
+                <in id="0" local="r0" method="_init_" />
+              </livevariables>
+              <jimple length="53"><![CDATA[specialinvoke r0.<java.lang.Object: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="_init_" labelid="2">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+      <method name="main" returntype="void" class="SetUsage">
+        <declaration length="43"><![CDATA[public static void main(java.lang.String[])]]></declaration>
+        <parameters method="main" count="1">
+          <parameter id="0" type="java.lang.String[]" method="main" name="_parameter0">
+            <soot_parameter uses="1">
+              <use id="0" line="0" method="main" />
+            </soot_parameter>
+          </parameter>
+        </parameters>
+        <locals count="8">
+          <local id="0" method="main" name="r0" type="java.lang.String[]">
+            <soot_local uses="0" defines="1">
+              <definition id="0" line="0" method="main" />
+            </soot_local>
+          </local>
+          <local id="1" method="main" name="$r4" type="java.util.HashSet">
+            <soot_local uses="4" defines="1">
+              <use id="0" line="2" method="main" />
+              <use id="1" line="5" method="main" />
+              <use id="2" line="8" method="main" />
+              <use id="3" line="16" method="main" />
+              <definition id="0" line="1" method="main" />
+            </soot_local>
+          </local>
+          <local id="2" method="main" name="$r5" type="java.util.TreeSet">
+            <soot_local uses="4" defines="1">
+              <use id="0" line="4" method="main" />
+              <use id="1" line="11" method="main" />
+              <use id="2" line="14" method="main" />
+              <use id="3" line="18" method="main" />
+              <definition id="0" line="3" method="main" />
+            </soot_local>
+          </local>
+          <local id="3" method="main" name="$r6" type="java.lang.String">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="7" method="main" />
+              <use id="1" line="8" method="main" />
+              <definition id="0" line="6" method="main" />
+            </soot_local>
+          </local>
+          <local id="4" method="main" name="$r7" type="java.lang.Integer">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="10" method="main" />
+              <use id="1" line="11" method="main" />
+              <definition id="0" line="9" method="main" />
+            </soot_local>
+          </local>
+          <local id="5" method="main" name="$r8" type="java.lang.Integer">
+            <soot_local uses="2" defines="1">
+              <use id="0" line="13" method="main" />
+              <use id="1" line="14" method="main" />
+              <definition id="0" line="12" method="main" />
+            </soot_local>
+          </local>
+          <local id="6" method="main" name="$r9" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="16" method="main" />
+              <definition id="0" line="15" method="main" />
+            </soot_local>
+          </local>
+          <local id="7" method="main" name="$r10" type="java.io.PrintStream">
+            <soot_local uses="1" defines="1">
+              <use id="0" line="18" method="main" />
+              <definition id="0" line="17" method="main" />
+            </soot_local>
+          </local>
+          <types count="6">
+            <type id="0" type="java.lang.String[]" count="1">
+              <local id="0" method="main" name="r0" type="java.lang.String[]">
+                <soot_local uses="0" defines="1">
+                  <definition id="0" line="0" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="1" type="java.util.HashSet" count="1">
+              <local id="1" method="main" name="$r4" type="java.util.HashSet">
+                <soot_local uses="4" defines="1">
+                  <use id="0" line="2" method="main" />
+                  <use id="1" line="5" method="main" />
+                  <use id="2" line="8" method="main" />
+                  <use id="3" line="16" method="main" />
+                  <definition id="0" line="1" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="2" type="java.util.TreeSet" count="1">
+              <local id="2" method="main" name="$r5" type="java.util.TreeSet">
+                <soot_local uses="4" defines="1">
+                  <use id="0" line="4" method="main" />
+                  <use id="1" line="11" method="main" />
+                  <use id="2" line="14" method="main" />
+                  <use id="3" line="18" method="main" />
+                  <definition id="0" line="3" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="3" type="java.lang.String" count="1">
+              <local id="3" method="main" name="$r6" type="java.lang.String">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="7" method="main" />
+                  <use id="1" line="8" method="main" />
+                  <definition id="0" line="6" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="4" type="java.lang.Integer" count="2">
+              <local id="4" method="main" name="$r7" type="java.lang.Integer">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="10" method="main" />
+                  <use id="1" line="11" method="main" />
+                  <definition id="0" line="9" method="main" />
+                </soot_local>
+              </local>
+              <local id="5" method="main" name="$r8" type="java.lang.Integer">
+                <soot_local uses="2" defines="1">
+                  <use id="0" line="13" method="main" />
+                  <use id="1" line="14" method="main" />
+                  <definition id="0" line="12" method="main" />
+                </soot_local>
+              </local>
+            </type>
+            <type id="5" type="java.io.PrintStream" count="2">
+              <local id="6" method="main" name="$r9" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="16" method="main" />
+                  <definition id="0" line="15" method="main" />
+                </soot_local>
+              </local>
+              <local id="7" method="main" name="$r10" type="java.io.PrintStream">
+                <soot_local uses="1" defines="1">
+                  <use id="0" line="18" method="main" />
+                  <definition id="0" line="17" method="main" />
+                </soot_local>
+              </local>
+            </type>
+          </types>
+        </locals>
+        <labels count="1">
+          <label id="0" name="default" method="main" stmtcount="20" stmtpercentage="100" />
+        </labels>
+        <statements count="20">
+          <statement id="0" label="default" method="main" labelid="0">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="r0" method="main" />
+              <livevariables incount="0" outcount="0" />
+              <jimple length="38"><![CDATA[r0 := @parameter0: java.lang.String[]]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="1" label="default" method="main" labelid="1">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r4" method="main" />
+              <livevariables incount="0" outcount="1">
+                <out id="0" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="28"><![CDATA[$r4 = new java.util.HashSet]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="2" label="default" method="main" labelid="2">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="main" />
+              <livevariables incount="1" outcount="1">
+                <in id="0" local="$r4" method="main" />
+                <out id="0" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="55"><![CDATA[specialinvoke $r4.<java.util.HashSet: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="3" label="default" method="main" labelid="3">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r5" method="main" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="28"><![CDATA[$r5 = new java.util.TreeSet]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="4" label="default" method="main" labelid="4">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r5" method="main" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="55"><![CDATA[specialinvoke $r5.<java.util.TreeSet: void <init>()>()]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="5" label="default" method="main" labelid="5">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="main" />
+              <livevariables incount="2" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="75"><![CDATA[interfaceinvoke $r4.<java.util.Set: boolean add(java.lang.Object)>("alma")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="6" label="default" method="main" labelid="6">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r6" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="27"><![CDATA[$r6 = new java.lang.String]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="7" label="default" method="main" labelid="7">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r6" method="main" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r6" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r6" method="main" />
+              </livevariables>
+              <jimple length="77"><![CDATA[specialinvoke $r6.<java.lang.String: void <init>(java.lang.String)>("korte")]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="8" label="default" method="main" labelid="8">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r6" method="main" />
+              <uses id="1" local="$r4" method="main" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r6" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="72"><![CDATA[interfaceinvoke $r4.<java.util.Set: boolean add(java.lang.Object)>($r6)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="9" label="default" method="main" labelid="9">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r7" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="28"><![CDATA[$r7 = new java.lang.Integer]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="10" label="default" method="main" labelid="10">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r7" method="main" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r7" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r7" method="main" />
+              </livevariables>
+              <jimple length="60"><![CDATA[specialinvoke $r7.<java.lang.Integer: void <init>(int)>(55)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="11" label="default" method="main" labelid="11">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r7" method="main" />
+              <uses id="1" local="$r5" method="main" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r7" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="74"><![CDATA[virtualinvoke $r5.<java.util.TreeSet: boolean add(java.lang.Object)>($r7)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="12" label="default" method="main" labelid="12">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r8" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r8" method="main" />
+              </livevariables>
+              <jimple length="28"><![CDATA[$r8 = new java.lang.Integer]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="13" label="default" method="main" labelid="13">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r8" method="main" />
+              <livevariables incount="3" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r8" method="main" />
+              </livevariables>
+              <jimple length="60"><![CDATA[specialinvoke $r8.<java.lang.Integer: void <init>(int)>(33)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="14" label="default" method="main" labelid="14">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r8" method="main" />
+              <uses id="1" local="$r5" method="main" />
+              <livevariables incount="3" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r8" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+              </livevariables>
+              <jimple length="74"><![CDATA[virtualinvoke $r5.<java.util.TreeSet: boolean add(java.lang.Object)>($r8)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="15" label="default" method="main" labelid="15">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r9" method="main" />
+              <livevariables incount="2" outcount="3">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r4" method="main" />
+                <out id="2" local="$r9" method="main" />
+              </livevariables>
+              <jimple length="50"><![CDATA[$r9 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="16" label="default" method="main" labelid="16">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r4" method="main" />
+              <uses id="1" local="$r9" method="main" />
+              <livevariables incount="3" outcount="1">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r4" method="main" />
+                <in id="2" local="$r9" method="main" />
+                <out id="0" local="$r5" method="main" />
+              </livevariables>
+              <jimple length="77"><![CDATA[virtualinvoke $r9.<java.io.PrintStream: void println(java.lang.Object)>($r4)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="17" label="default" method="main" labelid="17">
+            <soot_statement branches="false" fallsthrough="true">
+              <defines id="0" local="$r10" method="main" />
+              <livevariables incount="1" outcount="2">
+                <in id="0" local="$r5" method="main" />
+                <out id="0" local="$r5" method="main" />
+                <out id="1" local="$r10" method="main" />
+              </livevariables>
+              <jimple length="51"><![CDATA[$r10 = <java.lang.System: java.io.PrintStream out>]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="18" label="default" method="main" labelid="18">
+            <soot_statement branches="false" fallsthrough="true">
+              <uses id="0" local="$r5" method="main" />
+              <uses id="1" local="$r10" method="main" />
+              <livevariables incount="2" outcount="0">
+                <in id="0" local="$r5" method="main" />
+                <in id="1" local="$r10" method="main" />
+              </livevariables>
+              <jimple length="78"><![CDATA[virtualinvoke $r10.<java.io.PrintStream: void println(java.lang.Object)>($r5)]]></jimple>
+            </soot_statement>
+          </statement>
+          <statement id="19" label="default" method="main" labelid="19">
+            <soot_statement branches="false" fallsthrough="false">
+              <livevariables incount="0" outcount="0" />
+              <jimple length="7"><![CDATA[return]]></jimple>
+            </soot_statement>
+          </statement>
+        </statements>
+        <exceptions count="0" />
+      </method>
+    </methods>
+  </class>
+</jil>
+

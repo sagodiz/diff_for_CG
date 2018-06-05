@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "TwoClassesA.foo()I", "id": 124}, {"label": "TwoClassesB.main([Ljava/lang/String;)V", "id": 131}], "links": [{"source": 131, "target": 124}]}

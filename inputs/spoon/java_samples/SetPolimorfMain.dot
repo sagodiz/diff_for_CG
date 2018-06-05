@@ -1,0 +1,35 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.SetPolimorfA.SetPolimorfA(int)"]
+5 [label="root.SetPolimorfB.SetPolimorfB(int)"]
+1 [label="root.SetPolimorfBase.SetPolimorfBase(int)"]
+11 [label="root.SetPolimorfMain.SetPolimorfMain()"]
+14 [label="java.util.Set.add(E)"]
+8 [label="root.SetPolimorfBase.foo()"]
+6 [label="root.SetPolimorfB.foo()"]
+2 [label="root.SetPolimorfA.goo()"]
+9 [label="root.SetPolimorfBase.goo()"]
+4 [label="root.SetPolimorfA.hoo()"]
+10 [label="root.SetPolimorfBase.hoo()"]
+7 [label="java.lang.Object.Object()"]
+13 [label="java.util.TreeSet.TreeSet()"]
+12 [label="root.SetPolimorfMain.main(java.lang.String[])"]
+3 [label="java.io.PrintStream.println(java.lang.String)"]
+0 -> 1
+1 -> 7
+2 -> 3
+4 -> 3
+5 -> 1
+6 -> 3
+8 -> 9
+8 -> 10
+9 -> 3
+10 -> 3
+11 -> 7
+12 -> 0
+12 -> 1
+12 -> 5
+12 -> 8
+12 -> 13
+12 -> 14
+}

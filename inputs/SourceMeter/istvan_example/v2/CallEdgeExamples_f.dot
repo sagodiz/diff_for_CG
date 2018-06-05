@@ -1,0 +1,144 @@
+digraph graphname {
+rankdir="LR";
+122 [label="M.sg(Ljava/lang/String;)V"]
+135 [label="Interface.foo()V"]
+136 [label="Interface.goo()V"]
+137 [label="Interface.hoo()V"]
+141 [label="Base.base()V"]
+149 [label="Abstract.foo()V"]
+155 [label="Child1.goo()V"]
+156 [label="Child1.foo()V"]
+157 [label="Child1.child1()V"]
+160 [label="Child2.goo()V"]
+161 [label="Child2.hoo()V"]
+164 [label="Helper.interfaceTest(LInterface;)V"]
+167 [label="Helper.genericMethod(LInterface;)V"]
+172 [label="Helper.instantiateChild1()LChild1;"]
+178 [label="Generic1.generic(LInterface;)V"]
+185 [label="Generic2.generic(LInterface;LGeneric1;)V"]
+206 [label="Generic3.foo()V"]
+209 [label="Outer.inner()V"]
+210 [label="Outer$Inner.inner()V"]
+219 [label="Outer$Nested.staticNested()V"]
+220 [label="Outer$Nested.nested()V"]
+235 [label="Init.<init>(LInterface;)V"]
+246 [label="StaticInit.staticInit()V"]
+248 [label="Lambda.compare(II)Z"]
+258 [label="Constructor.<init>()V"]
+261 [label="Overload.foo()V"]
+262 [label="Overload.foo(I)V"]
+264 [label="Overload.foo(Ljava/lang/Object;)V"]
+269 [label="Overload.foo(I[Ljava/lang/Object;)V"]
+283 [label="ForParser.foo()V"]
+284 [label="ForParser.goo()V"]
+285 [label="ForParser.validMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+306 [label="ForParser.validGenericMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+320 [label="CallEdgeExamples.main([Ljava/lang/String;)V"]
+326 [label="CallEdgeExamples.polimorphic()V"]
+328 [label="CallEdgeExamples.innerClass()V"]
+330 [label="CallEdgeExamples.anonim()V"]
+332 [label="CallEdgeExamples.nested()V"]
+334 [label="CallEdgeExamples.local()V"]
+336 [label="CallEdgeExamples.generic()V"]
+338 [label="CallEdgeExamples.init()V"]
+340 [label="CallEdgeExamples.lambda()V"]
+342 [label="CallEdgeExamples.contructor()V"]
+344 [label="CallEdgeExamples.overload()V"]
+346 [label="CallEdgeExamples.parser()V"]
+360 [label="CallEdgeExamples$1.foo()V"]
+365 [label="CallEdgeExamples$2.generic(LChild1;)V"]
+374 [label="CallEdgeExamples$1Local.foo()V"]
+137 -> 122
+141 -> 122
+149 -> 122
+155 -> 122
+156 -> 122
+157 -> 122
+160 -> 122
+161 -> 122
+164 -> 122
+164 -> 135
+167 -> 122
+167 -> 135
+172 -> 122
+178 -> 122
+178 -> 135
+185 -> 122
+185 -> 135
+185 -> 178
+206 -> 122
+206 -> 178
+209 -> 122
+209 -> 210
+210 -> 122
+219 -> 122
+220 -> 122
+235 -> 122
+246 -> 122
+258 -> 122
+261 -> 122
+262 -> 122
+264 -> 122
+269 -> 122
+283 -> 122
+284 -> 122
+285 -> 122
+285 -> 185
+306 -> 122
+306 -> 185
+320 -> 326
+320 -> 328
+320 -> 330
+320 -> 332
+320 -> 334
+320 -> 336
+320 -> 338
+320 -> 340
+320 -> 342
+320 -> 344
+320 -> 346
+326 -> 122
+326 -> 135
+326 -> 136
+326 -> 137
+326 -> 149
+326 -> 156
+326 -> 164
+328 -> 122
+328 -> 209
+330 -> 122
+330 -> 155
+330 -> 156
+330 -> 178
+332 -> 122
+332 -> 219
+332 -> 220
+334 -> 122
+334 -> 374
+336 -> 122
+336 -> 167
+336 -> 178
+336 -> 185
+336 -> 206
+336 -> 285
+336 -> 306
+338 -> 122
+338 -> 235
+338 -> 246
+340 -> 122
+340 -> 248
+342 -> 122
+342 -> 258
+344 -> 122
+344 -> 261
+344 -> 262
+344 -> 264
+344 -> 269
+346 -> 122
+346 -> 283
+346 -> 284
+360 -> 122
+365 -> 122
+365 -> 156
+374 -> 122
+}

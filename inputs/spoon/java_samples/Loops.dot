@@ -1,0 +1,18 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.Loops.Loops()"]
+5 [label="root.Loops.foo()"]
+1 [label="java.lang.Object.Object()"]
+2 [label="root.Loops.main(java.lang.String[])"]
+6 [label="java.io.PrintStream.print(int)"]
+7 [label="java.io.PrintStream.println(java.lang.Object)"]
+3 [label="java.io.PrintStream.println(java.lang.String)"]
+4 [label="java.lang.Math.random()"]
+0 -> 1
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 6
+2 -> 7
+5 -> 3
+}

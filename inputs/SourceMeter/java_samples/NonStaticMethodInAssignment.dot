@@ -1,0 +1,10 @@
+digraph graphname {
+rankdir="LR";
+117 [label="NonStaticMethodInAssignment.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="NonStaticMethodInAssignment.main([Ljava/lang/String;)V"]
+136 [label="NonStaticMethodInAssignment.foo()I"]
+117 -> 118
+120 -> 117
+120 -> 136
+}

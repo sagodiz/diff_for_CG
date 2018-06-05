@@ -1,0 +1,9 @@
+digraph "call-graph" {
+    "<HelloWorld: void main(java.lang.String[])>"
+    "<java.lang.System: void <clinit>()>"
+    "<HelloWorld: void main(java.lang.String[])>"->"<java.lang.System: void <clinit>()>";
+    "<java.lang.Object: void <clinit>()>"
+    "<HelloWorld: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<HelloWorld: void main(java.lang.String[])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+}

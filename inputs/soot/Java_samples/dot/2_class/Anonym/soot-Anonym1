@@ -1,0 +1,11 @@
+digraph "call-graph" {
+    "<Anonym1: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<Anonym1: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Anonym1$1: void <init>()>"
+    "<Anonym1: void main(java.lang.String[])>"->"<Anonym1$1: void <init>()>";
+    "<AnonymTest: void <init>()>"
+    "<Anonym1$1: void <init>()>"->"<AnonymTest: void <init>()>";
+    "<java.lang.Object: void <init>()>"
+    "<AnonymTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+}

@@ -1,0 +1,1 @@
+{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "SetUsageOwnClass.<init>(I)V", "id": 127}, {"label": "SetUsageOwnClass.foo()V", "id": 132}, {"label": "SetUsageOwn.main([Ljava/lang/String;)V", "id": 146}], "links": [{"source": 146, "target": 127}, {"source": 146, "target": 132}]}

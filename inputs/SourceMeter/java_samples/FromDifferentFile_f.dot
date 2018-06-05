@@ -1,0 +1,8 @@
+digraph graphname {
+rankdir="LR";
+117 [label="FromDifferentFile2.<init>()V"]
+120 [label="FromDifferentFile2.foo()V"]
+131 [label="FromDifferentFile.main([Ljava/lang/String;)V"]
+117 -> 120
+131 -> 117
+}

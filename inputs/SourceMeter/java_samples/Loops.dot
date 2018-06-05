@@ -1,0 +1,18 @@
+digraph graphname {
+rankdir="LR";
+117 [label="Loops.<init>()V"]
+118 [label="java.lang.Object.<init>()V"]
+120 [label="Loops.main([Ljava/lang/String;)V"]
+133 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+137 [label="java.lang.Math.random()D"]
+139 [label="Loops.foo()V"]
+141 [label="java.io.PrintStream.print(I)V"]
+143 [label="java.io.PrintStream.println(Ljava/lang/Object;)V"]
+117 -> 118
+120 -> 133
+120 -> 137
+120 -> 139
+120 -> 141
+120 -> 143
+139 -> 133
+}

@@ -1,0 +1,10 @@
+digraph graphname {
+rankdir="LR";
+120 [label="PolimorfA.goo()V"]
+130 [label="PolimorfB.goo()V"]
+136 [label="PolimorfBase.goo()V"]
+139 [label="PolimorfMain.main([Ljava/lang/String;)V"]
+152 [label="PolimorfMain.foo(LPolimorfBase;)V"]
+139 -> 152
+152 -> 136
+}

@@ -1,0 +1,14 @@
+digraph graphname {
+rankdir="LR";
+121 [label="Constructor.main([Ljava/lang/String;)V"]
+133 [label="Constructor.<init>()V"]
+135 [label="Constructor.<init>(I)V"]
+137 [label="java.lang.Object.<init>()V"]
+139 [label="java.io.PrintStream.println(Ljava/lang/String;)V"]
+121 -> 133
+121 -> 135
+133 -> 137
+133 -> 139
+135 -> 137
+135 -> 139
+}

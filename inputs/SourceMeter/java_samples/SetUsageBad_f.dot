@@ -1,0 +1,6 @@
+digraph graphname {
+rankdir="LR";
+126 [label="SetUsageBad.<init>()V"]
+153 [label="SetUsageBad.main([Ljava/lang/String;)V"]
+153 -> 126
+}

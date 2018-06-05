@@ -1,0 +1,21 @@
+digraph graphname {
+rankdir="LR";
+0 [label="root.SetUsage.SetUsage()"]
+8 [label="java.util.TreeSet.add(E)"]
+5 [label="java.util.Set.add(E)"]
+7 [label="java.lang.Integer.Integer(int)"]
+1 [label="java.lang.Object.Object()"]
+6 [label="java.lang.String.String(java.lang.String)"]
+3 [label="java.util.HashSet.HashSet()"]
+4 [label="java.util.TreeSet.TreeSet()"]
+2 [label="root.SetUsage.main(java.lang.String[])"]
+9 [label="java.io.PrintStream.println(java.lang.Object)"]
+0 -> 1
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 6
+2 -> 7
+2 -> 8
+2 -> 9
+}

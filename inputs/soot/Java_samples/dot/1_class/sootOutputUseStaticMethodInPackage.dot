@@ -1,0 +1,29 @@
+digraph "call-graph" {
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"
+    "<java.lang.Math: void <clinit>()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Math: void <clinit>()>";
+    "<java.lang.Math: double random()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Math: double random()>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Math: double random()>";
+    "<java.lang.Object: void <clinit>()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Math: void <clinit>()>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.System: void <clinit>()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.System: void <clinit>()>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(double)>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(double)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<UseStaticMethodInPackage: void main(java.lang.String[])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+}
