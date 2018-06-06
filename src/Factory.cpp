@@ -46,6 +46,10 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
   }
 }
 
+Named* Factory::getUnionGraphPointer() const {
+	return new UnionGraph();
+}
+
 Factory& Factory::createFactory() {
   
   if ( factoryExist )

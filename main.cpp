@@ -42,8 +42,41 @@ struct StatData {
 	unsigned commonMethodCount, commonCallCount;
 };
 
-static std::pair<float, float> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2);
+static std::pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2);
 static void makeGraphDBStat(const std::vector<std::string>& labels);
+
+template<typename T>
+static void printValue(FILE * common_file, const T& value);
+
+template<>
+static void printValue(FILE * common_file, const float& value) {
+	fprintf(common_file, "%.4f;", value);
+}
+
+template<>
+static void printValue(FILE * common_file, const unsigned long long& value) {
+	fprintf(common_file, "%llu;", value);
+}
+
+template<typename T>
+static void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vector<T>>& mat, FILE * common_file, const std::string& type) {
+	fprintf(common_file, "%s;", type.c_str());
+	for (unsigned i = 0; i < mat.size(); ++i) {
+		fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+	}
+	fprintf(common_file, "\n");
+
+	for (unsigned i = 0; i < mat.size(); ++i) {
+		fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+		for (unsigned j = 0; j < mat.size(); ++j) {
+			printValue<T>(common_file, mat[i][j]);
+		}
+		fprintf(common_file, "\n");
+	}
+	fprintf(common_file, "\n");
+}
+
+
 
 static void writeTSV(vector<Record>, string, string);
 static void writeConnTSV( set<pair<int, int>>, string);
@@ -85,6 +118,7 @@ int main( int argc, char** argv ) {
     
   //need pointer otherwise vector do not accept as Loader is abstract
   vector<Loader*> loaders;
+  vector<Named*> loadersAndUnionG;
 
 Switch* chp = NULL;
 int chpArgIndex = -1;
@@ -105,6 +139,7 @@ unsigned counters[8] = {0};
           //it is not chp. add it.
           switches[j]->init(argv[++i]);
           loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
+		  loadersAndUnionG.push_back(*loaders.rbegin());
         }
       }
     }
@@ -114,6 +149,7 @@ unsigned counters[8] = {0};
     
     chp->init(argv[chpArgIndex]);
     loaders.push_back( chp->getLoaderPointer(0) ); //fuck the chp
+	loadersAndUnionG.push_back(*loaders.rbegin());
   }
     
   if ( 0 == loaders.size() )
@@ -145,22 +181,44 @@ unsigned counters[8] = {0};
   std::vector<vector<Record>> records;
   records.resize(loaders.size());
 
+  std::set<std::pair<int, int>> unionGraphEdges;
+  std::vector<Record> unionGraphNodes;
+
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
+	//collect edges
+	unionGraphEdges.insert(connections[i].begin(), connections[i].end());
 	VERBOSE1
-	std::set<int> filteredIds;
-	records[i] = common::filterNodes(records[i], filteredIds);
-	connections[i] = common::filterConnections(connections[i], filteredIds);
+	if (common::options::filterLevel > 0) {
+		std::set<int> filteredIds;
+		records[i] = common::filterNodes(records[i], filteredIds);
+		connections[i] = common::filterConnections(connections[i], filteredIds);	
+	}
 	common::printNonFilteredMethod(loaders[i]->getName(), records[i]);
+	
   }
+  if (common::options::filterLevel > 0) {
+	  //filter the union graph
+	  std::set<int> filteredIds;
+	  unionGraphNodes = common::filterNodes(common::storedIds, filteredIds);
+	  unionGraphEdges = common::filterConnections(unionGraphEdges, filteredIds);
+  }
+  else {
+	  unionGraphNodes = common::storedIds;
+  }
+
+  records.push_back(unionGraphNodes);
+  connections.push_back(unionGraphEdges);
+  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
+
 
   //start generating various outputs, statistics..
   for ( unsigned i = 0; i < records.size(); i++ ) {
     
-    writeTSV(records[i], loaders[i]->getName(), loaders[i]->getName());
-    common::tsvFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "loadedMethods.tsv");
+    writeTSV(records[i], loadersAndUnionG[i]->getName(), loadersAndUnionG[i]->getName());
+    common::tsvFiles.push_back(Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
   }
   
   {
@@ -177,8 +235,8 @@ unsigned counters[8] = {0};
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    writeConnTSV(connections[i], loaders[i]->getName());
-    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loaders[i]->getName() + "connections.tsv");
+    writeConnTSV(connections[i], loadersAndUnionG[i]->getName());
+    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
   }
   
   {
@@ -195,29 +253,34 @@ unsigned counters[8] = {0};
 //Edit's edit --------------------------------------------------------------------------
   std::vector<std::vector<unsigned>> statMatrix;
 
-  for (unsigned i = 0; i < loaders.size() - 1; i++) {
-	  statMatrix.resize(loaders.size());
+  for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++) {
+	  statMatrix.resize(loadersAndUnionG.size());
   }
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
-  matrixCalls.resize(loaders.size());
-  matrixMethods.resize(loaders.size());
-  for (unsigned i = 0; i < loaders.size(); i++) {
-	  matrixCalls[i].resize(loaders.size());
-	  matrixMethods[i].resize(loaders.size());
+  std::vector<std::vector<unsigned long long>> matrixCallsCount, matrixMethodsCount;
+  matrixCalls.resize(loadersAndUnionG.size());
+  matrixMethods.resize(loadersAndUnionG.size());
+  matrixCallsCount.resize(loadersAndUnionG.size());
+  matrixMethodsCount.resize(loadersAndUnionG.size());
+  for (unsigned i = 0; i < loadersAndUnionG.size(); i++) {
+	  matrixCalls[i].resize(loadersAndUnionG.size());
+	  matrixMethods[i].resize(loadersAndUnionG.size());
+	  matrixCallsCount[i].resize(loadersAndUnionG.size());
+	  matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
     
-  for (unsigned i = 0; i < loaders.size() - 1; i++ ) {
+  for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++ ) {
 	  
-    for (unsigned j = i + 1; j < loaders.size(); j++ ) {
+    for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
       
-      std::pair<float, float> commonVals = makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
+      std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
 	  float loader_i_callNum = (float)connections[i].size();
 	  float loader_j_callNum = (float)connections[j].size();
 
 	  float loader_i_uniqueMethod = (float)records[i].size();
 	  float loader_j_uniqueMethod = (float)records[j].size();
-
+	  //aranyok
 	  matrixCalls[i][i] = loader_i_callNum;
 	  matrixMethods[i][i] = loader_i_uniqueMethod;
 	  matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
@@ -227,6 +290,17 @@ unsigned counters[8] = {0};
 	  matrixMethods[j][j] = loader_j_uniqueMethod;
 	  matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
 	  matrixCalls[j][i] = commonVals.second / loader_j_callNum;
+
+	  //szamok
+	  matrixCallsCount[i][i] = connections[i].size();
+	  matrixMethodsCount[i][i] = records[i].size();
+	  matrixMethodsCount[i][j] = commonVals.first;
+	  matrixCallsCount[i][j] = commonVals.second;
+
+	  matrixCallsCount[j][j] = connections[j].size();
+	  matrixMethodsCount[j][j] = records[j].size();
+	  matrixMethodsCount[j][i] = commonVals.first;
+	  matrixCallsCount[j][i] = commonVals.second;
     }
   }
   std::string fname = Labels::PROJECT_NAME+"_filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
@@ -235,25 +309,12 @@ unsigned counters[8] = {0};
   if ( !common_file )
     throw Labels::PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN + Labels::PROJECT_NAME + "_common_calls_methods.csv";
     
-  auto printMatrix = [](const std::vector<Loader*>& loaders, const std::vector<std::vector<float>>& mat, FILE * common_file, const std::string& type) {
-	  fprintf(common_file, "%s;", type.c_str());
-	  for (unsigned i = 0; i < mat.size(); ++i) {
-		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
-	  }
-	  fprintf(common_file, "\n");
-
-	  for (unsigned i = 0; i < mat.size(); ++i) {
-		  fprintf(common_file, "%s;", loaders[i]->getName().c_str());
-		  for (unsigned j = 0; j < mat.size(); ++j) {
-			  fprintf(common_file, "%.4f;", mat[i][j]);
-		  }
-		  fprintf(common_file, "\n");
-	  }
-	  fprintf(common_file, "\n");
-  };
  
-  printMatrix(loaders, matrixCalls, common_file, "calls");
-  printMatrix(loaders, matrixMethods, common_file, "methods");
+  printMatrix(loadersAndUnionG, matrixCalls, common_file, "calls");
+  printMatrix(loadersAndUnionG, matrixMethods, common_file, "methods");
+
+  printMatrix(loadersAndUnionG, matrixCallsCount, common_file, "callsCount");
+  printMatrix(loadersAndUnionG, matrixMethodsCount, common_file, "methodsCount");
 
   fclose(common_file);
 
@@ -336,14 +397,14 @@ static void writeTSV( vector<Record> records, string name, string tool ) {
     TSV << name << "\t" << records[i] << "\t";
     //TODO: nem csak kiíratom, vagy a kiíratás lehetne mostmár szebb is
     
-    if ( records[i].getSameMethods().size() > 1 )
-      throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
+   // if ( records[i].getSameMethods().size() > 1 )
+   //   throw Labels::TOOL_HAS_MORE_THAN_ONE_REP + name;
     
     TSV << records[i].getSameMethods().at(0).first + records[i].getSecondaryRepresentation() << endl;
   }
 }
 
-static std::pair<float, float> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Loader* l1, Loader* l2, vector<Record> r1, vector<Record> r2 ) {
+static std::pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2 ) {
   
   unsigned long long commonCalls = 0;
   unsigned long long commonCallsCheck = 0;
