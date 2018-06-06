@@ -513,5 +513,5 @@ static std::pair<unsigned long long, unsigned long long> makeStat(set<pair<int, 
   
   statOut.close();
 
-  return std::make_pair<float, float>((float)commonMethods, (float)commonCalls);
+  return std::make_pair(commonMethods, commonCalls);
 }
