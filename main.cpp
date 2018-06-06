@@ -149,7 +149,11 @@ unsigned counters[8] = {0};
     
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-VERBOSE1
+	VERBOSE1
+	std::set<int> filteredIds;
+	records[i] = common::filterNodes(records[i], filteredIds);
+	connections[i] = common::filterConnections(connections[i], filteredIds);
+	common::printNonFilteredMethod(loaders[i]->getName(), records[i]);
   }
 
   //start generating various outputs, statistics..
@@ -208,15 +212,21 @@ VERBOSE1
     for (unsigned j = i + 1; j < loaders.size(); j++ ) {
       
       std::pair<float, float> commonVals = makeStat( connections[i], connections[j], loaders[i], loaders[j], records[i], records[j] );
-	  matrixCalls[i][i] = (float)loaders[i]->getCallNum();
-	  matrixMethods[i][i] = (float)loaders[i]->getUniqueMethodNum();
-	  matrixMethods[i][j] = commonVals.first / loaders[i]->getUniqueMethodNum();
-	  matrixCalls[i][j] = commonVals.second / loaders[i]->getCallNum();
+	  float loader_i_callNum = (float)connections[i].size();
+	  float loader_j_callNum = (float)connections[j].size();
 
-	  matrixCalls[j][j] = (float)loaders[j]->getCallNum();
-	  matrixMethods[j][j] = (float)loaders[j]->getUniqueMethodNum(); 
-	  matrixMethods[j][i] = commonVals.first / loaders[j]->getUniqueMethodNum();
-	  matrixCalls[j][i] = commonVals.second / loaders[j]->getCallNum();
+	  float loader_i_uniqueMethod = (float)records[i].size();
+	  float loader_j_uniqueMethod = (float)records[j].size();
+
+	  matrixCalls[i][i] = loader_i_callNum;
+	  matrixMethods[i][i] = loader_i_uniqueMethod;
+	  matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
+	  matrixCalls[i][j] = commonVals.second / loader_i_callNum;
+
+	  matrixCalls[j][j] = loader_j_callNum;
+	  matrixMethods[j][j] = loader_j_uniqueMethod;
+	  matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
+	  matrixCalls[j][i] = commonVals.second / loader_j_callNum;
     }
   }
   std::string fname = Labels::PROJECT_NAME+"_filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
@@ -407,8 +417,8 @@ static std::pair<float, float> makeStat(set<pair<int, int>> compareSet1, set<pai
   if ( commonMethodsCheck != commonMethods )
     cerr << "The search for common methods failed" << endl; 
   
-  statOut << l1->getFilePath() << " has " << l1->getCallNum() << " calls" << " and " << l1->getMethodNum() << " methods. " << l1->getUniqueMethodNum() << " unique method." << endl;
-  statOut << l2->getFilePath() << " has " << l2->getCallNum() << " calls" << " and " << l2->getMethodNum() << " methods. " << l2->getUniqueMethodNum() << " unique method." << endl;
+  statOut << l1->getFilePath() << " has " << compareSet1.size() << " calls" << " and " << r1.size() << " unique methods. " << endl;
+  statOut << l2->getFilePath() << " has " << compareSet2.size() << " calls" << " and " << r2.size() << " unique methods. " << endl;
   statOut << commonCalls << " common calls and " << commonMethods << " common methods." << endl;
   
   //write the differences

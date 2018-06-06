@@ -50,14 +50,8 @@ vector<Record> Loader_trace::load() {
 				entry_representation = representation;
 				continue;
 			}
-			if (isExclude(infoMine)) {
-				excludedIds.insert(representation);
-				continue;
-			}
-			else {
-				notFilteredMethodNames.insert(infoMine);
-			}
 
+			notFilteredMethodNames.insert(infoMine);
 			//it is a node
 			++methodNum;
 
@@ -270,11 +264,6 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
-
-			if (caller == entry_representation || caller == entry_node || excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-				continue;
-			}
-
 
 			//it is a connection
 			++callNum;

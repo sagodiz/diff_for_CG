@@ -1,5 +1,9 @@
 #include "../inc/common.h"
+#include "../inc/Loader.h"
+#include "../inc/Labels.h"
+#include <numeric>
 #include<iostream>
+
 namespace common {
   
   std::vector<Record> storedIds;
@@ -24,6 +28,95 @@ namespace common {
     
     return replaced;
   }
+
+
+  void printNonFilteredMethod(const std::string& loadername, std::vector<Record> records) {
+	  std::ofstream of("non_filtered_methods_" + loadername + "_unified");
+	  if (!of.is_open()) {
+		  return;
+	  }
+	  of << records.size() << std::endl;
+	  std::sort(records.begin(), records.end(), [](const Record& lhs, const Record& rhs) {
+		  return lhs.getSecondaryRepresentation().compare(rhs.getSecondaryRepresentation()) < 0;
+	  });
+	  for (const auto& meth : records) {
+		  of << meth.getSecondaryRepresentation() << std::endl;
+	  }
+	  of.close();
+  }
+
+  std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds) {
+	  std::vector<Record> filteredNodes;
+	  auto findId = [](const Record& c)->unsigned {
+		  for (unsigned i = 0; i < common::storedIds.size(); ++i) {
+			  if (common::storedIds[i] == c) {
+				  return i;
+			}
+		}
+		  return 0;
+	  };
+	  for (unsigned i = 0; i < unfiltered.size(); ++i) {
+		  std::string method = unfiltered[i].getClass() + "." + unfiltered[i].getMethodName();
+		  if (!isExclude(method)) {
+			  filteredNodes.push_back(unfiltered[i]);
+		  }
+		  else {
+			  filteredIds.insert(findId(unfiltered[i]));
+		  }
+	  }
+	  return filteredNodes;
+  }
+  std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds) {
+	  std::set<std::pair<int, int>> filtered;
+	  for (const auto& edge : unfiltered) {
+		  if (filteredIds.find(edge.first) != filteredIds.end() || filteredIds.find(edge.second) != filteredIds.end()) {
+			  continue;
+		  }
+		  filtered.insert(edge);
+	  }
+	  return filtered;
+  }
+
+  bool isJavaLib(const std::string& method) {
+	  const static std::set<std::string> excludes = { "java.", "sun.", "javax." };
+	  for (const std::string& anExclude : excludes) {
+		  if (method.find(anExclude) == 0) {
+			  return true;
+		  }
+	  }
+	  if (Labels::PROJECT_PATH.length() > 0 && method.find(Labels::PROJECT_PATH) != 0) {
+		  return true;
+	  }
+
+	  return false;
+  }
+
+  bool isExcludableInit(const std::string& name) {
+	  static const std::set<std::string> excludedInits = { "<init>", "<clinit>", "<initblock>" };
+	  for (const std::string& anExclude : excludedInits) {
+		  if (name.find(anExclude) != std::string::npos) {
+			  return true;
+		  }
+	  }
+	  return false;
+  }
+
+  bool isExclude(const std::string& method) {
+	  switch (common::options::filterLevel) {
+	  case 0:
+		  return false;
+	  case 1:
+		  return isJavaLib(method);
+	  case 2:
+		  return isJavaLib(method) || isExcludableInit(method);
+	  default:
+		  return false;
+	  }
+
+
+  }
+
+
 }
 
 namespace common {

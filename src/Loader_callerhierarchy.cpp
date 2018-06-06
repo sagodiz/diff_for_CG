@@ -65,13 +65,8 @@ vector<Record> Loader_callerhierarchy::load() {
       //if no parameter is given there is no '(' so we get back the whole line
       getline(input_stringstream, pckgClassMethod , '(');
 
-	  if (isExclude(pckgClassMethod)) {
-		  excludedIds.insert(representation);
-		  continue;
-	  }
-	  else {
-		  notFilteredMethodNames.insert(representation);
-	  }
+
+      notFilteredMethodNames.insert(representation);
 	  methodNum++;
       
       if ( pckgClassMethod == line ) {
@@ -280,10 +275,6 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
         //do nothing as here comes a new "list" os connections
       }
       else {
-
-		  if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-			  continue;
-		  }
 
 		  //the remaining caller calls the callees
 		  ++callNum;

@@ -17,20 +17,11 @@ class Loader {
     unsigned long long uniqueMethodNum;
     std::string name;
 
-	std::set<std::string> excludedIds;
-
 	std::set<std::string> notFilteredMethodNames;
 
 	void printNotFilteredMethodNames();
 
-	bool isJavaLib(const std::string& name);
-
-	virtual bool isExcludableInit(const std::string& name);
-  
   public:
-	const static std::set<std::string> excludes;
-
-	bool isExclude(const std::string& method);
 
     Loader( std::string filepath, std::string name );
     

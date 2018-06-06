@@ -55,13 +55,8 @@ vector<Record> Loader_soot::load() {
 
       f_classWithPckg.erase(f_classWithPckg.length()-1, 1); //removing the ":"
 
-	  if (isExclude(f_classWithPckg + "." + method)) {
-		  excludedIds.insert(methodRepresentation);
-		  continue;
-	  }
-	  else {
-		  notFilteredMethodNames.insert(methodRepresentation);
-	  }
+
+	  notFilteredMethodNames.insert(methodRepresentation);
 
 	  //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
 	  ++methodNum;
@@ -97,7 +92,7 @@ vector<Record> Loader_soot::load() {
         }
       }
      
-      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector);
+      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector, methodRepresentation);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -150,10 +145,6 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       string callee = line.substr(line.find("->")+2);  //right part
       int callerId = -1, calleeId = -1;
 
-	  if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-		  continue;
-	  }
-
 	  //it is a connection
 	  ++callNum;
       
@@ -187,10 +178,11 @@ set<pair<int, int>> Loader_soot::transformConnections() {
         
         cerr << "Method couldn't be resolved: " << callee << endl;
       }
-      
+
       connections.insert(pair<int, int>(callerId, calleeId));
     }
+	
   }
-  
+
   return connections;
 }

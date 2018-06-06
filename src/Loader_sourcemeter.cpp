@@ -52,13 +52,8 @@ vector<Record> Loader_sourcemeter::load() {
       getline(iss, pckgClassMethod , '(');
       getline(iss, paramsReturn , '(');
 
-	  if (isExclude(pckgClassMethod)) {
-		  excludedIds.insert(representation);
-		  continue;
-	  }
-	  else {
-		  notFilteredMethodNames.insert(infoMine);
-	  }
+
+	  notFilteredMethodNames.insert(infoMine);
       
 	  //it is a node
 	  ++methodNum;
@@ -263,10 +258,6 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
 	  common::trim(caller);
 	  string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 	  common::trim(callee);
-
-	  if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-		  continue;
-	  }
 
 	  //it is a connection
 	  ++callNum;

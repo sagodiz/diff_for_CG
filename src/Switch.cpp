@@ -5,6 +5,7 @@ using namespace std;
 Switch::Switch( string activationString, Factory& factory ) : definer(activationString), factory(factory) {
 }
 
+
 bool Switch::operator==( const string str ) const {
   
   if ( str == definer )
@@ -27,10 +28,6 @@ bool Switch::operator==(const char* str ) const {
   return false;
 }
 
-/*Loader& Switch::getLoader() const {
-  
- // return *loader;
-}*/
 
 Loader* Switch::getLoaderPointer(unsigned counter) const {
   

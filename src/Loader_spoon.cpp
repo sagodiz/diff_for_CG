@@ -18,22 +18,6 @@ Loader_spoon::Loader_spoon(string filepath, string name) : Loader(filepath, name
 Loader_spoon::~Loader_spoon() {
 }
 
-bool Loader_spoon::isExcludableInit(const std::string& name) {
-	if (Loader::isExcludableInit(name)) {
-		return true;
-	}
-	size_t lastDotPos = name.rfind(".");
-	if (lastDotPos == string::npos) {
-		return false;
-	}
-	string method = name.substr(lastDotPos + 1);
-	string pckgClass = name.substr(0, lastDotPos);
-	if (pckgClass.substr(pckgClass.rfind(".") + 1) == method) {
-		return true;
-	}
-	return false;
-}
-
 vector<Record> Loader_spoon::load() {
 
 	vector<Record> tmpRecords;
@@ -79,13 +63,8 @@ vector<Record> Loader_spoon::load() {
 			getline(iss, paramsReturn, '(');
 
 
-			if (isExclude(pckgClassMethod)) {
-				excludedIds.insert(representation);
-				continue;
-			}
-			else {
-				notFilteredMethodNames.insert(infoMine);
-			}
+			notFilteredMethodNames.insert(infoMine);
+
 
 			//it is a node
 			++methodNum;
@@ -223,10 +202,6 @@ set<pair<int, int>> Loader_spoon::transformConnections() {
 			common::trim(caller);
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
-
-			if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-				continue;
-			}
 
 			//it is a connection
 			++callNum;

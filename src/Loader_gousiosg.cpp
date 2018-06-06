@@ -22,8 +22,6 @@ vector<Record> Loader_gousiosg::load() {
 
   while( input >> member1 >> member2 ) {
     
-	  bool skipMember1 = false;
-    
     string pckgClassMethod = member1;
     member1.erase(0,2);
     pckgClassMethod.erase(0, 2);  //erase "M:"
@@ -34,15 +32,9 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream, f_classWithPckg , ':');
     getline(input_stringstream, method, ':');
 
-	if (isExclude(member1)) {
-		excludedIds.insert(member1);
-		skipMember1 = true;
-	}
-	else {
-		notFilteredMethodNames.insert(member1);
-	}
-	if (!skipMember1) {
-		methodNum += 1; //it has 2 methods in a row
+
+	notFilteredMethodNames.insert(member1);
+	methodNum += 1; //it has 2 methods in a row
 
 		string parameters = method.substr(method.find("("));
 		method.erase(method.find("("), method.length() - method.find("("));
@@ -97,7 +89,6 @@ vector<Record> Loader_gousiosg::load() {
 				++uniqueMethodNum;
 				//cout << r << "?" << member1 << endl;
 			}
-		}
 	}
     
     //here comes the next node in the line
@@ -111,13 +102,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
 
-	if (isExclude(member2)) {
-		excludedIds.insert(member2);
-		continue;
-	}
-	else {
-		notFilteredMethodNames.insert(member2);
-	}
+	notFilteredMethodNames.insert(member2);
 	methodNum++;
     
     string parameters2 = method2.substr(method2.find("("));
@@ -197,10 +182,6 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     string callee = member2;
     int callerId = -1, calleeId = -1;
     bool check = false;
-
-	if (excludedIds.find(caller) != excludedIds.end() || excludedIds.find(callee) != excludedIds.end()) {
-		continue;
-	}
 
 	//it is a connection
 	++callNum;
