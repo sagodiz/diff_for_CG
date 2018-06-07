@@ -137,19 +137,19 @@ class RecordConn {
   
     int getMetszet() {
       
-      if ( "x" != soot ) {
+      if ( "" != soot ) {
         metszet |=  SOOT_NUM;
       }
-      if ( "x" != sm ) {
+      if ( "" != sm ) {
         metszet |=  SM_NUM;
       }
-      if ( "x" != spoon ) {
+      if ( "" != spoon ) {
         metszet |=  SPOON_NUM;
       }
-      if ( "x" != gous ) {
+      if ( "" != gous ) {
         metszet |=  JCG_NUM;
       }
-      if ( "x" != wala ) {
+      if ( "" != wala ) {
         metszet |=  WALA_NUM;
       }
       
@@ -221,7 +221,7 @@ int main(int argc, char** argv) {
   }
   else {
     
-    if ( 8 != argc ) {
+    if ( 9 != argc ) {
 
       cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: JCG soot sm spoon JCGConn sootConn smConn spoonConn" << endl;
       return 1;
@@ -254,11 +254,12 @@ int main(int argc, char** argv) {
   getline(gousConn, linec);
   
   while ( getline(gousConn, linec) ) {
-    
+
     stringstream input_stringstream(linec);
 
     getline(input_stringstream, connStr , '\t');
     getline(input_stringstream, toolc , '\t');
+
     
     auto it = find(connections.begin(), connections.end(), connStr);
     if ( it != connections.end() ) {
