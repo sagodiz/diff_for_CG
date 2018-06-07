@@ -88,19 +88,19 @@ class Record {
 		if ("x" != soot) {
 			metszet += transformed;
 		}
-		metszet += ";"
+		metszet += ";";
 		if ("x" != sm) {
 			metszet += transformed;
 		}
-		metszet += ";"
+		metszet += ";";
 		if ("x" != spoon) {
 			metszet += transformed;
 		}
-		metszet += ";"
+		metszet += ";";
 		if ("x" != gous) {
 			metszet += transformed;
 		}
-		metszet += ";"
+		metszet += ";";
 		if ("x" != wala) {
 			metszet += transformed;
 		}
@@ -185,19 +185,19 @@ class RecordConn {
 		if ("x" != soot) {
 			metszet += connection;
 		}
-		metszet += ";"
+		metszet += ";";
 			if ("x" != sm) {
 				metszet += connection;
 			}
-		metszet += ";"
+		metszet += ";";
 			if ("x" != spoon) {
 				metszet += connection;
 			}
-		metszet += ";"
+		metszet += ";";
 			if ("x" != gous) {
 				metszet += connection;
 			}
-		metszet += ";"
+		metszet += ";";
 			if ("x" != wala) {
 				metszet += connection;
 			}
@@ -296,7 +296,7 @@ int main(int argc, char** argv) {
   ofstream connout("commonConnections.tsv");
 
   ofstream vennC("commonConnectionsVenn.csv");
-  venn << "gous;soot;sm;spoon;wala";
+  vennC << "gous;soot;sm;spoon;wala";
   
   //-------------------------gous---------------
   gousConn >> connStr >> toolc; 
