@@ -5,8 +5,6 @@
 #include <algorithm>
 #include <sstream>
 
-
-//TODO: while előtti getline-ok. Ja igen, az az enter miatt van azt hiszem
 using namespace std;
 
 #ifdef DEBUG
@@ -15,43 +13,74 @@ using namespace std;
   #define DDD ;
 #endif
 
+#define SOOT_NUM 1
+#define SM_NUM 2
+#define SPOON_NUM 4
+#define JCG_NUM 8
+#define WALA_NUM 16
+
+
 class Record {
   public:
     string transformed;
     string soot;
     string sm;
     string spoon;
-    string chp;
     string gous;
     string wala;
+    int metszet;
     
     Record(string t) : transformed(t) {
       
       soot = "x";
       sm = "x";
       spoon = "x";
-      chp = "x";
       gous = "x";
       wala = "x";
+      metszet = 0;
     }
   
     int commonNum() {
       
       int num = 0;
-      if ( "x" != soot )
+      if ( "x" != soot ) {
         ++num;
-      if ( "x" != sm )
+      }
+      if ( "x" != sm ) {
         ++num;
-      if ( "x" != spoon )
+      }
+      if ( "x" != spoon ) {
         ++num;
-      if ( "x" != chp )
+      }
+      if ( "x" != gous ) {
         ++num;
-      if ( "x" != gous )
+      }
+      if ( "x" != wala ) {
         ++num;
-      if ( "x" != wala )
-        ++num;
+      }
       
       return num;
+    }
+  
+    int getMetszet() {
+      
+      if ( "x" != soot ) {
+        metszet |=  SOOT_NUM;
+      }
+      if ( "x" != sm ) {
+        metszet |=  SM_NUM;
+      }
+      if ( "x" != spoon ) {
+        metszet |=  SPOON_NUM;
+      }
+      if ( "x" != gous ) {
+        metszet |=  JCG_NUM;
+      }
+      if ( "x" != wala ) {
+        metszet |=  WALA_NUM;
+      }
+      
+      return metszet;
     }
     
     bool operator==(const string& str ) const {
@@ -71,8 +100,8 @@ class RecordConn {
     string spoon;
     string sm;
     string gous;
-    string chp;
     string wala;
+    int metszet;
     
     RecordConn( string str ) : connection(str) {
       
@@ -80,27 +109,51 @@ class RecordConn {
       spoon = "";
       sm = "";
       gous = "";
-      chp = "";
       wala = "";
+      metszet = 0;
     }
     
     int commonNum() {
       
       int num = 0;
-      if ( "" != soot )
+      if ( "" != soot ) {
         ++num;
-      if ( "" != sm )
+      }
+      if ( "" != sm ) {
         ++num;
-      if ( "" != spoon )
+      }
+      if ( "" != spoon ) {
         ++num;
-      if ( "" != chp )
+      }
+      if ( "" != gous ) {
         ++num;
-      if ( "" != gous )
+      }
+      if ( "" != wala ) {
         ++num;
-      if ( "" != wala )
-        ++num;
+      }
       
       return num;
+    }
+  
+    int getMetszet() {
+      
+      if ( "x" != soot ) {
+        metszet |=  SOOT_NUM;
+      }
+      if ( "x" != sm ) {
+        metszet |=  SM_NUM;
+      }
+      if ( "x" != spoon ) {
+        metszet |=  SPOON_NUM;
+      }
+      if ( "x" != gous ) {
+        metszet |=  JCG_NUM;
+      }
+      if ( "x" != wala ) {
+        metszet |=  WALA_NUM;
+      }
+      
+      return metszet;
     }
     
     bool operator==(const string& str ) const {
@@ -116,7 +169,6 @@ int main(int argc, char** argv) {
   ifstream soot ;
   ifstream sm;
   ifstream spoon;
-  ifstream chp;
   ifstream gous;
   ifstream wala;
   
@@ -130,9 +182,6 @@ int main(int argc, char** argv) {
   if ( 3 == argc ) {
     ifstream input(argv[1]);
     string file2open;
-    
-    /*input >> file2open;
-    chp.open(file2open);*/
     
     input >> file2open;
     gous.open(file2open);
@@ -152,8 +201,6 @@ int main(int argc, char** argv) {
     input.close();
     input.open(argv[2]);
     //--------------------------------------
-    /*input >> file2open;
-    chpConn.open(file2open);*/
 
     input >> file2open;
     gousConn.open(file2open);
@@ -174,21 +221,19 @@ int main(int argc, char** argv) {
   }
   else {
     
-    if ( 6 != argc ) {
+    if ( 8 != argc ) {
 
-      cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: chp g... soot sm spoon chpConn g...Conn sootConn smConn spoonConn" << endl;
+      cerr << "Meg kell adni az 5 toolnak a fájljait ebben a sorrendben: JCG soot sm spoon JCGConn sootConn smConn spoonConn" << endl;
       return 1;
     }
     int index = 1;
     
-    //chp.open(argv[index++]);
     gous.open(argv[index++]);
     soot.open(argv[index++]);
     sm.open(argv[index++]);
     spoon.open(argv[index++]);
     
     
-    //chpConn.open(argv[index++]);
     gousConn.open(argv[index++]);
     sootConn.open(argv[index++]);
     smConn.open(argv[index++]);
@@ -202,30 +247,6 @@ int main(int argc, char** argv) {
   
   ofstream connout("commonConnections.tsv");
   
-  //----chpConn--------------
-  /*chpConn >> connStr >> toolc; 
-  cout << "chp connections" << endl;
-  
-  getline(chpConn, linec);
-  
-  while ( getline(chpConn, linec) ) {
-    
-    stringstream input_stringstream(linec);
-
-    getline(input_stringstream, connStr , '\t');
-    getline(input_stringstream, toolc , '\t');
-    
-    auto it = find(connections.begin(), connections.end(), connStr);
-    if ( it != connections.end() ) {
-      //megtalalta
-      it->chp = "X";
-    }
-    else {
-      RecordConn r(connStr);
-      r.chp = "X";
-      connections.push_back(r);
-    }
-  }*/
   //-------------------------gous---------------
   gousConn >> connStr >> toolc; 
   cout << "gous connections" << endl;
@@ -347,11 +368,11 @@ int main(int argc, char** argv) {
     }
   }
   //-----kiiras
-  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "gous" << "\t" << "wala" << endl;
+  connout << "Connection" << "\t" << "matching" << "\t" << "soot" << "\t" << "sm" << "\t" << "spoon" << "\t" << "gous" << "\t" << "wala" << "\t" << "metszetID" << endl;
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << /*connections[i].chp << "\t" <<*/ connections[i].gous << "\t" << connections[i].wala << endl;
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].gous << "\t" << connections[i].wala << "\t" << connections[i].getMetszet() << endl;
   }
   
   connout.close();
@@ -364,31 +385,6 @@ int main(int argc, char** argv) {
   string tool, trans, rep;
   string line;
   
-  //-------
-  /*chp >> tool >> trans >> rep; //get the header
-  cout << "chp" << endl;
-  getline(chp, line);
-  
-DDD
-  while( getline(chp, line) ) {
-DDD    
-    stringstream input_stringstream(line);
-
-    getline(input_stringstream, tool , '\t');
-    getline(input_stringstream, trans , '\t');
-    getline(input_stringstream, rep , '\t');
-    
-    auto it = find(methods.begin(), methods.end(), trans);
-    if ( it != methods.end() ) {
-      //megtalalta
-      it->chp = rep;
-    }
-    else {
-      Record r(trans);
-      r.chp = rep;
-      methods.push_back(r);
-    }
-  }*/
   //---------------------------------
   
   cout << "gous" << endl;
@@ -521,11 +517,11 @@ DDD
   }
   
   //---kiírás
-  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "gous.rep" << "\t" << "wala.rep" << endl;
+  out << "Transformed" << "\t" << "matching" << "\t" << "soot.rep" << "\t" << "sm.rep" << "\t" << "spoon.rep" << "\t" << "gous.rep" << "\t" << "wala.rep" << "\t" << "metszetID" << endl;
   
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
-    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << /*methods[i].chp << "\t" <<*/ methods[i].gous << "\t" << methods[i].wala << endl;
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].gous << "\t" << methods[i].wala << "\t" << methods[i].getMetszet() << endl;
   }
   
   out.close();
