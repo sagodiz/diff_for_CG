@@ -35,6 +35,17 @@ void projectPathMethod(char** argV, int argI) {
 	Labels::PROJECT_PATH = argV[argI + 1];
 }
 
+void calcUnionGraphMethod(char** argV, int argI) {
+	if (!strcmp(argV[argI + 1], "1")) {
+		//calc ratios with union graph
+		common::options::calculateUnionGraph = 1;
+	}
+	else {
+		common::options::calculateUnionGraph = 0;
+	}
+	
+}
+
 void transformToGraphDB(char** argV, int argI) {
 
 	if (!strcmp(argV[argI + 1], "0")) {

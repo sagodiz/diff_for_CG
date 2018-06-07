@@ -110,6 +110,7 @@ int main( int argc, char** argv ) {
                           new Option("-projectName", &projectNameMethod),
 						  new Option("-filterLevel", &filterLevelMethod),
 						  new Option("-projectPath", &projectPathMethod),
+						  new Option("-calcUnionGraph", &calcUnionGraphMethod),
 						  new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
@@ -208,10 +209,12 @@ unsigned counters[8] = {0};
   else {
 	  unionGraphNodes = common::storedIds;
   }
+  if (common::options::calculateUnionGraph) {
+	  records.push_back(unionGraphNodes);
+	  connections.push_back(unionGraphEdges);
+	  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
+  }
 
-  records.push_back(unionGraphNodes);
-  connections.push_back(unionGraphEdges);
-  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
 
 
   //start generating various outputs, statistics..

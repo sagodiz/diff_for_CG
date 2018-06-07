@@ -140,6 +140,7 @@ namespace common {
   namespace options {
 	unsigned char loadToGraph = 0;
 	unsigned char filterLevel = 0;
+	unsigned char calculateUnionGraph = 0;
     unsigned char CHPTransform = 0;
     unsigned char anonymClassNameTransform = 0;
   }

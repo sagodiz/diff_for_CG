@@ -7,5 +7,6 @@ void cHPTransformationMethod(char** argVector, int argIndex);
 void anonymClassNameTransformationMethod(char** argVector, int argIndex);
 void transformToGraphDB(char** argV, int argI);
 void projectPathMethod(char **argVector, int argIndex);
+void calcUnionGraphMethod(char** argV, int argI);
 
 #endif
