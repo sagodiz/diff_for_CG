@@ -180,26 +180,26 @@ class RecordConn {
       return metszet;
     }
 
-	std::string getMetszetAsString() {
+	std::string getMetszetAsString(const std::string& id) {
 		std::string metszet = "";
-		if ("x" != soot) {
-			metszet += connection;
+		if ("" != soot) {
+			metszet += id;
 		}
 		metszet += ";";
-			if ("x" != sm) {
-				metszet += connection;
+			if ("" != sm) {
+				metszet += id;
 			}
 		metszet += ";";
-			if ("x" != spoon) {
-				metszet += connection;
+			if ("" != spoon) {
+				metszet += id;
 			}
 		metszet += ";";
-			if ("x" != gous) {
-				metszet += connection;
+			if ("" != gous) {
+				metszet += id;
 			}
 		metszet += ";";
-			if ("x" != wala) {
-				metszet += connection;
+			if ("" != wala) {
+				metszet += id;
 			}
 		return metszet;
 	}
@@ -426,7 +426,7 @@ int main(int argc, char** argv) {
     
     connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].gous << "\t" << connections[i].wala << "\t" << connections[i].getMetszet() << endl;
   
-	vennC << connections[i].getMetszetAsString() << std::endl;
+	vennC << connections[i].getMetszetAsString(std::to_string(i)) << std::endl;
   }
   
   connout.close();
