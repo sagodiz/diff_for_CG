@@ -3,6 +3,9 @@
 #include <cctype>
 #include "Record.h"
 #include <string>
+#include <set>
+
+class Loader;
 
 namespace common {
   
@@ -11,7 +14,12 @@ namespace common {
   extern std::vector<std::string> connTSVFiles;
   bool unifyeAnonymClasses( std::string& str );
   bool unifyeAnonymMethods( std::string& str );
-  static inline std::string getMethodById( const unsigned int& id ) {
+  bool isExclude(const std::string& method);
+  bool isJavaLib(const std::string& name);
+  bool isExcludableInit(const std::string& name);
+  std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds);
+  std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds);
+  void printNonFilteredMethod(const std::string& loadername, std::vector<Record> records);  static inline std::string getMethodById( const unsigned int& id ) {
     
     if ( id < storedIds.size() ) {
       
@@ -63,6 +71,7 @@ namespace common {
   
   namespace options {
 	extern unsigned char loadToGraph;
+	extern unsigned char filterLevel;
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
   }

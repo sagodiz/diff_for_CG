@@ -31,8 +31,7 @@ vector<Record> Loader_soot::load() {
   while ( getline(input, line) ) {
     
     if ( line.find("->") == string::npos && line != "}" ) {
-      //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
-      ++methodNum;
+     
       
       string methodRepresentation = line; //save the line for representation
       methodRepresentation.erase(0, 4); //the leading spaces
@@ -55,6 +54,12 @@ vector<Record> Loader_soot::load() {
       getline(input_stringstream, method , ' ');
 
       f_classWithPckg.erase(f_classWithPckg.length()-1, 1); //removing the ":"
+
+
+	  notFilteredMethodNames.insert(methodRepresentation);
+
+	  //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
+	  ++methodNum;
       
       string parameters = method.substr(method.find("("));
       method.erase(method.find("("), method.length()-method.find("("));
@@ -88,7 +93,7 @@ vector<Record> Loader_soot::load() {
         }
       }
      
-      Record r(pair<string, string>(methodRepresentation, "soot"), f_classWithPckg, method, parameterVector);
+      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector, methodRepresentation);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -101,12 +106,12 @@ DDD
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == pair<string, string>(methodRepresentation, "soot") ) {
+        if ( *it == pair<string, string>(methodRepresentation, name) ) {
           //contains this representation
         }
         else {
           
-          *it += pair<string, string>(methodRepresentation, "soot");  //add this representation
+          *it += pair<string, string>(methodRepresentation, name);  //add this representation
           ++uniqueMethodNum;
         }
       }
@@ -116,6 +121,8 @@ DDD
   }
   input.clear();
   input.seekg(0, ios::beg);
+
+  printNotFilteredMethodNames();
   
   return tmpRecords;
 }
@@ -130,8 +137,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
   while ( getline(input, line) ) {
     
     if ( line.find("->") != string::npos && line != "}" ) {
-      //it is a connection
-      ++callNum;
+      
       
       line.erase(line.length()-1, 1); //as connections are closed by ";"
       
@@ -139,12 +145,15 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       caller.erase(0, 4); //removal of leading spaces
       string callee = line.substr(line.find("->")+2);  //right part
       int callerId = -1, calleeId = -1;
+
+	  //it is a connection
+	  ++callNum;
       
       bool check = false; //to check if the method do be found.
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(caller, "soot") ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
           
           check = true;
           callerId = i;
@@ -159,7 +168,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(callee, "soot") ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
           
           check = true;
           calleeId = i;
@@ -170,10 +179,11 @@ set<pair<int, int>> Loader_soot::transformConnections() {
         
         cerr << "Method couldn't be resolved: " << callee << endl;
       }
-      
+
       connections.insert(pair<int, int>(callerId, calleeId));
     }
+	
   }
-  
+
   return connections;
 }

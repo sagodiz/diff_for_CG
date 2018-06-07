@@ -29,8 +29,7 @@ vector<Record> Loader_sourcemeter::load() {
   while ( getline(input, line) ) {
     
     if ( line.find("label") != string::npos ) {
-      //it is a node
-      ++methodNum;
+
       
       string representation;
       string pckgClass;
@@ -52,7 +51,13 @@ vector<Record> Loader_sourcemeter::load() {
       stringstream iss(infoMine);
       getline(iss, pckgClassMethod , '(');
       getline(iss, paramsReturn , '(');
+
+
+	  notFilteredMethodNames.insert(infoMine);
       
+	  //it is a node
+	  ++methodNum;
+
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
       if ( lastDotPos != string::npos ) {
         
@@ -204,7 +209,7 @@ vector<Record> Loader_sourcemeter::load() {
         }
       }
    
-      Record r(pair<string, string>(representation, "sm"), pckgClass, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -216,12 +221,12 @@ vector<Record> Loader_sourcemeter::load() {
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
-        if ( *it == pair<string, string>(representation, "sm") ) {
+        if ( *it == pair<string, string>(representation, name) ) {
           //contains this representation
         }
         else {
           ++uniqueMethodNum;
-          *it += pair<string, string>(representation, "sm");  //add this representation
+          *it += pair<string, string>(representation, name);  //add this representation
         }
       }
     } //end of processing label
@@ -230,6 +235,8 @@ vector<Record> Loader_sourcemeter::load() {
   input.clear();
   input.seekg(0, ios::beg);
   
+  printNotFilteredMethodNames();
+
   return tmpRecords;
 }
 
@@ -244,8 +251,7 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
   while ( getline(input, line) ) {
     
   if ( line.find("label") == string::npos && line[0] != '}' ) {
-      //it is a connection
-      ++callNum;
+      
       
 	  std::string delimiter = "->";
 	  size_t delimiter_pos = line.find(delimiter);
@@ -253,6 +259,9 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
 	  common::trim(caller);
 	  string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 	  common::trim(callee);
+
+	  //it is a connection
+	  ++callNum;
       
       int callerId = -1, calleeId = -1;
       
@@ -260,7 +269,7 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(caller, "sm") ) {
+        if ( common::storedIds[i] == pair<string, string>(caller, name) ) {
           
           check = true;
           callerId = i;
@@ -275,7 +284,7 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
       check = false;
       for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
         
-        if ( common::storedIds[i] == pair<string, string>(callee, "sm") ) {
+        if ( common::storedIds[i] == pair<string, string>(callee, name) ) {
           
           check = true;
           calleeId = i;

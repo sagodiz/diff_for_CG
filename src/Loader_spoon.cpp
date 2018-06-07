@@ -31,8 +31,6 @@ vector<Record> Loader_spoon::load() {
 
 		if (line.find("label=") != string::npos) {
 
-			++methodNum;
-
 			string representation;
 			string pckgClass;
 			string className;
@@ -55,12 +53,21 @@ vector<Record> Loader_spoon::load() {
 			}
 
 
+
+
 			string pckgClassMethod;
 			string paramsReturn;
 
 			stringstream iss(infoMine);
 			getline(iss, pckgClassMethod, '(');
 			getline(iss, paramsReturn, '(');
+
+
+			notFilteredMethodNames.insert(infoMine);
+
+
+			//it is a node
+			++methodNum;
 
 			size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
 			if (lastDotPos != string::npos) {
@@ -145,7 +152,7 @@ vector<Record> Loader_spoon::load() {
         }
       }
       
-			Record r(pair<string, string>(representation, "spoon"), pckgClass, method, parameterVector, infoMine);
+			Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back(r);
 
@@ -157,12 +164,12 @@ vector<Record> Loader_spoon::load() {
 			else {
 
 				auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
-				if (*it == pair<string, string>(representation, "spoon") ) {
+				if (*it == pair<string, string>(representation, name) ) {
 					//contains this representation
 				}
 				else {
 					++uniqueMethodNum;
-					*it += pair<string, string>(representation, "spoon");  //add this representation
+					*it += pair<string, string>(representation, name);  //add this representation
 				}
 			}
 
@@ -172,6 +179,8 @@ vector<Record> Loader_spoon::load() {
 
 	input.clear();
 	input.seekg(0, ios::beg);
+
+	printNotFilteredMethodNames();
 
 	return tmpRecords;
 }
@@ -187,8 +196,6 @@ set<pair<int, int>> Loader_spoon::transformConnections() {
 	while (getline(input, line)) {
 
 		if (line.find("label=") == string::npos && line[0] != '}') {
-			//it is a connection
-			++callNum;
 
 			std::string delimiter = "->";
 			size_t delimiter_pos = line.find(delimiter);
@@ -197,14 +204,17 @@ set<pair<int, int>> Loader_spoon::transformConnections() {
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
 
+			//it is a connection
+			++callNum;
+
 			int callerId = -1, calleeId = -1;
 
-			if (!common::checkAndSetId(caller, callerId, "spoon")) {
-				common::checkAndSetId(caller, callerId, "spoon");
+			if (!common::checkAndSetId(caller, callerId, name)) {
+				common::checkAndSetId(caller, callerId, name);
 				cerr << "Method couldn't be resolved: " << caller << endl;
 			}
 
-			if (!common::checkAndSetId(callee, calleeId, "spoon")) {
+			if (!common::checkAndSetId(callee, calleeId, name)) {
 
 				cerr << "Method couldn't be resolved: " << callee << endl;
 			}

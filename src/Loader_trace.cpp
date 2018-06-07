@@ -31,7 +31,7 @@ vector<Record> Loader_trace::load() {
 	while (getline(input, line)) {
 
 		if (line.find("label") != string::npos) {
-			
+
 			string representation;
 			string pckgClass;
 			string method;
@@ -51,6 +51,7 @@ vector<Record> Loader_trace::load() {
 				continue;
 			}
 
+			notFilteredMethodNames.insert(infoMine);
 			//it is a node
 			++methodNum;
 
@@ -213,7 +214,7 @@ vector<Record> Loader_trace::load() {
 				}
 			}
 
-			Record r(pair<string, string>(representation, "t"), pckgClass, method, parameterVector, infoMine);
+			Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
 			if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
 				tmpRecords.push_back(r);
 
@@ -225,12 +226,12 @@ vector<Record> Loader_trace::load() {
 			else {
 
 				auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
-				if (*it == pair<string, string>(representation, "t")) {
+				if (*it == pair<string, string>(representation, name)) {
 					//contains this representation
 				}
 				else {
 					++uniqueMethodNum;
-					*it += pair<string, string>(representation, "t");  //add this representation
+					*it += pair<string, string>(representation, name);  //add this representation
 				}
 			}
 		} //end of processing label
@@ -238,6 +239,8 @@ vector<Record> Loader_trace::load() {
 
 	input.clear();
 	input.seekg(0, ios::beg);
+
+	printNotFilteredMethodNames();
 
 	return tmpRecords;
 }
@@ -253,20 +256,18 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 	while (getline(input, line)) {
 
 		if (line.find("label") == string::npos && line[0] != '}') {
-			
+
 
 			std::string delimiter = "->";
 			size_t delimiter_pos = line.find(delimiter);
 			string caller = line.substr(0, delimiter_pos);  //left part
 			common::trim(caller);
-			if (caller == entry_representation || caller == entry_node) {
-				continue;
-			}
+
+			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
+			common::trim(callee);
 
 			//it is a connection
 			++callNum;
-			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
-			common::trim(callee);
 
 			int callerId = -1, calleeId = -1;
 
@@ -274,7 +275,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 
 			for (unsigned i = 0; i < common::storedIds.size(); i++) {
 
-				if (common::storedIds[i] == pair<string, string>(caller, "t")) {
+				if (common::storedIds[i] == pair<string, string>(caller, name)) {
 
 					check = true;
 					callerId = i;
@@ -289,7 +290,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 			check = false;
 			for (unsigned i = 0; i < common::storedIds.size(); i++) {
 
-				if (common::storedIds[i] == pair<string, string>(callee, "t")) {
+				if (common::storedIds[i] == pair<string, string>(callee, name)) {
 
 					check = true;
 					calleeId = i;

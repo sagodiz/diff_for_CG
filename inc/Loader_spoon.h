@@ -4,7 +4,6 @@
 #include "Loader.h"
 
 class Loader_spoon : public virtual Loader {
-  
   public:
     Loader_spoon(std::string filepath, std::string name);
     ~Loader_spoon();

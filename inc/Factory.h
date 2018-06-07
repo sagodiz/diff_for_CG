@@ -11,7 +11,8 @@ class Factory {
     
   public:
     static Factory& createFactory();
-    Loader* getLoaderPointer(std::string definer, std::string filePath) const;
+    Loader* getLoaderPointer(std::string definer, std::string filePath, unsigned counter) const;
+	Named* getUnionGraphPointer() const;
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "../inc/Loader.h"
 #include "../inc/Labels.h"
+#include "../inc/common.h"
 #include <iostream>
 
 using namespace std;
@@ -14,6 +15,19 @@ Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0
 Loader::~Loader() {
   
   input.close();
+}
+
+
+void Loader::printNotFilteredMethodNames() {
+	std::ofstream of("non_filtered_methods_"+name+"_loader");
+	if (!of.is_open()) {
+		return;
+	}
+	of << notFilteredMethodNames.size() << endl;
+	for (const auto& meth : notFilteredMethodNames) {
+		of << meth << std::endl;
+	}
+	of.close();
 }
 
 unsigned long long Loader::getMethodNum() const {

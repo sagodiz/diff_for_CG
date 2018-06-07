@@ -6,7 +6,24 @@
 #include <iostream>
 #include<set>
 
-class Loader {
+class Named {
+public:
+	virtual std::string getName() const = 0;
+	virtual std::string getFilePath() = 0;
+};
+
+class UnionGraph : public Named {
+public:
+	std::string getName() const {
+		return "UnionGraph";
+	}
+
+	std::string getFilePath() {
+		return "UnionGraph";
+	}
+};
+
+class Loader : public Named {
   
     std::string filepath;
   
@@ -16,8 +33,13 @@ class Loader {
     unsigned long long callNum;
     unsigned long long uniqueMethodNum;
     std::string name;
-  
+
+	std::set<std::string> notFilteredMethodNames;
+
+	void printNotFilteredMethodNames();
+
   public:
+
     Loader( std::string filepath, std::string name );
     
     /**
