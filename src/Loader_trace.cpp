@@ -263,6 +263,10 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 			string caller = line.substr(0, delimiter_pos);  //left part
 			common::trim(caller);
 
+			if (caller == entry_representation || caller == entry_node) {
+				continue;
+			}
+
 			string callee = line.substr(delimiter_pos + delimiter.length());  //right part
 			common::trim(callee);
 
