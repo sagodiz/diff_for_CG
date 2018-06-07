@@ -189,8 +189,11 @@ unsigned counters[8] = {0};
     
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-	//collect edges
-	unionGraphEdges.insert(connections[i].begin(), connections[i].end());
+	if (common::options::calculateUnionGraph) {
+		//collect edges
+		unionGraphEdges.insert(connections[i].begin(), connections[i].end());
+	}
+	
 	VERBOSE1
 	if (common::options::filterLevel > 0) {
 		std::set<int> filteredIds;
@@ -200,16 +203,16 @@ unsigned counters[8] = {0};
 	common::printNonFilteredMethod(loaders[i]->getName(), records[i]);
 	
   }
-  if (common::options::filterLevel > 0) {
+  if (common::options::calculateUnionGraph) {
+   if (common::options::filterLevel > 0) {
 	  //filter the union graph
 	  std::set<int> filteredIds;
 	  unionGraphNodes = common::filterNodes(common::storedIds, filteredIds);
 	  unionGraphEdges = common::filterConnections(unionGraphEdges, filteredIds);
-  }
-  else {
+   }
+   else {
 	  unionGraphNodes = common::storedIds;
-  }
-  if (common::options::calculateUnionGraph) {
+   }
 	  records.push_back(unionGraphNodes);
 	  connections.push_back(unionGraphEdges);
 	  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
