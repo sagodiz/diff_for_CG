@@ -296,7 +296,7 @@ int main(int argc, char** argv) {
   ofstream connout("commonConnections.tsv");
 
   ofstream vennC("commonConnectionsVenn.csv");
-  vennC << "gous;soot;sm;spoon;wala"<<std::endl;
+  vennC << "soot;sm;spoon;gous;wala"<<std::endl;
   
   //-------------------------gous---------------
   gousConn >> connStr >> toolc; 
@@ -438,7 +438,7 @@ int main(int argc, char** argv) {
   ofstream out("commonMethods.tsv");
 
   ofstream venn("commonMethodsVenn.csv");
-  venn << "gous;soot;sm;spoon;wala"<<std::endl;
+  venn << "soot;sm;spoon;gous;wala"<<std::endl;
   string tool, trans, rep;
   string line;
   
