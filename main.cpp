@@ -46,20 +46,20 @@ static std::pair<unsigned long long, unsigned long long> makeStat(set<pair<int, 
 static void makeGraphDBStat(const std::vector<std::string>& labels);
 
 template<typename T>
-static void printValue(FILE * common_file, const T& value);
+void printValue(FILE * common_file, const T& value);
 
 template<>
-static void printValue(FILE * common_file, const float& value) {
+void printValue(FILE * common_file, const float& value) {
 	fprintf(common_file, "%.4f;", value);
 }
 
 template<>
-static void printValue(FILE * common_file, const unsigned long long& value) {
+void printValue(FILE * common_file, const unsigned long long& value) {
 	fprintf(common_file, "%llu;", value);
 }
 
 template<typename T>
-static void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vector<T>>& mat, FILE * common_file, const std::string& type) {
+void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vector<T>>& mat, FILE * common_file, const std::string& type) {
 	fprintf(common_file, "%s;", type.c_str());
 	for (unsigned i = 0; i < mat.size(); ++i) {
 		fprintf(common_file, "%s;", loaders[i]->getName().c_str());
