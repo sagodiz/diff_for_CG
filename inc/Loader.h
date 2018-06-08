@@ -2,26 +2,10 @@
 #define LOADER_H
 
 #include "Record.h"
+#include "Named.h"
 #include<fstream>
 #include <iostream>
 #include<set>
-
-class Named {
-public:
-	virtual std::string getName() const = 0;
-	virtual std::string getFilePath() = 0;
-};
-
-class UnionGraph : public Named {
-public:
-	std::string getName() const {
-		return "UnionGraph";
-	}
-
-	std::string getFilePath() {
-		return "UnionGraph";
-	}
-};
 
 class Loader : public Named {
   
