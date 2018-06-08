@@ -19,7 +19,8 @@ namespace common {
   bool isExcludableInit(const std::string& name);
   std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds);
   std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds);
-  void printNonFilteredMethod(const std::string& loadername, std::vector<Record> records);  static inline std::string getMethodById( const unsigned int& id ) {
+  void printFilteredMethod(const std::string& loadername, std::vector<Record> records);
+  static inline std::string getMethodById( const unsigned int& id ) {
     
     if ( id < storedIds.size() ) {
       
@@ -65,14 +66,15 @@ namespace common {
 	  }
 	  return false;
   };
+  
 }
 
 namespace common {
   
   namespace options {
-	extern unsigned char loadToGraph;
-	extern unsigned char filterLevel;
-	extern unsigned char calculateUnionGraph;
+	  extern unsigned char loadToGraph;
+	  extern unsigned char filterLevel;
+	  extern unsigned char calculateUnionGraph;
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
   }

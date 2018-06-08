@@ -28,7 +28,8 @@ namespace common {
     
     return replaced;
   }
-bool unifyeAnonymMethods( std::string& str ) {
+  
+  bool unifyeAnonymMethods( std::string& str ) {
     
     bool replaced = false;
     
@@ -46,7 +47,8 @@ bool unifyeAnonymMethods( std::string& str ) {
     
     return replaced;
   }
-  void printNonFilteredMethod(const std::string& loadername, std::vector<Record> records) {
+  
+  void printFilteredMethod(const std::string& loadername, std::vector<Record> records) {
 	  std::ofstream of("non_filtered_methods_" + loadername + "_unified");
 	  if (!of.is_open()) {
 		  return;
@@ -128,19 +130,17 @@ bool unifyeAnonymMethods( std::string& str ) {
 	  default:
 		  return false;
 	  }
-
-
   }
 
-
+  
 }
 
 namespace common {
   
   namespace options {
-	unsigned char loadToGraph = 0;
-	unsigned char filterLevel = 0;
-	unsigned char calculateUnionGraph = 0;
+	  unsigned char loadToGraph = 0;
+	  unsigned char filterLevel = 0;
+	  unsigned char calculateUnionGraph = 0;
     unsigned char CHPTransform = 0;
     unsigned char anonymClassNameTransform = 0;
   }

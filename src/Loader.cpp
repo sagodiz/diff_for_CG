@@ -54,6 +54,11 @@ string Loader::getName() const {
  return name; 
 }
 
+string Loader::getKind() const {
+  
+  return "L_";
+}
+
 //friend
 ostream& operator<<(ostream& o, Loader* l ) {
   

@@ -44,6 +44,7 @@ class Loader : public Named {
     std::string getFilePath();
     unsigned long long getUniqueMethodNum() const;
     std::string getName() const;
+    std::string getKind() const;
     
   friend std::ostream& operator<<(std::ostream& o, Loader* l );
   

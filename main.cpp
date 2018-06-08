@@ -108,10 +108,10 @@ int main( int argc, char** argv ) {
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
-						  new Option("-filterLevel", &filterLevelMethod),
-						  new Option("-projectPath", &projectPathMethod),
-						  new Option("-calcUnionGraph", &calcUnionGraphMethod),
-						  new Option("-transformToGraphDB", &transformToGraphDB),
+						              new Option("-filterLevel", &filterLevelMethod),
+						              new Option("-projectPath", &projectPathMethod),
+						              new Option("-calcUnionGraph", &calcUnionGraphMethod),
+						              new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           NULL
@@ -140,7 +140,7 @@ unsigned counters[8] = {0};
           //it is not chp. add it.
           switches[j]->init(argv[++i]);
           loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
-		  loadersAndUnionG.push_back(*loaders.rbegin());
+		      loadersAndUnionG.push_back(*loaders.rbegin());
         }
       }
     }
@@ -150,7 +150,7 @@ unsigned counters[8] = {0};
     
     chp->init(argv[chpArgIndex]);
     loaders.push_back( chp->getLoaderPointer(0) ); //fuck the chp
-	loadersAndUnionG.push_back(*loaders.rbegin());
+	  loadersAndUnionG.push_back(*loaders.rbegin());
   }
     
   if ( 0 == loaders.size() )
@@ -170,6 +170,7 @@ unsigned counters[8] = {0};
   }
 
   if (common::options::loadToGraph == 2) {//csak graf db stat
+    
 	  std::vector<std::string> graph_ids;
 	  GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
 	  makeGraphDBStat(graph_ids);
@@ -178,32 +179,36 @@ unsigned counters[8] = {0};
 
   //create an array for the transformed connections
   std::vector<set<pair<int, int>>> connections;
-  connections.resize(loaders.size());
+  connections.resize(loaders.size()); //this size won't be the same always!
   std::vector<vector<Record>> records;
-  records.resize(loaders.size());
+  records.resize(loaders.size()); //this neither
 
   std::set<std::pair<int, int>> unionGraphEdges;
   std::vector<Record> unionGraphNodes;
-
+    
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-	if (common::options::calculateUnionGraph) {
-		//collect edges
-		unionGraphEdges.insert(connections[i].begin(), connections[i].end());
-	}
+    
+	  if (common::options::calculateUnionGraph) {
+		  //collect edges
+		  unionGraphEdges.insert(connections[i].begin(), connections[i].end());
+	  }
 	
-	VERBOSE1
-	if (common::options::filterLevel > 0) {
-		std::set<int> filteredIds;
-		records[i] = common::filterNodes(records[i], filteredIds);
-		connections[i] = common::filterConnections(connections[i], filteredIds);	
+    VERBOSE1
+    if (common::options::filterLevel > 0) {
+      
+      std::set<int> filteredIds;
+      records[i] = common::filterNodes(records[i], filteredIds);
+      connections[i] = common::filterConnections(connections[i], filteredIds);	
+    }
+    
+    common::printFilteredMethod(loaders[i]->getName(), records[i]);
   }
-	common::printNonFilteredMethod(loaders[i]->getName(), records[i]);
-	
-  }
+  
   if (common::options::calculateUnionGraph) {
+    
    if (common::options::filterLevel > 0) {
 	  //filter the union graph
 	  std::set<int> filteredIds;
@@ -211,20 +216,21 @@ unsigned counters[8] = {0};
 	  unionGraphEdges = common::filterConnections(unionGraphEdges, filteredIds);
    }
    else {
+     
 	  unionGraphNodes = common::storedIds;
    }
+
 	  records.push_back(unionGraphNodes);
 	  connections.push_back(unionGraphEdges);
 	  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
   }
 
 
-
   //start generating various outputs, statistics..
-  for ( unsigned i = 0; i < records.size(); i++ ) {
+  for ( unsigned i = 0; i < records.size() && i < loadersAndUnionG.size(); i++ ) { //the and is here just for safety, those two should be the same.
     
     writeTSV(records[i], loadersAndUnionG[i]->getName(), loadersAndUnionG[i]->getName());
-    common::tsvFiles.push_back(Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
+    common::tsvFiles.push_back(loadersAndUnionG[i]->getKind() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
   }
   
   {
@@ -239,10 +245,10 @@ unsigned counters[8] = {0};
     }
   }
   
-  for ( unsigned i = 0; i < connections.size(); i++ ) {
+  for ( unsigned i = 0; i < connections.size() && i < loadersAndUnionG.size(); i++ ) { //that and is for safety too.
     
     writeConnTSV(connections[i], loadersAndUnionG[i]->getName());
-    common::connTSVFiles.push_back(Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
+    common::connTSVFiles.push_back(loadersAndUnionG[i]->getKind() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
   }
   
   {
@@ -265,11 +271,14 @@ unsigned counters[8] = {0};
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
   std::vector<std::vector<unsigned long long>> matrixCallsCount, matrixMethodsCount;
+    
   matrixCalls.resize(loadersAndUnionG.size());
   matrixMethods.resize(loadersAndUnionG.size());
   matrixCallsCount.resize(loadersAndUnionG.size());
   matrixMethodsCount.resize(loadersAndUnionG.size());
+    
   for (unsigned i = 0; i < loadersAndUnionG.size(); i++) {
+    
 	  matrixCalls[i].resize(loadersAndUnionG.size());
 	  matrixMethods[i].resize(loadersAndUnionG.size());
 	  matrixCallsCount[i].resize(loadersAndUnionG.size());
@@ -280,7 +289,7 @@ unsigned counters[8] = {0};
 	  
     for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
       
-      std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
+    std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
 	  float loader_i_callNum = (float)connections[i].size();
 	  float loader_j_callNum = (float)connections[j].size();
 
@@ -309,6 +318,7 @@ unsigned counters[8] = {0};
 	  matrixCallsCount[j][i] = commonVals.second;
     }
   }
+    
   std::string fname = Labels::PROJECT_NAME+"_filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
   FILE * common_file = fopen(fname.c_str(), "w");
 
@@ -325,10 +335,13 @@ unsigned counters[8] = {0};
   fclose(common_file);
 
   if (common::options::loadToGraph != 0) {
+    
 	  std::vector<std::string> graph_ids;
 	  if (common::options::loadToGraph == 1) {
-		  for (unsigned i = 0; i < records.size(); i++) {
-			  static const string graphml_ext = ".graphml";
+		
+      for (unsigned i = 0; i < records.size(); i++) {
+			
+        static const string graphml_ext = ".graphml";
 			  static const string json_ext = ".json";
 			  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
 			  graph_ids.push_back(filename);
@@ -336,8 +349,10 @@ unsigned counters[8] = {0};
 			  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
 			  GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
 		  }
+      
 		  GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
 	  }
+    
 	  makeGraphDBStat(graph_ids);
 	  
   }
@@ -363,7 +378,7 @@ unsigned counters[8] = {0};
 
 static void makeGraphDBStat(const std::vector<std::string>& graph_ids) {
 	if (graph_ids.size() == 0) {
-		std::cout << "No graph ids!" << std::endl;
+		std::err << "No graph ids!" << std::endl;
 	}
 	else {
 		for (unsigned i = 0; i < graph_ids.size() - 1; i++) {
