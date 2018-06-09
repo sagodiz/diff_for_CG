@@ -12,58 +12,58 @@ void projectNameMethod( char** argV, int argI ) {
 
 void filterLevelMethod(char** argV, int argI) {
 
-	if (!strcmp(argV[argI + 1], "0")) {
-		//no filtering at all
-		common::options::filterLevel = 0;
-	}
-	else if (!strcmp(argV[argI + 1], "1")) {
-		//filter java libs
-		common::options::filterLevel = 1;
-	}
-	else if (!strcmp(argV[argI + 1], "2")) {
-		//filter java libs and inits, constructors
-		common::options::filterLevel = 2;
-	}
-	else {
+  if (!strcmp(argV[argI + 1], "0")) {
+    //no filtering at all
+    common::options::filterLevel = 0;
+  }
+  else if (!strcmp(argV[argI + 1], "1")) {
+    //filter java libs
+    common::options::filterLevel = 1;
+  }
+  else if (!strcmp(argV[argI + 1], "2")) {
+    //filter java libs and inits, constructors
+    common::options::filterLevel = 2;
+  }
+  else {
 
-		common::options::filterLevel = 0;
-	}
+    common::options::filterLevel = 0;
+  }
 }
 
 void projectPathMethod(char** argV, int argI) {
 
-	Labels::PROJECT_PATH = argV[argI + 1];
+  Labels::PROJECT_PATH = argV[argI + 1];
 }
 
 void calcUnionGraphMethod(char** argV, int argI) {
-	if (!strcmp(argV[argI + 1], "1")) {
-		//calc ratios with union graph
-		common::options::calculateUnionGraph = 1;
-	}
-	else {
-		common::options::calculateUnionGraph = 0;
-	}
-	
+  if (!strcmp(argV[argI + 1], "1")) {
+    //calc ratios with union graph
+    common::options::calculateUnionGraph = 1;
+  }
+  else {
+    common::options::calculateUnionGraph = 0;
+  }
+  
 }
 
 void transformToGraphDB(char** argV, int argI) {
 
-	if (!strcmp(argV[argI + 1], "0")) {
-		//do not produce graphml with unified names
-		common::options::loadToGraph = 0;
-	}
-	else if (!strcmp(argV[argI + 1], "1")) {
-		//produce graphml with unified names
-		common::options::loadToGraph = 1;
-	}
-	else if (!strcmp(argV[argI + 1], "2")) {
-		//produce graphml with unified names
-		common::options::loadToGraph = 2;
-	}
-	else {
+  if (!strcmp(argV[argI + 1], "0")) {
+    //do not produce graphml with unified names
+    common::options::loadToGraph = 0;
+  }
+  else if (!strcmp(argV[argI + 1], "1")) {
+    //produce graphml with unified names
+    common::options::loadToGraph = 1;
+  }
+  else if (!strcmp(argV[argI + 1], "2")) {
+    //produce graphml with unified names
+    common::options::loadToGraph = 2;
+  }
+  else {
 
-		common::options::loadToGraph = 0;
-	}
+    common::options::loadToGraph = 0;
+  }
 }
 
 

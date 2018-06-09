@@ -41,9 +41,9 @@ vector<Record> Loader_sourcemeter::load() {
       getline(input_stringstream, infoMine, ' ');
       
       infoMine.erase(0, 8); //[label=" --> 8 chars
-	  size_t ending = infoMine.rfind("\"]");
-	  if (ending != string::npos)
-		  infoMine.erase(ending);
+    size_t ending = infoMine.rfind("\"]");
+    if (ending != string::npos)
+      infoMine.erase(ending);
       
       string pckgClassMethod;
       string paramsReturn;
@@ -53,10 +53,10 @@ vector<Record> Loader_sourcemeter::load() {
       getline(iss, paramsReturn , '(');
 
 
-	  notFilteredMethodNames.insert(infoMine);
+    notFilteredMethodNames.insert(infoMine);
       
-	  //it is a node
-	  ++methodNum;
+    //it is a node
+    ++methodNum;
 
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
       if ( lastDotPos != string::npos ) {
@@ -253,15 +253,15 @@ set<pair<int, int>> Loader_sourcemeter::transformConnections() {
   if ( line.find("label") == string::npos && line[0] != '}' ) {
       
       
-	  std::string delimiter = "->";
-	  size_t delimiter_pos = line.find(delimiter);
-	  string caller = line.substr(0, delimiter_pos);  //left part
-	  common::trim(caller);
-	  string callee = line.substr(delimiter_pos + delimiter.length());  //right part
-	  common::trim(callee);
+    std::string delimiter = "->";
+    size_t delimiter_pos = line.find(delimiter);
+    string caller = line.substr(0, delimiter_pos);  //left part
+    common::trim(caller);
+    string callee = line.substr(delimiter_pos + delimiter.length());  //right part
+    common::trim(callee);
 
-	  //it is a connection
-	  ++callNum;
+    //it is a connection
+    ++callNum;
       
       int callerId = -1, calleeId = -1;
       

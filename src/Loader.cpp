@@ -19,15 +19,15 @@ Loader::~Loader() {
 
 
 void Loader::printNotFilteredMethodNames() {
-	std::ofstream of("non_filtered_methods_"+name+"_loader");
-	if (!of.is_open()) {
-		return;
-	}
-	of << notFilteredMethodNames.size() << endl;
-	for (const auto& meth : notFilteredMethodNames) {
-		of << meth << std::endl;
-	}
-	of.close();
+  std::ofstream of("non_filtered_methods_"+name+"_loader");
+  if (!of.is_open()) {
+    return;
+  }
+  of << notFilteredMethodNames.size() << endl;
+  for (const auto& meth : notFilteredMethodNames) {
+    of << meth << std::endl;
+  }
+  of.close();
 }
 
 unsigned long long Loader::getMethodNum() const {

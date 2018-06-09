@@ -83,29 +83,29 @@ class Record {
       return metszet;
     }
 
-	std::string getMetszetAsString() {
-		std::string metszet = "";
-		if ("x" != soot) {
-			metszet += transformed;
-		}
-		metszet += ";";
-		if ("x" != sm) {
-			metszet += transformed;
-		}
-		metszet += ";";
-		if ("x" != spoon) {
-			metszet += transformed;
-		}
-		metszet += ";";
-		if ("x" != gous) {
-			metszet += transformed;
-		}
-		metszet += ";";
-		if ("x" != wala) {
-			metszet += transformed;
-		}
-		return metszet;
-	}
+  std::string getMetszetAsString() {
+    std::string metszet = "";
+    if ("x" != soot) {
+      metszet += transformed;
+    }
+    metszet += ";";
+    if ("x" != sm) {
+      metszet += transformed;
+    }
+    metszet += ";";
+    if ("x" != spoon) {
+      metszet += transformed;
+    }
+    metszet += ";";
+    if ("x" != gous) {
+      metszet += transformed;
+    }
+    metszet += ";";
+    if ("x" != wala) {
+      metszet += transformed;
+    }
+    return metszet;
+  }
     
     bool operator==(const string& str ) const {
       
@@ -180,29 +180,29 @@ class RecordConn {
       return metszet;
     }
 
-	std::string getMetszetAsString(const std::string& id) {
-		std::string metszet = "";
-		if ("" != soot) {
-			metszet += id;
-		}
-		metszet += ";";
-			if ("" != sm) {
-				metszet += id;
-			}
-		metszet += ";";
-			if ("" != spoon) {
-				metszet += id;
-			}
-		metszet += ";";
-			if ("" != gous) {
-				metszet += id;
-			}
-		metszet += ";";
-			if ("" != wala) {
-				metszet += id;
-			}
-		return metszet;
-	}
+  std::string getMetszetAsString(const std::string& id) {
+    std::string metszet = "";
+    if ("" != soot) {
+      metszet += id;
+    }
+    metszet += ";";
+      if ("" != sm) {
+        metszet += id;
+      }
+    metszet += ";";
+      if ("" != spoon) {
+        metszet += id;
+      }
+    metszet += ";";
+      if ("" != gous) {
+        metszet += id;
+      }
+    metszet += ";";
+      if ("" != wala) {
+        metszet += id;
+      }
+    return metszet;
+  }
     
     bool operator==(const string& str ) const {
       
@@ -421,7 +421,7 @@ int main(int argc, char** argv) {
     
     connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].sm << "\t" << connections[i].spoon << "\t" << connections[i].gous << "\t" << connections[i].wala << "\t" << connections[i].getMetszet() << endl;
   
-	vennC << connections[i].getMetszetAsString(std::to_string(i)) << std::endl;
+  vennC << connections[i].getMetszetAsString(std::to_string(i)) << std::endl;
   }
   
   connout.close();
@@ -575,7 +575,7 @@ DDD
     
     out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].sm << "\t" << methods[i].spoon << "\t" << methods[i].gous << "\t" << methods[i].wala << "\t" << methods[i].getMetszet() << endl;
   
-	venn << methods[i].getMetszetAsString() << std::endl;
+  venn << methods[i].getMetszetAsString() << std::endl;
   }
   
   out.close();

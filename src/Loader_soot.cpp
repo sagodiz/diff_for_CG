@@ -40,8 +40,8 @@ vector<Record> Loader_soot::load() {
       //line.erase(line.length()-2, 2); replace it, as the other is the same if there is end or not or linux or win end...
       //remove the '">' ending
       size_t ending = line.rfind(">\"");
-			if (ending != string::npos)
-				line.erase(ending);
+      if (ending != string::npos)
+        line.erase(ending);
 
       //get the needed info. for a Record then algorithm::find(.., r) can be used...
      //----------------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ vector<Record> Loader_soot::load() {
       f_classWithPckg.erase(f_classWithPckg.length()-1, 1); //removing the ":"
 
 
-	  notFilteredMethodNames.insert(methodRepresentation);
+    notFilteredMethodNames.insert(methodRepresentation);
 
-	  //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
-	  ++methodNum;
+    //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
+    ++methodNum;
       
       string parameters = method.substr(method.find("("));
       method.erase(method.find("("), method.length()-method.find("("));
@@ -146,8 +146,8 @@ set<pair<int, int>> Loader_soot::transformConnections() {
       string callee = line.substr(line.find("->")+2);  //right part
       int callerId = -1, calleeId = -1;
 
-	  //it is a connection
-	  ++callNum;
+    //it is a connection
+    ++callNum;
       
       bool check = false; //to check if the method do be found.
       
@@ -182,7 +182,7 @@ set<pair<int, int>> Loader_soot::transformConnections() {
 
       connections.insert(pair<int, int>(callerId, calleeId));
     }
-	
+  
   }
 
   return connections;

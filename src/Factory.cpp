@@ -39,7 +39,7 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
     return new Loader_wala(filePath, "wala" + std::to_string(counter));
   }
   else if ("-t" == str) {
-	  return new Loader_trace(filePath, "trace" + std::to_string(counter));
+    return new Loader_trace(filePath, "trace" + std::to_string(counter));
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;
@@ -47,7 +47,7 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
 }
 
 Named* Factory::getUnionGraphPointer() const {
-	return new UnionGraph();
+  return new UnionGraph();
 }
 
 Factory& Factory::createFactory() {

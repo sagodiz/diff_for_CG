@@ -35,31 +35,31 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream, method, ':');
 
 
-	notFilteredMethodNames.insert(member1);
+  notFilteredMethodNames.insert(member1);
 
     string parameters = method.substr(method.find("("));
-		method.erase(method.find("("), method.length() - method.find("("));
-		parameters.erase(parameters.length() - 1, 1);
-		parameters.erase(0, 1);
+    method.erase(method.find("("), method.length() - method.find("("));
+    parameters.erase(parameters.length() - 1, 1);
+    parameters.erase(0, 1);
 
     //cut apart parameters
     vector<string> parameterVector;
     stringstream iss(parameters);
     string parameter;
-		while (getline(iss, parameter, ',')) {
+    while (getline(iss, parameter, ',')) {
 
       parameterVector.push_back(parameter);
     }
 
 
-		if (common::options::anonymClassNameTransform > 0) {
+    if (common::options::anonymClassNameTransform > 0) {
       //there is a kind of transformation
-			if (1 == common::options::anonymClassNameTransform) {
+      if (1 == common::options::anonymClassNameTransform) {
         //turn every anonym class into a constant anonym class
         common::unifyeAnonymClasses(f_classWithPckg);
         common::unifyeAnonymMethods(method);
       }
-			else if (2 == common::options::anonymClassNameTransform) {
+      else if (2 == common::options::anonymClassNameTransform) {
         //continue numbering in inner anonym classes
         //TODO!!! 
       }
@@ -69,11 +69,11 @@ vector<Record> Loader_gousiosg::load() {
       }
     }
 
-		Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector);
-		if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
-			tmpRecords.push_back(r);
+    Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector);
+    if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
+      tmpRecords.push_back(r);
 
-		if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
+    if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
     //cout << r << "??" << member1 << endl;
@@ -81,13 +81,13 @@ vector<Record> Loader_gousiosg::load() {
     }
     else {
 
-			auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
-			if (*it == pair<string, string>(member1, name)) {
+      auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+      if (*it == pair<string, string>(member1, name)) {
         //contains this representation
       }
       else {
 
-				*it += pair<string, string>(member1, name);  //add this representation
+        *it += pair<string, string>(member1, name);  //add this representation
         ++uniqueMethodNum;
         //cout << r << "?" << member1 << endl;
       }
@@ -104,7 +104,7 @@ vector<Record> Loader_gousiosg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
 
-	notFilteredMethodNames.insert(member2);
+  notFilteredMethodNames.insert(member2);
 
     
     string parameters2 = method2.substr(method2.find("("));
@@ -187,7 +187,7 @@ set<pair<int, int>> Loader_gousiosg::transformConnections() {
     int callerId = -1, calleeId = -1;
     bool check = false;
 
-	
+  
     
     for (unsigned i = 0; i < common::storedIds.size(); i++ ) {
 

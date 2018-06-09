@@ -17,7 +17,7 @@ bool Switch::operator==( const string str ) const {
 void Switch::init(string filePath) {
   
   //loader = factory.getLoaderPointer( definer, filePath );
-	filenames.push_back(filePath);
+  filenames.push_back(filePath);
 }
 
 bool Switch::operator==(const char* str ) const {

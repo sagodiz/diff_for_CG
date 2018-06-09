@@ -18,9 +18,9 @@ class Loader : public Named {
     unsigned long long uniqueMethodNum;
     std::string name;
 
-	std::set<std::string> notFilteredMethodNames;
+  std::set<std::string> notFilteredMethodNames;
 
-	void printNotFilteredMethodNames();
+  void printNotFilteredMethodNames();
 
   public:
 

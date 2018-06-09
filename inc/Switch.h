@@ -8,7 +8,7 @@
 class Switch {
     std::string definer; //the switch string that activates this one
 
-	std::vector<std::string> filenames;
+  std::vector<std::string> filenames;
     Factory& factory;
   public:
     Switch( std::string activationString, Factory& f );

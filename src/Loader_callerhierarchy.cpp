@@ -17,16 +17,16 @@ Loader_callerhierarchy::~Loader_callerhierarchy() {
 }
 
 bool Loader_callerhierarchy::isExcludableInit(const std::string& name) {
-	size_t lastDotPos = name.rfind(".");
-	if (lastDotPos == string::npos) {		
-		return false;
-	}
-	string method = name.substr(lastDotPos + 1);
-	string pckgClass = name.substr(0, lastDotPos);
-	if (pckgClass.substr(pckgClass.rfind(".") + 1) == method) {
-		return true;
-	}
-	return false;
+  size_t lastDotPos = name.rfind(".");
+  if (lastDotPos == string::npos) {    
+    return false;
+  }
+  string method = name.substr(lastDotPos + 1);
+  string pckgClass = name.substr(0, lastDotPos);
+  if (pckgClass.substr(pckgClass.rfind(".") + 1) == method) {
+    return true;
+  }
+  return false;
 }
 
 vector<Record> Loader_callerhierarchy::load() {
@@ -67,7 +67,7 @@ vector<Record> Loader_callerhierarchy::load() {
 
 
       notFilteredMethodNames.insert(representation);
-	  methodNum++;
+    methodNum++;
       
       if ( pckgClassMethod == line ) {
         //there were no '('
@@ -277,8 +277,8 @@ set<pair<int, int>> Loader_callerhierarchy::transformConnections() {
       }
       else {
 
-		  //the remaining caller calls the callees
-		  ++callNum;
+      //the remaining caller calls the callees
+      ++callNum;
         
         bool check = false; //to check if the method do be found.
       
