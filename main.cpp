@@ -36,6 +36,12 @@
 #endif
 
 
+#ifndef _WIN32
+  #define STARTCOMMONTSV system("start commonTSV tsvfiles.list conntsvfiles.list"); //hopefully it works on windows
+#else
+  #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list");
+#endif
+
 using namespace std;
 
 
@@ -363,7 +369,7 @@ int main( int argc, char** argv ) {
 
   cout << "End of program." << endl;
 
-  system("./commonTSV tsvfiles.list conntsvfiles.list");
+  STARTCOMMONTSV
   
   return 0;
 }
