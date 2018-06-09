@@ -1,3 +1,6 @@
+#ifndef COMMON_H
+#define COMMON_H
+
 #include <vector>
 #include <algorithm> 
 #include <cctype>
@@ -80,3 +83,5 @@ namespace common {
   }
 
 }
+
+#endif
