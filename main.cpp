@@ -39,6 +39,39 @@
 using namespace std;
 
 
+
+template<typename T>
+void printValue(FILE * common_file, const T& value);
+
+template<>
+void printValue(FILE * common_file, const float& value) {
+  fprintf(common_file, "%.4f;", value);
+}
+
+template<>
+void printValue(FILE * common_file, const unsigned long long& value) {
+  fprintf(common_file, "%llu;", value);
+}
+
+template<typename T>
+void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vector<T>>& mat, FILE * common_file, const std::string& type) {
+  fprintf(common_file, "%s;", type.c_str());
+  for (unsigned i = 0; i < mat.size(); ++i) {
+    fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+  }
+  fprintf(common_file, "\n");
+
+  for (unsigned i = 0; i < mat.size(); ++i) {
+    fprintf(common_file, "%s;", loaders[i]->getName().c_str());
+    for (unsigned j = 0; j < mat.size(); ++j) {
+      printValue<T>(common_file, mat[i][j]);
+    }
+    fprintf(common_file, "\n");
+  }
+  fprintf(common_file, "\n");
+}
+
+
 int main( int argc, char** argv ) {
 
   if ( argc < 3 ) {
@@ -60,16 +93,16 @@ int main( int argc, char** argv ) {
                           new Switch("-sp", factory ),
                           new Switch("-g", factory ),
                           new Switch("-w", factory ),
-						              new Switch("-t", factory),
+                          new Switch("-t", factory),
                           NULL
                         };
 
   Option* options[] = {
                           new Option("-projectName", &projectNameMethod),
-						              new Option("-filterLevel", &filterLevelMethod),
-						              new Option("-projectPath", &projectPathMethod),
-						              new Option("-calcUnionGraph", &calcUnionGraphMethod),
-						              new Option("-transformToGraphDB", &transformToGraphDB),
+                          new Option("-filterLevel", &filterLevelMethod),
+                          new Option("-projectPath", &projectPathMethod),
+                          new Option("-calcUnionGraph", &calcUnionGraphMethod),
+                          new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           new Option("-h", &helpMethod),
@@ -99,7 +132,7 @@ int main( int argc, char** argv ) {
           //it is not chp. add it.
           switches[j]->init(argv[++i]);
           loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
-		      loadersAndUnionG.push_back(*loaders.rbegin());
+          loadersAndUnionG.push_back(*loaders.rbegin());
         }
       }
     }
@@ -109,7 +142,7 @@ int main( int argc, char** argv ) {
     
     chp->init(argv[chpArgIndex]);
     loaders.push_back( chp->getLoaderPointer(0) ); //fuck the chp
-	  loadersAndUnionG.push_back(*loaders.rbegin());
+    loadersAndUnionG.push_back(*loaders.rbegin());
   }
     
   if ( 0 == loaders.size() )
@@ -134,10 +167,10 @@ int main( int argc, char** argv ) {
 
   if (common::options::loadToGraph == 2) {//csak graf db stat
     
-	  std::vector<std::string> graph_ids;
-	  GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
-	  makeGraphDBStat(graph_ids);
-	  return 0;
+    std::vector<std::string> graph_ids;
+    GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
+    makeGraphDBStat(graph_ids);
+    return 0;
   }
 
   //create an array for the transformed connections
@@ -154,17 +187,17 @@ int main( int argc, char** argv ) {
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
     
-	  if (common::options::calculateUnionGraph) {
-		  //collect edges
-		  unionGraphEdges.insert(connections[i].begin(), connections[i].end());
-	  }
-	
+    if (common::options::calculateUnionGraph) {
+      //collect edges
+      unionGraphEdges.insert(connections[i].begin(), connections[i].end());
+    }
+  
     VERBOSE1
     if (common::options::filterLevel > 0) {
       
       std::set<int> filteredIds;
       records[i] = common::filterNodes(records[i], filteredIds);
-      connections[i] = common::filterConnections(connections[i], filteredIds);	
+      connections[i] = common::filterConnections(connections[i], filteredIds);  
     }
     
     common::printFilteredMethod(loaders[i]->getName(), records[i]);
@@ -173,19 +206,19 @@ int main( int argc, char** argv ) {
   if (common::options::calculateUnionGraph) {
     
    if (common::options::filterLevel > 0) {
-	  //filter the union graph
-	  std::set<int> filteredIds;
-	  unionGraphNodes = common::filterNodes(common::storedIds, filteredIds);
-	  unionGraphEdges = common::filterConnections(unionGraphEdges, filteredIds);
+    //filter the union graph
+    std::set<int> filteredIds;
+    unionGraphNodes = common::filterNodes(common::storedIds, filteredIds);
+    unionGraphEdges = common::filterConnections(unionGraphEdges, filteredIds);
    }
    else {
      
-	  unionGraphNodes = common::storedIds;
+    unionGraphNodes = common::storedIds;
    }
 
-	  records.push_back(unionGraphNodes);
-	  connections.push_back(unionGraphEdges);
-	  loadersAndUnionG.push_back(factory.getUnionGraphPointer());
+    records.push_back(unionGraphNodes);
+    connections.push_back(unionGraphEdges);
+    loadersAndUnionG.push_back(factory.getUnionGraphPointer());
   }
 
 
@@ -229,7 +262,7 @@ int main( int argc, char** argv ) {
   std::vector<std::vector<unsigned>> statMatrix;
 
   for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++) {
-	  statMatrix.resize(loadersAndUnionG.size());
+    statMatrix.resize(loadersAndUnionG.size());
   }
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
@@ -242,43 +275,43 @@ int main( int argc, char** argv ) {
     
   for (unsigned i = 0; i < loadersAndUnionG.size(); i++) {
     
-	  matrixCalls[i].resize(loadersAndUnionG.size());
-	  matrixMethods[i].resize(loadersAndUnionG.size());
-	  matrixCallsCount[i].resize(loadersAndUnionG.size());
-	  matrixMethodsCount[i].resize(loadersAndUnionG.size());
+    matrixCalls[i].resize(loadersAndUnionG.size());
+    matrixMethods[i].resize(loadersAndUnionG.size());
+    matrixCallsCount[i].resize(loadersAndUnionG.size());
+    matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
     
   for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++ ) {
-	  
+    
     for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
       
     std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
-	  float loader_i_callNum = (float)connections[i].size();
-	  float loader_j_callNum = (float)connections[j].size();
+    float loader_i_callNum = (float)connections[i].size();
+    float loader_j_callNum = (float)connections[j].size();
 
-	  float loader_i_uniqueMethod = (float)records[i].size();
-	  float loader_j_uniqueMethod = (float)records[j].size();
-	  //aranyok
-	  matrixCalls[i][i] = loader_i_callNum;
-	  matrixMethods[i][i] = loader_i_uniqueMethod;
-	  matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
-	  matrixCalls[i][j] = commonVals.second / loader_i_callNum;
+    float loader_i_uniqueMethod = (float)records[i].size();
+    float loader_j_uniqueMethod = (float)records[j].size();
+    //aranyok
+    matrixCalls[i][i] = loader_i_callNum;
+    matrixMethods[i][i] = loader_i_uniqueMethod;
+    matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
+    matrixCalls[i][j] = commonVals.second / loader_i_callNum;
 
-	  matrixCalls[j][j] = loader_j_callNum;
-	  matrixMethods[j][j] = loader_j_uniqueMethod;
-	  matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
-	  matrixCalls[j][i] = commonVals.second / loader_j_callNum;
+    matrixCalls[j][j] = loader_j_callNum;
+    matrixMethods[j][j] = loader_j_uniqueMethod;
+    matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
+    matrixCalls[j][i] = commonVals.second / loader_j_callNum;
 
-	  //szamok
-	  matrixCallsCount[i][i] = connections[i].size();
-	  matrixMethodsCount[i][i] = records[i].size();
-	  matrixMethodsCount[i][j] = commonVals.first;
-	  matrixCallsCount[i][j] = commonVals.second;
+    //szamok
+    matrixCallsCount[i][i] = connections[i].size();
+    matrixMethodsCount[i][i] = records[i].size();
+    matrixMethodsCount[i][j] = commonVals.first;
+    matrixCallsCount[i][j] = commonVals.second;
 
-	  matrixCallsCount[j][j] = connections[j].size();
-	  matrixMethodsCount[j][j] = records[j].size();
-	  matrixMethodsCount[j][i] = commonVals.first;
-	  matrixCallsCount[j][i] = commonVals.second;
+    matrixCallsCount[j][j] = connections[j].size();
+    matrixMethodsCount[j][j] = records[j].size();
+    matrixMethodsCount[j][i] = commonVals.first;
+    matrixCallsCount[j][i] = commonVals.second;
     }
   }
     
@@ -299,25 +332,25 @@ int main( int argc, char** argv ) {
 
   if (common::options::loadToGraph != 0) {
     
-	  std::vector<std::string> graph_ids;
-	  if (common::options::loadToGraph == 1) {
-		
-      for (unsigned i = 0; i < records.size(); i++) {
-			
-        static const string graphml_ext = ".graphml";
-			  static const string json_ext = ".json";
-			  string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
-			  graph_ids.push_back(filename);
-			  GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
-			  GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
-			  GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
-		  }
-      
-		  GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
-	  }
+    std::vector<std::string> graph_ids;
+    if (common::options::loadToGraph == 1) {
     
-	  makeGraphDBStat(graph_ids);
-	  
+      for (unsigned i = 0; i < records.size(); i++) {
+      
+        static const string graphml_ext = ".graphml";
+        static const string json_ext = ".json";
+        string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
+        graph_ids.push_back(filename);
+        GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
+        GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
+        GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
+      }
+      
+      GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
+    }
+    
+    makeGraphDBStat(graph_ids);
+    
   }
 //edit of Edit :P end--------------------------------------------------------------  
   //catch "all" thrown error...
