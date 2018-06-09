@@ -231,40 +231,35 @@ int main(int argc, char** argv) {
     ifstream input(argv[1]);
     string file2open;
     
-    input >> file2open;
-    gous.open(file2open);
+    while ( input >> file2open ) {
     
-    input >> file2open;
-    soot.open(file2open);
-    
-    input >> file2open;
-    sm.open(file2open);
-    
-    input >> file2open;
-    spoon.open(file2open);
-    
-    input >> file2open;
-    wala.open(file2open);
+      if ( file2open.find("LJCG") != string::npos )
+        gous.open(file2open);
+      else if ( file2open.find("Lsoot") != string::npos )
+        soot.open(file2open);
+      else if ( file2open.find("LOSA") != string::npos )
+        sm.open(file2open);
+      else if ( file2open.find("Lspoon") != string::npos )
+        spoon.open(file2open);
+      else if ( file2open.find("Lwala") != string::npos )
+        wala.open(file2open);
+    }
     //--------------------------------------
     input.close();
     input.open(argv[2]);
     //--------------------------------------
-
-    input >> file2open;
-    gousConn.open(file2open);
-    
-    input >> file2open;
-    sootConn.open(file2open);
-    
-    input >> file2open;
-    smConn.open(file2open);
-    
-    input >> file2open;
-    spoonConn.open(file2open);
-    
-    input >> file2open;
-    walaConn.open(file2open);
-    
+    while( input >> file2open ) {
+      if ( file2open.find("LJCG") != string::npos )
+        gousConn.open(file2open);
+      else if ( file2open.find("Lsoot") != string::npos )
+        sootConn.open(file2open);
+      else if ( file2open.find("LOSA") != string::npos )
+        smConn.open(file2open);
+      else if ( file2open.find("Lspoon") != string::npos )
+        spoonConn.open(file2open);
+      else if ( file2open.find("Lwala") != string::npos )
+        walaConn.open(file2open);
+    }
     input.close();
   }
   else {

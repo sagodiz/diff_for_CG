@@ -24,7 +24,7 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
     return new Loader_soot(filePath, "soot" + std::to_string(counter));
   }
   else if ( "-sm" == str ) {
-    return new Loader_sourcemeter(filePath, "sourceMeter" + std::to_string(counter));
+    return new Loader_sourcemeter(filePath, "OSA" + std::to_string(counter));
   }
   else if ( "-c" == str ) {
     return new Loader_callerhierarchy(filePath, "CHP" + std::to_string(counter));
@@ -33,7 +33,7 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
     return new Loader_spoon(filePath, "spoon" + std::to_string(counter));
   }
   else if ( "-g" == str ) {
-    return new Loader_gousiosg(filePath, "gousiosg" + std::to_string(counter));
+    return new Loader_gousiosg(filePath, "JCG" + std::to_string(counter));
   }
   else if ( "-w" == str ) {
     return new Loader_wala(filePath, "wala" + std::to_string(counter));

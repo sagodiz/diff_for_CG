@@ -114,6 +114,7 @@ int main( int argc, char** argv ) {
 						              new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
+                          new Option("-h", &helpMethod),
                           NULL
                       };
     
@@ -121,9 +122,9 @@ int main( int argc, char** argv ) {
   vector<Loader*> loaders;
   vector<Named*> loadersAndUnionG;
 
-Switch* chp = NULL;
-int chpArgIndex = -1;
-unsigned counters[8] = {0};
+  Switch* chp = NULL;
+  int chpArgIndex = -1;
+  unsigned counters[8] = {0};
   unsigned char j = -1;
   while( switches[++j] ) {
     
@@ -164,6 +165,10 @@ unsigned counters[8] = {0};
       if ( *(options[j]) == argv[i] ) {
         
         options[j]->foo(argv, i);
+        
+        if ( (string)"-h" == argv[i] )
+          return 0;
+        
         break;
       }
     }
@@ -376,9 +381,9 @@ unsigned counters[8] = {0};
 //########################################################################x
 //########################################################################x
 
-static void makeGraphDBStat(const std::vector<std::string>& graph_ids) {
+static void makeGraphDBStat(const vector<string>& graph_ids) {
 	if (graph_ids.size() == 0) {
-		std::err << "No graph ids!" << std::endl;
+		cerr << "No graph ids!" << endl;
 	}
 	else {
 		for (unsigned i = 0; i < graph_ids.size() - 1; i++) {

@@ -114,3 +114,35 @@ void anonymClassNameTransformationMethod( char** argV, int argI ) {
     common::options::anonymClassNameTransform = 0;
   }
 }
+
+void helpMethod(char** argV, int argI) {
+  
+  std::cout << "Usage: " << argV[0] << " [-loader file]* [-option]* [-option value]*" << std::endl;
+  
+  std::cout << "Loaders: " << std::endl 
+  << "\t-s\t Soot" << std::endl 
+  << "\t-sm\t SourceMeter/OSA" << std::endl 
+  << "\t-sp\t SPOON" << std::endl 
+  << "\t-g\t JCG (Erster Name war gous..)" << std::endl 
+  << "\t-w\t WALA" << std::endl 
+  << "\t-t\t Trace (It is the dynamic tool of F.)" << std::endl;
+  
+  std::cout << "Options with required value" << std::endl 
+  << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl 
+  << "\tfilterLevel level\t Level is a numer. It defines the filtering level:" << std::endl 
+  << "\t\t0 No filtering" << std::endl 
+  << "\t\t1 TODO: Filter calls if the caller or the calle is a java library method." << std::endl
+  << "\t\t2 TODO: Filter calls. Only method of the projects remain. projectPath ought to be given." << std::endl 
+  << "\t-projectPath path\t TODO:Path is the path where the project is located." << std::endl 
+  << "\t-anonymTransformation level\t Level identifies how anonym parts of the nodes should be resolved:" << std::endl 
+  << "\t\t0 No transformation (Default)" << std::endl 
+  << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl 
+  << "\t\t higher levels are TODOs" << std::endl 
+  << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl;
+  
+  std::cout << "Options without required values" << std::endl 
+  << "\t-calcUnionGraph\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat." << std::endl 
+  << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
+  << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
+  
+}
