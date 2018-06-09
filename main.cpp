@@ -193,7 +193,7 @@ int main( int argc, char** argv ) {
   for ( unsigned i = 0; i < records.size() && i < loadersAndUnionG.size(); i++ ) { //the and is here just for safety, those two should be the same.
     
     writeTSV(records[i], loadersAndUnionG[i]->getName(), loadersAndUnionG[i]->getName());
-    common::tsvFiles.push_back(loadersAndUnionG[i]->getKind() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
+    common::tsvFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
   }
   
   {
@@ -211,7 +211,7 @@ int main( int argc, char** argv ) {
   for ( unsigned i = 0; i < connections.size() && i < loadersAndUnionG.size(); i++ ) { //that and is for safety too.
     
     writeConnTSV(connections[i], loadersAndUnionG[i]->getName());
-    common::connTSVFiles.push_back(loadersAndUnionG[i]->getKind() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
+    common::connTSVFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
   }
   
   {
