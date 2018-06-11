@@ -37,9 +37,9 @@
 
 
 #ifndef _WIN32
-  #define STARTCOMMONTSV system("start commonTSV tsvfiles.list conntsvfiles.list"); //hopefully it works on windows
+  #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list"); 
 #else
-  #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list");
+  #define STARTCOMMONTSV system("start commonTSV tsvfiles.list conntsvfiles.list");//hopefully it works on windows
 #endif
 
 using namespace std;
