@@ -79,13 +79,13 @@ void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vect
 
 
 int main( int argc, char** argv ) {
-
+/*
   if ( argc < 3 ) {
     
     cout << "At least 1 tool have to be given." << endl;
     return 1;
   }
-  
+*/
   cout << "Starting transforming and making stat..." << endl;
   
   try { 
@@ -123,6 +123,23 @@ int main( int argc, char** argv ) {
   int chpArgIndex = -1;
   unsigned counters[8] = {0};
   unsigned char j = -1;
+    
+  while( options[++j] ) {
+    for ( int i = 0; i < argc; i++ ) {  //well, it might cause problem if no value is given for the last option, but that need one...
+      
+      if ( *(options[j]) == argv[i] ) {
+
+        options[j]->foo(argv, i);
+        
+        if ( (string)"-h" == argv[i] )
+          return 0;
+        
+        break;
+      }
+    }
+  }
+  
+  j = -1;
   while( switches[++j] ) {
     
     for ( int i = 1; i < argc - 1; i++ ) {
@@ -153,23 +170,6 @@ int main( int argc, char** argv ) {
     
   if ( 0 == loaders.size() )
     throw Labels::NO_LOADER_WERE_GIVEN;
-  
-  j = -1;
-  while( options[++j] ) {
-    
-    for ( int i = 0; i < argc - 1; i++ ) {
-      
-      if ( *(options[j]) == argv[i] ) {
-        
-        options[j]->foo(argv, i);
-        
-        if ( (string)"-h" == argv[i] )
-          return 0;
-        
-        break;
-      }
-    }
-  }
 
   if (common::options::loadToGraph == 2) {//csak graf db stat
     
