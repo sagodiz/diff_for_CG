@@ -233,32 +233,32 @@ int main(int argc, char** argv) {
     
     while ( input >> file2open ) {
     
-      if ( file2open.find("LJCG") != string::npos )
-        gous.open(file2open);
-      else if ( file2open.find("Lsoot") != string::npos )
-        soot.open(file2open);
-      else if ( file2open.find("LOSA") != string::npos )
-        sm.open(file2open);
-      else if ( file2open.find("Lspoon") != string::npos )
-        spoon.open(file2open);
-      else if ( file2open.find("Lwala") != string::npos )
-        wala.open(file2open);
+      if ( file2open.find("L_JCG") != string::npos )
+        gous.open(file2open.substr(6));
+      else if ( file2open.find("L_soot") != string::npos )
+        soot.open(file2open.substr(7));
+      else if ( file2open.find("L_OSA") != string::npos )
+        sm.open(file2open.substr(6));
+      else if ( file2open.find("L_spoon") != string::npos )
+        spoon.open(file2open.substr(8));
+      else if ( file2open.find("L_wala") != string::npos )
+        wala.open(file2open.substr(7));
     }
     //--------------------------------------
     input.close();
     input.open(argv[2]);
     //--------------------------------------
     while( input >> file2open ) {
-      if ( file2open.find("LJCG") != string::npos )
-        gousConn.open(file2open);
-      else if ( file2open.find("Lsoot") != string::npos )
-        sootConn.open(file2open);
-      else if ( file2open.find("LOSA") != string::npos )
-        smConn.open(file2open);
-      else if ( file2open.find("Lspoon") != string::npos )
-        spoonConn.open(file2open);
-      else if ( file2open.find("Lwala") != string::npos )
-        walaConn.open(file2open);
+      if ( file2open.find("L_JCG") != string::npos )
+        gousConn.open(file2open.substr(6)); //L_JCG is 5 but the main program puts an extra number there, so it must be 6
+      else if ( file2open.find("L_soot") != string::npos )
+        sootConn.open(file2open.substr(7)); //similar
+      else if ( file2open.find("L_OSA") != string::npos )
+        smConn.open(file2open.substr(6));
+      else if ( file2open.find("L_spoon") != string::npos )
+        spoonConn.open(file2open.substr(8));
+      else if ( file2open.find("L_wala") != string::npos )
+        walaConn.open(file2open.substr(7));
     }
     input.close();
   }
