@@ -72,13 +72,15 @@ vector<Record> Loader_sourcemeter::load() {
       
       vector<string> parameterVector;
       unsigned int i = 0;
-      bool arrayType = false;
+      unsigned char arrayType = 0;
       
       while ( paramsReturn[i] != ')' ) {
         //process the params
+        
+        string typeStr = "";
         switch ( paramsReturn[i] ) {
           case '['://array
-                  arrayType = true;
+                  arrayType++;
                   break;
           case 'L'://class
                   {
@@ -96,8 +98,10 @@ vector<Record> Loader_sourcemeter::load() {
                       
                       ++i;
                     }
-                    qualifiedClassname += '[';
-                    qualifiedClassname += ']';
+                    while ( arrayType-- ) {
+                      qualifiedClassname += '[';
+                      qualifiedClassname += ']';
+                    }
                   }
                   else {
                     
@@ -114,73 +118,96 @@ vector<Record> Loader_sourcemeter::load() {
             
                   parameterVector.push_back(qualifiedClassname);
                   
-                  arrayType = false;
+                  arrayType = 0;
                   }
                   break;
           case 'D'://double
                   //.....
-                  if ( arrayType )
-                    parameterVector.push_back("double[]");
-                  else
-                    parameterVector.push_back("double");
+                  typeStr = "double";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
                   
-                  arrayType = false;
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'F'://float
                     //.....
-                  if ( arrayType )
-                    parameterVector.push_back("float[]");
-                  else
-                    parameterVector.push_back("float");
-                  arrayType = false;
+                  typeStr = "float";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'J'://long
                     //.....
-                  if ( arrayType )
-                    parameterVector.push_back("long[]");
-                  else
-                    parameterVector.push_back("long");
-                  arrayType = false;
+                  typeStr = "long";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'I'://int
                     //.....
-                  if ( arrayType )
-                    parameterVector.push_back("int[]");
-                  else
-                    parameterVector.push_back("int");
-                  arrayType = false;
+                  typeStr = "int";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'S'://short
                   //.....
-                  if ( arrayType )
-                    parameterVector.push_back("short[]");
-                  else
-                    parameterVector.push_back("short");
-                  arrayType = false;
+                  typeStr = "short";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'C'://char
                     //.....
-                  if ( arrayType )
-                    parameterVector.push_back("char[]");
-                  else
-                    parameterVector.push_back("char");
-                  arrayType = false;
+                  typeStr = "char";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'B'://byte
                    //.....
-                  if ( arrayType )
-                     parameterVector.push_back("byte[]");
-                  else
-                    parameterVector.push_back("byte");
-                  arrayType = false;
+                  typeStr = "byte";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           case 'Z'://boolean
                    //.....
-                  if ( arrayType )
-                    parameterVector.push_back("boolean[]");
-                  else
-                    parameterVector.push_back("boolean");
-                  arrayType = false;
+                  typeStr = "boolean";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
                   break;
           default: //throw a new exception
                   throw Labels::FORMAT_NOT_FOUND_ERROR;

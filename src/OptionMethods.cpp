@@ -138,10 +138,10 @@ void helpMethod(char** argV, int argI) {
   << "\t\t0 No transformation (Default)" << std::endl 
   << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl 
   << "\t\t higher levels are TODOs" << std::endl 
-  << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl;
+  << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
+  << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl; 
   
   std::cout << "Options without required values" << std::endl 
-  << "\t-calcUnionGraph\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat." << std::endl 
   << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
   << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
   
