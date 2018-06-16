@@ -94,6 +94,14 @@ vector<Record> Loader_spoon::load() {
       if (className.compare(method) == 0) {
         method = "<init>";
       }
+    else {
+      //it might be an inner class
+      size_t pos = className.rfind(method);
+      if ( pos != string::npos && '$' == className.at(pos - 1) ) {  //it is an inner class
+
+        method = "<init>";
+      }
+    }
 
       vector<string> parameterVector;
       std::string delimiter = ",", generic_delimiter = " extends ";
