@@ -1470,7 +1470,7 @@
 	<data key="d0">org.joda.time.DateTimeComparator.compare(java.lang.Object,java.lang.Object)</data>
 </node>
 <node id="2311">
-	<data key="d0">org.joda.time.format.RegExAffix$1.compare(java.lang.String,java.lang.String)</data>
+	<data key="d0">org.joda.time.format.PeriodFormatterBuilder$RegExAffix$1.compare(java.lang.String,java.lang.String)</data>
 </node>
 <node id="2944">
 	<data key="d0">java.util.concurrent.atomic.AtomicReference.compareAndSet(V,V)</data>
@@ -6978,7 +6978,7 @@
 	<data key="d0">org.joda.time.DateTimeUtils.DateTimeUtils()</data>
 </node>
 <node id="2964">
-	<data key="d0">org.joda.time.DateTimeZone$LazyInit$1.LazyInit$1()</data>
+	<data key="d0">org.joda.time.DateTimeZone$LazyInit$1.DateTimeZone$LazyInit$1()</data>
 </node>
 <node id="2963">
 	<data key="d0">org.joda.time.DateTimeZone$LazyInit.DateTimeZone$LazyInit()</data>
@@ -8223,7 +8223,7 @@
 	<data key="d0">org.joda.time.format.PeriodFormatterBuilder$PluralAffix.PeriodFormatterBuilder$PluralAffix(java.lang.String,java.lang.String)</data>
 </node>
 <node id="2310">
-	<data key="d0">org.joda.time.format.PeriodFormatterBuilder$RegExAffix$1.RegExAffix$1()</data>
+	<data key="d0">org.joda.time.format.PeriodFormatterBuilder$RegExAffix$1.PeriodFormatterBuilder$RegExAffix$1()</data>
 </node>
 <node id="2313">
 	<data key="d0">org.joda.time.format.PeriodFormatterBuilder$RegExAffix.PeriodFormatterBuilder$RegExAffix(java.lang.String[],java.lang.String[])</data>
@@ -11265,7 +11265,7 @@
 	<data key="d0">org.joda.time.DateTimeComparator.toString()</data>
 </node>
 <node id="2965">
-	<data key="d0">org.joda.time.LazyInit$1.toString()</data>
+	<data key="d0">org.joda.time.DateTimeZone$LazyInit$1.toString()</data>
 </node>
 <node id="3042">
 	<data key="d0">org.joda.time.Days.toString()</data>
