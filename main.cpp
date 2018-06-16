@@ -290,34 +290,36 @@ int main( int argc, char** argv ) {
   for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++ ) {
     
     for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
-      
-    std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
-    float loader_i_callNum = (float)connections[i].size();
-    float loader_j_callNum = (float)connections[j].size();
+    
+      cout << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << "stats..." << endl;
 
-    float loader_i_uniqueMethod = (float)records[i].size();
-    float loader_j_uniqueMethod = (float)records[j].size();
-    //aranyok
-    matrixCalls[i][i] = loader_i_callNum;
-    matrixMethods[i][i] = loader_i_uniqueMethod;
-    matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
-    matrixCalls[i][j] = commonVals.second / loader_i_callNum;
+      std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
+      float loader_i_callNum = (float)connections[i].size();
+      float loader_j_callNum = (float)connections[j].size();
 
-    matrixCalls[j][j] = loader_j_callNum;
-    matrixMethods[j][j] = loader_j_uniqueMethod;
-    matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
-    matrixCalls[j][i] = commonVals.second / loader_j_callNum;
+      float loader_i_uniqueMethod = (float)records[i].size();
+      float loader_j_uniqueMethod = (float)records[j].size();
+      //aranyok
+      matrixCalls[i][i] = loader_i_callNum;
+      matrixMethods[i][i] = loader_i_uniqueMethod;
+      matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
+      matrixCalls[i][j] = commonVals.second / loader_i_callNum;
 
-    //szamok
-    matrixCallsCount[i][i] = connections[i].size();
-    matrixMethodsCount[i][i] = records[i].size();
-    matrixMethodsCount[i][j] = commonVals.first;
-    matrixCallsCount[i][j] = commonVals.second;
+      matrixCalls[j][j] = loader_j_callNum;
+      matrixMethods[j][j] = loader_j_uniqueMethod;
+      matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
+      matrixCalls[j][i] = commonVals.second / loader_j_callNum;
 
-    matrixCallsCount[j][j] = connections[j].size();
-    matrixMethodsCount[j][j] = records[j].size();
-    matrixMethodsCount[j][i] = commonVals.first;
-    matrixCallsCount[j][i] = commonVals.second;
+      //szamok
+      matrixCallsCount[i][i] = connections[i].size();
+      matrixMethodsCount[i][i] = records[i].size();
+      matrixMethodsCount[i][j] = commonVals.first;
+      matrixCallsCount[i][j] = commonVals.second;
+
+      matrixCallsCount[j][j] = connections[j].size();
+      matrixMethodsCount[j][j] = records[j].size();
+      matrixMethodsCount[j][i] = commonVals.first;
+      matrixCallsCount[j][i] = commonVals.second;
     }
   }
     

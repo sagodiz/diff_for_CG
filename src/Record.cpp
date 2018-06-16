@@ -13,19 +13,43 @@
 
 using namespace std;
 
+
+
+string Record::createUnifiedMethodName() {
+
+  string params = "";
+  auto parameters = getParameters();
+  for (unsigned i = 0; i < parameters.size(); i++) {
+
+    params += parameters[i] + ",";
+  }
+  //params.erase(params.length() - 1, 1); //the closing ','
+  if (params.length() > 0 && ',' == params[params.length() - 1])
+    params[params.length() - 1] = ')';
+  else
+    params += ")";
+  return getClass() + "." + getMethodName() + "(" + params;// + ")";
+}
+
+
+
+//----------------------------------------------public methods----------------------------------------------------
+
 Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters ) : methodClass(methodClass), methodName(methodName), parameters(parameters) {
   sameMethods.push_back(rep);
+  unifiedRep = createUnifiedMethodName();
 }
 
 //-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
 Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep) {
   sameMethods.push_back(rep);
+  unifiedRep = createUnifiedMethodName();
 }
 //----------------------------------------------------------------------------------------------------------------
 bool Record::operator==(const Record& r ) const {
 
 DDD
-
+//TODO: ha meglesz az unifiedRep, elég lesz azt összevetni
   if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
       && r.getParameters() == parameters
@@ -46,10 +70,19 @@ bool Record::operator==( const pair<string, string> method ) const {
   return false;
 }
 
+bool Record::operator==(const string& unifiedNode) const {
+
+  bool found = false;
+  if ( unifiedNode == unifiedRep )
+    found = true;
+  
+  return found;
+}
+
 bool Record::operator>>=(const Record& r ) const {
 
 DDD
-
+//TODO: ha meglesz az unifiedRep rendesen, akkor elég lesz azt összevetni
   string classStr = r.getClass();
   replace( classStr.begin(), classStr.end(), '$', '.'); // replace all '$' to '.'
 
@@ -123,6 +156,7 @@ ostream& operator<<(ostream& o, const Record& r) {
     
     o << it << "|";
   }
+  //o << r.unifiedRep;  okay, ez lesz majd, de az csak egy újabb refaktorálás után! Konstruktorban legyen a unified Összerakása
   
   return o;
 }

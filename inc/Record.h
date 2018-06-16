@@ -11,8 +11,10 @@ class Record {
   std::string methodClass;  //the method is inside of a class (with package name!)
   std::string methodName;
   std::vector<std::string> parameters;  //the method has parameters.
-  
+  std::string unifiedRep;
   std::string secondaryRep;
+
+  std::string createUnifiedMethodName();
   
   public:
     Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters);
@@ -21,6 +23,7 @@ class Record {
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
+    bool operator==( const std::string& unifiedNode ) const;
     /**
     * \param  A record, but this time the record is not compared to the original classname but every '$' is replaced with '.'
     * \return a bool value if the 2 records, this and the parameter, are equal
