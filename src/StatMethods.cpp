@@ -160,42 +160,44 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   statOut.close();
 
   //----------------------------------Extra info differences only in edges-----------------------------------------------------------
+  if ("L_" == l1->getKind() && "L_" == l2->getKind()) {
 
-  ofstream edgeStatOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "edge.diff");
+    ofstream edgeStatOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "edge.diff");
 
-  if (!edgeStatOut.is_open())
-    throw Labels::COULD_NOT_WRITE_OUTPUT;
+    if (!edgeStatOut.is_open())
+      throw Labels::COULD_NOT_WRITE_OUTPUT;
 
-  edgeStatOut << "Calls that are in " + l1->getName() + " could be but are not in " + l2->getName() << endl;
+    edgeStatOut << "Calls that are in " + l1->getName() + " could be but are not in " + l2->getName() << endl;
 
-  for (unsigned i = 0; i < onlyFirstCall.size(); i++) {
+    for (unsigned i = 0; i < onlyFirstCall.size(); i++) {
 
-    string caller, callee;
-    caller = common::getMethodById(onlyFirstCall[i].first);
-    callee = common::getMethodById(onlyFirstCall[i].second);
-    if ( ( find(r2.begin(), r2.end(), caller) != r2.end() ) && ( find(r2.begin(), r2.end(), callee) != r2.end() ) ) {
+      string caller, callee;
+      caller = common::getMethodById(onlyFirstCall[i].first);
+      callee = common::getMethodById(onlyFirstCall[i].second);
+      if ((find(r2.begin(), r2.end(), caller) != r2.end()) && (find(r2.begin(), r2.end(), callee) != r2.end())) {
 
-      edgeStatOut << caller << "->" << callee << endl;
+        edgeStatOut << caller << "->" << callee << endl;
+      }
     }
-  }
 
 
-  edgeStatOut << endl << "#######################################################################################################################" << endl;
+    edgeStatOut << endl << "#######################################################################################################################" << endl;
 
-  edgeStatOut << "Calls that are in " + l2->getName() + " could be but are not in " + l1->getName() << endl;
+    edgeStatOut << "Calls that are in " + l2->getName() + " could be but are not in " + l1->getName() << endl;
 
-  for (unsigned i = 0; i < onlySecondCall.size(); i++) {
+    for (unsigned i = 0; i < onlySecondCall.size(); i++) {
 
-    string caller, callee;
-    caller = common::getMethodById(onlySecondCall[i].first);
-    callee = common::getMethodById(onlySecondCall[i].second);
-    if ((find(r1.begin(), r1.end(), caller) != r1.end()) && (find(r1.begin(), r1.end(), callee) != r1.end())) {
+      string caller, callee;
+      caller = common::getMethodById(onlySecondCall[i].first);
+      callee = common::getMethodById(onlySecondCall[i].second);
+      if ((find(r1.begin(), r1.end(), caller) != r1.end()) && (find(r1.begin(), r1.end(), callee) != r1.end())) {
 
-      edgeStatOut << caller << "->" << callee << endl;
+        edgeStatOut << caller << "->" << callee << endl;
+      }
     }
-  }
 
-  edgeStatOut.close();
+    edgeStatOut.close();
+  }
 
   return std::make_pair(commonMethods, commonCalls);
 }
