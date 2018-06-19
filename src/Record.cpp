@@ -49,14 +49,18 @@ Record::Record( pair<string, string> rep, string methodClass, string methodName,
 bool Record::operator==(const Record& r ) const {
 
 DDD
-//TODO: ha meglesz az unifiedRep, elég lesz azt összevetni
-  if ( r.getClass() == methodClass
+//régi
+  /*if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
       && r.getParameters() == parameters
       ) {
         
     return true;
-  }
+  }*/
+  
+  if ( r.unifiedRep == unifiedRep )
+    return true;
+  
   return false;
 }
 
@@ -82,7 +86,6 @@ bool Record::operator==(const string& unifiedNode) const {
 bool Record::operator>>=(const Record& r ) const {
 
 DDD
-//TODO: ha meglesz az unifiedRep rendesen, akkor elég lesz azt összevetni
   string classStr = r.getClass();
   replace( classStr.begin(), classStr.end(), '$', '.'); // replace all '$' to '.'
 
@@ -151,12 +154,12 @@ string Record::getSecondaryRepresentation() const {
 //friend
 ostream& operator<<(ostream& o, const Record& r) {
       
-  o << r.methodClass << "|" << r.methodName << "|";
+  /*o << r.methodClass << "|" << r.methodName << "|";
   for ( auto it : r.parameters ) {
     
     o << it << "|";
-  }
-  //o << r.unifiedRep;  okay, ez lesz majd, de az csak egy újabb refaktorálás után! Konstruktorban legyen a unified Összerakása
+  }*/
+  o << r.unifiedRep;
   
   return o;
 }
