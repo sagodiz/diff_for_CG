@@ -95,9 +95,9 @@ int main( int argc, char** argv ) {
   Switch* switches[] = {
                           new Switch("-s", factory ),
                           new Switch("-c", factory ),
-                          new Switch("-sm", factory ),
+                          new Switch("-osa", factory ),
                           new Switch("-sp", factory ),
-                          new Switch("-g", factory ),
+                          new Switch("-j", factory ),
                           new Switch("-w", factory ),
                           new Switch("-t", factory),
                           NULL
