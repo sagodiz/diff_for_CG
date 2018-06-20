@@ -3,6 +3,10 @@
 
 #include "Loader.h"
 
+/**
+* Processes the output of the tool SPOON
+*/
+
 class Loader_spoon : public virtual Loader {
   public:
     Loader_spoon(std::string filepath, std::string name);

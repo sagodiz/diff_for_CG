@@ -3,6 +3,10 @@
 
 #include "Named.h"
 
+/**
+* A class similar to the loaders, but works on the loaded methods and connections.
+*/
+
 class UnionGraph : public Named {
   public:
     std::string getName() const {

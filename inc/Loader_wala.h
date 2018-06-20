@@ -3,6 +3,10 @@
 
 #include "Loader.h"
 
+/**
+* Processes the output of the tool WALA
+*/
+
 class Loader_wala : public virtual Loader {
   
   public:

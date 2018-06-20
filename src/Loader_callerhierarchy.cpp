@@ -182,11 +182,6 @@ vector<Record> Loader_callerhierarchy::load() {
      
       Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector);
 
-      //tmpRecords.push_back( r ); TODO: ne ezt adja hozzá, mert mi van ha a transzformált dolog van benne $->. Azt honnan veszem?
-      //mert ide nem tudom berakni a $ jeleket, azonban ha megtaláltam, hogy melyik lenne, akkor annak le tudom kérni az osztály nevét
-      //és azzal már tudok csinálni egy új rekordot.
-      //ez a nesteed osztályok fixálására van. Az anonymokat majd valahogy máshogy fogjuk.
-
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         
         bool finallyFound = false;

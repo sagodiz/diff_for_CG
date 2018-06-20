@@ -121,9 +121,9 @@ void helpMethod(char** argV, int argI) {
   
   std::cout << "Loaders: " << std::endl 
   << "\t-s\t Soot" << std::endl 
-  << "\t-sm\t SourceMeter/OSA" << std::endl 
+  << "\t-osa\t OSA" << std::endl 
   << "\t-sp\t SPOON" << std::endl 
-  << "\t-g\t JCG (Erster Name war gous..)" << std::endl 
+  << "\t-j\t JCG" << std::endl 
   << "\t-w\t WALA" << std::endl 
   << "\t-t\t Trace (It is the dynamic tool of F.)" << std::endl;
   

@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+/**
+* Constant strings used in the program.
+*/
+
 namespace Labels {
   
   extern const std::string FILE_READ_ERROR;
@@ -22,6 +26,22 @@ namespace Labels {
   extern const std::string WALA_NON_INNERCLASS_EXISTENCE;
   extern const std::string COULD_NOT_WRITE_GRAPHML;
   extern const std::string PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN;
+  
+  //******************* strings used for tool naming and options*************************
+  extern const std::string SOOT_NAME;
+  extern const std::string SOOT_CL; //Soot Command Line
+  extern const std::string OSA_NAME;
+  extern const std::string OSA_CL;
+  extern const std::string CHP_NAME;
+  extern const std::string CHP_CL;
+  extern const std::string SPOON_NAME;
+  extern const std::string SPOON_CL;
+  extern const std::string JCG_NAME;
+  extern const std::string JCG_CL;
+  extern const std::string WALA_NAME;
+  extern const std::string WALA_CL;
+  extern const std::string TRACE_NAME;
+  extern const std::string TRACE_CL;
 }
 
 #endif

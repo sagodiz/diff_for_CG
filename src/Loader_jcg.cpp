@@ -1,4 +1,4 @@
-#include "../inc/Loader_gousiosg.h"
+#include "../inc/Loader_jcg.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
 
@@ -10,12 +10,12 @@
 
 using namespace std;
 
-Loader_gousiosg::Loader_gousiosg( string filepath, string name ) : Loader(filepath, name) {
+Loader_jcg::Loader_jcg( string filepath, string name ) : Loader(filepath, name) {
 }
-Loader_gousiosg::~Loader_gousiosg() {
+Loader_jcg::~Loader_jcg() {
 }
 
-vector<Record> Loader_gousiosg::load() {
+vector<Record> Loader_jcg::load() {
   
   vector<Record> tmpRecords; 
   string member1, member2;
@@ -76,7 +76,6 @@ vector<Record> Loader_gousiosg::load() {
     if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
-    //cout << r << "??" << member1 << endl;
       common::storedIds.push_back(r);
     }
     else {
@@ -89,7 +88,6 @@ vector<Record> Loader_gousiosg::load() {
 
         *it += pair<string, string>(member1, name);  //add this representation
         ++uniqueMethodNum;
-        //cout << r << "?" << member1 << endl;
       }
     }
     
@@ -145,7 +143,6 @@ vector<Record> Loader_gousiosg::load() {
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
-      //cout << r2 << "!" << member2 << endl;
       common::storedIds.push_back(r2);
     }
     else {
@@ -155,7 +152,7 @@ vector<Record> Loader_gousiosg::load() {
         //contains this representation
       }
       else {
-//cout << r2 << "!!" << member2 << endl ;
+        
         *it += pair<string, string>(member2, name);  //add this representation
         ++uniqueMethodNum;
       }
@@ -170,7 +167,7 @@ vector<Record> Loader_gousiosg::load() {
   return tmpRecords;
 }
 
-set<pair<int, int>> Loader_gousiosg::transformConnections() {
+set<pair<int, int>> Loader_jcg::transformConnections() {
   
   set<pair<int, int>> connections;  //TODO
   

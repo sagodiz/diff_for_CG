@@ -1,5 +1,3 @@
-//TODO: sorvégek rendberakása. Most ez windowsos sorvéggel dolgozik, éppen jó
-
 #include "../inc/Loader_trace.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -46,7 +44,7 @@ vector<Record> Loader_trace::load() {
       if (ending != string::npos)
         infoMine.erase(ending);
       if (infoMine.compare(entry_node) == 0) {
-        //infoMine = "__trace.__entry()"; todo: lehet kell majd
+        //infoMine = "__trace.__entry()"; might be useful one day
         entry_representation = representation;
         continue;
       }

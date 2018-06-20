@@ -1,6 +1,4 @@
-//TODO: sorvégek rendberakása. Most ez windowsos sorvéggel dolgozik, éppen jó
-
-#include "../inc/Loader_sourcemeter.h"
+#include "../inc/Loader_osa.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
 
@@ -13,12 +11,12 @@
 
 using namespace std;
 
-Loader_sourcemeter::Loader_sourcemeter( string filepath, string name ) : Loader(filepath, name) {
+Loader_osa::Loader_osa( string filepath, string name ) : Loader(filepath, name) {
 }
-Loader_sourcemeter::~Loader_sourcemeter() {
+Loader_osa::~Loader_osa() {
 }
 
-vector<Record> Loader_sourcemeter::load() {
+vector<Record> Loader_osa::load() {
 
   vector<Record> tmpRecords;
   
@@ -267,7 +265,7 @@ vector<Record> Loader_sourcemeter::load() {
   return tmpRecords;
 }
 
-set<pair<int, int>> Loader_sourcemeter::transformConnections() {
+set<pair<int, int>> Loader_osa::transformConnections() {
 
   set<pair<int, int>> connections;
 

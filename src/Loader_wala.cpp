@@ -16,7 +16,7 @@ Loader_wala::Loader_wala( string filepath, string name ) : Loader(filepath, name
 Loader_wala::~Loader_wala() {
 }
 
-vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
+vector<Record> Loader_wala::load() {
 
   vector<Record> tmpRecords;
   
@@ -121,7 +121,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
           case 'D'://double
                   //.....
                   typeStr = "double";
-                  while ( arrayType-- ) {
+                  while ( arrayType-- ) { //multiple dimension are represented like [][][].... add it as many times as needed.
                     typeStr += '[';
                     typeStr += ']';
                   }
@@ -241,8 +241,7 @@ vector<Record> Loader_wala::load() {//TODO: de hasonlóra kell
         if ( pos == string::npos )
           throw Labels::WALA_NON_INNERCLASS_EXISTENCE;
         
-        //ha pl. a pos = 3, akkor az a 4. elem mert 0-tól kezdődik és azt is ki akarjuk törölni
-        pckgClass.erase(0, pos + 1);  //TODO: ez így helyes-e
+        pckgClass.erase(0, pos + 1); 
       }
    
       Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);

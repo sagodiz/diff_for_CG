@@ -49,7 +49,7 @@ Record::Record( pair<string, string> rep, string methodClass, string methodName,
 bool Record::operator==(const Record& r ) const {
 
 DDD
-//régi
+
   /*if ( r.getClass() == methodClass
       && r.getMethodName() == methodName
       && r.getParameters() == parameters

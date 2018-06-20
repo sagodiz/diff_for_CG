@@ -3,6 +3,11 @@
 
 #include "Loader.h"
 
+/**
+* Processes the output of the tool Soot
+*/
+
+
 class Loader_soot : public virtual Loader {
   
   public:

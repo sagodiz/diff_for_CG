@@ -10,19 +10,27 @@
 
 class Loader;
 
+/**
+* Methods and variables used in various places of the program.
+*/
+
 namespace common {
   
-  extern std::vector<Record> storedIds;
-  extern std::vector<std::string> tsvFiles;
-  extern std::vector<std::string> connTSVFiles;
-  bool unifyeAnonymClasses( std::string& str );
-  bool unifyeAnonymMethods( std::string& str );
-  bool isExclude(const std::string& method);
-  bool isJavaLib(const std::string& name);
-  bool isExcludableInit(const std::string& name);
-  std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds);
-  std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds);
-  void printFilteredMethod(const std::string& loadername, std::vector<Record> records);
+  extern std::vector<Record> storedIds; //stores the loaded methods, the Records created from the methods.
+  extern std::vector<std::string> tsvFiles; //tsv (tab separated files) are created in order to output different informations, these files are stored.
+  extern std::vector<std::string> connTSVFiles; //the same as tsvFiles it just for the connection information.
+  bool unifyeAnonymClasses( std::string& str ); //transforms anonym classes
+  bool unifyeAnonymMethods( std::string& str ); //methods may be anonym, transforms anonym methods.
+  bool isExclude(const std::string& method);  //Decides if a method should not be in the graph
+  bool isJavaLib(const std::string& name);  //decides if a method is part of a Java library.
+  bool isExcludableInit(const std::string& name); //Inits are filtered too.
+  std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds); //does the filtering for methods.
+  std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds); //does the filtering for connections
+  void printFilteredMethod(const std::string& loadername, std::vector<Record> records); //TODO!!!
+  
+  /**
+  * Connections are stored as a pair of ids. This method gets the method name for an id.
+  */
   static inline std::string getMethodById( const unsigned int& id ) {
     
     if ( id < storedIds.size() ) {
@@ -75,6 +83,13 @@ namespace common {
 namespace common {
   
   namespace options {
+    
+    /**
+    * Options are common.
+    * Based on these variables loaders can decide what to do or not to do.
+    * Option Methods set these variables.
+    */
+    
     extern unsigned char loadToGraph;
     extern unsigned char filterLevel;
     extern unsigned char calculateUnionGraph;

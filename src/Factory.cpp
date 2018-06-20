@@ -2,10 +2,10 @@
 #include "../inc/Loader.h"
 #include "../inc/GraphDBCommon.h"
 #include "../inc/Loader_soot.h"
-#include "../inc/Loader_sourcemeter.h"
+#include "../inc/Loader_osa.h"
 #include "../inc/Loader_callerhierarchy.h"
 #include "../inc/Loader_spoon.h"
-#include "../inc/Loader_gousiosg.h"
+#include "../inc/Loader_jcg.h"
 #include "../inc/Loader_wala.h"
 #include "../inc/Loader_trace.h"
 #include "../inc/Labels.h"
@@ -19,27 +19,27 @@ Factory::Factory() {
 
 Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter ) const {
   
-  if ( "-s" == str ) {
+  if ( Labels::SOOT_CL == str ) {
     
-    return new Loader_soot(filePath, "soot" + std::to_string(counter));
+    return new Loader_soot(filePath, Labels::SOOT_NAME + std::to_string(counter));
   }
-  else if ( "-sm" == str ) {
-    return new Loader_sourcemeter(filePath, "OSA" + std::to_string(counter));
+  else if ( Labels::OSA_CL == str ) {
+    return new Loader_osa(filePath, Labels::OSA_NAME + std::to_string(counter));
   }
-  else if ( "-c" == str ) {
-    return new Loader_callerhierarchy(filePath, "CHP" + std::to_string(counter));
+  else if ( Labels::CHP_CL == str ) {
+    return new Loader_callerhierarchy(filePath, Labels::CHP_NAME + std::to_string(counter));
   }
-  else if ( "-sp" == str ) {
-    return new Loader_spoon(filePath, "spoon" + std::to_string(counter));
+  else if ( Labels::SPOON_CL == str ) {
+    return new Loader_spoon(filePath, Labels::SPOON_NAME + std::to_string(counter));
   }
-  else if ( "-g" == str ) {
-    return new Loader_gousiosg(filePath, "JCG" + std::to_string(counter));
+  else if ( Labels::JCG_CL == str ) {
+    return new Loader_jcg(filePath, Labels::JCG_NAME + std::to_string(counter));
   }
-  else if ( "-w" == str ) {
-    return new Loader_wala(filePath, "wala" + std::to_string(counter));
+  else if ( Labels::WALA_CL == str ) {
+    return new Loader_wala(filePath, Labels::WALA_NAME + std::to_string(counter));
   }
-  else if ("-t" == str) {
-    return new Loader_trace(filePath, "trace" + std::to_string(counter));
+  else if ( Labels::TRACE_CL == str) {
+    return new Loader_trace(filePath, Labels::TRACE_NAME + std::to_string(counter));
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;

@@ -3,6 +3,11 @@
 
 #include "Loader.h"
 
+/**
+* Processes the output of the tool Trace (dynamic tool)
+*/
+
+
 class Loader_trace : public virtual Loader {
   static const std::string entry_node;
   std::string entry_representation;

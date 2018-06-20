@@ -3,6 +3,10 @@
 
 #include "Loader.h"
 
+/**
+* Processes the output of the tool CHP
+*/
+
 class Loader_callerhierarchy : public virtual Loader {
   
   std::string prefix = "Method call hierarchy callees of ";

@@ -19,4 +19,20 @@ namespace Labels {
   std::string PROJECT_NAME = "Default";
   std::string PROJECT_PATH = "";
   const std::string PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN = "Could not open csv file for percentages: ";
+  
+  //*********************************** strings used for tool naming and options *************************
+  const std::string SOOT_NAME = "Soot";
+  const std::string SOOT_CL = "-s"; //Soot Command Line
+  const std::string OSA_NAME = "OSA";
+  const std::string OSA_CL = "-osa";
+  const std::string CHP_NAME = "CHP";
+  const std::string CHP_CL = "-c";
+  const std::string SPOON_NAME = "SPOON";
+  const std::string SPOON_CL = "-sp";
+  const std::string JCG_NAME = "JCG";
+  const std::string JCG_CL = "-j";
+  const std::string WALA_NAME = "WALA";
+  const std::string WALA_CL = "-w";
+  const std::string TRACE_NAME = "trace";
+  const std::string TRACE_CL = "-t";
 }

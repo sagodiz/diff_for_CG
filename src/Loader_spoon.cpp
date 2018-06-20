@@ -1,5 +1,3 @@
-//TODO: sorvégek!!!! most éppen jó. SPOON windows-os sorvéggel dolgozik
-
 #include "../inc/Loader_spoon.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
@@ -51,9 +49,6 @@ vector<Record> Loader_spoon::load() {
       if (infoMine.length() > default_pck.length() && infoMine.substr(0, default_pck.length()).compare(default_pck) == 0) {
         infoMine.erase(0, default_pck.length());
       }
-
-
-
 
       string pckgClassMethod;
       string paramsReturn;
@@ -120,7 +115,7 @@ vector<Record> Loader_spoon::load() {
         if (generic_pos != string::npos) {
           token.erase(0, generic_pos + generic_delimiter.length());
         }
-        if (token.length() == 1) {//generikus parameterek
+        if (token.length() == 1) {//generikus params
           token = "java.lang.Object";
         }
         else if (token.length() == 3 && token.substr(1).compare("[]") == 0) {
