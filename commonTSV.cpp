@@ -235,13 +235,13 @@ int main(int argc, char** argv) {
     
       if ( file2open.find("L_JCG") != string::npos )
         jcg.open(file2open.substr(6));
-      else if ( file2open.find("L_soot") != string::npos )
+      else if ( file2open.find("L_Soot") != string::npos )
         soot.open(file2open.substr(7));
       else if ( file2open.find("L_OSA") != string::npos )
         osa.open(file2open.substr(6));
-      else if ( file2open.find("L_spoon") != string::npos )
+      else if ( file2open.find("L_SPOON") != string::npos )
         spoon.open(file2open.substr(8));
-      else if ( file2open.find("L_wala") != string::npos )
+      else if ( file2open.find("L_WALA") != string::npos )
         wala.open(file2open.substr(7));
     }
     //--------------------------------------
