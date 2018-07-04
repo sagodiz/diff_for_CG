@@ -28,6 +28,9 @@ namespace common {
   std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds); //does the filtering for connections
   void printFilteredMethod(const std::string& loadername, std::vector<Record> records); //TODO!!!
   
+  extern bool TRACE_RUN;
+  
+  
   /**
   * Connections are stored as a pair of ids. This method gets the method name for an id.
   */
@@ -95,6 +98,7 @@ namespace common {
     extern unsigned char calculateUnionGraph;
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
+    
   }
 
 }

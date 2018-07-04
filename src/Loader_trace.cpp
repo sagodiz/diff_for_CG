@@ -14,6 +14,7 @@ using namespace std;
 const std::string Loader_trace::entry_node = "ENTRY";
 
 Loader_trace::Loader_trace(string filepath, string name) : Loader(filepath, name) {
+  common::TRACE_RUN = true;
 }
 Loader_trace::~Loader_trace() {
 }

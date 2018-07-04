@@ -37,9 +37,11 @@
 
 
 #ifndef _WIN32
-  #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list"); 
+  #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list");
+  #define STARTTRACEDIAGRAM system("./traceValami");
 #else
   #define STARTCOMMONTSV system("start commonTSV.exe tsvfiles.list conntsvfiles.listtsvfiles.list conntsvfiles.list");//hopefully it works on windows
+  #define STARTTRACEDIAGRAM system("start traceValami");
 #endif
 
 using namespace std;
@@ -373,6 +375,11 @@ int main( int argc, char** argv ) {
 
   STARTCOMMONTSV
   
+  if ( common::TRACE_RUN )
+    STARTTRACEDIAGRAM  
+  
+  cout << "Exit." << endl;
+    
   return 0;
 }
 //########################################################################x
