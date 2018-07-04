@@ -33,6 +33,6 @@ namespace Labels {
   const std::string JCG_CL = "-j";
   const std::string WALA_NAME = "WALA";
   const std::string WALA_CL = "-w";
-  const std::string TRACE_NAME = "trace";
+  const std::string TRACE_NAME = "TRACE";
   const std::string TRACE_CL = "-t";
 }

@@ -20,7 +20,7 @@ int main( int argc, char** argv ) {
   
   if ( argc < 3 ) {
     
-    cerr << "Usage: ./" << argv[0] << " commonConnections.tsv commonMethods.tsv" << endl;
+    cerr << "Usage: " << argv[0] << " commonConnections.tsv commonMethods.tsv" << endl;
     return 1;
   }
   
@@ -38,16 +38,31 @@ int main( int argc, char** argv ) {
     return 2;
   }
   
-  string transformed, soot, osa, spoon, jcg, wala, trace;
+  string transformed, matchingStr, soot, osa, spoon, jcg, wala, trace, sectionStr;
   int section;
   int matching;
+  string line;
   
-  commonConnections >> transformed >> matching >> soot >> osa >> spoon >> jcg >> wala >> trace >> section;  //get header.
+  getline(commonConnections, line);  //get header.
   
-  while ( commonConnections >> transformed >> matching >> soot >> osa >> spoon >> jcg >> wala >> trace >> section ) {  //process every row.
+  while ( getline( commonConnections, line) ) {  //process every row.
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, transformed, '\t');
+    getline(input_stringstream, matchingStr, '\t');
+    getline(input_stringstream, soot, '\t');
+    getline(input_stringstream, osa, '\t');
+    getline(input_stringstream, spoon, '\t');
+    getline(input_stringstream, jcg, '\t');
+    getline(input_stringstream, wala, '\t');
+    getline(input_stringstream, trace, '\t');
+    getline(input_stringstream, sectionStr, '\t');
+    
+    section = atoi(sectionStr.c_str());
     
     if ( section & TRACE_NUM ) {
-      
+    
       section -= TRACE_NUM;
       connections[section]++;
     }
@@ -63,7 +78,7 @@ int main( int argc, char** argv ) {
   }
   
   for ( auto it = connections.begin(); it != connections.end(); ++it ) {
-    
+    //cout << "Print values: " << it->first << "and " << it->second << endl;
     commonConnectionsOut << sectionAsString(it->first) << "\t" << it->second << endl;
   }
   
@@ -75,9 +90,23 @@ int main( int argc, char** argv ) {
     return 4;
   }
   
-  commonMethods >> transformed >> matching >> soot >> osa >> spoon >> jcg >> wala >> trace >> section;  //get header.
+  getline(commonMethods, line);  //get header.
   
-  while ( commonMethods >> transformed >> matching >> soot >> osa >> spoon >> jcg >> wala >> trace >> section ) {  //process every row.
+  while ( getline( commonMethods, line) ) {  //process every row.
+    
+    stringstream input_stringstream(line);
+
+    getline(input_stringstream, transformed, '\t');
+    getline(input_stringstream, matchingStr, '\t');
+    getline(input_stringstream, soot, '\t');
+    getline(input_stringstream, osa, '\t');
+    getline(input_stringstream, spoon, '\t');
+    getline(input_stringstream, jcg, '\t');
+    getline(input_stringstream, wala, '\t');
+    getline(input_stringstream, trace, '\t');
+    getline(input_stringstream, sectionStr, '\t');
+    
+    section = atoi(sectionStr.c_str());
     
     if ( section & TRACE_NUM ) {
       

@@ -38,10 +38,10 @@
 
 #ifndef _WIN32
   #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list");
-  #define STARTTRACEDIAGRAM system("./traceValami");
+  #define STARTTRACEDIAGRAM system("./traceValami commonConnections.tsv commonMethods.tsv");
 #else
   #define STARTCOMMONTSV system("start commonTSV.exe tsvfiles.list conntsvfiles.listtsvfiles.list conntsvfiles.list");//hopefully it works on windows
-  #define STARTTRACEDIAGRAM system("start traceValami");
+  #define STARTTRACEDIAGRAM system("start traceValami commonConnections.tsv commonMethods.tsv");
 #endif
 
 using namespace std;

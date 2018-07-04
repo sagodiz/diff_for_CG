@@ -281,6 +281,32 @@ int main(int argc, char** argv) {
     }
     //--------------------------------------
     input.close();
+    
+    if ( !jcg.is_open() ) {
+      cerr << "jcg could not be opened." << endl;
+      return 1;
+    }
+    if ( !soot.is_open() ) {
+      cerr << "soot could not be opened." << endl;
+      return 1;
+    }
+    if ( !osa.is_open() ) {
+      cerr << "osa could not be opened." << endl;
+      return 1;
+    }
+    if ( !spoon.is_open() ) {
+      cerr << "spoon could not be opened." << endl;
+      return 1;
+    }
+    if ( !wala.is_open() ) {
+      cerr << "wala could not be opened." << endl;
+      return 1;
+    }
+    if ( !trace.is_open() ) {
+      cerr << "trace could not be opened." << endl;
+      return 1;
+    }
+    
     input.open(argv[2]);
     //--------------------------------------
     while( input >> file2open ) {
@@ -295,9 +321,35 @@ int main(int argc, char** argv) {
       else if ( file2open.find("L_WALA") != string::npos )
         walaConn.open(file2open.substr(7));
       else if ( file2open.find("L_TRACE") != string::npos )
-        spoonConn.open(file2open.substr(8));
+        traceConn.open(file2open.substr(8));
     }
     input.close();
+    
+    if ( !jcgConn.is_open() ) {
+      cerr << "jcgConn could not be opened." << endl;
+      return 1;
+    }
+    if ( !sootConn.is_open() ) {
+      cerr << "sootConn could not be opened." << endl;
+      return 1;
+    }
+    if ( !osaConn.is_open() ) {
+      cerr << "osaConn could not be opened." << endl;
+      return 1;
+    }
+    if ( !spoonConn.is_open() ) {
+      cerr << "spoonConn could not be opened." << endl;
+      return 1;
+    }
+    if ( !walaConn.is_open() ) {
+      cerr << "walaConn could not be opened." << endl;
+      return 1;
+    }
+    if ( !traceConn.is_open() ) {
+      cerr << "traceConn could not be opened." << endl;
+      return 1;
+    }
+    
   }
   else {
     
