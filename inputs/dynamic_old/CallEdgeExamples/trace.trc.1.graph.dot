@@ -1,0 +1,206 @@
+digraph graphname {
+rankdir="LR";
+0 [label="ENTRY"]
+1 [label="CallEdgeExamples.main([Ljava/lang/String;)V"]
+2 [label="CallEdgeExamples.<init>()V"]
+3 [label="CallEdgeExamples$1.<init>(LCallEdgeExamples;)V"]
+4 [label="Base.<init>()V"]
+5 [label="CallEdgeExamples.polimorphic()V"]
+6 [label="M.sg(Ljava/lang/String;)V"]
+7 [label="Child1.<init>()V"]
+8 [label="Abstract.<init>()V"]
+9 [label="Child1.foo()V"]
+10 [label="Child1.goo()V"]
+11 [label="Interface.hoo()V"]
+12 [label="Child2.<init>()V"]
+13 [label="Abstract.foo()V"]
+14 [label="Child2.hoo()V"]
+15 [label="Helper.<init>()V"]
+16 [label="Helper.interfaceTest(LInterface;)V"]
+17 [label="CallEdgeExamples.innerClass()V"]
+18 [label="Outer.<init>()V"]
+19 [label="Outer.inner()V"]
+20 [label="Outer$Inner.<init>(LOuter;)V"]
+21 [label="Outer$Inner.inner()V"]
+22 [label="CallEdgeExamples.anonim()V"]
+23 [label="CallEdgeExamples$2.<init>(LCallEdgeExamples;)V"]
+24 [label="CallEdgeExamples$2.foo()V"]
+25 [label="CallEdgeExamples$3.<init>(LCallEdgeExamples;)V"]
+26 [label="Generic1.<init>()V"]
+27 [label="CallEdgeExamples$3.generic(LInterface;)V"]
+28 [label="CallEdgeExamples$3.generic(LChild1;)V"]
+29 [label="CallEdgeExamples.nested()V"]
+30 [label="Outer$Nested.<init>()V"]
+31 [label="Outer$Nested.nested()V"]
+32 [label="Outer$Nested.staticNested()V"]
+33 [label="CallEdgeExamples.local()V"]
+34 [label="CallEdgeExamples$1Local.<init>(LCallEdgeExamples;)V"]
+35 [label="CallEdgeExamples$1Local.foo()V"]
+36 [label="CallEdgeExamples.generic()V"]
+37 [label="Generic1.generic(LInterface;)V"]
+38 [label="Generic2.<init>()V"]
+39 [label="Generic2.generic(LInterface;LGeneric1;)V"]
+40 [label="Generic3.<init>()V"]
+41 [label="Generic3.foo()V"]
+42 [label="ForParser.<init>()V"]
+43 [label="ForParser.validMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+44 [label="ForParser.validGenericMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;"]
+45 [label="Helper.genericMethod(LInterface;)V"]
+46 [label="CallEdgeExamples.init()V"]
+47 [label="Init.<init>(LInterface;)V"]
+48 [label="Helper.instantiateChild1()LChild1;"]
+49 [label="StaticInit.<clinit>()V"]
+50 [label="StaticInit.staticInit()V"]
+51 [label="CallEdgeExamples.lambda()V"]
+52 [label="CallEdgeExamples.lambda$lambda$0(II)Z"]
+53 [label="CallEdgeExamples.contructor()V"]
+54 [label="Constructor.<init>()V"]
+55 [label="CallEdgeExamples.overload()V"]
+56 [label="Overload.<init>()V"]
+57 [label="Overload.foo()V"]
+58 [label="Overload.foo(I)V"]
+59 [label="Overload.foo(Ljava/lang/Object;)V"]
+60 [label="Overload.foo(I[Ljava/lang/Object;)V"]
+61 [label="CallEdgeExamples.parser()V"]
+62 [label="ForParser.foo()V"]
+63 [label="ForParser.goo()V"]
+64 [label="CallEdgeExamples$1.base()V"]
+0 -> 1
+1 -> 64
+1 -> 33
+1 -> 2
+1 -> 36
+1 -> 5
+1 -> 46
+1 -> 61
+1 -> 17
+1 -> 51
+1 -> 53
+1 -> 22
+1 -> 55
+1 -> 29
+2 -> 3
+3 -> 4
+5 -> 16
+5 -> 6
+5 -> 7
+5 -> 9
+5 -> 10
+5 -> 11
+5 -> 12
+5 -> 13
+5 -> 14
+5 -> 15
+7 -> 8
+8 -> 4
+9 -> 6
+10 -> 6
+11 -> 6
+12 -> 8
+13 -> 6
+14 -> 6
+16 -> 9
+16 -> 6
+17 -> 18
+17 -> 19
+17 -> 6
+19 -> 20
+19 -> 21
+19 -> 6
+21 -> 6
+22 -> 6
+22 -> 23
+22 -> 24
+22 -> 25
+22 -> 10
+22 -> 27
+23 -> 7
+24 -> 6
+25 -> 26
+27 -> 28
+28 -> 24
+28 -> 6
+29 -> 32
+29 -> 30
+29 -> 6
+29 -> 31
+31 -> 6
+32 -> 6
+33 -> 34
+33 -> 35
+33 -> 6
+35 -> 6
+36 -> 37
+36 -> 6
+36 -> 7
+36 -> 40
+36 -> 41
+36 -> 42
+36 -> 43
+36 -> 12
+36 -> 45
+36 -> 15
+36 -> 44
+36 -> 39
+36 -> 26
+36 -> 38
+37 -> 9
+37 -> 13
+37 -> 6
+39 -> 13
+39 -> 6
+39 -> 37
+40 -> 26
+41 -> 37
+41 -> 6
+41 -> 7
+43 -> 38
+43 -> 6
+43 -> 39
+44 -> 26
+44 -> 38
+44 -> 6
+44 -> 39
+45 -> 13
+45 -> 6
+46 -> 49
+46 -> 50
+46 -> 47
+46 -> 6
+46 -> 7
+47 -> 48
+47 -> 7
+47 -> 12
+47 -> 6
+47 -> 15
+48 -> 6
+48 -> 7
+49 -> 48
+49 -> 12
+49 -> 6
+49 -> 15
+50 -> 6
+51 -> 52
+51 -> 6
+52 -> 6
+53 -> 54
+53 -> 6
+54 -> 6
+55 -> 6
+55 -> 56
+55 -> 57
+55 -> 58
+55 -> 59
+55 -> 60
+57 -> 6
+58 -> 6
+59 -> 6
+60 -> 6
+61 -> 42
+61 -> 62
+61 -> 6
+61 -> 63
+62 -> 6
+63 -> 6
+64 -> 6
+}
