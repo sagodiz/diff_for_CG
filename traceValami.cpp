@@ -26,6 +26,8 @@ int main( int argc, char** argv ) {
   
   map<int, int> connections;
   map<int, int> methods;
+  map<int, int> connectionIdNum;
+  map<int, int> methodIdNum;
   
   
   ifstream commonConnections;
@@ -40,7 +42,7 @@ int main( int argc, char** argv ) {
   
   string transformed, matchingStr, soot, osa, spoon, jcg, wala, trace, sectionStr;
   int section;
-  int matching;
+  //int matching;
   string line;
   
   getline(commonConnections, line);  //get header.
@@ -61,6 +63,8 @@ int main( int argc, char** argv ) {
     
     section = atoi(sectionStr.c_str());
     
+    connectionIdNum[section]++;
+    
     if ( section & TRACE_NUM ) {
     
       section -= TRACE_NUM;
@@ -79,7 +83,7 @@ int main( int argc, char** argv ) {
   
   for ( auto it = connections.begin(); it != connections.end(); ++it ) {
     //cout << "Print values: " << it->first << "and " << it->second << endl;
-    commonConnectionsOut << sectionAsString(it->first) << "\t" << it->second << endl;
+    commonConnectionsOut << sectionAsString(it->first) << "\t" << it->second << "\t" << connectionIdNum[it->first] << endl;
   }
   
   
@@ -108,6 +112,8 @@ int main( int argc, char** argv ) {
     
     section = atoi(sectionStr.c_str());
     
+    methodIdNum[section]++;
+    
     if ( section & TRACE_NUM ) {
       
       section -= TRACE_NUM;
@@ -126,7 +132,7 @@ int main( int argc, char** argv ) {
   
   for ( auto it = methods.begin(); it != methods.end(); ++it ) {
     
-    commonMethodsOut << sectionAsString(it->first) << "\t" << it->second << endl;
+    commonMethodsOut << sectionAsString(it->first) << "\t" << it->second << "\t" << methodIdNum[it->first] << endl;
   }
   
   return 0;

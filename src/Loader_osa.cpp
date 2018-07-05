@@ -39,9 +39,9 @@ vector<Record> Loader_osa::load() {
       getline(input_stringstream, infoMine, ' ');
       
       infoMine.erase(0, 8); //[label=" --> 8 chars
-    size_t ending = infoMine.rfind("\"]");
-    if (ending != string::npos)
-      infoMine.erase(ending);
+      size_t ending = infoMine.rfind("\"]");
+      if (ending != string::npos)
+        infoMine.erase(ending);
       
       string pckgClassMethod;
       string paramsReturn;
@@ -51,10 +51,10 @@ vector<Record> Loader_osa::load() {
       getline(iss, paramsReturn , '(');
 
 
-    notFilteredMethodNames.insert(infoMine);
+      notFilteredMethodNames.insert(infoMine);
       
-    //it is a node
-    ++methodNum;
+      //it is a node
+      ++methodNum;
 
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
       if ( lastDotPos != string::npos ) {

@@ -40,9 +40,9 @@ vector<Record> Loader_wala::load() {
       getline(input_stringstream, infoMine, ' ');
       
       infoMine.erase(0, 8); //[label=" --> 8 chars
-    size_t ending = infoMine.rfind("\"]");
-    if (ending != string::npos)
-      infoMine.erase(ending);
+      size_t ending = infoMine.rfind("\"]");
+      if (ending != string::npos)
+        infoMine.erase(ending);
       
       string pckgClassMethod;
       string paramsReturn;
@@ -52,7 +52,7 @@ vector<Record> Loader_wala::load() {
       getline(iss, paramsReturn , '(');
 
 
-    notFilteredMethodNames.insert(infoMine);
+      notFilteredMethodNames.insert(infoMine);
 
       
       size_t lastDotPos = pckgClassMethod.rfind("."); //find the last dot. From that point method name comes
