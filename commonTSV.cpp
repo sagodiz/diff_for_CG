@@ -40,7 +40,7 @@ class Record {
       spoon = "x";
       jcg = "x";
       wala = "x";
-      trace = "X";
+      trace = "x";
       
       metszet = 0;
     }
@@ -63,7 +63,7 @@ class Record {
       if ( "x" != wala ) {
         ++num;
       }
-      if ( "X" != trace ) {
+      if ( "x" != trace ) {
         ++num;
       }
       
