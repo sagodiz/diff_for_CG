@@ -19,6 +19,7 @@ namespace Labels {
   std::string PROJECT_NAME = "Default";
   std::string PROJECT_PATH = "";
   const std::string PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN = "Could not open csv file for percentages: ";
+  const std::string CMD_COULD_NOT_BE_CREATED = "Could not write commandLine file.";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

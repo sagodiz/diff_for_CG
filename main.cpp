@@ -363,6 +363,19 @@ int main( int argc, char** argv ) {
     
   }
 //edit of Edit :P end--------------------------------------------------------------  
+    
+    
+  ofstream cmd("commandLine.txt");
+  if ( !cmd.is_open() )
+    throw Labels::CMD_COULD_NOT_BE_CREATED;
+    
+  for ( int i = 0; i < argc; ++i ) {
+    
+    cmd << argv[i] << " ";
+  }
+    
+  cmd.close();
+    
   //catch "all" thrown error...
   } catch( const string e ) {
     
@@ -370,14 +383,14 @@ int main( int argc, char** argv ) {
     
     return 1;
   }
-
+  
   cout << "End of program." << endl;
 
   STARTCOMMONTSV
   
   if ( common::TRACE_RUN )
     STARTTRACEDIAGRAM  
-  
+    
   cout << "Exit." << endl;
     
   return 0;
