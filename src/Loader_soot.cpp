@@ -30,14 +30,33 @@ vector<Record> Loader_soot::load() {
   
   while ( getline(input, line) ) {
     
+    int lineinfo = -1;
+    
     if ( line.find("->") == string::npos && line != "}" ) {
      
       
       string methodRepresentation = line; //save the line for representation
       methodRepresentation.erase(0, 4); //the leading spaces
       
-      line.erase(0, 6); //remove the '<4 spaces>"<' beginning
-      //line.erase(line.length()-2, 2); replace it, as the other is the same if there is end or not or linux or win end...
+      line.erase(0, 5); //remove the '<4 spaces>"' beginning
+      if ( line[0] == '<' ) {
+        
+        //no line info
+        line.erase(0, 1);
+      }
+      else {
+        
+        string num;
+        char i = 1;
+        while ( line[i] != ')' ) {
+          
+          num += line[i];
+          ++i;
+        }
+        ++i;
+        line.erase(0, i);
+        lineinfo = atoi(num.c_str());
+      }
       //remove the '">' ending
       size_t ending = line.rfind(">\"");
       if (ending != string::npos)
@@ -59,7 +78,7 @@ vector<Record> Loader_soot::load() {
     notFilteredMethodNames.insert(methodRepresentation);
 
     //the line doesn't contains the "->" sub-string so it is not a caller-calle connection but a node
-    ++methodNum;
+      ++methodNum;
       
       string parameters = method.substr(method.find("("));
       method.erase(method.find("("), method.length()-method.find("("));
