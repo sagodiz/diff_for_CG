@@ -13,13 +13,14 @@ class Record {
   std::vector<std::string> parameters;  //the method has parameters.
   std::string unifiedRep; //we transform everything to this format
   std::string secondaryRep; //some tools have a secondary rep. to identify methods when dealing with calls.
+  int lineinfo = -1;  //default line is -1. It matches for everything sinc it indicates no information. 
 
   std::string createUnifiedMethodName(); 
   
   public:
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters);
+    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo);
     //just for those that's rep is an id
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep);
+    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo);
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;

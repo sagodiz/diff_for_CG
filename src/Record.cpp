@@ -35,13 +35,13 @@ string Record::createUnifiedMethodName() {
 
 //----------------------------------------------public methods----------------------------------------------------
 
-Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters ) : methodClass(methodClass), methodName(methodName), parameters(parameters) {
+Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters, int lineinfo ) : methodClass(methodClass), methodName(methodName), parameters(parameters), lineinfo(lineinfo) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
 }
 
 //-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
-Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep) {
+Record::Record( pair<string, string> rep, string methodClass, string methodName, vector<string> parameters, string secondaryRep, int lineinfo ) : methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep), lineinfo(lineinfo) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
 }
