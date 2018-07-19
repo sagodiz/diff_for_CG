@@ -43,6 +43,8 @@ namespace Labels {
   extern const std::string WALA_CL;
   extern const std::string TRACE_NAME;
   extern const std::string TRACE_CL;
+  extern const std::string JDT_NAME;
+  extern const std::string JDT_CL;
 }
 
 #endif

@@ -11,6 +11,7 @@
 #include "inc/Loader_osa.h"
 #include "inc/Loader_jcg.h"
 #include "inc/Loader_wala.h"
+#include "inc/Loader_jdt.h"
 #include "inc/Switch.h"
 #include "inc/common.h"
 #include "inc/GraphDBCommon.h"
@@ -95,13 +96,14 @@ int main( int argc, char** argv ) {
   Factory factory = Factory::createFactory();
   
   Switch* switches[] = {
-                          new Switch("-s", factory ),
-                          new Switch("-c", factory ),
-                          new Switch("-osa", factory ),
-                          new Switch("-sp", factory ),
-                          new Switch("-j", factory ),
-                          new Switch("-w", factory ),
-                          new Switch("-t", factory),
+                          new Switch(Labels::SOOT_CL, factory ),
+                          new Switch(Labels::CHP_CL, factory ),
+                          new Switch(Labels::OSA_CL, factory ),
+                          new Switch(Labels::SPOON_CL, factory ),
+                          new Switch(Labels::JCG_CL, factory ),
+                          new Switch(Labels::WALA_CL, factory ),
+                          new Switch(Labels::TRACE_CL, factory),
+                          new Switch(Labels::JDT_CL, factory),
                           NULL
                         };
 

@@ -8,6 +8,7 @@
 #include "../inc/Loader_jcg.h"
 #include "../inc/Loader_wala.h"
 #include "../inc/Loader_trace.h"
+#include "../inc/Loader_jdt.h"
 #include "../inc/Labels.h"
 
 using namespace std;
@@ -38,8 +39,11 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
   else if ( Labels::WALA_CL == str ) {
     return new Loader_wala(filePath, Labels::WALA_NAME + std::to_string(counter));
   }
-  else if ( Labels::TRACE_CL == str) {
+  else if ( Labels::TRACE_CL == str ) {
     return new Loader_trace(filePath, Labels::TRACE_NAME + std::to_string(counter));
+  }
+  else if (Labels::JDT_CL == str) {
+    return new Loader_jdt(filePath, Labels::JDT_NAME + std::to_string(counter));
   }
   else { 
     throw Labels::UNRECOGNIZED_SWITCH + str;
