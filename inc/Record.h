@@ -18,9 +18,9 @@ class Record {
   std::string createUnifiedMethodName(); 
   
   public:
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo);
+    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo = -1 );
     //just for those that's rep is an id
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo);
+    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo = -1 );
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
