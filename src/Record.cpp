@@ -13,6 +13,22 @@
 
 using namespace std;
 
+bool contains_number( string str ) {
+  
+  return (
+        str.find('0') != string::npos ||
+        str.find('1') != string::npos ||
+        str.find('2') != string::npos ||
+        str.find('3') != string::npos ||
+        str.find('4') != string::npos ||
+        str.find('5') != string::npos ||
+        str.find('6') != string::npos ||
+        str.find('7') != string::npos ||
+        str.find('8') != string::npos ||
+        str.find('9') != string::npos
+    );
+}
+
 
 
 string Record::createUnifiedMethodName() {
@@ -58,8 +74,20 @@ DDD
     return true;
   }*/
   
+  //If the two is totally the same, it is obvious
   if ( r.unifiedRep == unifiedRep )
     return true;
+  
+  if ( ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
+      ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
+      ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
+    if ( lineinfo == -1 && r.lineinfo != -1 )
+      return true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
+    if ( r.lineinfo == -1 && lineinfo != -1 )
+      return true;
+    if ( lineinfo != -1 && lineinfo == r.lineinfo )
+      return true;
+  }
   
   return false;
 }
