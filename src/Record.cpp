@@ -160,6 +160,9 @@ ostream& operator<<(ostream& o, const Record& r) {
     o << it << "|";
   }*/
   o << r.unifiedRep;
+#ifdef DEBUGINFO
+  o << " lineinfo: " << r.lineinfo;
+#endif
   
   return o;
 }
