@@ -13,6 +13,7 @@ void anonymClassNameTransformationMethod(char** argVector, int argIndex); //sets
 void transformToGraphDB(char** argV, int argI); //makes transformation
 void projectPathMethod(char **argVector, int argIndex); //sets the project path variable (in filtering path is used)
 void calcUnionGraphMethod(char** argV, int argI); //makes the program to calculate stats. with the unnion graph
+void lineInfoPairingMethod(char** argV, int argI);  //sets whether the lineinfo should be used in pairing.
 void helpMethod(char** argV, int argI); //shows help message
 
 #endif

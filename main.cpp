@@ -115,6 +115,7 @@ int main( int argc, char** argv ) {
                           new Option("-transformToGraphDB", &transformToGraphDB),
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
+                          new Option("-lineInfoPairing", &lineInfoPairingMethod),
                           new Option("-h", &helpMethod),
                           NULL
                       };

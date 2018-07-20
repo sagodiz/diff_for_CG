@@ -115,6 +115,32 @@ void anonymClassNameTransformationMethod( char** argV, int argI ) {
   }
 }
 
+
+void lineInfoPairingMethod( char** argV, int argI ) {
+  
+  if ( !strcmp(argV[argI + 1], "0") ) {
+    //false
+    common::options::lineInfoPairing = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "false") ) {
+    //false
+    common::options::lineInfoPairing = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") ) {
+    //false
+    common::options::lineInfoPairing = true;
+  }
+  else if ( !strcmp(argV[argI + 1], "true") ) {
+    //false
+    common::options::lineInfoPairing = true;
+  }
+  else {
+    
+    common::options::lineInfoPairing = false;
+  }
+}
+
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]* [-option]* [-option value]*" << std::endl;

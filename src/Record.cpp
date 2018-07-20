@@ -7,6 +7,7 @@
 #endif
 
 #include "../inc/Record.h"
+#include "../inc/common.h"
 
 #include <algorithm>
 #include <iostream>
@@ -78,15 +79,17 @@ DDD
   if ( r.unifiedRep == unifiedRep )
     return true;
   
-  if ( ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
-      ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
-      ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
-    if ( lineinfo == -1 && r.lineinfo != -1 )
-      return true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
-    if ( r.lineinfo == -1 && lineinfo != -1 )
-      return true;
-    if ( lineinfo != -1 && lineinfo == r.lineinfo )
-      return true;
+  if ( common::options::lineInfoPairing ) {
+    if ( ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
+        ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
+        ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
+      if ( lineinfo == -1 && r.lineinfo != -1 )
+        return true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
+      if ( r.lineinfo == -1 && lineinfo != -1 )
+        return true;
+      if ( lineinfo != -1 && lineinfo == r.lineinfo )
+        return true;
+    }
   }
   
   return false;

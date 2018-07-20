@@ -98,6 +98,7 @@ namespace common {
     extern unsigned char calculateUnionGraph;
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
+    extern bool lineInfoPairing;
     
   }
 

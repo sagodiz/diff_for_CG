@@ -144,5 +144,6 @@ namespace common {
     unsigned char calculateUnionGraph = 0;
     unsigned char CHPTransform = 0;
     unsigned char anonymClassNameTransform = 0;
+    bool lineInfoPairing = false;
   }
 }
