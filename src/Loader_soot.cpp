@@ -112,7 +112,7 @@ vector<Record> Loader_soot::load() {
         }
       }
      
-      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector, methodRepresentation);
+      Record r(pair<string, string>(methodRepresentation, name), f_classWithPckg, method, parameterVector, methodRepresentation, lineinfo);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
