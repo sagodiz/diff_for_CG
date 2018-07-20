@@ -28,6 +28,19 @@ vector<Record> Loader_jcg::load() {
     member1.erase(0,2);
     pckgClassMethod.erase(0, 2);  //erase "M:"
     
+    int lineinfo = -1;
+    string num;
+    char i = 1;
+    while ( pckgClassMethod[i] != ')' ) {
+
+      num += pckgClassMethod[i];
+      ++i;
+    }
+    ++i;
+    pckgClassMethod.erase(0, i);
+    
+    lineinfo = atoi(num.c_str());
+    
     string f_classWithPckg;
     string method;
     stringstream input_stringstream(pckgClassMethod);
@@ -35,7 +48,7 @@ vector<Record> Loader_jcg::load() {
     getline(input_stringstream, method, ':');
 
 
-  notFilteredMethodNames.insert(member1);
+    notFilteredMethodNames.insert(member1);
 
     string parameters = method.substr(method.find("("));
     method.erase(method.find("("), method.length() - method.find("("));
@@ -69,7 +82,7 @@ vector<Record> Loader_jcg::load() {
       }
     }
 
-    Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector);
+    Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector, lineinfo);
     if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
       tmpRecords.push_back(r);
 
