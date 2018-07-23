@@ -6,6 +6,13 @@
 #define DDD ;  
 #endif
 
+#ifdef DEBUGINFO
+  #define DEBUG_EQUALITY cout << *this << " equals to " << r << endl;
+#else
+  #define DEBUG_EQUALITY ;
+#endif
+
+
 #include "../inc/Record.h"
 #include "../inc/common.h"
 
@@ -79,20 +86,28 @@ DDD
   if ( r.unifiedRep == unifiedRep )
     return true;
   
+  bool isEquals = false;
+  
   if ( common::options::lineInfoPairing ) {
     if ( ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
         ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
         ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
-      if ( lineinfo == -1 && r.lineinfo != -1 )
-        return true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
-      if ( r.lineinfo == -1 && lineinfo != -1 )
-        return true;
-      if ( lineinfo != -1 && lineinfo == r.lineinfo )
-        return true;
+      if ( lineinfo == -1 && r.lineinfo != -1 ) {
+        isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
+DEBUG_EQUALITY
+      }
+      if ( r.lineinfo == -1 && lineinfo != -1 ) {
+        isEquals = true;
+DEBUG_EQUALITY
+      }
+      if ( lineinfo != -1 && lineinfo == r.lineinfo ) {
+        isEquals = true;
+DEBUG_EQUALITY
+      }
     }
   }
   
-  return false;
+  return isEquals;
 }
 
 bool Record::operator==( const pair<string, string> method ) const {

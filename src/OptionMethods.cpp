@@ -165,7 +165,8 @@ void helpMethod(char** argV, int argI) {
   << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl 
   << "\t\t higher levels are TODOs" << std::endl 
   << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
-  << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl; 
+  << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
+  << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl;
   
   std::cout << "Options without required values" << std::endl 
   << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
