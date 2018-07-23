@@ -1,0 +1,333 @@
+digraph "call-graph" {
+    "<CallEdgeExamples: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void <init>()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void <init>()>";
+    "<CallEdgeExamples: void polimorphic()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void polimorphic()>";
+    "<CallEdgeExamples: void innerClass()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void innerClass()>";
+    "<CallEdgeExamples: void anonim()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void anonim()>";
+    "<CallEdgeExamples: void nested()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void nested()>";
+    "<CallEdgeExamples: void local()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void local()>";
+    "<CallEdgeExamples: void generic()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void generic()>";
+    "<CallEdgeExamples: void init()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void init()>";
+    "<CallEdgeExamples: void lambda()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void lambda()>";
+    "<CallEdgeExamples: void contructor()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void contructor()>";
+    "<CallEdgeExamples: void overload()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void overload()>";
+    "<CallEdgeExamples: void parser()>"
+    "<CallEdgeExamples: void main(java.lang.String[])>"->"<CallEdgeExamples: void parser()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<M: void sg(java.lang.String)>"
+    "<CallEdgeExamples: void polimorphic()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void innerClass()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void innerClass()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void innerClass()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void anonim()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void anonim()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void anonim()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void anonim()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer$Nested: void staticNested()>"
+    "<CallEdgeExamples: void nested()>"->"<Outer$Nested: void staticNested()>";
+    "<CallEdgeExamples: void nested()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void local()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void local()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void local()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Class: void <clinit>()>"
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Class: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Class: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void generic()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void init()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void staticInit()>"
+    "<CallEdgeExamples: void init()>"->"<StaticInit: void staticInit()>";
+    "<CallEdgeExamples: void init()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void init()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"
+    "<CallEdgeExamples: void init()>"->"<StaticInit: void <clinit>()>";
+    "<CallEdgeExamples: void init()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void init()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void lambda()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void lambda()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void contructor()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void contructor()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void contructor()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void overload()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void overload()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void overload()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void overload()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void parser()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples: void parser()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void parser()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.System: void <clinit>()>"
+    "<M: void sg(java.lang.String)>"->"<java.lang.System: void <clinit>()>";
+    "<M: void sg(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer$Nested: void staticNested()>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer$Nested: void staticNested()>"->"<M: void sg(java.lang.String)>";
+    "<StaticInit: void staticInit()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void staticInit()>"->"<M: void sg(java.lang.String)>";
+    "<StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<M: void sg(java.lang.String)>";
+    "<StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<StaticInit: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<StaticInit: void <clinit>()>";
+    "<StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Object: void <init>()>"
+    "<CallEdgeExamples: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Child1: void <init>()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void <init>()>";
+    "<Child1: void foo()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void foo()>";
+    "<CallEdgeExamples$1: void foo()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<CallEdgeExamples$1: void foo()>";
+    "<Child1: void goo()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void goo()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void <init>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void foo()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<CallEdgeExamples$1: void foo()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void <init>()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<Child1: void foo()>";
+    "<CallEdgeExamples: void polimorphic()>"->"<CallEdgeExamples$1: void foo()>";
+    "<Child2: void <init>()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Child2: void <init>()>";
+    "<Abstract: void foo()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Abstract: void foo()>";
+    "<Helper: void <init>()>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Helper: void <init>()>";
+    "<Helper: void interfaceTest(Interface)>"
+    "<CallEdgeExamples: void polimorphic()>"->"<Helper: void interfaceTest(Interface)>";
+    "<Child1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Child1: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples$1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples$1: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<Child1: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Child1: void goo()>"->"<M: void sg(java.lang.String)>";
+    "<Abstract: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Abstract: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<Helper: void interfaceTest(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Helper: void interfaceTest(Interface)>"->"<M: void sg(java.lang.String)>";
+    "<Outer: void <init>()>"
+    "<CallEdgeExamples: void innerClass()>"->"<Outer: void <init>()>";
+    "<Outer: void inner()>"
+    "<CallEdgeExamples: void innerClass()>"->"<Outer: void inner()>";
+    "<Outer: void inner()>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer: void inner()>"->"<M: void sg(java.lang.String)>";
+    "<Outer: void inner()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples$1: void <init>(CallEdgeExamples)>"
+    "<CallEdgeExamples: void anonim()>"->"<CallEdgeExamples$1: void <init>(CallEdgeExamples)>";
+    "<CallEdgeExamples: void anonim()>"->"<CallEdgeExamples$1: void foo()>";
+    "<CallEdgeExamples: void anonim()>"->"<Child1: void goo()>";
+    "<CallEdgeExamples$2: void <init>(CallEdgeExamples)>"
+    "<CallEdgeExamples: void anonim()>"->"<CallEdgeExamples$2: void <init>(CallEdgeExamples)>";
+    "<CallEdgeExamples$2: void generic(Interface)>"
+    "<CallEdgeExamples: void anonim()>"->"<CallEdgeExamples$2: void generic(Interface)>";
+    "<Outer$Nested: void <init>()>"
+    "<CallEdgeExamples: void nested()>"->"<Outer$Nested: void <init>()>";
+    "<Outer$Nested: void nested()>"
+    "<CallEdgeExamples: void nested()>"->"<Outer$Nested: void nested()>";
+    "<Outer$Nested: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer$Nested: void nested()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples$1Local: void <init>(CallEdgeExamples)>"
+    "<CallEdgeExamples: void local()>"->"<CallEdgeExamples$1Local: void <init>(CallEdgeExamples)>";
+    "<CallEdgeExamples$1Local: void foo()>"
+    "<CallEdgeExamples: void local()>"->"<CallEdgeExamples$1Local: void foo()>";
+    "<CallEdgeExamples$1Local: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples$1Local: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<Generic1: void <init>()>"
+    "<CallEdgeExamples: void generic()>"->"<Generic1: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Child1: void <init>()>";
+    "<Generic1: void generic(Interface)>"
+    "<CallEdgeExamples: void generic()>"->"<Generic1: void generic(Interface)>";
+    "<CallEdgeExamples: void generic()>"->"<CallEdgeExamples$2: void generic(Interface)>";
+    "<CallEdgeExamples: void generic()>"->"<Generic1: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Generic1: void generic(Interface)>";
+    "<CallEdgeExamples: void generic()>"->"<CallEdgeExamples$2: void generic(Interface)>";
+    "<Generic2: void <init>()>"
+    "<CallEdgeExamples: void generic()>"->"<Generic2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<Generic2: void generic(Interface,Generic1)>"
+    "<CallEdgeExamples: void generic()>"->"<Generic2: void generic(Interface,Generic1)>";
+    "<Generic3: void <init>()>"
+    "<CallEdgeExamples: void generic()>"->"<Generic3: void <init>()>";
+    "<Generic3: void foo()>"
+    "<CallEdgeExamples: void generic()>"->"<Generic3: void foo()>";
+    "<ForParser: void <init>()>"
+    "<CallEdgeExamples: void generic()>"->"<ForParser: void <init>()>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"
+    "<CallEdgeExamples: void generic()>"->"<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Generic2: void generic(Interface,Generic1)>";
+    "<CallEdgeExamples: void generic()>"->"<ForParser: void <init>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"
+    "<CallEdgeExamples: void generic()>"->"<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<CallEdgeExamples: void generic()>"->"<Generic2: void generic(Interface,Generic1)>";
+    "<CallEdgeExamples: void generic()>"->"<Helper: void <init>()>";
+    "<Helper: void genericMethod(Interface)>"
+    "<CallEdgeExamples: void generic()>"->"<Helper: void genericMethod(Interface)>";
+    "<CallEdgeExamples: void generic()>"->"<Child2: void <init>()>";
+    "<Generic1: void generic(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Generic1: void generic(Interface)>"->"<M: void sg(java.lang.String)>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<java.lang.Object: void <clinit>()>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<M: void sg(java.lang.String)>";
+    "<Generic3: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Generic3: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<Generic3: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"->"<M: void sg(java.lang.String)>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<M: void sg(java.lang.String)>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Helper: void genericMethod(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Helper: void genericMethod(Interface)>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void init()>"->"<Child1: void <init>()>";
+    "<Init: void <init>(Interface)>"
+    "<CallEdgeExamples: void init()>"->"<Init: void <init>(Interface)>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Init: void <init>(Interface)>"->"<M: void sg(java.lang.String)>";
+    "<Init: void <init>(Interface)>"->"<M: void sg(java.lang.String)>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void <init>()>"
+    "<CallEdgeExamples: void contructor()>"->"<Constructor: void <init>()>";
+    "<Constructor: void <init>()>"->"<java.lang.Object: void <clinit>()>";
+    "<Constructor: void <init>()>"->"<M: void sg(java.lang.String)>";
+    "<Overload: void <init>()>"
+    "<CallEdgeExamples: void overload()>"->"<Overload: void <init>()>";
+    "<Overload: void foo()>"
+    "<CallEdgeExamples: void overload()>"->"<Overload: void foo()>";
+    "<Overload: void foo(int)>"
+    "<CallEdgeExamples: void overload()>"->"<Overload: void foo(int)>";
+    "<Overload: void foo(java.lang.Object)>"
+    "<CallEdgeExamples: void overload()>"->"<Overload: void foo(java.lang.Object)>";
+    "<Overload: void foo(int,java.lang.Object[])>"
+    "<CallEdgeExamples: void overload()>"->"<Overload: void foo(int,java.lang.Object[])>";
+    "<Overload: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<Overload: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<Overload: void foo(int)>"->"<java.lang.Object: void <clinit>()>";
+    "<Overload: void foo(int)>"->"<M: void sg(java.lang.String)>";
+    "<Overload: void foo(java.lang.Object)>"->"<java.lang.Object: void <clinit>()>";
+    "<Overload: void foo(java.lang.Object)>"->"<M: void sg(java.lang.String)>";
+    "<Overload: void foo(int,java.lang.Object[])>"->"<java.lang.Object: void <clinit>()>";
+    "<Overload: void foo(int,java.lang.Object[])>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples: void parser()>"->"<ForParser: void <init>()>";
+    "<ForParser: void foo()>"
+    "<CallEdgeExamples: void parser()>"->"<ForParser: void foo()>";
+    "<CallEdgeExamples: void parser()>"->"<ForParser: void foo()>";
+    "<ForParser: void goo()>"
+    "<CallEdgeExamples: void parser()>"->"<ForParser: void goo()>";
+    "<ForParser: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: void foo()>"->"<M: void sg(java.lang.String)>";
+    "<ForParser: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "<ForParser: void goo()>"->"<M: void sg(java.lang.String)>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "<M: void sg(java.lang.String)>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<StaticInit: void <clinit>()>"->"<Helper: void <init>()>";
+    "<Helper: Child1 instantiateChild1()>"
+    "<StaticInit: void <clinit>()>"->"<Helper: Child1 instantiateChild1()>";
+    "<StaticInit: void <clinit>()>"->"<Child2: void <init>()>";
+    "<Helper: Child1 instantiateChild1()>"->"<java.lang.Object: void <clinit>()>";
+    "<Helper: Child1 instantiateChild1()>"->"<M: void sg(java.lang.String)>";
+    "<Helper: Child1 instantiateChild1()>"->"<java.lang.Object: void <clinit>()>";
+    "<Abstract: void <init>()>"
+    "<Child1: void <init>()>"->"<Abstract: void <init>()>";
+    "<Child2: void <init>()>"->"<Abstract: void <init>()>";
+    "<Helper: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Helper: void interfaceTest(Interface)>"->"<Child1: void foo()>";
+    "<Helper: void interfaceTest(Interface)>"->"<Abstract: void foo()>";
+    "<Helper: void interfaceTest(Interface)>"->"<CallEdgeExamples$1: void foo()>";
+    "<Outer: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Outer$Inner: void <init>(Outer)>"
+    "<Outer: void inner()>"->"<Outer$Inner: void <init>(Outer)>";
+    "<Outer$Inner: void inner()>"
+    "<Outer: void inner()>"->"<Outer$Inner: void inner()>";
+    "<Outer$Inner: void inner()>"->"<java.lang.Object: void <clinit>()>";
+    "<Outer$Inner: void inner()>"->"<M: void sg(java.lang.String)>";
+    "<CallEdgeExamples$1: void <init>(CallEdgeExamples)>"->"<Child1: void <init>()>";
+    "<CallEdgeExamples$2: void <init>(CallEdgeExamples)>"->"<Generic1: void <init>()>";
+    "<CallEdgeExamples$2: void generic(Child1)>"
+    "<CallEdgeExamples$2: void generic(Interface)>"->"<CallEdgeExamples$2: void generic(Child1)>";
+    "<CallEdgeExamples$2: void generic(Child1)>"->"<java.lang.Object: void <clinit>()>";
+    "<CallEdgeExamples$2: void generic(Child1)>"->"<M: void sg(java.lang.String)>";
+    "<Outer$Nested: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<CallEdgeExamples$1Local: void <init>(CallEdgeExamples)>"->"<java.lang.Object: void <init>()>";
+    "<Generic1: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Generic1: void generic(Interface)>"->"<Child1: void foo()>";
+    "<Generic1: void generic(Interface)>"->"<Abstract: void foo()>";
+    "<Generic1: void generic(Interface)>"->"<CallEdgeExamples$1: void foo()>";
+    "<Generic2: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<Child1: void foo()>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<Abstract: void foo()>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<CallEdgeExamples$1: void foo()>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<Generic1: void generic(Interface)>";
+    "<Generic2: void generic(Interface,Generic1)>"->"<CallEdgeExamples$2: void generic(Interface)>";
+    "<Generic3: void <init>()>"->"<Generic1: void <init>()>";
+    "<Generic3: void foo()>"->"<Child1: void <init>()>";
+    "<Generic3: void foo()>"->"<Generic1: void generic(Interface)>";
+    "<ForParser: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"->"<Generic2: void <init>()>";
+    "<ForParser: Generic2 validMethod(Child2,Generic1,java.lang.Class[])>"->"<Generic2: void generic(Interface,Generic1)>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<Generic2: void <init>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<Generic1: void <init>()>";
+    "<ForParser: Generic2 validGenericMethod(Child2,Generic1,java.lang.Class[])>"->"<Generic2: void generic(Interface,Generic1)>";
+    "<Helper: void genericMethod(Interface)>"->"<Child1: void foo()>";
+    "<Helper: void genericMethod(Interface)>"->"<Abstract: void foo()>";
+    "<Helper: void genericMethod(Interface)>"->"<CallEdgeExamples$1: void foo()>";
+    "<Init: void <init>(Interface)>"->"<java.lang.Object: void <init>()>";
+    "<Init: void <init>(Interface)>"->"<Helper: void <init>()>";
+    "<Init: void <init>(Interface)>"->"<Helper: Child1 instantiateChild1()>";
+    "<Init: void <init>(Interface)>"->"<Child1: void <init>()>";
+    "<Init: void <init>(Interface)>"->"<Child2: void <init>()>";
+    "<Constructor: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Overload: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<Helper: Child1 instantiateChild1()>"->"<Child1: void <init>()>";
+    "<Base: void <init>()>"
+    "<Abstract: void <init>()>"->"<Base: void <init>()>";
+    "<Outer$Inner: void <init>(Outer)>"->"<java.lang.Object: void <init>()>";
+    "<CallEdgeExamples$2: void generic(Child1)>"->"<Child1: void foo()>";
+    "<CallEdgeExamples$2: void generic(Child1)>"->"<CallEdgeExamples$1: void foo()>";
+    "<Base: void <init>()>"->"<java.lang.Object: void <init>()>";
+}
