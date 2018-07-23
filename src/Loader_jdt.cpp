@@ -43,11 +43,11 @@ vector<Record> Loader_jdt::load() {
         infoMine.erase(ending);
 
       string pckgClassMethod;
-      string paramsReturn;
+      string paramsReturnFileInfo;
 
       stringstream iss(infoMine);
       getline(iss, pckgClassMethod, '(');
-      getline(iss, paramsReturn, '(');
+      getline(iss, paramsReturnFileInfo, '(');
 
 
       notFilteredMethodNames.insert(infoMine);
@@ -70,10 +70,12 @@ vector<Record> Loader_jdt::load() {
       vector<string> parameterVector;
 
       //delete everything after '(' as it is the return value
-      size_t paramEnd = paramsReturn.rfind(")");
+      size_t paramEnd = paramsReturnFileInfo.rfind(")");
+      string fileInfo;
       if (paramEnd != string::npos) {
-
-        paramsReturn.erase(paramEnd);
+        //copy the fileinfo into the fileInfo string and delete it from the parameters
+        fileInfo = paramsReturnFileInfo.substr(paramEnd + 2); //plus 2 it is the ')' and the ':'
+        paramsReturnFileInfo.erase(paramEnd);
       }
       else {
 
@@ -81,17 +83,62 @@ vector<Record> Loader_jdt::load() {
       }
 
       //split it on ';'
-      stringstream paramStream(paramsReturn);
+      stringstream paramStream(paramsReturnFileInfo); //here, only params in the string
       string parameter;
       while ( getline(paramStream, parameter, ';') ) {
 
         parameterVector.push_back(parameter);
       }
       
-      //TODO: transformations and stuff like that
-      //TODO: create new record.
+      //get the lineinfo
+      string lineStr;
+      stringstream lineInfoStream(fileInfo);
+      getline(lineInfoStream, lineStr, ':'); //return type
+      getline(lineInfoStream, lineStr, ':'); //file name
+      getline(lineInfoStream, lineStr, ':'); //line
+      
+      int lineInfo = atoi(lineStr.c_str());
+      
+      if ( 0 == pckgClass.length() || 0 == method.length() )
+        throw Labels::UNINITIALIZED_RECORD;
+       
+      if ( common::options::anonymClassNameTransform > 0 ) {
+        //there is a kind of transformation
+        if ( 1 == common::options::anonymClassNameTransform ) {
+          //turn every anonym class into a constant anonym class
+          common::unifyeAnonymClasses(pckgClass);
+          common::unifyeAnonymMethods(method);
+        }
+        else if ( 2 == common::options::anonymClassNameTransform ) {
+          //continue numbering in inner anonym classes
+          //TODO!!! 
+        }
+        else {
+          
+          throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
+        }
+      }
+   
+      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine, lineInfo);
+      if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
+        tmpRecords.push_back( r );
+      
+      if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
+        //so this record is not found in the vector
+        common::storedIds.push_back(r);
+        ++uniqueMethodNum;
+      }
+      else {
 
-
+        auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
+        if ( *it == pair<string, string>(representation, name) ) {
+          //contains this representation
+        }
+        else {
+          ++uniqueMethodNum;
+          *it += pair<string, string>(representation, name);  //add this representation
+        }
+      }
     } //end of processing label
   }//end of processing line
   
