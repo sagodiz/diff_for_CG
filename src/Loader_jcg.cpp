@@ -119,7 +119,7 @@ vector<Record> Loader_jcg::load() {
     getline(input_stringstream2, f_classWithPckg2, ':');
     getline(input_stringstream2, method2, ':');
 
-  notFilteredMethodNames.insert(member2);
+    notFilteredMethodNames.insert(member2);
 
     
     string parameters2 = method2.substr(method2.find("("));
