@@ -1,3 +1,8 @@
+/*
+* TODO: Does trace have lineinfo?
+*/
+
+
 #include "../inc/Loader_trace.h"
 #include "../inc/common.h"
 #include "../inc/Labels.h"
