@@ -155,7 +155,10 @@ vector<Record> Loader_spoon::load() {
         }
       }
       
-      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector, infoMine);
+      string pckgStr, classStr;
+      common::cutPckgClass(pckgClass, pckgStr, classStr);
+      
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back(r);
 

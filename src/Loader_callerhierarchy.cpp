@@ -180,7 +180,10 @@ vector<Record> Loader_callerhierarchy::load() {
         }
       }
      
-      Record r(pair<string, string>(representation, name), pckgClass, method, parameterVector);
+      string pckgStr, classStr;
+      common::cutPckgClass(pckgClass, pckgStr, classStr);
+      
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector);
 
       if ( find( common::storedIds.begin(), common::storedIds.end(), r ) == common::storedIds.end() ) {
         
@@ -198,7 +201,7 @@ vector<Record> Loader_callerhierarchy::load() {
         
         if ( finallyFound ) {
           //new record is pushed back as it is used later.. no other way to create the appropiate class name only by copying it.
-          Record r2(pair<string, string>(representation, name), common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
+          Record r2(pair<string, string>(representation, name), common::storedIds[index].getPackage(), common::storedIds[index].getClass(), common::storedIds[index].getMethodName(), parameterVector);
           if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )
             tmpRecords.push_back(r2);
         }

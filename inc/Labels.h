@@ -28,6 +28,7 @@ namespace Labels {
   extern const std::string PERCENTAGE_TABLE_FILE_COULD_NOT_OPEN;
   extern const std::string CMD_COULD_NOT_BE_CREATED;
   extern const std::string METHOD_PARAMETER_WRONG_FORMAT;
+  extern const std::string PACKAGE_CLASS_WRONG_FORMAT;
   
   //******************* strings used for tool naming and options*************************
   extern const std::string SOOT_NAME;

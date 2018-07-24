@@ -81,8 +81,12 @@ vector<Record> Loader_jcg::load() {
         throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
       }
     }
-
-    Record r(pair<string, string>(member1, name), f_classWithPckg, method, parameterVector, lineinfo);
+    
+    string classStr;
+    string packageStr;
+    common::cutPckgClass(f_classWithPckg, packageStr, classStr);
+    
+    Record r(pair<string, string>(member1, name), packageStr, classStr, method, parameterVector, lineinfo);
     if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
       tmpRecords.push_back(r);
 
@@ -149,7 +153,12 @@ vector<Record> Loader_jcg::load() {
       }
     }
       
-    Record r2(pair<string, string>(member2, name), f_classWithPckg2, method2, parameterVector2);
+    string pckg2;
+    string classStr2;
+    common::cutPckgClass(f_classWithPckg2, pckg2, classStr2);
+    
+    
+    Record r2(pair<string, string>(member2, name), pckg2, classStr2, method2, parameterVector2);
     if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
       tmpRecords.push_back( r2 );
 
