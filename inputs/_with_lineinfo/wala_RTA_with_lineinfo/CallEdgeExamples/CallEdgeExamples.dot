@@ -1,0 +1,241 @@
+digraph graphname {
+rankdir="LR";
+21 [label="Abstract.<init>()V:24"]
+19 [label="Abstract.foo()V:26"]
+22 [label="Base.<init>()V:18"]
+48 [label="Base.base()V:20"]
+60 [label="CallEdgeExamples$1.<init>(LCallEdgeExamples;)V:266"]
+18 [label="CallEdgeExamples$1.foo()V:268"]
+45 [label="CallEdgeExamples$1Local.<init>(LCallEdgeExamples;)V:293"]
+46 [label="CallEdgeExamples$1Local.foo()V:295"]
+58 [label="CallEdgeExamples$2.<init>(LCallEdgeExamples;)V:274"]
+23 [label="CallEdgeExamples$2.generic(LChild1;)V:276"]
+5 [label="CallEdgeExamples$2.generic(LInterface;)V:274"]
+44 [label="CallEdgeExamples.<init>()V:222"]
+68 [label="CallEdgeExamples.anonim()V:264"]
+28 [label="CallEdgeExamples.contructor()V:329"]
+0 [label="CallEdgeExamples.generic()V:302"]
+24 [label="CallEdgeExamples.init()V:322"]
+67 [label="CallEdgeExamples.innerClass()V:257"]
+33 [label="CallEdgeExamples.lambda$lambda$0(II)Z:337"]
+30 [label="CallEdgeExamples.lambda()V:335"]
+70 [label="CallEdgeExamples.local()V:291"]
+65 [label="CallEdgeExamples.main([Ljava/lang/String;)V:224"]
+69 [label="CallEdgeExamples.nested()V:284"]
+34 [label="CallEdgeExamples.overload()V:341"]
+40 [label="CallEdgeExamples.parser()V:351"]
+66 [label="CallEdgeExamples.polimorphic()V:239"]
+3 [label="Child1.<init>()V:30"]
+59 [label="Child1.child1()V:38"]
+17 [label="Child1.foo()V:35"]
+50 [label="Child1.goo()V:32"]
+6 [label="Child2.<init>()V:42"]
+51 [label="Child2.goo()V:44"]
+53 [label="Child2.hoo()V:47"]
+29 [label="Constructor.<init>()V:151"]
+11 [label="ForParser.<init>()V:171"]
+41 [label="ForParser.foo()V:183"]
+42 [label="ForParser.goo()V:187"]
+13 [label="ForParser.validGenericMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;:199"]
+12 [label="ForParser.validMethod(LChild2;LGeneric1;[Ljava/lang/Class;)LGeneric2;:191"]
+2 [label="Generic1.<init>()V:69"]
+4 [label="Generic1.generic(LInterface;)V:71"]
+7 [label="Generic2.<init>()V:76"]
+8 [label="Generic2.generic(LInterface;LGeneric1;)V:78"]
+9 [label="Generic3.<init>()V:84"]
+10 [label="Generic3.foo()V:86"]
+14 [label="Helper.<init>()V:53"]
+15 [label="Helper.genericMethod(LInterface;)V:59"]
+27 [label="Helper.instantiateChild1()LChild1;:63"]
+47 [label="Helper.interfaceTest(LInterface;)V:55"]
+25 [label="Init.<init>(LInterface;)V:124"]
+52 [label="Interface.hoo()V:14"]
+54 [label="M.<init>()V:4"]
+1 [label="M.sg(Ljava/lang/String;)V:6"]
+62 [label="Outer$Inner.<init>(LOuter;)V:97"]
+63 [label="Outer$Inner.inner()V:99"]
+55 [label="Outer$Nested.<init>()V:103"]
+57 [label="Outer$Nested.nested()V:109"]
+56 [label="Outer$Nested.staticNested()V:105"]
+61 [label="Outer.<init>()V:91"]
+64 [label="Outer.inner()V:93"]
+35 [label="Overload.<init>()V:156"]
+36 [label="Overload.foo()V:158"]
+37 [label="Overload.foo(I)V:161"]
+39 [label="Overload.foo(I[Ljava/lang/Object;)V:167"]
+38 [label="Overload.foo(Ljava/lang/Object;)V:164"]
+43 [label="StaticInit.<clinit>()V:134"]
+49 [label="StaticInit.<init>()V:130"]
+26 [label="StaticInit.staticInit()V:142"]
+20 [label="java.io.PrintStream.println(Ljava/lang/String;)V:805"]
+16 [label="java.lang.Object.<init>()V:37"]
+31 [label="java.lang.invoke.LambdaMetafactory.compare$CallEdgeExamples$0()LLambda;:-1"]
+32 [label="wala.lambda$CallEdgeExamples$0.compare(II)Z:-1"]
+0 -> 1
+0 -> 2
+0 -> 3
+0 -> 4
+0 -> 5
+0 -> 6
+0 -> 7
+0 -> 8
+0 -> 9
+0 -> 10
+0 -> 11
+0 -> 12
+0 -> 13
+0 -> 14
+0 -> 15
+1 -> 20
+2 -> 16
+3 -> 21
+4 -> 1
+4 -> 17
+4 -> 18
+4 -> 19
+5 -> 23
+6 -> 21
+7 -> 16
+8 -> 1
+8 -> 4
+8 -> 5
+8 -> 17
+8 -> 18
+8 -> 19
+9 -> 2
+10 -> 1
+10 -> 3
+10 -> 4
+11 -> 16
+12 -> 1
+12 -> 7
+12 -> 8
+13 -> 1
+13 -> 2
+13 -> 7
+13 -> 8
+14 -> 16
+15 -> 1
+15 -> 17
+15 -> 18
+15 -> 19
+17 -> 1
+18 -> 1
+19 -> 1
+21 -> 22
+22 -> 16
+23 -> 1
+23 -> 17
+23 -> 18
+24 -> 1
+24 -> 3
+24 -> 25
+24 -> 26
+25 -> 1
+25 -> 3
+25 -> 6
+25 -> 14
+25 -> 16
+25 -> 27
+26 -> 1
+27 -> 1
+27 -> 3
+28 -> 1
+28 -> 29
+29 -> 1
+29 -> 16
+30 -> 1
+30 -> 31
+30 -> 32
+32 -> 33
+33 -> 1
+34 -> 1
+34 -> 35
+34 -> 36
+34 -> 37
+34 -> 38
+34 -> 39
+35 -> 16
+36 -> 1
+37 -> 1
+38 -> 1
+39 -> 1
+40 -> 1
+40 -> 11
+40 -> 41
+40 -> 42
+41 -> 1
+42 -> 1
+43 -> 1
+43 -> 6
+43 -> 14
+43 -> 27
+44 -> 16
+45 -> 16
+46 -> 1
+47 -> 1
+47 -> 17
+47 -> 18
+47 -> 19
+48 -> 1
+49 -> 16
+50 -> 1
+51 -> 1
+52 -> 1
+53 -> 1
+54 -> 16
+55 -> 16
+56 -> 1
+57 -> 1
+58 -> 2
+59 -> 1
+60 -> 3
+61 -> 16
+62 -> 16
+63 -> 1
+64 -> 1
+64 -> 62
+64 -> 63
+65 -> 0
+65 -> 24
+65 -> 28
+65 -> 30
+65 -> 34
+65 -> 40
+65 -> 44
+65 -> 66
+65 -> 67
+65 -> 68
+65 -> 69
+65 -> 70
+66 -> 1
+66 -> 3
+66 -> 6
+66 -> 14
+66 -> 17
+66 -> 18
+66 -> 19
+66 -> 47
+66 -> 50
+66 -> 51
+66 -> 52
+66 -> 53
+67 -> 1
+67 -> 61
+67 -> 64
+68 -> 1
+68 -> 4
+68 -> 5
+68 -> 17
+68 -> 18
+68 -> 50
+68 -> 58
+68 -> 60
+69 -> 1
+69 -> 55
+69 -> 56
+69 -> 57
+70 -> 1
+70 -> 45
+70 -> 46
+}
