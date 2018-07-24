@@ -8,19 +8,20 @@
 class Record {
   
   std::vector<std::pair<std::string, std::string>> sameMethods; //these string represent the same method only the way is different
-  std::string methodClass;  //the method is inside of a class (with package name!)
-  std::string methodName;
+  std::string package;  //package of the class thus the method
+  std::string methodClass;  //the method is inside of a class
+  std::string methodName;   //name of the method
   std::vector<std::string> parameters;  //the method has parameters.
   std::string unifiedRep; //we transform everything to this format
   std::string secondaryRep; //some tools have a secondary rep. to identify methods when dealing with calls.
   int lineinfo = -1;  //default line is -1. It matches for everything sinc it indicates no information. 
 
-  std::string createUnifiedMethodName(); 
+  std::string createUnifiedMethodName();
   
   public:
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo = -1 );
+    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo = -1 );
     //just for those that's rep is an id
-    Record( std::pair<std::string, std::string> rep, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo = -1 );
+    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo = -1 );
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
@@ -50,6 +51,7 @@ class Record {
   //*******************************getter functions********************************************
     std::string getSecondaryRepresentation() const;
   
+    std::string getPackage() const;
     std::string getClass() const;
     std::string getMethodName() const;
     std::vector<std::string> getParameters() const;
