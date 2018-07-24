@@ -95,9 +95,11 @@ vector<Record> Loader_jdt::load() {
       stringstream lineInfoStream(fileInfo);
       getline(lineInfoStream, lineStr, ':'); //return type
       getline(lineInfoStream, lineStr, ':'); //file name
-      getline(lineInfoStream, lineStr, ':'); //line
-      
-      int lineInfo = atoi(lineStr.c_str());
+      getline(lineInfoStream, lineStr, ':'); //start line
+      int startLine = atoi(lineStr.c_str());
+      getline(lineInfoStream, lineStr, ':'); //start col
+      getline(lineInfoStream, lineStr, ':'); //end line
+      int endLine = atoi(lineStr.c_str());
       
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
@@ -124,7 +126,7 @@ vector<Record> Loader_jdt::load() {
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
       
-      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, lineInfo);
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, startLine, endLine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
