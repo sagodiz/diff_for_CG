@@ -102,9 +102,27 @@ vector<Record> Loader_spoon::load() {
       std::string delimiter = ",", generic_delimiter = " extends ";
 
       size_t close_pos = paramsReturn.rfind(")");
-      if (close_pos != string::npos)
+      string fileInfo;
+      if (close_pos != string::npos) {
+        
+        fileInfo = paramsReturn.substr(close_pos + 2);
         paramsReturn.erase(close_pos); // )
+      }
 
+      
+      stringstream fileInfoStream(fileInfo);
+      string number;
+      int startLine = -1;
+      int endLine = -1;
+      
+      getline(fileInfoStream, number, ":"); //first number
+      startLine = atoi(number.c_str());
+      getline(fileInfoStream, number, ":"); //second number
+      getline(fileInfoStream, number, ":"); //third number
+      endLine = atoi(number.c_str());
+      //getline(fileInfoStream, number, ":"); //fourth number
+      
+      
 
       size_t pos = 0;
       std::string token;
@@ -155,10 +173,11 @@ vector<Record> Loader_spoon::load() {
         }
       }
       
+      
       string pckgStr, classStr;
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
-      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, startLine, endLine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back(r);
 
