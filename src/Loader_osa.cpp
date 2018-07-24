@@ -214,6 +214,40 @@ vector<Record> Loader_osa::load() {
         ++i;
       } //end of while
       
+      while( paramsReturn[i] != ':' ) {
+        
+        ++i;  //go to the first colon
+      }
+      ++i;
+      
+      string number = "";
+      while( paramsReturn[i] != ':' ) {
+        
+        number += paramsReturn[i];
+        ++i;
+      }
+      ++i;
+      
+      int startLine = atoi(number.c_str());
+      
+      while( paramsReturn[i] != ':' ) {
+        
+        ++i;  //pass the second number.
+      }
+      ++i;
+      
+      number = "";  //clear it.
+      while( paramsReturn[i] != ':' ) {
+        
+        number += paramsReturn[i];
+        ++i;
+      }
+      ++i;
+      
+      int endLine = atoi(number.c_str());
+      
+      
+      
       if ( 0 == pckgClass.length() || 0 == method.length() )
         throw Labels::UNINITIALIZED_RECORD;
        
@@ -237,7 +271,7 @@ vector<Record> Loader_osa::load() {
       string pckgStr, classStr;
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
-      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, startLine, endLine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       

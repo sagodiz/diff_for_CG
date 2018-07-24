@@ -115,10 +115,10 @@ vector<Record> Loader_spoon::load() {
       int startLine = -1;
       int endLine = -1;
       
-      getline(fileInfoStream, number, ":"); //first number
+      getline(fileInfoStream, number, ':'); //first number
       startLine = atoi(number.c_str());
-      getline(fileInfoStream, number, ":"); //second number
-      getline(fileInfoStream, number, ":"); //third number
+      getline(fileInfoStream, number, ':'); //second number
+      getline(fileInfoStream, number, ':'); //third number
       endLine = atoi(number.c_str());
       //getline(fileInfoStream, number, ":"); //fourth number
       
