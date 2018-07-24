@@ -85,12 +85,12 @@ DDD
   bool isEquals = false;
 
   if ( common::options::lineInfoPairing ) {
-    if ( ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
+    
+    if ( r.package == package && //the same package. It must not differ!
+        ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
         ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
         ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
-      
 //DEBUG_COMPARE
-      
       if ( lineinfo == -1 && r.lineinfo != -1 ) {
         isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
 DEBUG_EQUALITY
