@@ -65,15 +65,25 @@ string Record::createUnifiedMethodName() {
 
 //----------------------------------------------public methods----------------------------------------------------
 
-Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, int lineinfo ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), lineinfo(lineinfo) {
+Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), startLine(startLine), endLine(endLine) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
+  
+  if ( -1 != startLine && -1 == endLine ) {
+    
+    endLine = startLine;
+  }
 }
 
 //-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
-Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, string secondaryRep, int lineinfo ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep), lineinfo(lineinfo) {
+Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, string secondaryRep, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep), startLine(startLine), endLine(endLine) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
+  
+  if ( -1 != startLine && -1 == endLine ) {
+    
+    endLine = startLine;
+  }
 }
 //----------------------------------------------------------------------------------------------------------------
 bool Record::operator==(const Record& r ) const {
@@ -91,15 +101,17 @@ DDD
         ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
         ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
 //DEBUG_COMPARE
-      if ( lineinfo == -1 && r.lineinfo != -1 ) {
+      if ( startLine == -1 && r.startLine != -1 ) {
         isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
 DEBUG_EQUALITY
       }
-      if ( r.lineinfo == -1 && lineinfo != -1 ) {
+      if ( r.startLine == -1 && startLine != -1 ) {
         isEquals = true;
 DEBUG_EQUALITY
       }
-      if ( lineinfo != -1 && lineinfo == r.lineinfo ) {
+      if ( startLine != -1 && //this is a real information
+         ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
+         ) {
         isEquals = true;
 DEBUG_EQUALITY
       }

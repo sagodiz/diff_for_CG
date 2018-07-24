@@ -14,14 +14,19 @@ class Record {
   std::vector<std::string> parameters;  //the method has parameters.
   std::string unifiedRep; //we transform everything to this format
   std::string secondaryRep; //some tools have a secondary rep. to identify methods when dealing with calls.
-  int lineinfo = -1;  //default line is -1. It matches for everything sinc it indicates no information. 
-
+  int startLine = -1;  //default line is -1. It matches for everything sinc it indicates no information. 
+  int endLine = -1; //end of the method.
+  /*
+  * The [start, end] should include the first expression
+  * Byte code based tools have the line info of the first expression.
+  */
+  
   std::string createUnifiedMethodName();
   
   public:
-    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int lineinfo = -1 );
+    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int startLine = -1, int endLine = -1 );
     //just for those that's rep is an id
-    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int lineinfo = -1 );
+    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int startLine = -1, int endLine = -1 );
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
