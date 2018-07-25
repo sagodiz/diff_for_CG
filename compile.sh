@@ -16,7 +16,7 @@ if [ $# -gt 0 ]; then
     fi
     
     if [[ $var == D* ]]; then
-      DEF="-"$var
+      DEF+=" -"$var
       echo "Definition was added: $DEF"
     fi
   done

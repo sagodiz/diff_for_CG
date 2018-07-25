@@ -93,7 +93,7 @@ vector<Record> Loader_jcg::load() {
     string packageStr;
     common::cutPckgClass(f_classWithPckg, packageStr, classStr);
     
-    Record r(pair<string, string>(member1, name), packageStr, classStr, method, parameterVector, lineinfo);
+    Record r(pair<string, string>(member1, name), packageStr, classStr, method, parameterVector, lineinfo, lineinfo);
     if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
       tmpRecords.push_back(r);
 

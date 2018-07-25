@@ -68,10 +68,10 @@ string Record::createUnifiedMethodName() {
 Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), startLine(startLine), endLine(endLine) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
-  
+
   if ( -1 != startLine && -1 == endLine ) {
-    
-    endLine = startLine;
+
+    this->endLine = startLine;
   }
 }
 
@@ -82,7 +82,7 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
   
   if ( -1 != startLine && -1 == endLine ) {
     
-    endLine = startLine;
+    this->endLine = startLine;
   }
 }
 //----------------------------------------------------------------------------------------------------------------
@@ -216,8 +216,8 @@ string Record::getSecondaryRepresentation() const {
 ostream& operator<<(ostream& o, const Record& r) {
   
   o << r.unifiedRep;
-#ifdef DEBUGINFO
-  o << " lineinfo: " << r.lineinfo;
+#ifdef DEBUG_LINEINFO
+  o << " lineinfo: " << r.startLine << " " << r.endLine;
 #endif
   
   return o;

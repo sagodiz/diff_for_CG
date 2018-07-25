@@ -14,11 +14,13 @@ namespace common {
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr) {
     
     size_t lastDot = pckgClass.rfind(".");
-    if ( lastDot == std::string::npos )
-      throw Labels::PACKAGE_CLASS_WRONG_FORMAT + pckgClass;
-    
-    pckg = pckgClass.substr(0, lastDot);
-    classStr = pckgClass.substr(lastDot + 1);
+    if ( lastDot == std::string::npos ) {
+      //throw Labels::PACKAGE_CLASS_WRONG_FRMAT + pckgClass; it is not true.
+    }
+    else {
+      pckg = pckgClass.substr(0, lastDot);
+      classStr = pckgClass.substr(lastDot + 1);
+    }
   }
   
   bool unifyeAnonymClasses( std::string& str ) {
