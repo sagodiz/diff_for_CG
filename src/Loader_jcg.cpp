@@ -8,6 +8,13 @@
 #include <sstream>
 #include <algorithm>
 
+
+#ifdef JCG_DEBUG
+  #define JCG_PRINT(a) cout << "Loaded jcg: " << a << endl;
+#else
+  #define JCG_PRINT(a) ;
+#endif
+
 using namespace std;
 
 Loader_jcg::Loader_jcg( string filepath, string name ) : Loader(filepath, name) {
@@ -107,6 +114,7 @@ vector<Record> Loader_jcg::load() {
         ++uniqueMethodNum;
       }
     }
+    JCG_PRINT(r)
     
     //here comes the next node in the line
     string pckgClassMethod2 = member2;
@@ -179,7 +187,10 @@ vector<Record> Loader_jcg::load() {
         ++uniqueMethodNum;
       }
     }
+    
+    JCG_PRINT(r2)
   }
+  
   
   input.clear();
   input.seekg(0, ios::beg);

@@ -9,6 +9,13 @@
 #include <algorithm>
 #include <vector>
 
+
+#ifdef WALA_DEBUG
+  #define WALA_PRINT(a) cout << "Loaded wala: " << a << endl;
+#else
+  #define WALA_PRINT(a) ;
+#endif
+
 using namespace std;
 
 Loader_wala::Loader_wala( string filepath, string name ) : Loader(filepath, name) {
@@ -278,6 +285,8 @@ vector<Record> Loader_wala::load() {
           *it += pair<string, string>(representation, name);  //add this representation
         }
       }
+      WALA_PRINT(r)
+      
     } //end of processing label
   }//end of processing line
   

@@ -9,6 +9,13 @@
 #include <algorithm>
 #include <vector>
 
+
+#ifdef OSA_DEBUG
+  #define OSA_PRINT(a) cout << "Loaded osa: " << a << endl;
+#else
+  #define OSA_PRINT(a) ;
+#endif
+
 using namespace std;
 
 Loader_osa::Loader_osa( string filepath, string name ) : Loader(filepath, name) {
@@ -291,6 +298,8 @@ vector<Record> Loader_osa::load() {
           *it += pair<string, string>(representation, name);  //add this representation
         }
       }
+      OSA_PRINT(r)
+      
     } //end of processing label
   }//end of processing line
   

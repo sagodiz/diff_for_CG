@@ -9,6 +9,12 @@
 #include <algorithm>
 #include <vector>
 
+#ifdef JDT_DEBUG
+  #define JDT_PRINT(a) cout << "Loaded jdt: " << a << endl;
+#else
+  #define JDT_PRINT(a) ;
+#endif
+
 using namespace std;
 
 Loader_jdt::Loader_jdt( string filepath, string name ) : Loader(filepath, name) {
@@ -146,6 +152,8 @@ vector<Record> Loader_jdt::load() {
           *it += pair<string, string>(representation, name);  //add this representation
         }
       }
+      JDT_PRINT(r)
+      
     } //end of processing label
   }//end of processing line
   

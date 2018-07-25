@@ -9,6 +9,13 @@
 #include <algorithm>
 #include <array>
 
+
+#ifdef SPOON_DEBUG
+  #define SPOON_PRINT(a) cout << "Loaded spoon: " << a << endl;
+#else
+  #define SPOON_PRINT(a) ;
+#endif
+
 using namespace std;
 
 Loader_spoon::Loader_spoon(string filepath, string name) : Loader(filepath, name) {
@@ -197,6 +204,7 @@ vector<Record> Loader_spoon::load() {
           *it += pair<string, string>(representation, name);  //add this representation
         }
       }
+      SPOON_PRINT(r)
 
     }
   }

@@ -14,6 +14,14 @@
 #include <sstream>
 #include <algorithm>
 
+
+#ifdef SOOT_DEBUG
+  #define SOOT_PRINT(a) cout << "Loaded soot: " << a << endl;
+#else
+  #define SOOT_PRINT(a) ;
+#endif
+
+
 using namespace std;
 
 Loader_soot::Loader_soot( string filepath, string name ) : Loader(filepath, name) {
@@ -138,6 +146,8 @@ DDD
           ++uniqueMethodNum;
         }
       }
+      
+      SOOT_PRINT(r)
       
     }
 
