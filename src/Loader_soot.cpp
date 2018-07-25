@@ -61,8 +61,8 @@ vector<Record> Loader_soot::load() {
           num += line[i];
           ++i;
         }
-        ++i;
-        line.erase(0, i);
+        
+        line.erase(0, i + 2);
         lineinfo = atoi(num.c_str());
       }
       //remove the '">' ending
@@ -123,7 +123,7 @@ vector<Record> Loader_soot::load() {
       string pckgStr, classStr;
       common::cutPckgClass(f_classWithPckg, pckgStr, classStr);
       
-      
+      cout << "DEbuug" << pckgStr << endl;
       Record r(pair<string, string>(methodRepresentation, name), pckgStr, classStr, method, parameterVector, methodRepresentation, lineinfo);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
