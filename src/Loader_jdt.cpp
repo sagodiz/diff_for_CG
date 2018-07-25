@@ -50,7 +50,7 @@ vector<Record> Loader_jdt::load() {
 
       string pckgClassMethod;
       string paramsReturnFileInfo;
-
+      
       stringstream iss(infoMine);
       getline(iss, pckgClassMethod, '(');
       getline(iss, paramsReturnFileInfo, '(');
@@ -78,6 +78,8 @@ vector<Record> Loader_jdt::load() {
       //delete everything after '(' as it is the return value
       size_t paramEnd = paramsReturnFileInfo.rfind(")");
       string fileInfo;
+      
+      
       if (paramEnd != string::npos) {
         //copy the fileinfo into the fileInfo string and delete it from the parameters
         fileInfo = paramsReturnFileInfo.substr(paramEnd + 2); //plus 2 it is the ')' and the ':'
