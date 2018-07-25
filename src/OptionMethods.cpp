@@ -151,6 +151,7 @@ void helpMethod(char** argV, int argI) {
   << "\t-sp\t SPOON" << std::endl 
   << "\t-j\t JCG" << std::endl 
   << "\t-w\t WALA" << std::endl 
+  << "\t-jdt\t JDT" << std::endl
   << "\t-t\t Trace (It is the dynamic tool of F.)" << std::endl;
   
   std::cout << "Options with required value" << std::endl 
