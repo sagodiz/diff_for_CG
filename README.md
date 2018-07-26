@@ -8,5 +8,7 @@ The program outputs:
 - tsv files: tab separated values. These files contains which method loaded which methods and connections.
 - list files: it just a list of tsv files, for further usage. every file is prefixed in this list:L<name> means it is a loader; U<name> means it is the UnionGraph's tsv file. Others might be added.
 - files that contains information about filtering.
-
-The main program starts the commonTSV program. It generates a common tab separated file, which contains which methods and connections can be found iin the intersections of the tools.
+- diff files: every call that could be (the loader has both of the methods) in an intersection but is not (connection were not created by the tool).
+- csv files: for the Diagram maker
+- non_fileter_methods: it prints every method before filtering. (it might a todo, not to do it when no filter is used)
+all the files created: *.csv *.tsv *.list *.diff non* *.txt
