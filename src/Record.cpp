@@ -24,23 +24,78 @@
 
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
-bool contains_number( string str ) {
+bool anonym( string str ) {
+
+  //an anonym is a number.
+  for ( unsigned int i = 0; i < str.length(); i++ ) {
+
+    if ( str[i] > '9' || str[i] < '0' )
+    return false;
+  }
+
+  return true;
+}
+
+
+bool inner(string str) {
+
+  stringstream input_stringstream(str);
+  string part;
+  cout << "being checked: " << str << endl;
+  while ( getline(input_stringstream, part , '$') ) {
+
+    if ( anonym(part) ) //if there is a total number part(an anonym) it is an anonym
+      return true;
+  }
+
+  cout << "false" << endl;
+
+  return false;
+}
+
+bool anonymEqual( string str, string str2 ) {
   
-  return (
-        str.find('0') != string::npos ||
-        str.find('1') != string::npos ||
-        str.find('2') != string::npos ||
-        str.find('3') != string::npos ||
-        str.find('4') != string::npos ||
-        str.find('5') != string::npos ||
-        str.find('6') != string::npos ||
-        str.find('7') != string::npos ||
-        str.find('8') != string::npos ||
-        str.find('9') != string::npos
-    );
+  bool isAnonym = false;
+  vector<string> parts1;
+  vector<string> parts2;
+  string part;
+
+  stringstream input_stringstream(str);
+
+  while ( getline(input_stringstream, part , '$') ) {
+
+    parts1.push_back(part);
+  }
+
+  stringstream input_stringstream2(str2);
+
+  while ( getline(input_stringstream2, part , '$') ) {
+
+    parts2.push_back(part);
+  }
+
+  if ( parts1.size() != parts2.size() )
+    return false;
+
+  for ( unsigned int i = 0; i < parts1.size(); i++ ) {
+
+    if ( ( anonym(parts1[i]) && anonym(parts2[i]) ) || parts1[i] == parts2[i] ) {
+
+      //everything is similar
+    }
+    else {
+      //might not be equal
+      return false;
+    }
+
+    return true;
+  }
+
+  return isAnonym;
 }
 
 
@@ -97,23 +152,29 @@ DDD
   if ( common::options::lineInfoPairing ) {
     
     if ( r.package == package && //the same package. It must not differ!
-        ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
-        ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
-        ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
+        ( anonymEqual(methodClass, r.methodClass) ) &&  //class names are the same or both of them is anonym
+        ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
+         cout << "------------------------------------------------------------------------" << endl;
 //DEBUG_COMPARE
-      if ( startLine == -1 && r.startLine != -1 ) {
-        isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
-DEBUG_EQUALITY
-      }
-      if ( r.startLine == -1 && startLine != -1 ) {
-        isEquals = true;
-DEBUG_EQUALITY
-      }
-      if ( startLine != -1 && //this is a real information
-         ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
-         ) {
-        isEquals = true;
-DEBUG_EQUALITY
+      if ( (!inner(methodClass) && !inner(methodName) && parameters.size() == r.parameters.size()) || parameters == r.parameters ) {   //if it is an anonym method (the other must be too, have to compare parameters too!)
+       //if it is an inner, the first part is false so have to check the equality of the parameters
+       //if it is not an inner, it is false, so the expr. is true so no need for checking param equality as generics may be differenit in params
+        
+        cout << (parameters == r.parameters) << endl;
+        if ( startLine == -1 && r.startLine != -1 ) {
+          isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
+  DEBUG_EQUALITY
+        }
+        if ( r.startLine == -1 && startLine != -1 ) {
+          isEquals = true;
+  DEBUG_EQUALITY
+        }
+        if ( startLine != -1 && //this is a real information
+          ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
+          ) {
+          isEquals = true;
+  DEBUG_EQUALITY
+        }
       }
     }
   }
