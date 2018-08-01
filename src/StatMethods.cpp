@@ -125,8 +125,8 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   }
 
   if (commonMethodsCheck != commonMethods) {
-    cerr << "The search for common methods failed" << endl;
-    cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonMethods << " " << commonMethodsCheck << endl;
+    cout << "The search for common methods failed" << endl;
+    cout << l1->getName() << " " << l2->getName() << "Nums: " << commonMethods << " " << commonMethodsCheck << endl;
   }
 
   statOut << l1->getFilePath() << " has " << compareSet1.size() << " calls" << " and " << r1.size() << " unique methods. " << endl;

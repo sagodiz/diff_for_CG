@@ -296,8 +296,8 @@ int main( int argc, char** argv ) {
     
     for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
     
-      cout << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << "stats..." << endl;
-      cerr << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << "stats..." << endl;
+      cout << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << " stats..." << endl;
+      
       std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
       float loader_i_callNum = (float)connections[i].size();
       float loader_j_callNum = (float)connections[j].size();
