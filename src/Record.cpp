@@ -48,8 +48,10 @@ bool inner(string str) {
 
   while ( getline(input_stringstream, part , '$') ) {
 
-    if ( anonym(part) ) //if there is a total number part(an anonym) it is an anonym
+    if ( anonym(part) ) { //if there is a total number part(an anonym) it is an anonym
+
       return true;
+    }
   }
 
   return false;
@@ -95,7 +97,6 @@ bool anonymEqual( string str, string str2 ) {
 
       return false;
     }
-    
   }
 
   return true;
@@ -157,13 +158,13 @@ DDD
     if ( r.package == package && //the same package. It must not differ!
         ( anonymEqual(methodClass, r.methodClass) ) &&  //class names are the same or both of them is anonym
         ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
-
-      if ( (!inner(r.methodClass) && !inner(r.methodName) && !inner(methodClass) && !inner(methodName) && parameters.size() == r.parameters.size()) || parameters == r.parameters ) {   //if it is an anonym method (the other must be too, have to compare parameters too!)
-
+      
+      if ( r.parameters.size() == parameters.size() ) { //must have the same number of parameters.
+        
         if ( startLine != -1 && //this is a real information
           ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
           ) {
- DEBUG_EQUALITY
+  DEBUG_EQUALITY
           isEquals = true;
         }
       }
@@ -205,7 +206,25 @@ DDD
         
     return true;
   }
-  return false;
+  
+  bool isEquals = false;
+
+  if ( common::options::lineInfoPairing ) {
+    
+    if ( r.package == package && //the same package. It must not differ!
+        ( anonymEqual(methodClass, classStr) ) &&  //class names are the same or both of them is anonym
+        ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
+
+      if ( startLine != -1 && //this is a real information
+        ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
+        ) {
+DEBUG_EQUALITY
+        isEquals = true;
+      }
+    }
+  }
+  
+  return isEquals;
 }
 
 Record& Record::operator+=( const pair<string, string> nWOR ) {
