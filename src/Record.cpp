@@ -28,7 +28,7 @@
 
 using namespace std;
 
-bool anonym( string str ) {
+bool anonym( const string str ) {
 
   //an anonym is a number.
   for ( unsigned int i = 0; i < str.length(); i++ ) {
@@ -45,23 +45,23 @@ bool inner(string str) {
 
   stringstream input_stringstream(str);
   string part;
-  cout << "being checked: " << str << endl;
+
   while ( getline(input_stringstream, part , '$') ) {
 
     if ( anonym(part) ) //if there is a total number part(an anonym) it is an anonym
       return true;
   }
 
-  cout << "false" << endl;
-
   return false;
 }
 
 bool anonymEqual( string str, string str2 ) {
-  
-  bool isAnonym = false;
+
+
   vector<string> parts1;
+  parts1.clear();
   vector<string> parts2;
+  parts2.clear();
   string part;
 
   stringstream input_stringstream(str);
@@ -69,6 +69,7 @@ bool anonymEqual( string str, string str2 ) {
   while ( getline(input_stringstream, part , '$') ) {
 
     parts1.push_back(part);
+
   }
 
   stringstream input_stringstream2(str2);
@@ -76,26 +77,28 @@ bool anonymEqual( string str, string str2 ) {
   while ( getline(input_stringstream2, part , '$') ) {
 
     parts2.push_back(part);
+
   }
 
   if ( parts1.size() != parts2.size() )
     return false;
 
+
+
+
   for ( unsigned int i = 0; i < parts1.size(); i++ ) {
 
     if ( ( anonym(parts1[i]) && anonym(parts2[i]) ) || parts1[i] == parts2[i] ) {
 
-      //everything is similar
     }
     else {
-      //might not be equal
+
       return false;
     }
-
-    return true;
+    
   }
 
-  return isAnonym;
+  return true;
 }
 
 
@@ -108,7 +111,7 @@ string Record::createUnifiedMethodName() {
 
     params += parameters[i] + ",";
   }
-  //params.erase(params.length() - 1, 1); //the closing ','
+
   if (params.length() > 0 && ',' == params[params.length() - 1])
     params[params.length() - 1] = ')';
   else
@@ -154,26 +157,14 @@ DDD
     if ( r.package == package && //the same package. It must not differ!
         ( anonymEqual(methodClass, r.methodClass) ) &&  //class names are the same or both of them is anonym
         ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
-         cout << "------------------------------------------------------------------------" << endl;
-//DEBUG_COMPARE
-      if ( (!inner(methodClass) && !inner(methodName) && parameters.size() == r.parameters.size()) || parameters == r.parameters ) {   //if it is an anonym method (the other must be too, have to compare parameters too!)
-       //if it is an inner, the first part is false so have to check the equality of the parameters
-       //if it is not an inner, it is false, so the expr. is true so no need for checking param equality as generics may be differenit in params
-        
-        cout << (parameters == r.parameters) << endl;
-        if ( startLine == -1 && r.startLine != -1 ) {
-          isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
-  DEBUG_EQUALITY
-        }
-        if ( r.startLine == -1 && startLine != -1 ) {
-          isEquals = true;
-  DEBUG_EQUALITY
-        }
+
+      if ( (!inner(r.methodClass) && !inner(r.methodName) && !inner(methodClass) && !inner(methodName) && parameters.size() == r.parameters.size()) || parameters == r.parameters ) {   //if it is an anonym method (the other must be too, have to compare parameters too!)
+
         if ( startLine != -1 && //this is a real information
           ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
           ) {
+ DEBUG_EQUALITY
           isEquals = true;
-  DEBUG_EQUALITY
         }
       }
     }
@@ -270,6 +261,11 @@ vector<pair<string, string>> Record::getSameMethods() const {
 string Record::getSecondaryRepresentation() const {
   
   return secondaryRep;
+}
+
+string Record::getUnifiedRepresentation() const {
+
+  return unifiedRep;
 }
 
 

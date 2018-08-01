@@ -93,13 +93,16 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     }
   }
 
-  if (commonCalls != commonCallsCheck)
+  if (commonCalls != commonCallsCheck) {
     cerr << "The search for common calls failed" << endl;
+    cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonCalls << " " << commonCallsCheck << endl;
+  }
 
   //check the methods
-  for (unsigned i = 0; i < r1.size(); i++) {
 
-    if (find(r2.begin(), r2.end(), r1[i]) != r2.end()) {
+  for (unsigned i = 0; i < r1.size(); i++) {
+    vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+    if ( ehh != r2.end()) {
 
       ++commonMethods;
     }
@@ -110,8 +113,8 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   }
 
   for (unsigned i = 0; i < r2.size(); i++) {
-
-    if (find(r1.begin(), r1.end(), r2[i]) != r1.end()) {
+    vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+    if ( ahh != r1.end()) {
 
       ++commonMethodsCheck;
     }
@@ -121,8 +124,10 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     }
   }
 
-  if (commonMethodsCheck != commonMethods)
+  if (commonMethodsCheck != commonMethods) {
     cerr << "The search for common methods failed" << endl;
+    cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonMethods << " " << commonMethodsCheck << endl;
+  }
 
   statOut << l1->getFilePath() << " has " << compareSet1.size() << " calls" << " and " << r1.size() << " unique methods. " << endl;
   statOut << l2->getFilePath() << " has " << compareSet2.size() << " calls" << " and " << r2.size() << " unique methods. " << endl;

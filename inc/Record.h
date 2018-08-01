@@ -61,6 +61,7 @@ class Record {
     std::string getMethodName() const;
     std::vector<std::string> getParameters() const;
     std::vector<std::pair<std::string, std::string>> getSameMethods() const;
+    std::string getUnifiedRepresentation() const;
     
     
     /**
