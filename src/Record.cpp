@@ -162,6 +162,7 @@ DDD
       if ( r.parameters.size() == parameters.size() ) { //must have the same number of parameters.
         
         if ( startLine != -1 && //this is a real information
+            r.startLine != -1 && 
           ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
           ) {
   DEBUG_EQUALITY
