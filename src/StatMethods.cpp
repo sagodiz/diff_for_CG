@@ -105,7 +105,7 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     if ( ehh != r2.end()) {
 
       ++commonMethods;
-      cout << l1->getName() << " " << *ehh << " " << r1[i] <<  endl;
+      cout << l1->getName() << " " << *ehh << " " << r1[i] << endl;
     }
     else {
       //this method is not in the second tool's vector

@@ -28,7 +28,20 @@
 
 using namespace std;
 
-bool anonym( const string str ) {
+bool basic_type( const string& str ) {
+  
+  return str == "byte" ||
+         str == "char" ||
+         str == "short" ||
+         str == "int" ||
+         str == "long" ||
+         str == "float" ||
+         str == "double" ||
+         str == "boolean";
+}
+
+
+bool anonym( const string& str ) {
 
   //an anonym is a number.
   for ( unsigned int i = 0; i < str.length(); i++ ) {
@@ -148,11 +161,17 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
 bool Record::operator==(const Record& r ) const {
 
 DDD
+  
   if ( r.unifiedRep == unifiedRep )
     return true;
   
   bool isEquals = false;
 
+  bool ch = false;
+  if ( (r.unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") || (unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && r.unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") )
+    ch = true;
+  
+  
   if ( common::options::lineInfoPairing ) {
     
     if ( r.package == package && //the same package. It must not differ!
@@ -168,10 +187,36 @@ DDD
   DEBUG_EQUALITY
           isEquals = true;
         }
+        
+        if ( -1 == r.startLine || -1 == startLine ) {
+          if ( ch )
+            cout << __LINE__ << endl;
+          bool match = true;
+          for ( unsigned int i = 0; i < parameters.size(); i++ ) {
+            if ( ch )
+              cout << __LINE__ << endl;
+            if ( parameters[i] == r.parameters[i] || //parameters are equal
+                (!basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
+                 (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ) //it might equal if one of them is Object.
+                ) 
+               ) {
+            
+            }
+            else {
+              if( ch )
+                cout << (parameters[i] == r.parameters[i]) << " " << !basic_type(parameters[i]) << " " << !basic_type(r.parameters[i]) << " " << (parameters[i].find("java.lang.Object") != string::npos) << " " << (r.parameters[i].find("java.lang.Object") != string::npos) << endl;
+              match = false;
+              break;
+            }
+          }
+          
+          isEquals = match;
+        }
       }
     }
   }
-  
+if ( ch )
+  cout << isEquals << endl;
   return isEquals;
 }
 
