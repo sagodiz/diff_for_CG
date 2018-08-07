@@ -167,9 +167,9 @@ DDD
   
   bool isEquals = false;
 
-  bool ch = false;
-  if ( (r.unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") || (unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && r.unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") )
-    ch = true;
+  //bool ch = false;
+  //if ( (r.unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") || (unifiedRep == "java.lang.StringBuffer.append(java.lang.String)" && r.unifiedRep == "java.lang.StringBuffer.append(java.lang.Object)") )
+    //ch = true;
   
   
   if ( common::options::lineInfoPairing ) {
@@ -189,12 +189,12 @@ DDD
         }
         
         if ( -1 == r.startLine || -1 == startLine ) {
-          if ( ch )
-            cout << __LINE__ << endl;
+          //if ( ch )
+            //cout << __LINE__ << endl;
           bool match = true;
           for ( unsigned int i = 0; i < parameters.size(); i++ ) {
-            if ( ch )
-              cout << __LINE__ << endl;
+           // if ( ch )
+              //cout << __LINE__ << endl;
             if ( parameters[i] == r.parameters[i] || //parameters are equal
                 (!basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
                  (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ) //it might equal if one of them is Object.
@@ -203,8 +203,8 @@ DDD
             
             }
             else {
-              if( ch )
-                cout << (parameters[i] == r.parameters[i]) << " " << !basic_type(parameters[i]) << " " << !basic_type(r.parameters[i]) << " " << (parameters[i].find("java.lang.Object") != string::npos) << " " << (r.parameters[i].find("java.lang.Object") != string::npos) << endl;
+             // if( ch )
+               // cout << (parameters[i] == r.parameters[i]) << " " << !basic_type(parameters[i]) << " " << !basic_type(r.parameters[i]) << " " << (parameters[i].find("java.lang.Object") != string::npos) << " " << (r.parameters[i].find("java.lang.Object") != string::npos) << endl;
               match = false;
               break;
             }
@@ -215,8 +215,8 @@ DDD
       }
     }
   }
-if ( ch )
-  cout << isEquals << endl;
+//if ( ch )
+  //cout << isEquals << endl;
   return isEquals;
 }
 
