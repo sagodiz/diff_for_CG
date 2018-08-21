@@ -11,4 +11,6 @@ The program outputs:
 - diff files: every call that could be (the loader has both of the methods) in an intersection but is not (connection were not created by the tool).
 - csv files: for the Diagram maker
 - non_fileter_methods: it prints every method before filtering. (it might a todo, not to do it when no filter is used)
-all the files created: *.csv *.tsv *.list *.diff non* *.txt
+  
+  
+all the files created: *.csv *.tsv *.list *.diff non* *.txt *.debug
