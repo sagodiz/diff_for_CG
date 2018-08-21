@@ -94,9 +94,11 @@ vector<Record> Loader_jcg::load() {
     common::cutPckgClass(f_classWithPckg, packageStr, classStr);
     
     Record r(pair<string, string>(member1, name), packageStr, classStr, method, parameterVector, lineinfo, lineinfo);
-    if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
+
+    if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end()) { //put it only if not here
       tmpRecords.push_back(r);
 
+    }
     if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
       //so this record is not found in the vector
       ++uniqueMethodNum;
@@ -164,11 +166,13 @@ vector<Record> Loader_jcg::load() {
     string pckg2;
     string classStr2;
     common::cutPckgClass(f_classWithPckg2, pckg2, classStr2);
-    
-    
+
     Record r2(pair<string, string>(member2, name), pckg2, classStr2, method2, parameterVector2);
-    if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  //put it only if not here
+
+    if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  {//put it only if not here
       tmpRecords.push_back( r2 );
+
+    }
 
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
       //so this record is not found in the vector

@@ -1,1 +1,0 @@
-{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "Test.HelloWorldInPackage.main([Ljava/lang/String;)V", "id": 120}], "links": []}

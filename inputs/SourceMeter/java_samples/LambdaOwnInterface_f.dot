@@ -1,6 +1,0 @@
-digraph graphname {
-rankdir="LR";
-117 [label="MyFunctionalInterface.sayHello()Ljava/lang/String;"]
-129 [label="LambdaOwnInterface.main([Ljava/lang/String;)V"]
-129 -> 117
-}

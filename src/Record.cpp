@@ -24,23 +24,95 @@
 
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
-bool contains_number( string str ) {
+bool basic_type( const string& str ) {
   
-  return (
-        str.find('0') != string::npos ||
-        str.find('1') != string::npos ||
-        str.find('2') != string::npos ||
-        str.find('3') != string::npos ||
-        str.find('4') != string::npos ||
-        str.find('5') != string::npos ||
-        str.find('6') != string::npos ||
-        str.find('7') != string::npos ||
-        str.find('8') != string::npos ||
-        str.find('9') != string::npos
-    );
+  return str == "byte" ||
+         str == "char" ||
+         str == "short" ||
+         str == "int" ||
+         str == "long" ||
+         str == "float" ||
+         str == "double" ||
+         str == "boolean";
+}
+
+
+bool anonym( const string& str ) {
+
+  //an anonym is a number.
+  for ( unsigned int i = 0; i < str.length(); i++ ) {
+
+    if ( str[i] > '9' || str[i] < '0' )
+    return false;
+  }
+
+  return true;
+}
+
+
+bool inner(string str) {
+
+  stringstream input_stringstream(str);
+  string part;
+
+  while ( getline(input_stringstream, part , '$') ) {
+
+    if ( anonym(part) ) { //if there is a total number part(an anonym) it is an anonym
+
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool anonymEqual( string str, string str2 ) {
+
+
+  vector<string> parts1;
+  parts1.clear();
+  vector<string> parts2;
+  parts2.clear();
+  string part;
+
+  stringstream input_stringstream(str);
+
+  while ( getline(input_stringstream, part , '$') ) {
+
+    parts1.push_back(part);
+
+  }
+
+  stringstream input_stringstream2(str2);
+
+  while ( getline(input_stringstream2, part , '$') ) {
+
+    parts2.push_back(part);
+
+  }
+
+  if ( parts1.size() != parts2.size() )
+    return false;
+
+
+
+
+  for ( unsigned int i = 0; i < parts1.size(); i++ ) {
+
+    if ( ( anonym(parts1[i]) && anonym(parts2[i]) ) || parts1[i] == parts2[i] ) {
+
+    }
+    else {
+
+      return false;
+    }
+  }
+
+  return true;
 }
 
 
@@ -53,7 +125,7 @@ string Record::createUnifiedMethodName() {
 
     params += parameters[i] + ",";
   }
-  //params.erase(params.length() - 1, 1); //the closing ','
+
   if (params.length() > 0 && ',' == params[params.length() - 1])
     params[params.length() - 1] = ')';
   else
@@ -89,35 +161,54 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
 bool Record::operator==(const Record& r ) const {
 
 DDD
+  
   if ( r.unifiedRep == unifiedRep )
     return true;
   
   bool isEquals = false;
-
+  
+  
   if ( common::options::lineInfoPairing ) {
     
     if ( r.package == package && //the same package. It must not differ!
-        ( r.methodClass == methodClass || ( contains_number(r.methodClass) && contains_number(methodClass) ) ) &&  //class names are the same or both of them is anonym
-        ( r.methodName == methodName || ( contains_number(r.methodName) && contains_number(methodName) ) ) &&  //the same method or both of them is anonym.
-        ( r.parameters.size() == parameters.size() ) ) {  //same number of parameters.
-//DEBUG_COMPARE
-      if ( startLine == -1 && r.startLine != -1 ) {
-        isEquals = true;  //if one of them is without lineinfo but everything is matching it means it is a generic or anonym...
-DEBUG_EQUALITY
-      }
-      if ( r.startLine == -1 && startLine != -1 ) {
-        isEquals = true;
-DEBUG_EQUALITY
-      }
-      if ( startLine != -1 && //this is a real information
-         ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
-         ) {
-        isEquals = true;
-DEBUG_EQUALITY
+        ( anonymEqual(methodClass, r.methodClass) ) &&  //class names are the same or both of them is anonym
+        ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
+      
+      if ( r.parameters.size() == parameters.size() ) { //must have the same number of parameters.
+        
+        if ( startLine != -1 && //this is a real information
+            r.startLine != -1 && 
+          ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
+          ) {
+  DEBUG_EQUALITY
+          isEquals = true;
+        }
+        
+        if ( -1 == r.startLine || -1 == startLine ) {
+
+          bool match = true;
+          for ( unsigned int i = 0; i < parameters.size(); i++ ) {
+
+            if ( parameters[i] == r.parameters[i] || //parameters are equal
+                (!basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
+                 (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ) //it might equal if one of them is Object.
+                ) 
+               ) {
+            
+            }
+            else {
+
+              match = false;
+              break;
+            }
+          }
+          
+          isEquals = match;
+        }
       }
     }
   }
-  
+
   return isEquals;
 }
 
@@ -153,7 +244,25 @@ DDD
         
     return true;
   }
-  return false;
+  
+  bool isEquals = false;
+
+  if ( common::options::lineInfoPairing ) {
+    
+    if ( r.package == package && //the same package. It must not differ!
+        ( anonymEqual(methodClass, classStr) ) &&  //class names are the same or both of them is anonym
+        ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
+
+      if ( startLine != -1 && //this is a real information
+        ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
+        ) {
+DEBUG_EQUALITY
+        isEquals = true;
+      }
+    }
+  }
+  
+  return isEquals;
 }
 
 Record& Record::operator+=( const pair<string, string> nWOR ) {
@@ -209,6 +318,11 @@ vector<pair<string, string>> Record::getSameMethods() const {
 string Record::getSecondaryRepresentation() const {
   
   return secondaryRep;
+}
+
+string Record::getUnifiedRepresentation() const {
+
+  return unifiedRep;
 }
 
 

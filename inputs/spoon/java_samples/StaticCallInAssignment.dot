@@ -1,9 +1,0 @@
-digraph graphname {
-rankdir="LR";
-0 [label="root.StaticCallInAssignment.StaticCallInAssignment()"]
-3 [label="root.StaticCallInAssignment.foo()"]
-1 [label="java.lang.Object.Object()"]
-2 [label="root.StaticCallInAssignment.main(java.lang.String[])"]
-0 -> 1
-2 -> 3
-}

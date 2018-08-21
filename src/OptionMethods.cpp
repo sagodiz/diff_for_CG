@@ -146,13 +146,13 @@ void helpMethod(char** argV, int argI) {
   std::cout << "Usage: " << argV[0] << " [-loader file]* [-option]* [-option value]*" << std::endl;
   
   std::cout << "Loaders: " << std::endl 
-  << "\t-s\t Soot" << std::endl 
-  << "\t-osa\t OSA" << std::endl 
-  << "\t-sp\t SPOON" << std::endl 
-  << "\t-j\t JCG" << std::endl 
-  << "\t-w\t WALA" << std::endl 
-  << "\t-jdt\t JDT" << std::endl
-  << "\t-t\t Trace (It is the dynamic tool of F.)" << std::endl;
+  << "\t" << "-" << Labels::SOOT_CL << "\t Soot" << std::endl 
+  << "\t" << "-" << Labels::OSA_CL << "\t OSA" << std::endl 
+  << "\t" << "-" << Labels::SPOON_CL << "\t SPOON" << std::endl 
+  << "\t" << "-" << Labels::JCG_CL << "\t JCG" << std::endl 
+  << "\t" << "-" << Labels::WALA_CL << "\t WALA" << std::endl 
+  << "\t" << "-" << Labels::JDT_CL << "\t JDT" << std::endl
+  << "\t" << "-" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl;
   
   std::cout << "Options with required value" << std::endl 
   << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl 

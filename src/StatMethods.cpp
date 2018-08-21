@@ -93,27 +93,42 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     }
   }
 
-  if (commonCalls != commonCallsCheck)
+  if (commonCalls != commonCallsCheck) {
+    
     cerr << "The search for common calls failed" << endl;
+    cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonCalls << " " << commonCallsCheck << endl;
+  }
 
   //check the methods
+  ofstream debug(l1->getName() + l2->getName() + ".debug");
+  
+  if ( !debug.is_open() )
+    throw Labels::DEBUG_FILE_COULD_NOT_WRITE + l1->getName() + l2->getName() + ".debug";
+    
+    
+  debug << l1->getName() << " searched in "  << l2->getName() << endl;
+  
   for (unsigned i = 0; i < r1.size(); i++) {
-
-    if (find(r2.begin(), r2.end(), r1[i]) != r2.end()) {
+    vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+    if ( ehh != r2.end()) {
 
       ++commonMethods;
+      debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
     }
     else {
       //this method is not in the second tool's vector
       onlyFirst.push_back(r1[i]);
     }
   }
-
+  
+  debug << "next: " << l2->getName() << " searched in " << l1->getName() << endl;
+  
   for (unsigned i = 0; i < r2.size(); i++) {
-
-    if (find(r1.begin(), r1.end(), r2[i]) != r1.end()) {
+    vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+    if ( ahh != r1.end()) {
 
       ++commonMethodsCheck;
+      debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
     }
     else {
       //this method is not in the second tool's vector
@@ -121,12 +136,15 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     }
   }
 
-  if (commonMethodsCheck != commonMethods)
+  if (commonMethodsCheck != commonMethods) {
     cerr << "The search for common methods failed" << endl;
+    cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonMethods << " " << commonMethodsCheck << endl;
+  }
 
   statOut << l1->getFilePath() << " has " << compareSet1.size() << " calls" << " and " << r1.size() << " unique methods. " << endl;
   statOut << l2->getFilePath() << " has " << compareSet2.size() << " calls" << " and " << r2.size() << " unique methods. " << endl;
-  statOut << commonCalls << " common calls and " << commonMethods << " common methods." << endl;
+  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << commonCallsCheck << " common calls" << endl;
+  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
 
   //write the differences
   statOut << "Only the " << l1->getName() << " contains this/these method(s):" << endl;

@@ -1,1 +1,0 @@
-{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "SetUsageBad.<init>()V", "id": 126}, {"label": "SetUsageBad.main([Ljava/lang/String;)V", "id": 153}], "links": [{"source": 153, "target": 126}]}

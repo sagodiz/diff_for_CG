@@ -1,6 +1,0 @@
-[2018-03-13 12:30:56] Start:GraphDumpTask
-GraphDumpTool 8.2.0 (build 8717#45192 Win64) - (C) 2001-2016 FrontEndART Ltd.
-Loading: D:\Users\epengo\Documents\ovrt\results_examples\CallEdgeExamples\java\2018-03-13-12-30-51\CallEdgeExamples.graph
-Creating csv dump ...
-Creating xml dump ...
-[2018-03-13 12:30:57] End:GraphDumpTask Result:OK

@@ -22,6 +22,7 @@ namespace Labels {
   const std::string CMD_COULD_NOT_BE_CREATED = "Could not write commandLine file.";
   const std::string METHOD_PARAMETER_WRONG_FORMAT = "Method's parameter had wrong format or for unknown reason could not be parsed.";
   const std::string PACKAGE_CLASS_WRONG_FORMAT = "The format of the package and the class name was not correct: ";
+  const std::string DEBUG_FILE_COULD_NOT_WRITE = "The file that contains matching information (debug file) could not be written: ";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

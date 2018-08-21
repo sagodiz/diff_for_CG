@@ -1,1 +1,0 @@
-{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "Motivation.main([Ljava/lang/String;)V", "id": 120}, {"label": "Motivation$1.actionPerformed(Ljava/awt/event/ActionEvent;)V", "id": 150}], "links": []}
