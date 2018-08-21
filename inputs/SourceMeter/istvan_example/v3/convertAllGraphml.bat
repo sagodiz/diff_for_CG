@@ -1,1 +1,0 @@
-FOR %%x in (*.graphml) DO call anal.bat %%x

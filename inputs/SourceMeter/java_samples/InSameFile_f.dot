@@ -1,8 +1,0 @@
-digraph graphname {
-rankdir="LR";
-117 [label="A.<init>()V"]
-120 [label="A.foo()V"]
-131 [label="InSameFile.main([Ljava/lang/String;)V"]
-117 -> 120
-131 -> 117
-}

@@ -1,6 +1,0 @@
-digraph graphname {
-rankdir="LR";
-120 [label="UseNonStaticMethod.main([Ljava/lang/String;)V"]
-133 [label="UseNonStaticMethod.foo()V"]
-120 -> 133
-}

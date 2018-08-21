@@ -1,6 +1,0 @@
-digraph graphname {
-rankdir="LR";
-114 [label="StringConcat.sconcat(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"]
-127 [label="LambdaWithParams.main([Ljava/lang/String;)V"]
-127 -> 114
-}

@@ -1,1 +1,0 @@
-{"directed": true, "multigraph": false, "graph": {"node_default": {}, "edge_default": {}}, "nodes": [{"label": "StringConcat.sconcat(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "id": 114}, {"label": "LambdaWithParams.main([Ljava/lang/String;)V", "id": 127}], "links": [{"source": 127, "target": 114}]}

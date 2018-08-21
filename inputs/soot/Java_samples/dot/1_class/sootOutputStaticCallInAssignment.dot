@@ -1,7 +1,0 @@
-digraph "call-graph" {
-    "<StaticCallInAssignment: void main(java.lang.String[])>"
-    "<java.lang.Object: void <clinit>()>"
-    "<StaticCallInAssignment: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
-    "<StaticCallInAssignment: int foo()>"
-    "<StaticCallInAssignment: void main(java.lang.String[])>"->"<StaticCallInAssignment: int foo()>";
-}

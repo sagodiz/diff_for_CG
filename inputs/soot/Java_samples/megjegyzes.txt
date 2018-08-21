@@ -1,3 +1,0 @@
-﻿MEGOLDVA:
-Ezeket azért raktam föl, hogy lássuk, ilyenek az eredmények, azonban van 1 fájl amit nem tudott leellenőrizni. Mikor Package-ba raktam bele, akkor nem találta meg.
-MEGOLDÁS: Nem szabad megadni a teljes elérési utat csakis a "gyökér package" mappát szabad megadni, onnan a class fájlokat a package elnevezésük szerint kell megadni.
