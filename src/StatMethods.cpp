@@ -100,25 +100,27 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
 
   //check the methods
   cout << "#####################\n\n";
+  ofstream debug(l1->getName() + l2->getName() + ".debug");
+
   for (unsigned i = 0; i < r1.size(); i++) {
     vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
     if ( ehh != r2.end()) {
 
       ++commonMethods;
-      cout << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+      debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
     }
     else {
       //this method is not in the second tool's vector
       onlyFirst.push_back(r1[i]);
     }
   }
-  cout << "??" << endl;
+  debug << "??" << endl;
   for (unsigned i = 0; i < r2.size(); i++) {
     vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
     if ( ahh != r1.end()) {
 
       ++commonMethodsCheck;
-      cout << l2->getName() << " " << *ahh << " " << r2[i] << endl;
+      debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
     }
     else {
       //this method is not in the second tool's vector
