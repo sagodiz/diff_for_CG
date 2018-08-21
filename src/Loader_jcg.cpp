@@ -93,21 +93,11 @@ vector<Record> Loader_jcg::load() {
     string packageStr;
     common::cutPckgClass(f_classWithPckg, packageStr, classStr);
     
-    bool ch = false;
-    
     Record r(pair<string, string>(member1, name), packageStr, classStr, method, parameterVector, lineinfo, lineinfo);
-   /* if ( r.getUnifiedRepresentation() == "java.lang.StringBuffer.append(java.lang.String)" ) {
-      cout << "az"  << endl;
-      ch = true;
-    }*/
-   /* if ( r.getUnifiedRepresentation() == "java.lang.StringBuffer.append(java.lang.Object)" ) {
-      cout << "az2"  << endl;
-      ch = true;
-    }*/
+
     if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end()) { //put it only if not here
       tmpRecords.push_back(r);
-      //if ( ch )
-       // cout << "bekerült" << endl;
+
     }
     if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
       //so this record is not found in the vector
@@ -176,21 +166,12 @@ vector<Record> Loader_jcg::load() {
     string pckg2;
     string classStr2;
     common::cutPckgClass(f_classWithPckg2, pckg2, classStr2);
-   // if(ch){}
-   // ch = false;
+
     Record r2(pair<string, string>(member2, name), pckg2, classStr2, method2, parameterVector2);
-   /* if ( r.getUnifiedRepresentation() == "java.lang.StringBuffer.append(java.lang.String)" ) {
-      cout << "az3"  << endl;
-      ch = true;
-    }*/
-   /* if ( r.getUnifiedRepresentation() == "java.lang.StringBuffer.append(java.lang.Object)" ) {
-      cout << "az4"  << endl;
-      ch = true;
-    }*/
+
     if ( find(tmpRecords.begin(), tmpRecords.end(), r2) == tmpRecords.end() )  {//put it only if not here
       tmpRecords.push_back( r2 );
-      //if ( ch )
-        //cout << "bekerült2"<<endl;
+
     }
 
     if ( find( common::storedIds.begin(), common::storedIds.end(), r2 ) == common::storedIds.end() ) {
