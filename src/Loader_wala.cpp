@@ -24,7 +24,11 @@ Loader_wala::~Loader_wala() {
 }
 
 vector<Record> Loader_wala::load() {
-
+cout << "wala load" << endl;
+  
+  
+  
+  
   vector<Record> tmpRecords;
   
   string line;
@@ -300,6 +304,10 @@ vector<Record> Loader_wala::load() {
 
 set<pair<int, int>> Loader_wala::transformConnections() {
 
+  
+cout << "wala trans" << endl;
+  
+  
   set<pair<int, int>> connections;
 
   string line;

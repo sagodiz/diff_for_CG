@@ -25,6 +25,10 @@ Loader_spoon::~Loader_spoon() {
 
 vector<Record> Loader_spoon::load() {
 
+  
+cout << "spoon load" << endl;
+  
+  
   vector<Record> tmpRecords;
 
 
@@ -219,7 +223,10 @@ vector<Record> Loader_spoon::load() {
 }
 
 set<pair<int, int>> Loader_spoon::transformConnections() {
-
+cout << "spoon trans" << endl;
+  
+  
+  
   set<pair<int, int>> connections;
 
   string line;

@@ -31,6 +31,11 @@ Loader_soot::~Loader_soot() {
 
 vector<Record> Loader_soot::load() {
   
+  
+cout << "soot load" << endl;
+  
+  
+  
   vector<Record> tmpRecords; 
   
   string line;
@@ -160,6 +165,10 @@ DDD
 }
 
 set<pair<int, int>> Loader_soot::transformConnections() {
+  
+  
+cout << "Soot tran" << endl;
+  
   
   set<pair<int, int>> connections;
   

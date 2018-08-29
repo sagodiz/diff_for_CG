@@ -23,6 +23,9 @@ Loader_jcg::~Loader_jcg() {
 }
 
 vector<Record> Loader_jcg::load() {
+
+  
+cout << "JCG loader" << endl;
   
   vector<Record> tmpRecords; 
   string member1, member2;
@@ -205,6 +208,10 @@ vector<Record> Loader_jcg::load() {
 }
 
 set<pair<int, int>> Loader_jcg::transformConnections() {
+  
+cout << "jcg transform " << endl;
+  
+  
   
   set<pair<int, int>> connections;  //TODO
   

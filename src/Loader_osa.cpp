@@ -25,6 +25,10 @@ Loader_osa::~Loader_osa() {
 
 vector<Record> Loader_osa::load() {
 
+cout << "osa load" << endl;
+  
+  
+  
   vector<Record> tmpRecords;
   
   string line;
@@ -313,6 +317,10 @@ vector<Record> Loader_osa::load() {
 
 set<pair<int, int>> Loader_osa::transformConnections() {
 
+cout << "osa tras" << endl;
+  
+  
+  
   set<pair<int, int>> connections;
 
   string line;
