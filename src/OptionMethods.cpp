@@ -141,18 +141,34 @@ void lineInfoPairingMethod( char** argV, int argI ) {
 }
 
 
+void methodUnio( char** argV, int argI ) {
+  
+  if ( !strcmp(argV[argI + 1], "0") || !strcmp(argV[argI + 1], "false") ) {
+    
+    common::options::unio = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") || !strcmp(argV[argI + 1], "true") ) {
+    
+    common::options::unio = true;
+  }
+  else {
+    
+    common::options::unio = true;
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]* [-option]* [-option value]*" << std::endl;
   
   std::cout << "Loaders: " << std::endl 
-  << "\t" << "-" << Labels::SOOT_CL << "\t Soot" << std::endl 
-  << "\t" << "-" << Labels::OSA_CL << "\t OSA" << std::endl 
-  << "\t" << "-" << Labels::SPOON_CL << "\t SPOON" << std::endl 
-  << "\t" << "-" << Labels::JCG_CL << "\t JCG" << std::endl 
-  << "\t" << "-" << Labels::WALA_CL << "\t WALA" << std::endl 
-  << "\t" << "-" << Labels::JDT_CL << "\t JDT" << std::endl
-  << "\t" << "-" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl;
+  << "\t" << Labels::SOOT_CL << "\t Soot" << std::endl 
+  << "\t" << Labels::OSA_CL << "\t OSA" << std::endl 
+  << "\t" << Labels::SPOON_CL << "\t SPOON" << std::endl 
+  << "\t" << Labels::JCG_CL << "\t JCG" << std::endl 
+  << "\t" << Labels::WALA_CL << "\t WALA" << std::endl 
+  << "\t" << Labels::JDT_CL << "\t JDT" << std::endl
+  << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl;
   
   std::cout << "Options with required value" << std::endl 
   << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl 
@@ -167,7 +183,8 @@ void helpMethod(char** argV, int argI) {
   << "\t\t higher levels are TODOs" << std::endl 
   << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
   << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
-  << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl;
+  << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
+  << "\t-methodUnio value\t Sets on or off the search of multiple matches. Value for turning on: {1, true} for turning off {0, false}. True is default value." << std::endl;
   
   std::cout << "Options without required values" << std::endl 
   << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 

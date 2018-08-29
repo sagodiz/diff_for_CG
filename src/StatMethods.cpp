@@ -109,34 +109,73 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   debug << l1->getName() << " searched in "  << l2->getName() << endl;
   
   for (unsigned i = 0; i < r1.size(); i++) {
-    vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
-    if ( ehh != r2.end()) {
-
-      ++commonMethods;
-      debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+    
+    if ( common::options::unio ) {  //TODO: ezt az ifet kívülre kellene vinni
+      bool check = false;;
+      //get every pair for a given method not only one
+      for ( auto it = r2.begin(); it != r2.end(); it++ ) {
+        
+        if ( *it == r1[i] ) {
+          check = true;
+          ++commonMethods;
+        }
+      }
+      if ( !check ) {
+        
+        onlyFirst.push_back(r1[i]);
+      }
     }
     else {
-      //this method is not in the second tool's vector
-      onlyFirst.push_back(r1[i]);
+      //todo: ide kellene valami ami eltárolja a párokat és a másiknál is s majd annak a metszetét nézni.
+      vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+      if ( ehh != r2.end()) {
+
+        ++commonMethods;
+        debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+      }
+      else {
+        //this method is not in the second tool's vector
+        onlyFirst.push_back(r1[i]);
+      }
     }
   }
   
   debug << "next: " << l2->getName() << " searched in " << l1->getName() << endl;
   
   for (unsigned i = 0; i < r2.size(); i++) {
-    vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
-    if ( ahh != r1.end()) {
-
-      ++commonMethodsCheck;
-      debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
+    
+    if ( common::options::unio ) {  //TODO: ezt az ifet kívülre vinni
+      
+      bool check = false;
+      for ( auto it = r1.begin(); it != r1.end(); it++ ) {
+        
+        if ( *it == r2[i] ) {
+          check = true;
+          ++commonMethodsCheck;
+        }
+      }
+      if ( !check ) {
+        
+        onlySecond.push_back(r2[i]);
+      }
     }
     else {
-      //this method is not in the second tool's vector
-      onlySecond.push_back(r2[i]);
+      
+      vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+      if ( ahh != r1.end()) {
+
+        ++commonMethodsCheck;
+        debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
+      }
+      else {
+        //this method is not in the second tool's vector
+        onlySecond.push_back(r2[i]);
+      }
     }
   }
 
-  if (commonMethodsCheck != commonMethods) {
+  if ( commonMethodsCheck != commonMethods ) {
+    
     cerr << "The search for common methods failed" << endl;
     cerr << l1->getName() << " " << l2->getName() << "Nums: " << commonMethods << " " << commonMethodsCheck << endl;
   }

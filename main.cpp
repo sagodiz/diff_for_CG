@@ -1,3 +1,6 @@
+//TODO: valami optimálisabb tárolás, hogy ne lineáris legyen a keresés?
+//TODO: WALA, OSA, SPOON ahol egyértelmű hol vannak a node-ok felsorolva, ott ne menjünk végig, hanem amint jönnek a kapcsolatok, a node betöltést állítsuk meg.
+
 #include <iostream>
 #include <string>
 #include <set>
@@ -116,6 +119,7 @@ int main( int argc, char** argv ) {
                           new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           new Option("-lineInfoPairing", &lineInfoPairingMethod),
+                          new Option("-methodUnio", &methodUnio),
                           new Option("-h", &helpMethod),
                           NULL
                       };
