@@ -100,10 +100,22 @@ namespace common {
     extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
     extern bool lineInfoPairing;
-    extern bool unio;
+    extern unsigned char resolve;
     
   }
 
+}
+
+namespace common {
+  
+  namespace enums {
+    
+    enum methodRes {
+                    unio,
+                    section,
+                    nothing
+    };
+  }
 }
 
 #endif

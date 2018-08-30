@@ -108,68 +108,129 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     
   debug << l1->getName() << " searched in "  << l2->getName() << endl;
   
-  for (unsigned i = 0; i < r1.size(); i++) {
     
-    if ( common::options::unio ) {  //TODO: ezt az ifet kívülre kellene vinni
+  
+  vector<Record> firstInsecond;
+  unsigned int sectionNum;
+  
+  if ( common::enums::methodRes::unio == common::options::resolve ) {  //TODO: ezt az ifet kívülre kellene vinni
+  
+    for (unsigned i = 0; i < r1.size(); i++) {
+     
       bool check = false;;
       //get every pair for a given method not only one
       for ( auto it = r2.begin(); it != r2.end(); it++ ) {
-        
+
         if ( *it == r1[i] ) {
           check = true;
           ++commonMethods;
         }
       }
       if ( !check ) {
-        
+
         onlyFirst.push_back(r1[i]);
       }
     }
-    else {
-      //todo: ide kellene valami ami eltárolja a párokat és a másiknál is s majd annak a metszetét nézni.
-      vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
-      if ( ehh != r2.end()) {
+  }
+  else {
 
-        ++commonMethods;
-        debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+    if ( common::enums::methodRes::section == common::options::resolve ) {
+
+      for (unsigned i = 0; i < r1.size(); i++) {
+
+        vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        if ( ehh != r2.end()) {
+          
+          ++commonMethods;
+          debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+          //TODO: save the match
+          firstInsecond.push_back(r1[i]);
+        }
+        else {
+          //this method is not in the second tool's vector
+          onlyFirst.push_back(r1[i]);
+        }
       }
-      else {
-        //this method is not in the second tool's vector
-        onlyFirst.push_back(r1[i]);
+    }
+    else {
+
+      for (unsigned i = 0; i < r1.size(); i++) {
+        
+        vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        if ( ehh != r2.end()) {
+          
+          ++commonMethods;
+          debug << l1->getName() << " " << *ehh << " " << r1[i] << endl;
+        }
+        else {
+          //this method is not in the second tool's vector
+          onlyFirst.push_back(r1[i]);
+        }
       }
     }
   }
   
   debug << "next: " << l2->getName() << " searched in " << l1->getName() << endl;
-  
-  for (unsigned i = 0; i < r2.size(); i++) {
     
-    if ( common::options::unio ) {  //TODO: ezt az ifet kívülre vinni
+  if ( common::enums::methodRes::unio == common::options::resolve ) {
+
+    for (unsigned i = 0; i < r2.size(); i++) {
       
       bool check = false;
       for ( auto it = r1.begin(); it != r1.end(); it++ ) {
-        
+
         if ( *it == r2[i] ) {
           check = true;
           ++commonMethodsCheck;
         }
       }
       if ( !check ) {
-        
+
         onlySecond.push_back(r2[i]);
+      }
+    }
+  }
+  else {
+
+    if ( common::enums::methodRes::section == common::options::resolve ) {
+      
+      sectionNum = 0;
+      
+      for (unsigned i = 0; i < r2.size(); i++) {
+        //TODO
+        vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        if ( ahh != r1.end()) {
+
+          ++commonMethodsCheck;
+          debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
+        }
+        else {
+          //this method is not in the second tool's vector
+          onlySecond.push_back(r2[i]);
+        }
+        
+        vector<Record>::iterator ii = find(firstInsecond.begin(), firstInsecond.end(), r2[i]);
+        if ( ii != firstInsecond.end()) {
+
+          ++sectionNum;
+        }
+        
       }
     }
     else {
       
-      vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
-      if ( ahh != r1.end()) {
+      for (unsigned i = 0; i < r2.size(); i++) {
+        
+        vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        if ( ahh != r1.end()) {
 
-        ++commonMethodsCheck;
-        debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
-      }
-      else {
-        //this method is not in the second tool's vector
-        onlySecond.push_back(r2[i]);
+          ++commonMethodsCheck;
+          debug << l2->getName() << " " << *ahh << " " << r2[i] << endl;
+        }
+        else {
+          //this method is not in the second tool's vector
+          onlySecond.push_back(r2[i]);
+        }
       }
     }
   }
@@ -182,9 +243,24 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
 
   statOut << l1->getFilePath() << " has " << compareSet1.size() << " calls" << " and " << r1.size() << " unique methods. " << endl;
   statOut << l2->getFilePath() << " has " << compareSet2.size() << " calls" << " and " << r2.size() << " unique methods. " << endl;
+  
+  if ( common::enums::methodRes::nothing == common::options::resolve ) {
+
   statOut << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << commonCallsCheck << " common calls" << endl;
   statOut << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
 
+  }
+  else if ( common::enums::methodRes::unio == common::options::resolve ) {
+    
+  statOut << l1->getName() << " and(unio) " << l2->getName() << " " << commonCalls << endl;
+  statOut << l1->getName() << " and(unio) " << l2->getName() << " " << commonMethods << endl;
+  }
+  else if ( common::enums::methodRes::section == common::options::resolve ) {
+    
+  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << commonCallsCheck << " common calls" << endl;
+  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
+    statOut << l1->getName() << " (section) " << l2->getName() << " " << sectionNum << endl;
+  }
   //write the differences
   statOut << "Only the " << l1->getName() << " contains this/these method(s):" << endl;
 

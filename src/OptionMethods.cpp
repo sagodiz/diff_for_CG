@@ -143,23 +143,27 @@ void lineInfoPairingMethod( char** argV, int argI ) {
 
 void methodUnio( char** argV, int argI ) {
   
-  if ( !strcmp(argV[argI + 1], "0") || !strcmp(argV[argI + 1], "false") ) {
+  if ( !strcmp(argV[argI + 1], "0") ) {
     
-    common::options::unio = false;
+    common::options::resolve = common::enums::methodRes::unio;
   }
-  else if ( !strcmp(argV[argI + 1], "1") || !strcmp(argV[argI + 1], "true") ) {
+  else if ( !strcmp(argV[argI + 1], "1") ) {
     
-    common::options::unio = true;
+    common::options::resolve = common::enums::methodRes::section;
+  }
+  else if ( !strcmp(argV[argI + 1], "2") ) {
+    
+    common::options::resolve = common::enums::methodRes::nothing;
   }
   else {
     
-    common::options::unio = true;
+    common::options::resolve = common::enums::methodRes::unio;
   }
 }
 
 void helpMethod(char** argV, int argI) {
   
-  std::cout << "Usage: " << argV[0] << " [-loader file]* [-option]* [-option value]*" << std::endl;
+  std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
   
   std::cout << "Loaders: " << std::endl 
   << "\t" << Labels::SOOT_CL << "\t Soot" << std::endl 
@@ -168,7 +172,7 @@ void helpMethod(char** argV, int argI) {
   << "\t" << Labels::JCG_CL << "\t JCG" << std::endl 
   << "\t" << Labels::WALA_CL << "\t WALA" << std::endl 
   << "\t" << Labels::JDT_CL << "\t JDT" << std::endl
-  << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl;
+  << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl << std::endl;
   
   std::cout << "Options with required value" << std::endl 
   << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl 
@@ -184,7 +188,10 @@ void helpMethod(char** argV, int argI) {
   << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
   << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
   << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
-  << "\t-methodUnio value\t Sets on or off the search of multiple matches. Value for turning on: {1, true} for turning off {0, false}. True is default value." << std::endl;
+  << "\t-methodUnio value\t How method pairing should be \"counted\"." << std::endl
+  << "\t\t0 Union. (Default) Find all matches." << std::endl 
+  << "\t\t1 Section. Find all matches A in B and B in A and get the common methods of this two." << std::endl
+  << "\t\t2 Nothing. It does nothing. The difference in number of matches is not resolved." << std::endl << std::endl;
   
   std::cout << "Options without required values" << std::endl 
   << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 

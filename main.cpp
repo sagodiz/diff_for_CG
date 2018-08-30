@@ -92,7 +92,6 @@ int main( int argc, char** argv ) {
     return 1;
   }
 */
-  cout << "Starting transforming and making stat..." << endl;
   
   try { 
 
@@ -196,6 +195,8 @@ int main( int argc, char** argv ) {
 
   std::set<std::pair<int, int>> unionGraphEdges;
   std::vector<Record> unionGraphNodes;
+    
+  cout << "Starting transforming and making stat..." << endl;
     
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     cout << loaders[i]->getName() << "..." << endl;

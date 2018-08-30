@@ -157,6 +157,6 @@ namespace common {
     unsigned char CHPTransform = 0;
     unsigned char anonymClassNameTransform = 0;
     bool lineInfoPairing = false;
-    bool unio = true;
+    unsigned char resolve = 0;
   }
 }
