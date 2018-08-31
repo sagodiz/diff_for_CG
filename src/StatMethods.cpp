@@ -44,9 +44,21 @@ void writeTSV(vector<Record> records, string name, string tool) {
 
   for (unsigned i = 0; i < records.size(); i++) {
 
-    TSV << name << "\t" << records[i] << "\t";
-
-    TSV << records[i].getSameMethods().at(0).first + records[i].getSecondaryRepresentation() << endl;
+    TSV << name << "\t";// << records[i] << "\t"; it was the transformed rep, but from this point we use IDs since non equal transformed reps could be equal.
+    //get the id.
+    unsigned id = -1;
+    
+    for ( unsigned j = 0; j < common::storedIds.size(); i++ ) {
+    
+      if ( common::storedIds[j] == records[i] ) {
+        
+        id = j;
+        break;
+      }
+    }
+    TSV << id << "\t";
+    
+    TSV << records[i].getSameMethods().at(0).first + records[i].getSecondaryRepresentation() << endl; 
   }
 }
 
