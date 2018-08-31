@@ -29,7 +29,8 @@ void writeConnTSV(set<pair<int, int>> connections, string name) {
 
   for (pair<int, int> it : connections) {
 
-    TSV << "(" << it.first << ")" << common::getMethodById(it.first) << "->(" << it.second << ")" << common::getMethodById(it.second) << "\t" << name << endl;
+    //TSV << "(" << it.first << ")" << common::getMethodById(it.first) << "->(" << it.second << ")" << common::getMethodById(it.second) << "\t" << name << endl;
+    TSV << it.first << "->" << it.second << "\t" << name << endl;
   }
 }
 
