@@ -49,7 +49,7 @@ void writeTSV(vector<Record> records, string name, string tool) {
     //get the id.
     unsigned id = -1;
     
-    for ( unsigned j = 0; j < common::storedIds.size(); i++ ) {
+    for ( unsigned j = 0; j < common::storedIds.size(); j++ ) {
     
       if ( common::storedIds[j] == records[i] ) {
         
