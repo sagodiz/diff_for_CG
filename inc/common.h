@@ -28,6 +28,9 @@ namespace common {
   std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds); //does the filtering for connections
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr); //cuts apart pckg and class name.It assumes the followong format:pckg.hierarchy.ClassName[$Nesteds]
   void printFilteredMethod(const std::string& loadername, std::vector<Record> records); //TODO!!!
+
+  std::string produceMethodPairingName();
+  std::string produceFileNamePrefix();
   
   extern bool TRACE_RUN;
   

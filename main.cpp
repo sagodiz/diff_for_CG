@@ -242,7 +242,7 @@ int main( int argc, char** argv ) {
   for ( unsigned i = 0; i < records.size() && i < loadersAndUnionG.size(); i++ ) { //the and is here just for safety, those two should be the same.
     
     writeTSV(records[i], loadersAndUnionG[i]->getName(), loadersAndUnionG[i]->getName());
-    common::tsvFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
+    common::tsvFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + common::produceFileNamePrefix() + loadersAndUnionG[i]->getName() + "loadedMethods.tsv");
   }
   
   {
@@ -260,7 +260,7 @@ int main( int argc, char** argv ) {
   for ( unsigned i = 0; i < connections.size() && i < loadersAndUnionG.size(); i++ ) { //that and is for safety too.
     
     writeConnTSV(connections[i], loadersAndUnionG[i]->getName());
-    common::connTSVFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + Labels::PROJECT_NAME + loadersAndUnionG[i]->getName() + "connections.tsv");
+    common::connTSVFiles.push_back(loadersAndUnionG[i]->getKind() + loadersAndUnionG[i]->getName() + common::produceFileNamePrefix() + loadersAndUnionG[i]->getName() + "connections.tsv");
   }
   
   {
@@ -282,10 +282,16 @@ int main( int argc, char** argv ) {
   }
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
+  std::vector<std::vector<float>> matrixMethodsDuplicate;
   std::vector<std::vector<unsigned long long>> matrixCallsCount, matrixMethodsCount;
+  std::vector<std::vector<unsigned long long>> matrixMethodsCountDuplicate;
     
   matrixCalls.resize(loadersAndUnionG.size());
   matrixMethods.resize(loadersAndUnionG.size());
+  if (common::enums::methodRes::nothing == common::options::resolve) {
+	  matrixMethodsDuplicate.resize(loadersAndUnionG.size());
+	  matrixMethodsCountDuplicate.resize(loadersAndUnionG.size());
+  }
   matrixCallsCount.resize(loadersAndUnionG.size());
   matrixMethodsCount.resize(loadersAndUnionG.size());
     
@@ -293,6 +299,10 @@ int main( int argc, char** argv ) {
     
     matrixCalls[i].resize(loadersAndUnionG.size());
     matrixMethods[i].resize(loadersAndUnionG.size());
+	if (common::enums::methodRes::nothing == common::options::resolve) {
+		matrixMethodsDuplicate[i].resize(loadersAndUnionG.size());
+		matrixMethodsCountDuplicate[i].resize(loadersAndUnionG.size());
+	}
     matrixCallsCount[i].resize(loadersAndUnionG.size());
     matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
@@ -303,7 +313,7 @@ int main( int argc, char** argv ) {
     
       cout << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << " stats..." << endl;
       
-      std::pair<unsigned long long, unsigned long long> commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
+      commonCounters commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
       float loader_i_callNum = (float)connections[i].size();
       float loader_j_callNum = (float)connections[j].size();
 
@@ -312,28 +322,46 @@ int main( int argc, char** argv ) {
       //aranyok
       matrixCalls[i][i] = loader_i_callNum;
       matrixMethods[i][i] = loader_i_uniqueMethod;
-      matrixMethods[i][j] = commonVals.first / loader_i_uniqueMethod;
-      matrixCalls[i][j] = commonVals.second / loader_i_callNum;
+      matrixMethods[i][j] = commonVals.commonMethods.first / loader_i_uniqueMethod;
+      matrixCalls[i][j] = commonVals.commonCalls / loader_i_callNum;
 
       matrixCalls[j][j] = loader_j_callNum;
       matrixMethods[j][j] = loader_j_uniqueMethod;
-      matrixMethods[j][i] = commonVals.first / loader_j_uniqueMethod;
-      matrixCalls[j][i] = commonVals.second / loader_j_callNum;
+      matrixMethods[j][i] = commonVals.commonMethods.first / loader_j_uniqueMethod;
+      matrixCalls[j][i] = commonVals.commonCalls / loader_j_callNum;
+
+	  if (common::enums::methodRes::nothing == common::options::resolve) {
+		  //aranyok
+		  matrixMethodsDuplicate[i][i] = loader_i_uniqueMethod;
+		  matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
+
+		  matrixMethodsDuplicate[j][j] = loader_j_uniqueMethod;
+		  matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
+	  }
 
       //szamok
       matrixCallsCount[i][i] = connections[i].size();
       matrixMethodsCount[i][i] = records[i].size();
-      matrixMethodsCount[i][j] = commonVals.first;
-      matrixCallsCount[i][j] = commonVals.second;
+      matrixMethodsCount[i][j] = commonVals.commonMethods.first;
+      matrixCallsCount[i][j] = commonVals.commonCalls;
 
       matrixCallsCount[j][j] = connections[j].size();
       matrixMethodsCount[j][j] = records[j].size();
-      matrixMethodsCount[j][i] = commonVals.first;
-      matrixCallsCount[j][i] = commonVals.second;
+      matrixMethodsCount[j][i] = commonVals.commonMethods.first;
+      matrixCallsCount[j][i] = commonVals.commonCalls;
+
+
+	  if (common::enums::methodRes::nothing == common::options::resolve) {
+		  matrixMethodsCountDuplicate[i][i] = records[i].size();
+		  matrixMethodsCountDuplicate[i][j] = commonVals.commonMethods.second;
+
+		  matrixMethodsCountDuplicate[j][j] = records[j].size();
+		  matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;
+	  }
     }
   }
     
-  std::string fname = Labels::PROJECT_NAME+"_filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
+  std::string fname = common::produceFileNamePrefix() +"filter_" + std::to_string(common::options::filterLevel) + "_common_calls_methods.csv";
   FILE * common_file = fopen(fname.c_str(), "w");
 
   if ( !common_file )
@@ -341,7 +369,12 @@ int main( int argc, char** argv ) {
     
  
   printMatrix(loadersAndUnionG, matrixCalls, common_file, "calls");
+
   printMatrix(loadersAndUnionG, matrixMethods, common_file, "methods");
+  if (common::enums::methodRes::nothing == common::options::resolve) {
+	  printMatrix(loadersAndUnionG, matrixMethodsDuplicate, common_file, "methodsDupl");
+	  printMatrix(loadersAndUnionG, matrixMethodsCountDuplicate, common_file, "methodsCountDupl");
+  }
 
   printMatrix(loadersAndUnionG, matrixCallsCount, common_file, "callsCount");
   printMatrix(loadersAndUnionG, matrixMethodsCount, common_file, "methodsCount");
@@ -357,14 +390,14 @@ int main( int argc, char** argv ) {
       
         static const string graphml_ext = ".graphml";
         static const string json_ext = ".json";
-        string filename = Labels::PROJECT_NAME + "_" + loaders[i]->getName();
+        string filename = common::produceFileNamePrefix() + loaders[i]->getName();
         graph_ids.push_back(filename);
         GraphDBCommon::writeUnifiedGraphToGraphml(filename + graphml_ext, records[i], connections[i]);
         GraphDBCommon::convertGraphmlToJson(filename + graphml_ext, filename + json_ext);
         GraphDBCommon::uploadToDraphDB(filename + json_ext, i == 0, filename);
       }
       
-      GraphDBCommon::saveDBLabelsToFile(graph_ids, Labels::PROJECT_NAME);
+      GraphDBCommon::saveDBLabelsToFile(graph_ids, common::produceFileNamePrefix());
     }
     
     makeGraphDBStat(graph_ids);

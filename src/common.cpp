@@ -145,6 +145,20 @@ namespace common {
     }
   }
 
+
+  std::string produceMethodPairingName() {
+	  switch (common::options::resolve) {
+	  case common::enums::methodRes::nothing: return "nothing";
+	  case common::enums::methodRes::unio: return "unio";
+	  case common::enums::methodRes::section: return "section";
+	  default: return "dafaq";
+	  }
+  }
+
+  std::string produceFileNamePrefix() {
+	  return Labels::PROJECT_NAME + "_" + produceMethodPairingName() + "_";
+  }
+
   
 }
 

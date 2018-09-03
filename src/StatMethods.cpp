@@ -5,6 +5,8 @@
 
 using namespace std;
 
+typedef std::pair<unsigned long long, unsigned long long> commonPair;
+
 void makeGraphDBStat(const vector<string>& graph_ids) {
   if (graph_ids.size() == 0) {
     cerr << "No graph ids!" << endl;
@@ -20,7 +22,7 @@ void makeGraphDBStat(const vector<string>& graph_ids) {
 
 void writeConnTSV(set<pair<int, int>> connections, string name) {
 
-  ofstream TSV(Labels::PROJECT_NAME + name + "connections.tsv");
+  ofstream TSV(common::produceFileNamePrefix() + name + "connections.tsv");
 
   if (!TSV.is_open())
     throw Labels::COULD_NOT_WRITE_TSV;
@@ -36,7 +38,7 @@ void writeConnTSV(set<pair<int, int>> connections, string name) {
 
 void writeTSV(vector<Record> records, string name, string tool) {
 
-  ofstream TSV(Labels::PROJECT_NAME + tool + "loadedMethods.tsv");
+  ofstream TSV(common::produceFileNamePrefix() + tool + "loadedMethods.tsv");
 
   if (!TSV.is_open())
     throw Labels::COULD_NOT_WRITE_TSV;
@@ -63,7 +65,7 @@ void writeTSV(vector<Record> records, string name, string tool) {
   }
 }
 
-pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2) {
+commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2) {
 
   unsigned long long commonCalls = 0;
   unsigned long long commonCallsCheck = 0;
@@ -76,7 +78,7 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   vector<pair<int, int>> onlyFirstCall;
   vector<pair<int, int>> onlySecondCall;
 
-  ofstream statOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "-common-calls.txt");
+  ofstream statOut(common::produceFileNamePrefix() + l1->getName() + "-" + l2->getName() + "-common-calls.txt");
 
   //check calls
   if (!statOut.is_open())
@@ -259,19 +261,19 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   
   if ( common::enums::methodRes::nothing == common::options::resolve ) {
 
-  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << commonCallsCheck << " common calls" << endl;
-  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
+  statOut << "Calls:" << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonCallsCheck << " common calls" << endl;
+  statOut << "Methods:" << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
 
   }
   else if ( common::enums::methodRes::unio == common::options::resolve ) {
     
-  statOut << l1->getName() << " and(unio) " << l2->getName() << " " << commonCalls << endl;
-  statOut << l1->getName() << " and(unio) " << l2->getName() << " " << commonMethods << endl;
+  statOut << "Calls:" << l1->getName() << " and(unio) " << l2->getName() << " " << commonCalls << endl;
+  statOut << "Methods:" << l1->getName() << " and(unio) " << l2->getName() << " " << commonMethods << endl;
   }
   else if ( common::enums::methodRes::section == common::options::resolve ) {
     
-  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << commonCallsCheck << " common calls" << endl;
-  statOut << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
+  statOut << "Calls:" << l1->getName() << " searched in " << l2->getName() << " " << commonCalls << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonCallsCheck << " common calls" << endl;
+  statOut << "Methods:" << l1->getName() << " searched in " << l2->getName() << " " << commonMethods << ". " << l2->getName() << " searched in " << l1->getName() << " " << commonMethodsCheck << " common methods." << endl;
     statOut << l1->getName() << " (section) " << l2->getName() << " " << sectionNum << endl;
   }
   //write the differences
@@ -308,7 +310,7 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
   //----------------------------------Extra info differences only in edges-----------------------------------------------------------
   if ("L_" == l1->getKind() && "L_" == l2->getKind()) {
 
-    ofstream edgeStatOut(Labels::PROJECT_NAME + l1->getName() + "-" + l2->getName() + "edge.diff");
+    ofstream edgeStatOut(common::produceFileNamePrefix() + l1->getName() + "-" + l2->getName() + "edge.diff");
 
     if (!edgeStatOut.is_open())
       throw Labels::COULD_NOT_WRITE_OUTPUT;
@@ -345,5 +347,16 @@ pair<unsigned long long, unsigned long long> makeStat(set<pair<int, int>> compar
     edgeStatOut.close();
   }
 
-  return std::make_pair(commonMethods, commonCalls);
+
+  if (common::enums::methodRes::unio == common::options::resolve) {
+	  return{ std::make_pair(commonMethods, 0), commonCalls };
+  }
+  else if (common::enums::methodRes::section == common::options::resolve) {
+	  return{ std::make_pair(sectionNum,0), commonCalls };
+  }
+  else {
+	  return{ std::make_pair(commonMethods, commonMethodsCheck), commonCalls };
+  }
+
+  
 }

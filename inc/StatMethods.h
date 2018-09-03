@@ -15,7 +15,15 @@ struct StatData {
   unsigned commonMethodCount, commonCallCount;
 };
 */
-std::pair<unsigned long long, unsigned long long> makeStat(std::set<std::pair<int, int>> compareSet1, std::set<std::pair<int, int>> compareSet2, Named * l1, Named * l2, std::vector<Record> r1, std::vector<Record> r2);
+
+typedef std::pair<unsigned long long, unsigned long long> commonPair;
+
+struct commonCounters {
+	commonPair commonMethods;
+	unsigned long long commonCalls;
+};
+
+commonCounters makeStat(std::set<std::pair<int, int>> compareSet1, std::set<std::pair<int, int>> compareSet2, Named * l1, Named * l2, std::vector<Record> r1, std::vector<Record> r2);
 void makeGraphDBStat(const std::vector<std::string>& labels);
 void writeTSV(std::vector<Record>, std::string, std::string);
 
