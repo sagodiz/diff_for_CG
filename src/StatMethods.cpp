@@ -5,8 +5,6 @@
 
 using namespace std;
 
-typedef std::pair<unsigned long long, unsigned long long> commonPair;
-
 void makeGraphDBStat(const vector<string>& graph_ids) {
   if (graph_ids.size() == 0) {
     cerr << "No graph ids!" << endl;
