@@ -236,10 +236,10 @@ DDD
     }
   }
 
-  if (isEquals) {
+  /*if (isEquals) {
 
     cout << *this << "equals to " << r << endl;
-  }
+  }*/
 
 
   return isEquals;
