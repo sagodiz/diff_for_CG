@@ -19,8 +19,9 @@ struct StatData {
 typedef std::pair<unsigned long long, unsigned long long> commonPair;
 
 struct commonCounters {
-	commonPair commonMethods;
+	commonPair extra_commonMethods;
 	unsigned long long commonCalls;
+  commonPair not_found; //for both tools it shows how many methods were NOT found in the other.
 };
 
 commonCounters makeStat(std::set<std::pair<int, int>> compareSet1, std::set<std::pair<int, int>> compareSet2, Named * l1, Named * l2, std::vector<Record> r1, std::vector<Record> r2);

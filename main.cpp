@@ -322,41 +322,49 @@ int main( int argc, char** argv ) {
       //aranyok
       matrixCalls[i][i] = loader_i_callNum;
       matrixMethods[i][i] = loader_i_uniqueMethod;
-      matrixMethods[i][j] = commonVals.commonMethods.first / loader_i_uniqueMethod;
+      //matrixMethods[i][j] = commonVals.commonMethods.first / loader_i_uniqueMethod;
+      matrixMethods[i][j] = commonVals.not_found.first / loader_i_uniqueMethod;
       matrixCalls[i][j] = commonVals.commonCalls / loader_i_callNum;
 
       matrixCalls[j][j] = loader_j_callNum;
       matrixMethods[j][j] = loader_j_uniqueMethod;
-      matrixMethods[j][i] = commonVals.commonMethods.first / loader_j_uniqueMethod;
+      //matrixMethods[j][i] = commonVals.commonMethods.first / loader_j_uniqueMethod;
+      matrixMethods[j][i] = commonVals.not_found.first / loader_j_uniqueMethod;
       matrixCalls[j][i] = commonVals.commonCalls / loader_j_callNum;
 
 	  if (common::enums::methodRes::nothing == common::options::resolve) {
 		  //aranyok
 		  matrixMethodsDuplicate[i][i] = loader_i_uniqueMethod;
-		  matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
+		  //matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
+		  matrixMethodsDuplicate[i][j] = commonVals.not_found.second / loader_i_uniqueMethod;
 
 		  matrixMethodsDuplicate[j][j] = loader_j_uniqueMethod;
-		  matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
+		  //matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
+		  matrixMethodsDuplicate[j][i] = commonVals.not_found.second / loader_j_uniqueMethod;
 	  }
 
       //szamok
       matrixCallsCount[i][i] = connections[i].size();
       matrixMethodsCount[i][i] = records[i].size();
-      matrixMethodsCount[i][j] = commonVals.commonMethods.first;
+      //matrixMethodsCount[i][j] = commonVals.commonMethods.first;
+      matrixMethodsCount[i][j] = commonVals.not_found.first;
       matrixCallsCount[i][j] = commonVals.commonCalls;
 
       matrixCallsCount[j][j] = connections[j].size();
       matrixMethodsCount[j][j] = records[j].size();
-      matrixMethodsCount[j][i] = commonVals.commonMethods.first;
+      //matrixMethodsCount[j][i] = commonVals.commonMethods.first;
+      matrixMethodsCount[j][i] = commonVals.not_found.first;
       matrixCallsCount[j][i] = commonVals.commonCalls;
 
 
 	  if (common::enums::methodRes::nothing == common::options::resolve) {
 		  matrixMethodsCountDuplicate[i][i] = records[i].size();
-		  matrixMethodsCountDuplicate[i][j] = commonVals.commonMethods.second;
+		  //matrixMethodsCountDuplicate[i][j] = commonVals.commonMethods.second;
+		  matrixMethodsCountDuplicate[i][j] = commonVals.not_found.second;
 
 		  matrixMethodsCountDuplicate[j][j] = records[j].size();
-		  matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;
+		  //matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;
+		  matrixMethodsCountDuplicate[j][i] = commonVals.not_found.second;
 	  }
     }
   }

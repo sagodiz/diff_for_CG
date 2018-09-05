@@ -69,6 +69,8 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
   unsigned long long commonCallsCheck = 0;
   unsigned long long commonMethods = 0;
   unsigned long long commonMethodsCheck = 0;
+  unsigned long long not_paired_first = 0;
+  unsigned long long not_paired_second = 0;
 
   vector<Record> onlyFirst;
   vector<Record> onlySecond;
@@ -142,6 +144,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
       if ( !check ) {
 
         onlyFirst.push_back(r1[i]);
+        ++not_paired_first;
       }
     }
   }
@@ -162,6 +165,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
         else {
           //this method is not in the second tool's vector
           onlyFirst.push_back(r1[i]);
+          ++not_paired_first;
         }
       }
     }
@@ -178,6 +182,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
         else {
           //this method is not in the second tool's vector
           onlyFirst.push_back(r1[i]);
+          ++not_paired_first;
         }
       }
     }
@@ -200,6 +205,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
       if ( !check ) {
 
         onlySecond.push_back(r2[i]);
+        ++not_paired_second;
       }
     }
   }
@@ -220,6 +226,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
         else {
           //this method is not in the second tool's vector
           onlySecond.push_back(r2[i]);
+          ++not_paired_second;
         }
         
         vector<Record>::iterator ii = find(firstInsecond.begin(), firstInsecond.end(), r2[i]);
@@ -243,6 +250,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
         else {
           //this method is not in the second tool's vector
           onlySecond.push_back(r2[i]);
+          ++not_paired_second;
         }
       }
     }
@@ -347,13 +355,13 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
 
 
   if (common::enums::methodRes::unio == common::options::resolve) {
-	  return{ std::make_pair(commonMethods, 0), commonCalls };
+	  return{ std::make_pair(commonMethods, 0), commonCalls, std::make_pair(not_paired_first, not_paired_second)};
   }
   else if (common::enums::methodRes::section == common::options::resolve) {
-	  return{ std::make_pair(sectionNum,0), commonCalls };
+	  return{ std::make_pair(sectionNum,0), commonCalls, std::make_pair(not_paired_first, not_paired_second) };
   }
   else {
-	  return{ std::make_pair(commonMethods, commonMethodsCheck), commonCalls };
+	  return{ std::make_pair(commonMethods, commonMethodsCheck), commonCalls, std::make_pair(not_paired_first, not_paired_second) };
   }
 
   
