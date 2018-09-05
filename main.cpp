@@ -323,24 +323,24 @@ int main( int argc, char** argv ) {
       matrixCalls[i][i] = loader_i_callNum;
       matrixMethods[i][i] = loader_i_uniqueMethod;
       //matrixMethods[i][j] = commonVals.commonMethods.first / loader_i_uniqueMethod;
-      matrixMethods[i][j] = commonVals.not_found.first / loader_i_uniqueMethod;
+      matrixMethods[i][j] = 1 - (commonVals.not_found.first / loader_i_uniqueMethod);
       matrixCalls[i][j] = commonVals.commonCalls / loader_i_callNum;
 
       matrixCalls[j][j] = loader_j_callNum;
       matrixMethods[j][j] = loader_j_uniqueMethod;
       //matrixMethods[j][i] = commonVals.commonMethods.first / loader_j_uniqueMethod;
-      matrixMethods[j][i] = commonVals.not_found.first / loader_j_uniqueMethod;
+      matrixMethods[j][i] = 1 - (commonVals.not_found.first / loader_j_uniqueMethod);
       matrixCalls[j][i] = commonVals.commonCalls / loader_j_callNum;
 
 	  if (common::enums::methodRes::nothing == common::options::resolve) {
 		  //aranyok
 		  matrixMethodsDuplicate[i][i] = loader_i_uniqueMethod;
 		  //matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
-		  matrixMethodsDuplicate[i][j] = commonVals.not_found.second / loader_i_uniqueMethod;
+		  matrixMethodsDuplicate[i][j] = 1 - (commonVals.not_found.second / loader_i_uniqueMethod);
 
 		  matrixMethodsDuplicate[j][j] = loader_j_uniqueMethod;
 		  //matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
-		  matrixMethodsDuplicate[j][i] = commonVals.not_found.second / loader_j_uniqueMethod;
+		  matrixMethodsDuplicate[j][i] = 1 - (commonVals.not_found.second / loader_j_uniqueMethod);
 	  }
 
       //szamok
