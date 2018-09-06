@@ -282,16 +282,16 @@ int main( int argc, char** argv ) {
   }
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
-  std::vector<std::vector<float>> matrixMethodsDuplicate;
+ // std::vector<std::vector<float>> matrixMethodsDuplicate;
   std::vector<std::vector<unsigned long long>> matrixCallsCount, matrixMethodsCount;
-  std::vector<std::vector<unsigned long long>> matrixMethodsCountDuplicate;
+//  std::vector<std::vector<unsigned long long>> matrixMethodsCountDuplicate;
     
   matrixCalls.resize(loadersAndUnionG.size());
   matrixMethods.resize(loadersAndUnionG.size());
-  if (common::enums::methodRes::nothing == common::options::resolve) {
+ /* if (common::enums::methodRes::nothing == common::options::resolve) {
 	  matrixMethodsDuplicate.resize(loadersAndUnionG.size());
 	  matrixMethodsCountDuplicate.resize(loadersAndUnionG.size());
-  }
+  }*/
   matrixCallsCount.resize(loadersAndUnionG.size());
   matrixMethodsCount.resize(loadersAndUnionG.size());
     
@@ -299,10 +299,10 @@ int main( int argc, char** argv ) {
     
     matrixCalls[i].resize(loadersAndUnionG.size());
     matrixMethods[i].resize(loadersAndUnionG.size());
-	if (common::enums::methodRes::nothing == common::options::resolve) {
+	/*if (common::enums::methodRes::nothing == common::options::resolve) {
 		matrixMethodsDuplicate[i].resize(loadersAndUnionG.size());
 		matrixMethodsCountDuplicate[i].resize(loadersAndUnionG.size());
-	}
+	}*/
     matrixCallsCount[i].resize(loadersAndUnionG.size());
     matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
@@ -329,10 +329,10 @@ int main( int argc, char** argv ) {
       matrixCalls[j][j] = loader_j_callNum;
       matrixMethods[j][j] = loader_j_uniqueMethod;
       //matrixMethods[j][i] = commonVals.commonMethods.first / loader_j_uniqueMethod;
-      matrixMethods[j][i] = 1 - (commonVals.not_found.first / loader_j_uniqueMethod);
+      matrixMethods[j][i] = 1 - (commonVals.not_found.second / loader_j_uniqueMethod);
       matrixCalls[j][i] = commonVals.commonCalls / loader_j_callNum;
 
-	  if (common::enums::methodRes::nothing == common::options::resolve) {
+	 /* if (common::enums::methodRes::nothing == common::options::resolve) {
 		  //aranyok
 		  matrixMethodsDuplicate[i][i] = loader_i_uniqueMethod;
 		  //matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
@@ -341,7 +341,7 @@ int main( int argc, char** argv ) {
 		  matrixMethodsDuplicate[j][j] = loader_j_uniqueMethod;
 		  //matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
 		  matrixMethodsDuplicate[j][i] = 1 - (commonVals.not_found.second / loader_j_uniqueMethod);
-	  }
+	  }*/
 
       //szamok
       matrixCallsCount[i][i] = connections[i].size();
@@ -353,19 +353,19 @@ int main( int argc, char** argv ) {
       matrixCallsCount[j][j] = connections[j].size();
       matrixMethodsCount[j][j] = records[j].size();
       //matrixMethodsCount[j][i] = commonVals.commonMethods.first;
-      matrixMethodsCount[j][i] = commonVals.not_found.first;
+      matrixMethodsCount[j][i] = commonVals.not_found.second;
       matrixCallsCount[j][i] = commonVals.commonCalls;
 
 
-	  if (common::enums::methodRes::nothing == common::options::resolve) {
+	 /* if (common::enums::methodRes::nothing == common::options::resolve) {
 		  matrixMethodsCountDuplicate[i][i] = records[i].size();
 		  //matrixMethodsCountDuplicate[i][j] = commonVals.commonMethods.second;
 		  matrixMethodsCountDuplicate[i][j] = commonVals.not_found.second;
 
 		  matrixMethodsCountDuplicate[j][j] = records[j].size();
-		  //matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;
+		  //matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;matrixMethodsDuplicate
 		  matrixMethodsCountDuplicate[j][i] = commonVals.not_found.second;
-	  }
+	  }*/
     }
   }
     
@@ -379,10 +379,10 @@ int main( int argc, char** argv ) {
   printMatrix(loadersAndUnionG, matrixCalls, common_file, "calls");
 
   printMatrix(loadersAndUnionG, matrixMethods, common_file, "methods");
-  if (common::enums::methodRes::nothing == common::options::resolve) {
+  /*if (common::enums::methodRes::nothing == common::options::resolve) {
 	  printMatrix(loadersAndUnionG, matrixMethodsDuplicate, common_file, "methodsDupl");
 	  printMatrix(loadersAndUnionG, matrixMethodsCountDuplicate, common_file, "methodsCountDupl");
-  }
+  }*/
 
   printMatrix(loadersAndUnionG, matrixCallsCount, common_file, "callsCount");
   printMatrix(loadersAndUnionG, matrixMethodsCount, common_file, "methodsCount");
