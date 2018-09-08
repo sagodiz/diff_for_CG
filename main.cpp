@@ -120,6 +120,7 @@ int main( int argc, char** argv ) {
                           new Option("-lineInfoPairing", &lineInfoPairingMethod),
                           new Option("-methodUnio", &methodUnio),
                           new Option("-h", &helpMethod),
+                          new Option("-JDTGenerics", &jdtGeneric),
                           NULL
                       };
     

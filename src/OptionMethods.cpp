@@ -161,6 +161,30 @@ void methodUnio( char** argV, int argI ) {
   }
 }
 
+void jdtGeneric(char** argV, int argI) {
+
+  if (!strcmp(argV[argI + 1], "0")) {
+
+    common::options::JDT_generics = common::enums::JDTGenerics::JDT_nothing;
+  }
+  else if (!strcmp(argV[argI + 1], "1")) {
+
+    common::options::JDT_generics = common::enums::JDTGenerics::JDT_onlyClass;
+  }
+  else if (!strcmp(argV[argI + 1], "2")) {
+
+    common::options::JDT_generics = common::enums::JDTGenerics::JDT_onlyParameters;
+  }
+  else if (!strcmp(argV[argI + 1], "3")) {
+
+    common::options::JDT_generics = common::enums::JDTGenerics::JDT_classAndParameters;
+  }
+  else {
+
+    common::options::JDT_generics = common::enums::JDTGenerics::JDT_nothing;
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
@@ -174,24 +198,30 @@ void helpMethod(char** argV, int argI) {
   << "\t" << Labels::JDT_CL << "\t JDT" << std::endl
   << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl << std::endl;
   
-  std::cout << "Options with required value" << std::endl 
-  << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl 
-  << "\tfilterLevel level\t Level is a numer. It defines the filtering level:" << std::endl 
-  << "\t\t0 No filtering" << std::endl 
-  << "\t\t1 TODO: Filter calls if the caller or the calle is a java library method." << std::endl
-  << "\t\t2 TODO: Filter calls. Only method of the projects remain. projectPath ought to be given." << std::endl 
-  << "\t-projectPath path\t TODO:Path is the path where the project is located." << std::endl 
-  << "\t-anonymTransformation level\t Level identifies how anonym parts of the nodes should be resolved:" << std::endl 
-  << "\t\t0 No transformation (Default)" << std::endl 
-  << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl 
-  << "\t\t higher levels are TODOs" << std::endl 
-  << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
-  << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
-  << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
-  << "\t-methodUnio value\t How method pairing should be \"counted\"." << std::endl
-  << "\t\t0 Union. (Default) Find all matches." << std::endl 
-  << "\t\t1 Section. Find all matches A in B and B in A and get the common methods of this two." << std::endl
-  << "\t\t2 Nothing. It does nothing. The difference in number of matches is not resolved." << std::endl << std::endl;
+  std::cout << "Options with required value" << std::endl
+    << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl
+    << "\tfilterLevel level\t Level is a numer. It defines the filtering level:" << std::endl
+    << "\t\t0 No filtering" << std::endl
+    << "\t\t1 TODO: Filter calls if the caller or the calle is a java library method." << std::endl
+    << "\t\t2 TODO: Filter calls. Only method of the projects remain. projectPath ought to be given." << std::endl
+    << "\t-projectPath path\t TODO:Path is the path where the project is located." << std::endl
+    << "\t-anonymTransformation level\t Level identifies how anonym parts of the nodes should be resolved:" << std::endl
+    << "\t\t0 No transformation (Default)" << std::endl
+    << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl
+    << "\t\t higher levels are TODOs" << std::endl
+    << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
+    << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
+    << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
+    << "\t-methodUnio value\t How method pairing should be \"counted\"." << std::endl
+    << "\t\t0 Union. (Default) Find all matches." << std::endl
+    << "\t\t1 Section. Find all matches A in B and B in A and get the common methods of this two." << std::endl
+    << "\t\t2 Nothing. It does nothing. The difference in number of matches is not resolved." << std::endl
+    << "\t-JDTGenerics value\t How JDT loader should transform generics" << std::endl
+    << "\t\t0: no transformation" << std::endl
+    << "\t\t1: transform only class generics" << std::endl
+    << "\t\t2: transform only parameters" << std::endl
+    << "\t\t3: transform both class and method generics." << std::endl
+    << std::endl;
   
   std::cout << "Options without required values" << std::endl 
   << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 

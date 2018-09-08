@@ -15,6 +15,7 @@ void projectPathMethod(char **argVector, int argIndex); //sets the project path 
 void calcUnionGraphMethod(char** argV, int argI); //makes the program to calculate stats. with the unnion graph
 void lineInfoPairingMethod(char** argV, int argI);  //sets whether the lineinfo should be used in pairing.
 void methodUnio(char** argV, int argI); //sets if methods that has multiple pairs should be paired to every math.
+void jdtGeneric(char** argV, int argI); //sets how JDT loader should transform generics
 void helpMethod(char** argV, int argI); //shows help message
 
 #endif

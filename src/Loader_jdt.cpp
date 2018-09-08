@@ -101,6 +101,28 @@ vector<Record> Loader_jdt::load() {
       stringstream paramStream(paramsReturnFileInfo); //here, only params in the string
       string parameter;
       while ( getline(paramStream, parameter, ';') ) {
+        
+        if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyParameters) {
+
+          if (parameter.find("<?") != string::npos) {
+
+            unsigned char i = 0;
+            char spaceNum = 0;
+            while (i < parameter.length()) {
+
+              if (parameter[i] == ' ') {
+                ++spaceNum;
+              }
+
+              if (2 == spaceNum)
+                break;
+
+              ++i;
+            }
+
+            parameter = parameter.substr(i + 1);
+          }
+        }
 
         parameterVector.push_back(parameter);
       }
@@ -141,6 +163,13 @@ vector<Record> Loader_jdt::load() {
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
       
+      if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyClass) {
+
+        size_t generics = classStr.find("<");
+        if (generics != string::npos)
+          classStr.erase(generics);
+      }
+
       Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, startLine, endLine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );

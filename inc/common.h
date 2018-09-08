@@ -104,6 +104,7 @@ namespace common {
     extern unsigned char anonymClassNameTransform;
     extern bool lineInfoPairing;
     extern unsigned char resolve;
+    extern unsigned char JDT_generics;
     
   }
 
@@ -117,6 +118,13 @@ namespace common {
                     unio,
                     section,
                     nothing
+    };
+
+    enum JDTGenerics {
+                      JDT_nothing, 
+                      JDT_onlyClass,
+                      JDT_onlyParameters,
+                      JDT_classAndParameters
     };
   }
 }
