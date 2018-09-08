@@ -42,7 +42,15 @@ vector<Record> Loader_jdt::load() {
       stringstream input_stringstream(line);
       getline(input_stringstream, representation, ' ');
       getline(input_stringstream, infoMine, ' ');
-
+      
+      {
+        string plus;
+        while ( getline(input_stringstream, plus, ' ') ) {
+          
+          infoMine += plus;
+        }
+      }
+      
       infoMine.erase(0, 8); //[label=" --> 8 chars
       size_t ending = infoMine.rfind("\"]");
       if (ending != string::npos)
@@ -78,7 +86,6 @@ vector<Record> Loader_jdt::load() {
       //delete everything after '(' as it is the return value
       size_t paramEnd = paramsReturnFileInfo.rfind(")");
       string fileInfo;
-      
       
       if (paramEnd != string::npos) {
         //copy the fileinfo into the fileInfo string and delete it from the parameters
