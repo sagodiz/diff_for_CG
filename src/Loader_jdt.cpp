@@ -119,8 +119,8 @@ vector<Record> Loader_jdt::load() {
 
               ++i;
             }
-
-            parameter = parameter.substr(i + 1);
+            if ( spaceNum )
+              parameter = parameter.substr(i + 1);
           }
         }
 

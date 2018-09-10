@@ -172,6 +172,6 @@ namespace common {
     unsigned char anonymClassNameTransform = 0;
     bool lineInfoPairing = false;
     unsigned char resolve = 0;
-    unsigned char JDT_generics = 0;
+    unsigned char JDT_generics = common::enums::JDTGenerics::JDT_classAndParameters;
   }
 }
