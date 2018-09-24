@@ -213,33 +213,6 @@ DDD
 
           isEquals = match;
         }
-        
-        /*if ( -1 == r.startLine || -1 == startLine ) {
-
-          bool match = true;
-          for ( unsigned int i = 0; i < parameters.size(); i++ ) {
-
-            if ( parameters[i] == r.parameters[i] || //parameters are equal or
-                 (!common::options::onlyAnonymWithLineinfo && //if variable is true: "Generic" search not allowed. !var. is false, so nothing is going to be excuted after the &&, is it should
-                  ( //this is to identify what belongs together
-                   !basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
-                   (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos) //it might equal if one of them is Object.
-                  )
-                 )
-              ) {
-            
-            }
-            else {
-
-              match = false;
-              break;
-            }
-          }
-          
-          isEquals = match;
-          if ( match )
-            cout << *this << " = " << r << endl;
-        }*/
       }
     }
   }
