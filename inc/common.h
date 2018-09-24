@@ -105,6 +105,7 @@ namespace common {
     extern bool lineInfoPairing;
     extern unsigned char resolve;
     extern unsigned char JDT_generics;
+    extern bool onlyAnonymWithLineinfo;
     
   }
 

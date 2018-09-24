@@ -185,18 +185,23 @@ void jdtGeneric(char** argV, int argI) {
   }
 }
 
+void onlyAnonymWithLineinfo(char** argV, int argI) {
+  
+  common::options::onlyAnonymWithLineinfo = true;
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
   
   std::cout << "Loaders: " << std::endl 
-  << "\t" << Labels::SOOT_CL << "\t Soot" << std::endl 
-  << "\t" << Labels::OSA_CL << "\t OSA" << std::endl 
-  << "\t" << Labels::SPOON_CL << "\t SPOON" << std::endl 
-  << "\t" << Labels::JCG_CL << "\t JCG" << std::endl 
-  << "\t" << Labels::WALA_CL << "\t WALA" << std::endl 
-  << "\t" << Labels::JDT_CL << "\t JDT" << std::endl
-  << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl << std::endl;
+    << "\t" << Labels::SOOT_CL << "\t Soot" << std::endl 
+    << "\t" << Labels::OSA_CL << "\t OSA" << std::endl 
+    << "\t" << Labels::SPOON_CL << "\t SPOON" << std::endl 
+    << "\t" << Labels::JCG_CL << "\t JCG" << std::endl 
+    << "\t" << Labels::WALA_CL << "\t WALA" << std::endl 
+    << "\t" << Labels::JDT_CL << "\t JDT" << std::endl
+    << "\t" << Labels::TRACE_CL << "\t Trace (It is the dynamic tool of F.)" << std::endl << std::endl;
   
   std::cout << "Options with required value" << std::endl
     << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl
@@ -224,7 +229,8 @@ void helpMethod(char** argV, int argI) {
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 
-  << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
-  << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
+    << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
+    << "\t-onlyAnonym\t It sets that only anonym elements should be compared by lineinfo." << std::endl
+    << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
   
 }

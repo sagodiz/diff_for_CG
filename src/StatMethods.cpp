@@ -128,7 +128,7 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
   vector<Record> firstInsecond;
   unsigned int sectionNum;
   
-  if ( common::enums::methodRes::unio == common::options::resolve ) {  //TODO: ezt az ifet kívülre kellene vinni
+  if ( common::enums::methodRes::unio == common::options::resolve ) {
   
     for (unsigned i = 0; i < r1.size(); i++) {
      

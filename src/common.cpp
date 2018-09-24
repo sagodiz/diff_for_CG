@@ -173,5 +173,6 @@ namespace common {
     bool lineInfoPairing = false;
     unsigned char resolve = 0;
     unsigned char JDT_generics = common::enums::JDTGenerics::JDT_classAndParameters;
+    bool onlyAnonymWithLineinfo = false;
   }
 }
