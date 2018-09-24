@@ -214,7 +214,7 @@ DDD
           isEquals = match;
         }
         
-        if ( -1 == r.startLine || -1 == startLine ) {
+        /*if ( -1 == r.startLine || -1 == startLine ) {
 
           bool match = true;
           for ( unsigned int i = 0; i < parameters.size(); i++ ) {
@@ -239,7 +239,7 @@ DDD
           isEquals = match;
           if ( match )
             cout << *this << " = " << r << endl;
-        }
+        }*/
       }
     }
   }
