@@ -35,6 +35,25 @@
 . clean MathAnonymPairing
 
 
+#lineinfo pairing (Only anonym)
+##unio
+##################################
+
+./main -s inputs/SparkSoot/Joda/JodaSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/joda-time/joda-time.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/joda-time/joda-time-2.9.9.dot -j inputs/JCG_new/Joda/JodaJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/joda-time-2.9.9/joda-time-2.9.9.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/joda-time/joda-time.dot -projectName JodaLineInfo -methodUnio 0 -lineInfoPairing 1 -onlyAnonym
+
+. clean JodaLineInfoUnioOnlyAnonym
+
+
+./main -s inputs/SparkSoot/Lang/LangSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/commons-lang/commons-lang.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/commons-lang/commons-lang.dot -j inputs/JCG_new/Lang/JCGLang.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/commons-lang/commons-lang.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/commons-lang/commons-lang-LANG_3_7.dot -projectName LangLineInfo -methodUnio 0 -lineInfoPairing 1 -onlyAnonym
+
+. clean LangLineInfoUnioOnlyAnonym
+
+
+./main -s inputs/SparkSoot/Math/MathSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/commons-math/commons-math.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/commons-math/commons-math.dot -j inputs/JCG_new/Math/MathJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/commons-math/commons-math.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/commons-math/commons-math-MATH_3_6_1.dot -projectName MathLineInfo -methodUnio 0 -lineInfoPairing 1 -onlyAnonym
+
+. clean MathLineInfoUnioOnlyAnonym
+
+
 #lineinfo pairing
 ##nothing
 ##################################
