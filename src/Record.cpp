@@ -174,14 +174,6 @@ DDD
     if ( r.package == package && //the same package. It must not differ!
         ( anonymEqual(methodClass, r.methodClass) ) &&  //class names are the same or both of them is anonym
         ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
-
-  /*if ( r.startLine == startLine && startLine != -1 ) {
-  
-  cout << r << " " << r.startLine << " equals to " << *this << " " << startLine << endl;
-}  */  
-      
-      
-      
       
       if ( r.parameters.size() == parameters.size() ) { //must have the same number of parameters.
         
@@ -238,8 +230,6 @@ DDD
                 break;
               }
             }
-              if ( match )
-                cout << "New pairs: " << *this << " = " << r << endl;
             isEquals = match;
           }
         }
