@@ -331,7 +331,7 @@ int main(int argc, char** argv) {
       return 1;
     }
     if ( !jdt.is_open() ) {
-      cerr << "wala could not be opened." << endl;
+      cerr << "jdt could not be opened." << endl;
       return 1;
     }
     /*if ( !trace.is_open() ) {
@@ -353,7 +353,7 @@ int main(int argc, char** argv) {
       else if ( file2open.find("L_WALA") != string::npos )
         walaConn.open(file2open.substr(7));
       else if ( file2open.find("L_JDT") != string::npos )
-        walaConn.open(file2open.substr(6));
+        jdtConn.open(file2open.substr(6));
       /*else if ( file2open.find("L_TRACE") != string::npos )
         traceConn.open(file2open.substr(8));*/
     }
@@ -380,7 +380,7 @@ int main(int argc, char** argv) {
       return 1;
     }
     if ( !jdtConn.is_open() ) {
-      cerr << "walaConn could not be opened." << endl;
+      cerr << "jdtConn could not be opened." << endl;
       return 1;
     }
    /* if ( !traceConn.is_open() ) {
@@ -599,7 +599,7 @@ int main(int argc, char** argv) {
   }*/
   
   //-----kiiras
-  connout << "Connection" << "\t" << "matching" << "\t" << "Soot" << "\t" << "OSA" << "\t" << "SPOON" << "\t" << "JCG" << "\t" << "WALA" << "\t" << "JDT" << "\t" << "IntersectionID" << endl;
+  connout << "Connection" << "\t" << "matching" << "\t" << "Soot(" << SOOT_NUM << ")" << "\t" << "OSA(" << OSA_NUM << ")" << "\t" << "SPOON(" << SPOON_NUM << ")" << "\t" << "JCG(" << JCG_NUM << ")" << "\t" << "WALA(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
   
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
@@ -806,7 +806,7 @@ DDD
   }*/
   
   //---kiírás
-  out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep" << "\t" << "OSA.rep" << "\t" << "SPOON.rep" << "\t" << "JCG.rep" << "\t" << "WALA.rep" << "\t" << "JDT" << "\t" << "IntersectionID" << endl;
+  out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep(" << SOOT_NUM << ")" << "\t" << "OSA.rep(" << OSA_NUM << ")" << "\t" << "SPOON.rep(" << SPOON_NUM << ")" << "\t" << "JCG.rep(" << JCG_NUM << ")" << "\t" << "WALA.rep(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
   
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
