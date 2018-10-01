@@ -82,10 +82,6 @@ cout << "JCG loader" << endl;
         common::unifyeAnonymClasses(f_classWithPckg);
         common::unifyeAnonymMethods(method);
       }
-      else if (2 == common::options::anonymClassNameTransform) {
-        //continue numbering in inner anonym classes
-        //TODO!!! 
-      }
       else {
 
         throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -156,10 +152,6 @@ cout << "JCG loader" << endl;
         common::unifyeAnonymClasses(f_classWithPckg2);
         common::unifyeAnonymMethods(method2);
       }
-      else if ( 2 == common::options::anonymClassNameTransform ) {
-        //continue numbering in inner anonym classes
-        //TODO!!! 
-      }
       else {
         
         throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -209,7 +201,7 @@ cout << "JCG loader" << endl;
 
 set<pair<int, int>> Loader_jcg::transformConnections() {
   
-cout << "jcg transform " << endl;
+cout << "jcg transform" << endl;
   
   
   

@@ -12,7 +12,7 @@
 using namespace std;
 
 void GraphDBCommon::writeUnifiedGraphToGraphml(string filename, const vector<Record>& records, const set<pair<int, int>>& connections) {
-  //ofstream graphml(Labels::PROJECT_NAME + "_" + tool + ".graphml");
+  
   ofstream graphml(filename);
   if (!graphml.is_open())
     throw Labels::COULD_NOT_WRITE_GRAPHML;
@@ -93,7 +93,7 @@ bool GraphDBCommon::convertGraphmlToJson(const std::string& in_filename, const s
 }
 
 bool GraphDBCommon::uploadToDraphDB(const std::string& filename, bool clearGraph, const std::string& node_id) {
-  //python3 json2gremlin.py -i "samples\totinfo.dynamic.json" -os "ws://localhost:8182/gremlin" -ots "g"
+  
   std::string command("python GraphDBScripst/gremlin-uploader.py -os \"ws://localhost:8182/gremlin\" -ots \"g\" -i \"" + filename + "\" -nid \""+node_id + "\""), result;
   if (!clearGraph) {
     command += " -k";

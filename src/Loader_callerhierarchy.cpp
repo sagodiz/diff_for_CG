@@ -170,10 +170,6 @@ vector<Record> Loader_callerhierarchy::load() {
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -191,7 +187,7 @@ vector<Record> Loader_callerhierarchy::load() {
         unsigned index = -1;
         for ( unsigned i = 0; i < common::storedIds.size(); i++ ) {
 
-          if ( r >>= common::storedIds[i] ) {//TODO ? operator
+          if ( r >>= common::storedIds[i] ) {
             //after replacing '$' s found it
             common::storedIds[i] += pair<string, string>(representation, name);
             index = i;

@@ -25,7 +25,7 @@ Loader_osa::~Loader_osa() {
 
 vector<Record> Loader_osa::load() {
 
-cout << "osa load" << endl;
+cout << "OSA loader" << endl;
   
   
   
@@ -269,10 +269,6 @@ cout << "osa load" << endl;
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -317,7 +313,7 @@ cout << "osa load" << endl;
 
 set<pair<int, int>> Loader_osa::transformConnections() {
 
-cout << "osa tras" << endl;
+cout << "OSA transform" << endl;
   
   
   

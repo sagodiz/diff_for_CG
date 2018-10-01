@@ -393,7 +393,7 @@ int main(int argc, char** argv) {
     
     if ( 9 != argc ) {
 
-      cerr << "Must give the 12 inputs (1 method 1 connection) (outputs of the tools) in the following order: JCG Soot OSA SPOON WALA JDT TRACE JCGConn SootConn OSAConn SPOONConn WALAConn JDTConn TRACEConn" << endl;
+      cerr << "Must give the 14 inputs (1 method 1 connection) (outputs of the tools) in the following order: JCG Soot OSA SPOON WALA JDT TRACE JCGConn SootConn OSAConn SPOONConn WALAConn JDTConn TRACEConn" << endl;
       return 1;
     }
     int index = 1;

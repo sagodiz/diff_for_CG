@@ -105,10 +105,6 @@ void anonymClassNameTransformationMethod( char** argV, int argI ) {
     //turn every anonym class into a common anonymclass
     common::options::anonymClassNameTransform = 1;
   }
-  else if ( !strcmp(argV[argI + 1], "2") ) {  //TODO!!!!
-    //anonym in anonym continue numbering, TODO!!!!!!!!!!!!!!!
-    common::options::anonymClassNameTransform = 2;
-  }
   else {
     
     common::options::anonymClassNameTransform = 0;
@@ -127,11 +123,11 @@ void lineInfoPairingMethod( char** argV, int argI ) {
     common::options::lineInfoPairing = false;
   }
   else if ( !strcmp(argV[argI + 1], "1") ) {
-    //false
+    //true
     common::options::lineInfoPairing = true;
   }
   else if ( !strcmp(argV[argI + 1], "true") ) {
-    //false
+    //true
     common::options::lineInfoPairing = true;
   }
   else {
@@ -213,7 +209,6 @@ void helpMethod(char** argV, int argI) {
     << "\t-anonymTransformation level\t Level identifies how anonym parts of the nodes should be resolved:" << std::endl
     << "\t\t0 No transformation (Default)" << std::endl
     << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl
-    << "\t\t higher levels are TODOs" << std::endl
     << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
     << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
     << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
@@ -229,7 +224,6 @@ void helpMethod(char** argV, int argI) {
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 
-    << "\t-transformToGraphDB\t TODO:The output is transformed to the format used by the graph comparer tool" << std::endl 
     << "\t-onlyAnonym\t It sets that only anonym elements should be compared by lineinfo." << std::endl
     << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
   

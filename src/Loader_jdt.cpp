@@ -24,6 +24,8 @@ Loader_jdt::~Loader_jdt() {
 
 vector<Record> Loader_jdt::load() {
 
+  cout << "JDT loader" << endl;
+  
   vector<Record> tmpRecords;
   
   string line;
@@ -148,10 +150,6 @@ vector<Record> Loader_jdt::load() {
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -205,6 +203,8 @@ vector<Record> Loader_jdt::load() {
 
 set<pair<int, int>> Loader_jdt::transformConnections() {
 
+  cout << "JDT transform" << endl;
+  
   set<pair<int, int>> connections;
 
   string line;

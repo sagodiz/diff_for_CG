@@ -15,7 +15,7 @@ namespace common {
     
     size_t lastDot = pckgClass.rfind(".");
     if ( lastDot == std::string::npos ) {
-      //throw Labels::PACKAGE_CLASS_WRONG_FRMAT + pckgClass; it is not true.
+
     }
     else {
       pckg = pckgClass.substr(0, lastDot);
@@ -30,8 +30,7 @@ namespace common {
     for ( unsigned i = 0; i < str.length() - 1; i++ ) {
       
       if ( '$' == str[i] && str[i + 1] >= '0' && str[i + 1] <= '9' ) {
-        //so it is an inner class, what's more an anonym class
-        //str.replace(i+1, str.length(), "UNIFIEDANONYMCLASSNAME");
+        
         str.erase(i+1);
         str += "UNIFIEDANONYMCLASSNAME";
         replaced = true;
@@ -49,8 +48,7 @@ namespace common {
     for ( unsigned i = 0; i < str.length() - 1; i++ ) {
       
       if ( '$' == str[i] && str[i + 1] >= '0' && str[i + 1] <= '9' ) {
-        //so it is an inner method, what's more an anonym class
-        //str.replace(i+1, str.length(), "UNIFIEDANONYMMETHODNAME");
+        
         str.erase(i+1);
         str += "UNIFIEDANONYMMETHODNAME";
         replaced = true;

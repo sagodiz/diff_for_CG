@@ -24,7 +24,7 @@ Loader_wala::~Loader_wala() {
 }
 
 vector<Record> Loader_wala::load() {
-cout << "wala load" << endl;
+cout << "wala loader" << endl;
   
   
   
@@ -245,10 +245,6 @@ cout << "wala load" << endl;
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -305,7 +301,7 @@ cout << "wala load" << endl;
 set<pair<int, int>> Loader_wala::transformConnections() {
 
   
-cout << "wala trans" << endl;
+cout << "wala transform" << endl;
   
   
   set<pair<int, int>> connections;

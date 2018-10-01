@@ -26,7 +26,7 @@ Loader_spoon::~Loader_spoon() {
 vector<Record> Loader_spoon::load() {
 
   
-cout << "spoon load" << endl;
+cout << "spoon loader" << endl;
   
   
   vector<Record> tmpRecords;
@@ -174,10 +174,6 @@ cout << "spoon load" << endl;
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -223,7 +219,7 @@ cout << "spoon load" << endl;
 }
 
 set<pair<int, int>> Loader_spoon::transformConnections() {
-cout << "spoon trans" << endl;
+cout << "spoon transform" << endl;
   
   
   

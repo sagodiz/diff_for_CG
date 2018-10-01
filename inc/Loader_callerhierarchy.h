@@ -5,6 +5,7 @@
 
 /**
 * Processes the output of the tool CHP
+* UNUSED LOADER. TOOL DISCARDED
 */
 
 class Loader_callerhierarchy : public virtual Loader {

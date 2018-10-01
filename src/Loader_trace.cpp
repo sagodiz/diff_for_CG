@@ -1,5 +1,5 @@
 /*
-* TODO: Does trace have lineinfo?
+* It is a tool for other comparisons. Was not used in static comparison.
 */
 
 
@@ -234,10 +234,6 @@ vector<Record> Loader_trace::load() {
           //turn every anonym class into a constant anonym class
           common::unifyeAnonymClasses(pckgClass);
           common::unifyeAnonymMethods(method);
-        }
-        else if (2 == common::options::anonymClassNameTransform) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
         }
         else {
 

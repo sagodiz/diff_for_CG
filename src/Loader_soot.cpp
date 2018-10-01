@@ -32,7 +32,7 @@ Loader_soot::~Loader_soot() {
 vector<Record> Loader_soot::load() {
   
   
-cout << "soot load" << endl;
+cout << "soot loader" << endl;
   
   
   
@@ -115,10 +115,6 @@ cout << "soot load" << endl;
           common::unifyeAnonymClasses(f_classWithPckg);
           common::unifyeAnonymMethods(method);
         }
-        else if ( 2 == common::options::anonymClassNameTransform ) {
-          //continue numbering in inner anonym classes
-          //TODO!!! 
-        }
         else {
           
           throw Labels::ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
@@ -167,7 +163,7 @@ DDD
 set<pair<int, int>> Loader_soot::transformConnections() {
   
   
-cout << "Soot tran" << endl;
+cout << "Soot transform" << endl;
   
   
   set<pair<int, int>> connections;

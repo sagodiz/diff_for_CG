@@ -27,7 +27,7 @@ namespace common {
   std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds); //does the filtering for methods.
   std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds); //does the filtering for connections
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr); //cuts apart pckg and class name.It assumes the followong format:pckg.hierarchy.ClassName[$Nesteds]
-  void printFilteredMethod(const std::string& loadername, std::vector<Record> records); //TODO!!!
+  void printFilteredMethod(const std::string& loadername, std::vector<Record> records); 
 
   std::string produceMethodPairingName();
   std::string produceFileNamePrefix();
@@ -115,12 +115,18 @@ namespace common {
   
   namespace enums {
     
+    /*
+    * The way of solving the mismatch of common methods
+    */
     enum methodRes {
                     unio,
                     section,
                     nothing
     };
 
+    /*
+    * The way JDT resolves generic information
+    */
     enum JDTGenerics {
                       JDT_nothing, 
                       JDT_onlyClass,
