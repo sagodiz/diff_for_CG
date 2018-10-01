@@ -17,6 +17,10 @@
 . clean MathNamePairing
 
 
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamples
+
+. clean CallEdgeExamplesNamePairing
+
 #anonym pairing
 ###################################
 
@@ -34,6 +38,10 @@
 
 . clean MathAnonymPairing
 
+
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesAnonymPairing -anonymTransformation 1
+
+. clean CallEdgeExamplesAnonymPairing
 
 #lineinfo pairing (Only anonym)
 ##unio
@@ -54,6 +62,11 @@
 . clean MathLineInfoUnioOnlyAnonym
 
 
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesLineInfo -methodUnio 0 -lineInfoPairing 1 -onlyAnonym
+
+. clean CallEdgeExamplesLineInfoUnioOnlyAnonym
+
+
 #lineinfo pairing
 ##nothing
 ##################################
@@ -71,6 +84,11 @@
 ./main -s inputs/SparkSoot/Math/MathSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/commons-math/commons-math.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/commons-math/commons-math.dot -j inputs/JCG_new/Math/MathJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/commons-math/commons-math.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/commons-math/commons-math-MATH_3_6_1.dot -projectName MathLineInfo -methodUnio 2 -lineInfoPairing 1
 
 . clean MathLineInfoNothing
+
+
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesLineInfo -methodUnio 2 -lineInfoPairing 1
+
+. clean CallEdgeExamplesLineInfoNothing
 
 #lineinfo pairing
 ##unio
@@ -90,6 +108,11 @@
 
 . clean MathLineInfoUnio
 
+
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesLineInfo -methodUnio 0 -lineInfoPairing 1
+
+. clean CallEdgeExamplesLineInfoUnio
+
 #lineinfo pairing
 ##section
 ##################################
@@ -107,6 +130,11 @@
 ./main -s inputs/SparkSoot/Math/MathSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/commons-math/commons-math.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/commons-math/commons-math.dot -j inputs/JCG_new/Math/MathJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/commons-math/commons-math.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/commons-math/commons-math-MATH_3_6_1.dot -projectName MathLineInfo -methodUnio 1 -lineInfoPairing 1
 
 . clean MathLineInfoSection
+
+
+./main -s inputs/SparkSoot/CallEdgeExamples/CallEdgeSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/wala_ZeroOneContainerCFA_with_lineinfo/istvan_example/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesLineInfo -methodUnio 1 -lineInfoPairing 1
+
+. clean CallEdgeExamplesLineInfoSection
 
 #Save the results
 #################################
