@@ -205,7 +205,7 @@ DDD
 
           isEquals = match;
         }
-        else if ( -1 == startLine && -1 == endLine && -1 == r.startLine && -1 == r.endLine ) {
+        else if ( ( -1 == startLine && -1 == endLine ) || ( -1 == r.startLine && -1 == r.endLine ) ) {
           
           if ( r.package == package && //the same package. It must not differ!
         ( methodClass == r.methodClass) &&  //class names are the same
