@@ -12,15 +12,34 @@ namespace common {
   bool TRACE_RUN = false;
 
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr) {
+    size_t genericSign = pckgClass.find("<");
+    size_t lastDot = 0;
     
-    size_t lastDot = pckgClass.rfind(".");
-    if ( lastDot == std::string::npos ) {
+    if (genericSign != std::string::npos) {
 
+      lastDot = genericSign;
+      while (lastDot != 0 && pckgClass[lastDot] != '.') {
+
+        --lastDot;
+      }
+
+      if (lastDot != 0) {
+
+        pckg = pckgClass.substr(0, lastDot);
+        classStr = pckgClass.substr(lastDot + 1);
+      }
     }
     else {
-      pckg = pckgClass.substr(0, lastDot);
-      classStr = pckgClass.substr(lastDot + 1);
-    }
+
+      lastDot = pckgClass.rfind(".");
+      if (lastDot == std::string::npos) {
+
+      }
+      else {
+        pckg = pckgClass.substr(0, lastDot);
+        classStr = pckgClass.substr(lastDot + 1);
+      }
+    }    
   }
   
   bool unifyeAnonymClasses( std::string& str ) {
