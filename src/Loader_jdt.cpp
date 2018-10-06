@@ -9,11 +9,11 @@
 #include <algorithm>
 #include <vector>
 
-//#ifdef JDT_DEBUG
+#ifdef JDT_DEBUG
   #define JDT_PRINT(a) cout << "Loaded jdt: " << a << endl;
-//#else
- // #define JDT_PRINT(a) ;
-//#endif
+#else
+  #define JDT_PRINT(a) ;
+#endif
 
 using namespace std;
 
