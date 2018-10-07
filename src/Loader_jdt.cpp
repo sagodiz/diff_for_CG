@@ -161,18 +161,12 @@ vector<Record> Loader_jdt::load() {
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
       
-      cout << (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters) << endl;
-      cout << (common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyClass) << endl;
-      cout << common::options::JDT_generics << endl;
-
       if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyClass) {
 
         size_t generics = classStr.find("<");
-        cout << "asd" << endl;
-        cout << classStr << endl;
+
         if (generics != string::npos) {
           classStr.erase(generics);
-          cout << "siker: " << classStr << endl;
         }
       }
 
