@@ -105,24 +105,9 @@ vector<Record> Loader_jdt::load() {
       while ( getline(paramStream, parameter, ';') ) {
         
         if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyParameters) {
+          if (parameter.find("<") != string::npos) {
 
-          if (parameter.find("<?") != string::npos) {
-
-            unsigned char i = 0;
-            char spaceNum = 0;
-            while (i < parameter.length()) {
-
-              if (parameter[i] == ' ') {
-                ++spaceNum;
-              }
-
-              if (2 == spaceNum)
-                break;
-
-              ++i;
-            }
-            if ( spaceNum )
-              parameter = parameter.substr(i + 1);
+            parameter = parameter.substr(0,parameter.find("<"));
           }
         }
 

@@ -168,7 +168,6 @@ DDD
   bool isEquals = false;
   
   
-  
   if ( common::options::lineInfoPairing ) {
     
     if ( r.package == package && //the same package. It must not differ!
@@ -182,6 +181,7 @@ DDD
           ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
           ) {
   DEBUG_EQUALITY
+    
           //isEquals = true; lehet, hogy rossz, mert ha van egy sorba több ilyen paraméterszámú, de mással..?
           bool match = true;
           for (unsigned int i = 0; i < parameters.size(); i++) {
@@ -190,7 +190,8 @@ DDD
                  (!common::options::onlyAnonymWithLineinfo && //if variable is true: "Generic" search not allowed. !var. is false, so nothing is going to be excuted after the &&, is it should
                   ( //this is to identify what belongs together
                    !basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
-                   (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos) //it might equal if one of them is Object.
+                   (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ||
+                   parameters[i].find("java/lang/Object") != string::npos || r.parameters[i].find("java/lang/Object") != string::npos) //it might equal if one of them is Object.
                   )
                  )
               ) {
