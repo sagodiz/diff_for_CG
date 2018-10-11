@@ -427,6 +427,20 @@ int main( int argc, char** argv ) {
     
   cmd.close();
     
+    
+  ofstream ids("ids.csv");
+  if ( !ids.is_open() )
+    throw Labels::ID_FILE_COULD_NOT_BE_CREATED;
+    
+  ids << "ID;Method" << endl;
+    
+  for ( unsigned int i = 0; i < common::storedIds.size(); i++ ) {
+    
+    ids << i << ";" << common::storedIds[i] << endl;
+  }
+    
+  ids.close();
+    
   //catch "all" thrown error...
   } catch( const string e ) {
     
