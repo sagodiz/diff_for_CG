@@ -1,6 +1,3 @@
-//TODO: valami optimálisabb tárolás, hogy ne lineáris legyen a keresés?
-//TODO: WALA, OSA, SPOON ahol egyértelmű hol vannak a node-ok felsorolva, ott ne menjünk végig, hanem amint jönnek a kapcsolatok, a node betöltést állítsuk meg.
-
 #include <iostream>
 #include <string>
 #include <set>
@@ -44,7 +41,7 @@
   #define STARTCOMMONTSV system("./commonTSV tsvfiles.list conntsvfiles.list");
   #define STARTTRACEDIAGRAM system("./traceValami commonConnections.tsv commonMethods.tsv");
 #else
-  #define STARTCOMMONTSV system("start commonTSV.exe tsvfiles.list conntsvfiles.listtsvfiles.list conntsvfiles.list");//hopefully it works on windows
+  #define STARTCOMMONTSV system("start commonTSV.exe tsvfiles.list conntsvfiles.listtsvfiles.list conntsvfiles.list");
   #define STARTTRACEDIAGRAM system("start traceValami commonConnections.tsv commonMethods.tsv");
 #endif
 
@@ -174,7 +171,7 @@ int main( int argc, char** argv ) {
   if ( chp ) {
     
     chp->init(argv[chpArgIndex]);
-    loaders.push_back( chp->getLoaderPointer(0) ); //fuck the chp
+    loaders.push_back( chp->getLoaderPointer(0) );
     loadersAndUnionG.push_back(*loaders.rbegin());
   }
     
