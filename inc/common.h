@@ -52,7 +52,7 @@ namespace common {
         params[params.length()-1] = ')';
       else
         params += ")";
-      return storedIds[id].getPackage() + storedIds[id].getClass() + "." + storedIds[id].getMethodName() + "(" + params;// + ")";
+      return storedIds[id].getPackage() + "." + storedIds[id].getClass() + "." + storedIds[id].getMethodName() + "(" + params;// + ")";
     }
     
     return "";
