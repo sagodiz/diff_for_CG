@@ -104,7 +104,7 @@ namespace common {
       return 0;
     };
     for (unsigned i = 0; i < unfiltered.size(); ++i) {
-      std::string method = unfiltered[i].getClass() + "." + unfiltered[i].getMethodName();
+      std::string method = unfiltered[i].getPackage() + "." + unfiltered[i].getClass() + "." + unfiltered[i].getMethodName();
       if (!isExclude(method)) {
         filteredNodes.push_back(unfiltered[i]);
       }
