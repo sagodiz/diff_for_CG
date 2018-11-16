@@ -31,7 +31,7 @@ class Record {
     string jcg;
     string wala;
     string jdt;
-    //string trace;
+    string trace;
   
     unsigned long int metszet;
     
@@ -43,7 +43,7 @@ class Record {
       jcg = "x";
       wala = "x";
       jdt = "x";
-      //trace = "x";
+      trace = "x";
       
       metszet = 0;
     }
@@ -69,9 +69,9 @@ class Record {
       if ( "x" != jdt ) {
         ++num;
       }
-      /*if ( "x" != trace ) {
+      if ( "x" != trace ) {
         ++num;
-      }*/
+      }
       
       return num;
     }
@@ -96,9 +96,9 @@ class Record {
       if ( "x" != jdt ) {
         metszet |=  JDT_NUM;
       }
-      /*if ( "x" != trace ) {
+      if ( "x" != trace ) {
         metszet |=  TRACE_NUM;
-      }*/
+      }
       
       return metszet;
     }
@@ -129,9 +129,9 @@ class Record {
     if ("x" != jdt) {
       metszet += transformed;
     }
-    /*if ("x" != trace) {
+    if ("x" != trace) {
       metszet += transformed;
-    }*/
+    }
     
     return metszet;
   }
@@ -155,7 +155,7 @@ class RecordConn {
     string jcg;
     string wala;
     string jdt;
-    //string trace;
+    string trace;
   
     int metszet;
     
@@ -167,7 +167,7 @@ class RecordConn {
       jcg = "";
       wala = "";
       jdt = "";
-      //trace = "";
+      trace = "";
       
       metszet = 0;
     }
@@ -193,9 +193,9 @@ class RecordConn {
       if ( "" != jdt ) {
         ++num;
       }
-      /*if ( "" != trace ) {
+      if ( "" != trace ) {
         ++num;
-      }*/
+      }
       
       return num;
     }
@@ -220,9 +220,9 @@ class RecordConn {
       if ( "" != jdt ) {
         metszet |=  JDT_NUM;
       }
-     /*if ( "" != trace ) {
+     if ( "" != trace ) {
         metszet |=  TRACE_NUM;
-      }*/
+      }
       
       return metszet;
     }
@@ -252,10 +252,10 @@ class RecordConn {
       if ("" != jdt) {
         metszet += id;
       }
-    /*
+    
       if ("" != trace) {
         metszet += id;
-      }*/
+      }
     return metszet;
   }
     
@@ -304,8 +304,8 @@ int main(int argc, char** argv) {
         wala.open(file2open.substr(7));
       else if ( file2open.find("L_JDT") != string::npos )
         jdt.open(file2open.substr(6));
-      /*else if ( file2open.find("L_TRACE") != string::npos )
-        trace.open(file2open.substr(8));*/
+      else if ( file2open.find("L_TRACE") != string::npos )
+        trace.open(file2open.substr(8));
     }
     //--------------------------------------
     input.close();
@@ -334,10 +334,10 @@ int main(int argc, char** argv) {
       cerr << "jdt could not be opened." << endl;
       return 1;
     }
-    /*if ( !trace.is_open() ) {
+    if ( !trace.is_open() ) {
       cerr << "trace could not be opened." << endl;
       return 1;
-    }*/
+    }
     
     input.open(argv[2]);
     //--------------------------------------
@@ -354,8 +354,8 @@ int main(int argc, char** argv) {
         walaConn.open(file2open.substr(7));
       else if ( file2open.find("L_JDT") != string::npos )
         jdtConn.open(file2open.substr(6));
-      /*else if ( file2open.find("L_TRACE") != string::npos )
-        traceConn.open(file2open.substr(8));*/
+      else if ( file2open.find("L_TRACE") != string::npos )
+        traceConn.open(file2open.substr(8));
     }
     input.close();
     
@@ -383,10 +383,10 @@ int main(int argc, char** argv) {
       cerr << "jdtConn could not be opened." << endl;
       return 1;
     }
-   /* if ( !traceConn.is_open() ) {
+    if ( !traceConn.is_open() ) {
       cerr << "traceConn could not be opened." << endl;
       return 1;
-    }*/
+    }
     
   }
   else {
@@ -425,7 +425,8 @@ int main(int argc, char** argv) {
 
   ofstream vennC("commonConnectionsVenn.csv");
   //vennC << "Soot;OSA;SPOON;JCG;WALA;TRACE"<<std::endl;
-  vennC << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  //vennC << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  vennC << "Soot;OSA;SPOON;JCG;WALA;JDT;TRACE"<<std::endl;
   
   //-------------------------jcg---------------
   jcgConn >> connStr >> toolc; 
@@ -574,7 +575,7 @@ int main(int argc, char** argv) {
   }
   
   //-------TRACE-------
- /* traceConn >> connStr >> toolc; 
+  traceConn >> connStr >> toolc; 
   cout << "TRACE connections" << endl;
   
   getline(traceConn, linec);
@@ -596,14 +597,14 @@ int main(int argc, char** argv) {
       r.trace = "X";
       connections.push_back(r);
     }
-  }*/
+  }
   
   //-----kiiras
-  connout << "Connection" << "\t" << "matching" << "\t" << "Soot(" << SOOT_NUM << ")" << "\t" << "OSA(" << OSA_NUM << ")" << "\t" << "SPOON(" << SPOON_NUM << ")" << "\t" << "JCG(" << JCG_NUM << ")" << "\t" << "WALA(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
-  
+  connout << "Connection" << "\t" << "matching" << "\t" << "Soot(" << SOOT_NUM << ")" << "\t" << "OSA(" << OSA_NUM << ")" << "\t" << "SPOON(" << SPOON_NUM << ")" << "\t" << "JCG(" << JCG_NUM << ")" << "\t" << "WALA(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "TRACE(" << TRACE_NUM << ")" << "\t" << "IntersectionID" << endl;
+  cout << connections.size() << endl;
   for ( unsigned i = 0; i < connections.size(); i++ ) {
     
-    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].osa << "\t" << connections[i].spoon << "\t" << connections[i].jcg << "\t" << connections[i].wala << "\t" << connections[i].jdt << "\t" << connections[i].getMetszet() << endl;
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].osa << "\t" << connections[i].spoon << "\t" << connections[i].jcg << "\t" << connections[i].wala << "\t" << connections[i].jdt << "\t" << connections[i].trace << "\t" << connections[i].getMetszet() << endl;
   
   vennC << connections[i].getMetszetAsString(std::to_string(i)) << std::endl;
   }
@@ -618,7 +619,8 @@ int main(int argc, char** argv) {
 
   ofstream venn("commonMethodsVenn.csv");
   //venn << "Soot;OSA;SPOON;JCG;WALA;TRACE"<<std::endl;
-  venn << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  //venn << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  venn << "Soot;OSA;SPOON;JCG;WALA;JDT;TRACE"<<std::endl;
   string tool, trans, rep;
   string line;
   
@@ -780,7 +782,7 @@ DDD
   }
   //--------------
   
- /* cout << "TRACE" << endl;
+  cout << "TRACE" << endl;
 
   trace >> tool >> trans >> rep; //get the header
   getline(trace, line);
@@ -803,14 +805,14 @@ DDD
       r.trace = rep;
       methods.push_back(r);
     }
-  }*/
+  }
   
   //---kiírás
-  out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep(" << SOOT_NUM << ")" << "\t" << "OSA.rep(" << OSA_NUM << ")" << "\t" << "SPOON.rep(" << SPOON_NUM << ")" << "\t" << "JCG.rep(" << JCG_NUM << ")" << "\t" << "WALA.rep(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
+  out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep(" << SOOT_NUM << ")" << "\t" << "OSA.rep(" << OSA_NUM << ")" << "\t" << "SPOON.rep(" << SPOON_NUM << ")" << "\t" << "JCG.rep(" << JCG_NUM << ")" << "\t" << "WALA.rep(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "TRACE(" << TRACE_NUM << ")" << "\t" << "IntersectionID" << endl;
   
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
-    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].osa << "\t" << methods[i].spoon << "\t" << methods[i].jcg << "\t" << methods[i].wala << "\t" << methods[i].jdt << "\t" << methods[i].getMetszet() << endl;
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].osa << "\t" << methods[i].spoon << "\t" << methods[i].jcg << "\t" << methods[i].wala << "\t" << methods[i].jdt << "\t" << methods[i].trace << "\t" << methods[i].getMetszet() << endl;
   
   venn << methods[i].getMetszetAsString() << std::endl;
   }
