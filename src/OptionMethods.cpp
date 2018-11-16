@@ -201,7 +201,7 @@ void helpMethod(char** argV, int argI) {
   
   std::cout << "Options with required value" << std::endl
     << "\t-projectName name\t Name is the name of the project. If it is not provided \"Default\" will be used without quotes." << std::endl
-    << "\tfilterLevel level\t Level is a numer. It defines the filtering level:" << std::endl
+    << "\t-filterLevel level\t Level is a numer. It defines the filtering level:" << std::endl
     << "\t\t0 No filtering" << std::endl
     << "\t\t1 TODO: Filter calls if the caller or the calle is a java library method." << std::endl
     << "\t\t2 TODO: Filter calls. Only method of the projects remain. projectPath ought to be given." << std::endl
