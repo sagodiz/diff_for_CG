@@ -1,23 +1,206 @@
 digraph "call-graph" {
-    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"
-    "<java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>"
-    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"<java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>";
-    "(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>"
-    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>";
-    "<java.lang.Object: void <init>()>"
-    "(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>"->"<java.lang.Object: void <init>()>";
-    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"
-    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"
     "<java.lang.System: void <clinit>()>"
-    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.System: void <clinit>()>";
-    "<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>"
-    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.System: void <clinit>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>";
+    "(4208)<org.apache.commons.math3.util.FastMath$lnMant: double[][] access$400()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4208)<org.apache.commons.math3.util.FastMath$lnMant: double[][] access$400()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>";
     "<java.lang.Object: void <clinit>()>"
-    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.Object: void <clinit>()>";
-    "(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>"
-    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4121)<org.apache.commons.math3.util.FastMath: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.StrictMath: void <clinit>()>"
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.StrictMath: void <clinit>()>";
+    "<java.lang.StrictMath: double log(double)>"
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.StrictMath: double log(double)>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
+    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>";
+    "(653)<org.apache.commons.math3.util.FastMathCalc: void checkLen(int,int)>"
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"(653)<org.apache.commons.math3.util.FastMathCalc: void checkLen(int,int)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.Object: void <clinit>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.Object: void <clinit>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.Object: void <clinit>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"(653)<org.apache.commons.math3.util.FastMathCalc: void checkLen(int,int)>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.Object: void <clinit>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.Object: void <clinit>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.Object: void <clinit>()>";
+    "(4208)<org.apache.commons.math3.util.FastMath$lnMant: double[][] access$400()>"->"(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>";
+    "(4208)<org.apache.commons.math3.util.FastMath$lnMant: double[][] access$400()>"->"<java.lang.Object: void <clinit>()>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"->"<java.lang.Object: void <clinit>()>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"->"<java.lang.Object: void <clinit>()>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"->"<java.lang.Object: void <clinit>()>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"->"<java.lang.Object: void <clinit>()>";
+    "(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>"->"(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>";
+    "(35)<org.apache.commons.math3.util.FastMathCalc: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6173)<org.apache.commons.math3.util.FastMathLiteralArrays: double[][] loadLnMant()>"
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"->"(6173)<org.apache.commons.math3.util.FastMathLiteralArrays: double[][] loadLnMant()>";
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"->"(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>";
+    "(4222)<org.apache.commons.math3.util.FastMath$lnMant: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>";
+    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
+    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>";
+    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
+    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Double: void <clinit>()>"
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.Double: void <clinit>()>";
+    "<java.lang.Double: java.lang.String toString(double)>"
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.Double: java.lang.String toString(double)>";
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(6173)<org.apache.commons.math3.util.FastMathLiteralArrays: double[][] loadLnMant()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6173)<org.apache.commons.math3.util.FastMathLiteralArrays: double[][] loadLnMant()>"->"<java.lang.Object: void <clinit>()>";
+    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"<java.lang.Object: void <clinit>()>";
+    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"<java.lang.Object: void <clinit>()>";
+    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"<java.lang.Object: void <clinit>()>";
+    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
+    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Object: java.lang.Object clone()>"
+    "(6173)<org.apache.commons.math3.util.FastMathLiteralArrays: double[][] loadLnMant()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"<java.lang.Object: java.lang.Object clone()>";
     "(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>"
-    "(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>"->"(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>";
+    "(653)<org.apache.commons.math3.util.FastMathCalc: void checkLen(int,int)>"->"(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>";
     "(43)<org.apache.commons.math3.exception.util.LocalizedFormats: void <clinit>()>"
     "(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>"->"(43)<org.apache.commons.math3.exception.util.LocalizedFormats: void <clinit>()>";
     "(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>"->"<java.lang.Object: void <clinit>()>";
@@ -2355,6 +2538,7 @@ digraph "call-graph" {
     "<java.util.ArrayList: void <init>()>"
     "(63)<org.apache.commons.math3.exception.util.ExceptionContext: void <init>(java.lang.Throwable)>"->"<java.util.ArrayList: void <init>()>";
     "(63)<org.apache.commons.math3.exception.util.ExceptionContext: void <init>(java.lang.Throwable)>"->"<java.util.ArrayList: void <init>()>";
+    "<java.lang.Object: void <init>()>"
     "(63)<org.apache.commons.math3.exception.util.ExceptionContext: void <init>(java.lang.Throwable)>"->"<java.lang.Object: void <init>()>";
     "<java.lang.IllegalArgumentException: void <init>()>"
     "(43)<org.apache.commons.math3.exception.MathIllegalArgumentException: void <init>(org.apache.commons.math3.exception.util.Localizable,java.lang.Object[])>"->"<java.lang.IllegalArgumentException: void <init>()>";
@@ -2373,6 +2557,109 @@ digraph "call-graph" {
     "(41)<org.apache.commons.math3.exception.util.ArgUtils: java.lang.Object[] flatten(java.lang.Object[])>"->"<java.util.ArrayList: void <init>()>";
     "(86)<org.apache.commons.math3.exception.util.ExceptionContext: void addMessage(org.apache.commons.math3.exception.util.Localizable,java.lang.Object[])>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
     "(86)<org.apache.commons.math3.exception.util.ExceptionContext: void addMessage(org.apache.commons.math3.exception.util.Localizable,java.lang.Object[])>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "(638)<org.apache.commons.math3.util.FastMathCalc: java.lang.String format(double)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.StringBuilder: void <init>()>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.StringBuilder: void <init>()>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(56)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getMessage()>"
+    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"
+    "(56)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getMessage()>"->"(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>";
+    "<java.util.Locale: void <clinit>()>"
+    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"<java.util.Locale: void <clinit>()>";
+    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"<java.lang.Object: void <clinit>()>";
+    "(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>"
+    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"
+    "(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>"->"(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>";
+    "<java.text.MessageFormat: void <clinit>()>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.MessageFormat: void <clinit>()>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.text.Format: java.lang.String format(java.lang.Object)>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.Format: java.lang.String format(java.lang.Object)>";
+    "<java.text.MessageFormat: void <init>(java.lang.String,java.util.Locale)>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.MessageFormat: void <init>(java.lang.String,java.util.Locale)>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.util.ArrayList: java.lang.Object get(int)>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: java.lang.Object get(int)>";
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: java.lang.Object get(int)>";
+    "<java.util.ArrayList: int size()>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: int size()>";
+    "(62)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getLocalizedMessage()>"
+    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"
+    "(62)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getLocalizedMessage()>"->"(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>";
+    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.util.Locale: void <clinit>()>";
+    "<java.util.Locale: java.util.Locale getDefault()>"
+    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.util.Locale: java.util.Locale getDefault()>";
+    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.lang.Object: void <clinit>()>";
+    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<java.io.PrintStream: void print(java.lang.String)>"
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: void print(java.lang.String)>";
+    "<java.io.PrintStream: java.io.PrintStream printf(java.lang.String,java.lang.Object[])>"
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: java.io.PrintStream printf(java.lang.String,java.lang.Object[])>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(602)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[][])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.io.PrintStream: java.io.PrintStream printf(java.lang.String,java.lang.Object[])>";
+    "(624)<org.apache.commons.math3.util.FastMathCalc: void printarray(java.io.PrintStream,java.lang.String,int,double[])>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>";
+    "<java.util.ResourceBundle: void <clinit>()>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: void <clinit>()>";
+    "<java.util.ResourceBundle: java.util.ResourceBundle getBundle(java.lang.String,java.util.Locale)>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.util.ResourceBundle getBundle(java.lang.String,java.util.Locale)>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.util.ResourceBundle: java.util.Locale getLocale()>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.util.Locale getLocale()>";
+    "<java.util.ResourceBundle: java.lang.String getString(java.lang.String)>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.lang.String getString(java.lang.String)>";
+    "<java.util.Locale: java.lang.String getLanguage()>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.Locale: java.lang.String getLanguage()>";
+    "<java.lang.String: boolean equals(java.lang.Object)>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.String: boolean equals(java.lang.Object)>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: void <init>()>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.lang.Class: java.lang.String getName()>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Class: java.lang.String getName()>";
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.Locale: java.lang.String getLanguage()>";
+    "<java.lang.Enum: java.lang.String toString()>"
+    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Enum: java.lang.String toString()>";
+    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"
+    "<java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>"
+    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"<java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>";
+    "(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>"
+    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>";
+    "(519)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void <init>(java.lang.Object)>"->"<java.lang.Object: void <init>()>";
+    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"
+    "(635)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: java.lang.Object clone()>"->"(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>";
+    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.System: void <clinit>()>";
+    "<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>"
+    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>";
+    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"<java.lang.Object: void <clinit>()>";
+    "(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>"
+    "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>";
+    "(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>"->"(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>";
     "(589)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex set(org.apache.commons.math3.complex.Complex,int[])>"->"(55)<org.apache.commons.math3.exception.DimensionMismatchException: void <init>(int,int)>";
     "(556)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex get(int[])>"
     "(649)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: void clone(org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix)>"->"(556)<org.apache.commons.math3.transform.FastFourierTransformer$MultiDimensionalComplexMatrix: org.apache.commons.math3.complex.Complex get(int[])>";
@@ -2452,7 +2739,6 @@ digraph "call-graph" {
     "(869)<org.apache.commons.math3.stat.descriptive.rank.PSquarePercentile$Marker: java.lang.String toString()>"->"<java.lang.Object: void <clinit>()>";
     "(869)<org.apache.commons.math3.stat.descriptive.rank.PSquarePercentile$Marker: java.lang.String toString()>"->"<java.lang.Integer: void <clinit>()>";
     "(869)<org.apache.commons.math3.stat.descriptive.rank.PSquarePercentile$Marker: java.lang.String toString()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.Double: void <clinit>()>"
     "(869)<org.apache.commons.math3.stat.descriptive.rank.PSquarePercentile$Marker: java.lang.String toString()>"->"<java.lang.Double: void <clinit>()>";
     "(869)<org.apache.commons.math3.stat.descriptive.rank.PSquarePercentile$Marker: java.lang.String toString()>"->"<java.lang.Object: void <clinit>()>";
     "(65)<org.apache.commons.math3.util.Precision: void <clinit>()>"
@@ -2481,7 +2767,6 @@ digraph "call-graph" {
     "(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>"
     "(1174)<org.apache.commons.math3.geometry.euclidean.threed.FieldVector3D: java.lang.String toString()>"->"(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>";
     "(309)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString()>"
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"
     "(309)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
     "<java.lang.Integer: java.lang.String toString(int)>"
     "(309)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString()>"->"<java.lang.Integer: java.lang.String toString(int)>";
@@ -2538,7 +2823,6 @@ digraph "call-graph" {
     "(948)<org.apache.commons.math3.linear.AbstractFieldMatrix: java.lang.String toString()>"->"<java.lang.Object: void <clinit>()>";
     "(278)<org.apache.commons.math3.util.Decimal64: java.lang.String toString()>"
     "(278)<org.apache.commons.math3.util.Decimal64: java.lang.String toString()>"->"<java.lang.Double: void <clinit>()>";
-    "<java.lang.Double: java.lang.String toString(double)>"
     "(278)<org.apache.commons.math3.util.Decimal64: java.lang.String toString()>"->"<java.lang.Double: java.lang.String toString(double)>";
     "(278)<org.apache.commons.math3.util.Decimal64: java.lang.String toString()>"->"<java.lang.Object: void <clinit>()>";
     "(348)<org.apache.commons.math3.geometry.euclidean.oned.Vector1D: java.lang.String toString()>"
@@ -2615,44 +2899,11 @@ digraph "call-graph" {
     "(65)<org.apache.commons.math3.util.Precision: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
     "(65)<org.apache.commons.math3.util.Precision: void <clinit>()>"->"(65)<org.apache.commons.math3.util.Precision: void <clinit>()>";
     "(65)<org.apache.commons.math3.util.Precision: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.util.Locale: void <clinit>()>"
     "(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>"->"<java.util.Locale: void <clinit>()>";
     "(103)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance(java.util.Locale)>"
     "(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>"->"(103)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance(java.util.Locale)>";
-    "<java.util.Locale: java.util.Locale getDefault()>"
     "(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>"->"<java.util.Locale: java.util.Locale getDefault()>";
     "(94)<org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat: org.apache.commons.math3.geometry.euclidean.threed.Vector3DFormat getInstance()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.StrictMath: void <clinit>()>"
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.StrictMath: void <clinit>()>";
-    "<java.lang.StrictMath: double log(double)>"
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.StrictMath: double log(double)>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
     "(356)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString(double)>"->"<java.lang.Double: void <clinit>()>";
     "(356)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString(double)>"->"<java.lang.Double: java.lang.String toString(double)>";
     "(356)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString(double)>"->"<java.lang.Object: void <clinit>()>";
@@ -2868,14 +3119,10 @@ digraph "call-graph" {
     "(394)<org.apache.commons.math3.util.FastMath: double sqrt(double)>"->"<java.lang.Math: double sqrt(double)>";
     "(394)<org.apache.commons.math3.util.FastMath: double sqrt(double)>"->"<java.lang.Object: void <clinit>()>";
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"
-    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<java.lang.StringBuilder: java.lang.String toString()>"
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<java.lang.StringBuilder: void <init>()>"
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
     "(260)<org.apache.commons.math3.util.MultidimensionalCounter: int getCount(int[])>"
     "(297)<org.apache.commons.math3.util.MultidimensionalCounter: java.lang.String toString()>"->"(260)<org.apache.commons.math3.util.MultidimensionalCounter: int getCount(int[])>";
@@ -3107,7 +3354,6 @@ digraph "call-graph" {
     "(948)<org.apache.commons.math3.linear.AbstractFieldMatrix: java.lang.String toString()>"->"(365)<org.apache.commons.math3.linear.Array2DRowFieldMatrix: org.apache.commons.math3.FieldElement getEntry(int,int)>";
     "(1160)<org.apache.commons.math3.linear.BlockFieldMatrix: org.apache.commons.math3.FieldElement getEntry(int,int)>"
     "(948)<org.apache.commons.math3.linear.AbstractFieldMatrix: java.lang.String toString()>"->"(1160)<org.apache.commons.math3.linear.BlockFieldMatrix: org.apache.commons.math3.FieldElement getEntry(int,int)>";
-    "<java.lang.Class: java.lang.String getName()>"
     "(948)<org.apache.commons.math3.linear.AbstractFieldMatrix: java.lang.String toString()>"->"<java.lang.Class: java.lang.String getName()>";
     "(1032)<org.apache.commons.math3.linear.AbstractFieldMatrix: void checkRowIndex(int)>"
     "(1160)<org.apache.commons.math3.linear.BlockFieldMatrix: org.apache.commons.math3.FieldElement getEntry(int,int)>"->"(1032)<org.apache.commons.math3.linear.AbstractFieldMatrix: void checkRowIndex(int)>";
@@ -3680,32 +3926,7 @@ digraph "call-graph" {
     "(309)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
     "(309)<org.apache.commons.math3.analysis.polynomials.PolynomialFunction: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
     "(80)<org.apache.commons.math3.exception.MathIllegalStateException: java.lang.String getMessage()>"
-    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"
     "(80)<org.apache.commons.math3.exception.MathIllegalStateException: java.lang.String getMessage()>"->"(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>";
-    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"<java.util.Locale: void <clinit>()>";
-    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"<java.lang.Object: void <clinit>()>";
-    "(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>"
-    "(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>"->"(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"
-    "(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>"->"(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>";
-    "<java.text.MessageFormat: void <clinit>()>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.MessageFormat: void <clinit>()>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
-    "<java.text.Format: java.lang.String format(java.lang.Object)>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.Format: java.lang.String format(java.lang.Object)>";
-    "<java.text.MessageFormat: void <init>(java.lang.String,java.util.Locale)>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.text.MessageFormat: void <init>(java.lang.String,java.util.Locale)>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.lang.StringBuilder: void <init>()>";
-    "(56)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getMessage()>"
-    "(56)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getMessage()>"->"(127)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage()>";
-    "<java.util.ArrayList: java.lang.Object get(int)>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: java.lang.Object get(int)>";
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: java.lang.Object get(int)>";
-    "<java.util.ArrayList: int size()>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"<java.util.ArrayList: int size()>";
     "(342)<org.apache.commons.math3.geometry.euclidean.threed.FieldVector3D: org.apache.commons.math3.geometry.euclidean.threed.Vector3D toVector3D()>"
     "(1174)<org.apache.commons.math3.geometry.euclidean.threed.FieldVector3D: java.lang.String toString()>"->"(342)<org.apache.commons.math3.geometry.euclidean.threed.FieldVector3D: org.apache.commons.math3.geometry.euclidean.threed.Vector3D toVector3D()>";
     "(41)<org.apache.commons.math3.geometry.euclidean.threed.Vector3D: void <clinit>()>"
@@ -4154,7 +4375,6 @@ digraph "call-graph" {
     "(32)<org.apache.commons.math3.dfp.DfpField$RoundingMode: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
     "(29)<org.apache.commons.math3.dfp.DfpField$RoundingMode: org.apache.commons.math3.dfp.DfpField$RoundingMode[] values()>"->"(32)<org.apache.commons.math3.dfp.DfpField$RoundingMode: void <clinit>()>";
     "(29)<org.apache.commons.math3.dfp.DfpField$RoundingMode: org.apache.commons.math3.dfp.DfpField$RoundingMode[] values()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.Object: java.lang.Object clone()>"
     "(29)<org.apache.commons.math3.dfp.DfpField$RoundingMode: org.apache.commons.math3.dfp.DfpField$RoundingMode[] values()>"->"<java.lang.Object: java.lang.Object clone()>";
     "(29)<org.apache.commons.math3.dfp.DfpField$RoundingMode: void <init>(java.lang.String,int)>"
     "(32)<org.apache.commons.math3.dfp.DfpField$RoundingMode: void <clinit>()>"->"(29)<org.apache.commons.math3.dfp.DfpField$RoundingMode: void <init>(java.lang.String,int)>";
@@ -4436,84 +4656,23 @@ digraph "call-graph" {
     "(864)<org.apache.commons.math3.util.FastMath: double exp(double)>"->"(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>";
     "(864)<org.apache.commons.math3.util.FastMath: double exp(double)>"->"<java.lang.Object: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"(99)<org.apache.commons.math3.util.FastMath: void <clinit>()>";
     "(877)<org.apache.commons.math3.util.FastMath: double exp(double,double,double[])>"->"<java.lang.Object: void <clinit>()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$300()>"->"<java.lang.Object: void <clinit>()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
-    "(4175)<org.apache.commons.math3.util.FastMath$ExpFracTable: double[] access$200()>"->"<java.lang.Object: void <clinit>()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$100()>"->"<java.lang.Object: void <clinit>()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
-    "(4136)<org.apache.commons.math3.util.FastMath$ExpIntTable: double[] access$000()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>";
-    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>";
-    "(4201)<org.apache.commons.math3.util.FastMath$ExpFracTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>";
-    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>";
-    "(4168)<org.apache.commons.math3.util.FastMath$ExpIntTable: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
-    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"<java.lang.Object: void <clinit>()>";
-    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"<java.lang.Object: void <clinit>()>";
-    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"<java.lang.Object: void <clinit>()>";
-    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"(28)<org.apache.commons.math3.util.FastMathLiteralArrays: void <clinit>()>";
-    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"<java.lang.Object: void <clinit>()>";
-    "(6141)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntA()>"->"<java.lang.Object: java.lang.Object clone()>";
-    "(6149)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpIntB()>"->"<java.lang.Object: java.lang.Object clone()>";
-    "(6157)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracA()>"->"<java.lang.Object: java.lang.Object clone()>";
-    "(6165)<org.apache.commons.math3.util.FastMathLiteralArrays: double[] loadExpFracB()>"->"<java.lang.Object: java.lang.Object clone()>";
     "(49)<org.apache.commons.math3.stat.descriptive.moment.SecondMoment: long getN()>"->"(137)<org.apache.commons.math3.stat.descriptive.moment.FirstMoment: long getN()>";
     "(224)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: int getFreeParameters()>"
     "(1143)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: int hashCode()>"->"(224)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: int getFreeParameters()>";
@@ -5250,14 +5409,7 @@ digraph "call-graph" {
     "(1121)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: boolean equals(java.lang.Object)>"->"(224)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: int getFreeParameters()>";
     "(1121)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: boolean equals(java.lang.Object)>"->"(231)<org.apache.commons.math3.analysis.differentiation.DerivativeStructure: int getOrder()>";
     "(86)<org.apache.commons.math3.exception.MathIllegalStateException: java.lang.String getLocalizedMessage()>"
-    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"
     "(86)<org.apache.commons.math3.exception.MathIllegalStateException: java.lang.String getLocalizedMessage()>"->"(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>";
-    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.util.Locale: void <clinit>()>";
-    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.util.Locale: java.util.Locale getDefault()>";
-    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"<java.lang.Object: void <clinit>()>";
-    "(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>"->"(146)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getMessage(java.util.Locale)>";
-    "(62)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getLocalizedMessage()>"
-    "(62)<org.apache.commons.math3.exception.MathIllegalArgumentException: java.lang.String getLocalizedMessage()>"->"(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>";
     "(70)<org.apache.commons.math3.exception.MathUnsupportedOperationException: java.lang.String getLocalizedMessage()>"
     "(70)<org.apache.commons.math3.exception.MathUnsupportedOperationException: java.lang.String getLocalizedMessage()>"->"(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>";
     "(64)<org.apache.commons.math3.exception.MathUnsupportedOperationException: java.lang.String getMessage()>"
@@ -5624,31 +5776,9 @@ digraph "call-graph" {
     "(145)<org.apache.commons.math3.fraction.FractionFormat: java.lang.StringBuffer format(org.apache.commons.math3.fraction.Fraction,java.lang.StringBuffer,java.text.FieldPosition)>"->"(368)<org.apache.commons.math3.fraction.Fraction: int getDenominator()>";
     "(145)<org.apache.commons.math3.fraction.FractionFormat: java.lang.StringBuffer format(org.apache.commons.math3.fraction.Fraction,java.lang.StringBuffer,java.text.FieldPosition)>"->"(110)<org.apache.commons.math3.fraction.AbstractFormat: java.text.NumberFormat getNumeratorFormat()>";
     "(145)<org.apache.commons.math3.fraction.FractionFormat: java.lang.StringBuffer format(org.apache.commons.math3.fraction.Fraction,java.lang.StringBuffer,java.text.FieldPosition)>"->"(102)<org.apache.commons.math3.fraction.AbstractFormat: java.text.NumberFormat getDenominatorFormat()>";
-    "(48)<org.apache.commons.math3.exception.util.DummyLocalizable: java.lang.String getLocalizedString(java.util.Locale)>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"(48)<org.apache.commons.math3.exception.util.DummyLocalizable: java.lang.String getLocalizedString(java.util.Locale)>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"
-    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>";
-    "<java.util.ResourceBundle: void <clinit>()>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: void <clinit>()>";
-    "<java.util.ResourceBundle: java.util.ResourceBundle getBundle(java.lang.String,java.util.Locale)>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.util.ResourceBundle getBundle(java.lang.String,java.util.Locale)>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Object: void <clinit>()>";
-    "<java.util.ResourceBundle: java.util.Locale getLocale()>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.util.Locale getLocale()>";
-    "<java.util.ResourceBundle: java.lang.String getString(java.lang.String)>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.ResourceBundle: java.lang.String getString(java.lang.String)>";
-    "<java.util.Locale: java.lang.String getLanguage()>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.Locale: java.lang.String getLanguage()>";
-    "<java.lang.String: boolean equals(java.lang.Object)>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.String: boolean equals(java.lang.Object)>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: void <init>()>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Class: java.lang.String getName()>";
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.util.Locale: java.lang.String getLanguage()>";
-    "<java.lang.Enum: java.lang.String toString()>"
-    "(396)<org.apache.commons.math3.exception.util.LocalizedFormats: java.lang.String getLocalizedString(java.util.Locale)>"->"<java.lang.Enum: java.lang.String toString()>";
+    "(405)<org.apache.commons.math3.fraction.Fraction: long longValue()>"
+    "(326)<org.apache.commons.math3.fraction.Fraction: double doubleValue()>"
+    "(405)<org.apache.commons.math3.fraction.Fraction: long longValue()>"->"(326)<org.apache.commons.math3.fraction.Fraction: double doubleValue()>";
     "(719)<org.apache.commons.math3.fraction.BigFraction: double doubleValue()>"
     "(719)<org.apache.commons.math3.fraction.BigFraction: double doubleValue()>"->"<java.lang.Double: void <clinit>()>";
     "(4098)<org.apache.commons.math3.util.FastMath: int getExponent(double)>"
@@ -5664,9 +5794,8 @@ digraph "call-graph" {
     "(4098)<org.apache.commons.math3.util.FastMath: int getExponent(double)>"->"<java.lang.Double: void <clinit>()>";
     "(4098)<org.apache.commons.math3.util.FastMath: int getExponent(double)>"->"<java.lang.Double: long doubleToRawLongBits(double)>";
     "(4098)<org.apache.commons.math3.util.FastMath: int getExponent(double)>"->"<java.lang.Object: void <clinit>()>";
-    "(405)<org.apache.commons.math3.fraction.Fraction: long longValue()>"
-    "(326)<org.apache.commons.math3.fraction.Fraction: double doubleValue()>"
-    "(405)<org.apache.commons.math3.fraction.Fraction: long longValue()>"->"(326)<org.apache.commons.math3.fraction.Fraction: double doubleValue()>";
+    "(48)<org.apache.commons.math3.exception.util.DummyLocalizable: java.lang.String getLocalizedString(java.util.Locale)>"
+    "(170)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String buildMessage(java.util.Locale,java.lang.String)>"->"(48)<org.apache.commons.math3.exception.util.DummyLocalizable: java.lang.String getLocalizedString(java.util.Locale)>";
     "(74)<org.apache.commons.math3.exception.MathArithmeticException: java.lang.String getLocalizedMessage()>"
     "(74)<org.apache.commons.math3.exception.MathArithmeticException: java.lang.String getLocalizedMessage()>"->"(136)<org.apache.commons.math3.exception.util.ExceptionContext: java.lang.String getLocalizedMessage()>";
     "(68)<org.apache.commons.math3.exception.MathArithmeticException: java.lang.String getMessage()>"
