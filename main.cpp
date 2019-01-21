@@ -305,12 +305,20 @@ int main( int argc, char** argv ) {
     matrixCallsCount[i].resize(loadersAndUnionG.size());
     matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
+
+  //transformInputGraph
+
+  for (int i = 0; i < loadersAndUnionG.size(); ++i) {
+	  transformInputGraph(connections[i], loadersAndUnionG[i], records[i]);
+  }
     
   for (unsigned i = 0; i < loadersAndUnionG.size() - 1; i++ ) {
     
     for (unsigned j = i + 1; j < loadersAndUnionG.size(); j++ ) {
     
       cout << loadersAndUnionG[i]->getName() << " and " << loadersAndUnionG[j]->getName() << " stats..." << endl;
+
+	//  produceJaccard(connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j]);
       
       commonCounters commonVals = makeStat( connections[i], connections[j], loadersAndUnionG[i], loadersAndUnionG[j], records[i], records[j] );
       float loader_i_callNum = (float)connections[i].size();

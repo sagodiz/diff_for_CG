@@ -24,6 +24,10 @@ struct commonCounters {
   commonPair not_found; //for both tools it shows how many methods were NOT found in the other.
 };
 
+
+void transformInputGraph(const std::set<std::pair<int, int>>& compareSet, Named * loader, const std::vector<Record>& r);
+
+void produceJaccard(const std::set<std::pair<int, int>>& compareSet1, const std::set<std::pair<int, int>>& compareSet2, Named * l1, Named * l2, const std::vector<Record>& r1, const std::vector<Record>& r2);
 commonCounters makeStat(std::set<std::pair<int, int>> compareSet1, std::set<std::pair<int, int>> compareSet2, Named * l1, Named * l2, std::vector<Record> r1, std::vector<Record> r2);
 void makeGraphDBStat(const std::vector<std::string>& labels);
 void writeTSV(std::vector<Record>, std::string, std::string);

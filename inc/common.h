@@ -33,6 +33,15 @@ namespace common {
   std::string produceFileNamePrefix();
   
   extern bool TRACE_RUN;
+
+  static inline int getIdForMethod(const Record& r) {
+	  for (unsigned i = 0; i < storedIds.size(); ++i) {
+		  if (storedIds[i] == r) {
+			  return i;
+		  }
+	  }
+	  return -1;
+  }
   
   
   /**

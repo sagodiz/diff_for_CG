@@ -134,6 +134,28 @@ string Record::createUnifiedMethodName() {
 }
 
 
+std::string Record::getRepresentationForLoader(const std::string& loader) const {
+	for (auto rep : sameMethods) {
+		if (rep.second == loader) {
+			return rep.first;
+		}
+	}
+	return getUnifiedRepresentation();
+}
+
+std::map<std::string, std::string>& Record::getOriginalNames() {
+	return originalNameInLoader;
+}
+
+const std::map<std::string, std::string>& Record::getOriginalNames() const {
+	return originalNameInLoader;
+}
+
+void Record::insertOriginalName(const std::string& loader, const std::string& method) {
+	originalNameInLoader[loader] = method;
+}
+
+
 
 //----------------------------------------------public methods----------------------------------------------------
 

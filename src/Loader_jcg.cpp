@@ -102,10 +102,19 @@ cout << "JCG loader" << endl;
       //so this record is not found in the vector
       ++uniqueMethodNum;
       common::storedIds.push_back(r);
+
+	  {
+		  auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+		  (*it).insertOriginalName(name, member1);
+	  }
+
     }
     else {
 
       auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+
+	  (*it).insertOriginalName(name, member1);
+
       if (*it == pair<string, string>(member1, name)) {
         //contains this representation
       }
@@ -173,16 +182,26 @@ cout << "JCG loader" << endl;
       //so this record is not found in the vector
       ++uniqueMethodNum;
       common::storedIds.push_back(r2);
+
+	  {
+		  auto it = find(common::storedIds.begin(), common::storedIds.end(), r2);
+		  (*it).insertOriginalName(name, member2);
+	  }
+
     }
     else {
 
       auto it = find( common::storedIds.begin(), common::storedIds.end(), r2 );
+
+	  (*it).insertOriginalName(name, member2);
+
       if ( *it == pair<string, string>(member2, name) ) {
         //contains this representation
       }
       else {
         
         *it += pair<string, string>(member2, name);  //add this representation
+		
         ++uniqueMethodNum;
       }
     }

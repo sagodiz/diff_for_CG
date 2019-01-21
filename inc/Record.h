@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <map>
 
 class Record {
   
@@ -22,6 +23,8 @@ class Record {
   */
   
   std::string createUnifiedMethodName();
+
+  std::map<std::string, std::string> originalNameInLoader;
   
   public:
     Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int startLine = -1, int endLine = -1 );
@@ -62,6 +65,13 @@ class Record {
     std::vector<std::string> getParameters() const;
     std::vector<std::pair<std::string, std::string>> getSameMethods() const;
     std::string getUnifiedRepresentation() const;
+
+	std::string getRepresentationForLoader(const std::string& repo) const;
+
+	std::map<std::string, std::string>& getOriginalNames();
+	const std::map<std::string, std::string>& getOriginalNames() const;
+
+	void insertOriginalName(const std::string& loader, const std::string& method);
     
     
     /**

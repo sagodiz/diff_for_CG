@@ -106,6 +106,16 @@ cout << "soot loader" << endl;
         
         parameterVector.push_back(parameter);
       }
+
+	  auto stripMethodName = [](std::string asd) -> std::string {
+		  asd.erase(std::remove(asd.begin(), asd.end(), '"'), asd.end());
+		  size_t pos = 0;
+		  while ((pos = asd.find(" ", pos)) != std::string::npos) {
+			  asd.replace(pos, 1, "_");
+			  pos++;
+		  }
+		  return asd;
+	  };
       
       
       if ( common::options::anonymClassNameTransform > 0 ) {
@@ -133,10 +143,18 @@ cout << "soot loader" << endl;
 DDD
         ++uniqueMethodNum;
         common::storedIds.push_back(r);
+
+		{
+			auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+			(*it).insertOriginalName(name, stripMethodName(methodRepresentation));
+		}
+
       }
       else {
-
+		  
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
+
+		(*it).insertOriginalName(name, stripMethodName(methodRepresentation));
         if ( *it == pair<string, string>(methodRepresentation, name) ) {
           //contains this representation
         }

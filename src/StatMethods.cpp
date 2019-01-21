@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm> 
+#include <iterator>
+#include <map>
 
 #include "../inc/StatMethods.h"
 
@@ -61,6 +64,135 @@ void writeTSV(vector<Record> records, string name, string tool) {
     
     TSV << records[i].getSameMethods().at(0).first + records[i].getSecondaryRepresentation() << endl; 
   }
+}
+
+std::pair<std::set<int>, std::set<int>> getInOutEdges(int id, const set<pair<int, int>>& compareSet, std::map<int, std::pair<std::set<int>, std::set<int>>>& allInOuts) {
+	auto it = allInOuts.find(id);
+	if (it != allInOuts.end()) {
+		return it->second;
+	}
+	std::set<int> outs, ins;
+	for (auto edge : compareSet) {
+		if (edge.first == id) {
+			outs.insert(edge.second);
+		}
+		if (edge.second == id) {
+			ins.insert(id);
+		}
+	}
+	auto result = std::make_pair(ins, outs);
+	
+	allInOuts[id] = result;
+
+	return result;
+}
+
+
+void transformInputGraph(const std::set<std::pair<int, int>>& compareSet, Named * loader, const std::vector<Record>& r) {
+	ofstream transformed(common::produceFileNamePrefix() + loader->getName() + ".transformed");
+	ofstream cheatsheet(common::produceFileNamePrefix() + loader->getName() + ".transformed_cheatsheet");
+	transformed << r.size() << endl;
+	cheatsheet << r.size() << endl;
+	std::map<int, int> idMapper;
+	for (int i = 0; i < r.size(); ++i) {
+		transformed << "1" << endl;
+		int id = common::getIdForMethod(r[i]);
+		idMapper[id] = i;
+		try {
+			cheatsheet << id << " " << (common::storedIds[id].getOriginalNames().at(loader->getName())) << endl;
+		}
+		catch (...) {
+			std::cout << "bdfh" << std::endl;
+		}
+	}
+	for (auto edge : compareSet) {
+		transformed << idMapper[edge.first] << " " << idMapper[edge.second] << std::endl;
+	}
+
+	transformed.close();
+	cheatsheet.close();
+}
+
+
+
+double jaccardForNodes(int id1, int id2, const set<pair<int, int>>& compareSet1, const set<pair<int, int>>& compareSet2, std::map<int, std::pair<std::set<int>, std::set<int>>>& allInOuts1, std::map<int, std::pair<std::set<int>, std::set<int>>>& allInOuts2) {
+	std::pair<std::set<int>, std::set<int>> inOuts1 = getInOutEdges(id1, compareSet1, allInOuts1);
+	std::pair<std::set<int>, std::set<int>> inOuts2 = getInOutEdges(id2, compareSet2, allInOuts2);
+
+	auto jaccardForSets = [](std::set<int>& s1, std::set<int>& s2) -> double {
+		std::vector<int> intersection;
+		std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(intersection));
+		if (s1.size() == 0 && s2.size() == 0) {
+			return 1.0;
+		}
+		double divider = (double)s1.size() + (double)s2.size() - (double)intersection.size();
+		if (divider == 0) { //should not be possible
+			return 1.0;
+		}
+		return (double)intersection.size() / divider;
+	};
+
+
+	//std::set_union(inOuts1.first.begin(), inOuts1.first.end(), inOuts1.second.begin(), inOuts1.second.end(), std::back_inserter(s1));
+	//std::set_union(inOuts2.first.begin(), inOuts2.first.end(), inOuts2.second.begin(), inOuts2.second.end(), std::back_inserter(s2));
+	double inJaccard = jaccardForSets(inOuts1.first, inOuts2.first);
+	double outJaccard = jaccardForSets(inOuts1.second, inOuts2.second);
+
+	return (inJaccard + outJaccard)/2;
+}
+
+void produceJaccard(const set<pair<int, int>>& compareSet1, const set<pair<int, int>>& compareSet2, Named * l1, Named * l2, const vector<Record>& r1, const vector<Record>& r2) {
+	ofstream statOut(common::produceFileNamePrefix() + l1->getName() + "-" + l2->getName() + "-jaccard.csv");
+	ofstream outstanding(common::produceFileNamePrefix() + l1->getName() + "-" + l2->getName() + "-outstanding-jaccard.csv");
+	ofstream lowstanding(common::produceFileNamePrefix() + l1->getName() + "-" + l2->getName() + "-verylow-jaccard.csv");
+	std::pair<int,int> outstanding_counter, lowstanding_counter;
+	outstanding_counter.first = outstanding_counter.second = lowstanding_counter.first = lowstanding_counter.second = 0;
+
+	std::map<int, std::pair<std::set<int>, std::set<int>>> allInOuts1, allInOuts2;
+
+	for (int j = 0; j < r2.size(); ++j) {
+		statOut << ";" << common::getMethodById(common::getIdForMethod(r2[j]));
+	}
+
+	for (int i = 0; i < r1.size(); ++i) {
+		int id1 = common::getIdForMethod(r1[i]);
+		statOut << std::endl << common::getMethodById(id1);
+		for (int j = 0; j < r2.size(); ++j) {
+			int id2 = common::getIdForMethod(r2[j]);
+
+			double jaccard = jaccardForNodes(id1, id2, compareSet1, compareSet2, allInOuts1, allInOuts2);
+
+			if (jaccard >= 0.7) {
+				if (r1[i] == r2[j]) {
+					outstanding_counter.first++;
+				}
+				else {
+					outstanding << common::getMethodById(id1) << "(" << id1 << ")" << " " << common::getMethodById(id2)<<"("<<id2 <<")" << ":" << jaccard  << std::endl;
+					outstanding_counter.second++;
+				}
+			}
+
+			if (jaccard < 0.7) {
+				if (r1[i] == r2[j]) {
+					lowstanding << common::getMethodById(id1) << "(" << id1 << ")" << " " << common::getMethodById(id2) << "(" << id2 << ")" << ":" << jaccard << std::endl;
+					lowstanding_counter.first++;
+					}
+				else {
+					lowstanding_counter.second++;
+				}
+				
+			}
+			
+			statOut << ";" << jaccard;
+		}
+	}
+	statOut.close();
+	outstanding << "High value (>0.7) and r1 == r2: " << outstanding_counter.first << std::endl;
+	outstanding << "High value (>0.7) and r1 != r2: " << outstanding_counter.second << std::endl;
+	outstanding.close();
+	lowstanding << "Low value (<0.7) and r1 != r2: "<<lowstanding_counter.second << std::endl;
+	lowstanding << "Low value (<0.7) and r1 == r2: " << lowstanding_counter.first << std::endl;
+	lowstanding.close();
 }
 
 commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2) {

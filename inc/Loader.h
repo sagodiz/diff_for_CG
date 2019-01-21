@@ -5,7 +5,8 @@
 #include "Named.h"
 #include<fstream>
 #include <iostream>
-#include<set>
+#include <set>
+#include <map>
 
 /**
 * A general class for handling and processing outputs from call graph creator tools

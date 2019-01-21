@@ -286,10 +286,16 @@ cout << "OSA loader" << endl;
         //so this record is not found in the vector
         common::storedIds.push_back(r);
         ++uniqueMethodNum;
+
+		{
+			auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+			(*it).insertOriginalName(name, infoMine);
+		}
       }
       else {
 
         auto it = find( common::storedIds.begin(), common::storedIds.end(), r );
+		(*it).insertOriginalName(name, infoMine);
         if ( *it == pair<string, string>(representation, name) ) {
           //contains this representation
         }
