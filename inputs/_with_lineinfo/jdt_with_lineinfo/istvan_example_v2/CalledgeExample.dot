@@ -71,7 +71,7 @@ rankdir="LR";
 37 [label="Overload.foo(int;java.lang.Object[]):void:CallEdgeExamples.java:166:1:168:2"]
 36 [label="Overload.foo(T):void:CallEdgeExamples.java:163:1:165:2"]
 73 [label="Overload.foo(Overload):void:CallEdgeExamples.java:163:1:165:2"]
-30 [label="StaticInit.<staticinitblock>():void::-1:-1:-1:-1"]
+30 [label="StaticInit.<clinit>():void::-1:-1:-1:-1"]
 31 [label="StaticInit.staticInit():void:CallEdgeExamples.java:141:1:143:2"]
 1 [label="java.io.PrintStream.println(java.lang.String):void::-1:-1:-1:-1"]
 0 -> 1

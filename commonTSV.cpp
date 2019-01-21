@@ -31,7 +31,9 @@ class Record {
     string jcg;
     string wala;
     string jdt;
-    string trace;
+#ifdef TRACE
+  string trace;
+#endif
   
     unsigned long int metszet;
     
@@ -43,7 +45,9 @@ class Record {
       jcg = "x";
       wala = "x";
       jdt = "x";
-      trace = "x";
+#ifdef TRACE
+    trace = "x";
+#endif
       
       metszet = 0;
     }
@@ -69,9 +73,11 @@ class Record {
       if ( "x" != jdt ) {
         ++num;
       }
-      if ( "x" != trace ) {
-        ++num;
-      }
+#ifdef TRACE
+    if ( "x" != trace ) {
+      ++num;
+    }
+#endif
       
       return num;
     }
@@ -96,10 +102,11 @@ class Record {
       if ( "x" != jdt ) {
         metszet |=  JDT_NUM;
       }
-      if ( "x" != trace ) {
-        metszet |=  TRACE_NUM;
-      }
-      
+#ifdef TRACE
+    if ( "x" != trace ) {
+      metszet |=  TRACE_NUM;
+    }
+#endif
       return metszet;
     }
 
@@ -129,9 +136,12 @@ class Record {
     if ("x" != jdt) {
       metszet += transformed;
     }
-    if ("x" != trace) {
-      metszet += transformed;
-    }
+#ifdef TRACE
+  metszet += ";";
+  if ("x" != trace) {
+    metszet += transformed;
+  }
+#endif
     
     return metszet;
   }
@@ -155,7 +165,9 @@ class RecordConn {
     string jcg;
     string wala;
     string jdt;
-    string trace;
+#ifdef TRACE
+  string trace;
+#endif
   
     int metszet;
     
@@ -167,7 +179,9 @@ class RecordConn {
       jcg = "";
       wala = "";
       jdt = "";
-      trace = "";
+#ifdef TRACE
+    trace = "";
+#endif
       
       metszet = 0;
     }
@@ -193,10 +207,11 @@ class RecordConn {
       if ( "" != jdt ) {
         ++num;
       }
-      if ( "" != trace ) {
-        ++num;
-      }
-      
+#ifdef TRACE
+    if ( "" != trace ) {
+      ++num;
+    }
+#endif
       return num;
     }
   
@@ -220,10 +235,11 @@ class RecordConn {
       if ( "" != jdt ) {
         metszet |=  JDT_NUM;
       }
-     if ( "" != trace ) {
-        metszet |=  TRACE_NUM;
-      }
-      
+#ifdef TRACE
+   if ( "" != trace ) {
+      metszet |=  TRACE_NUM;
+    }
+#endif
       return metszet;
     }
 
@@ -252,10 +268,12 @@ class RecordConn {
       if ("" != jdt) {
         metszet += id;
       }
-    
-      if ("" != trace) {
-        metszet += id;
-      }
+#ifdef TRACE
+    metszet += ";";
+    if ("" != trace) {
+      metszet += id;
+    }
+#endif
     return metszet;
   }
     
@@ -274,8 +292,10 @@ int main(int argc, char** argv) {
   ifstream spoon;
   ifstream jcg;
   ifstream wala;
-  ifstream trace;
   ifstream jdt;
+#ifdef TRACE
+  ifstream trace;
+#endif
   
   ifstream sootConn;
   ifstream osaConn;
@@ -284,7 +304,9 @@ int main(int argc, char** argv) {
   ifstream jcgConn;
   ifstream walaConn;
   ifstream jdtConn;
+#ifdef TRACE
   ifstream traceConn;
+#endif
   
   if ( 3 == argc ) {
     ifstream input(argv[1]);
@@ -304,8 +326,11 @@ int main(int argc, char** argv) {
         wala.open(file2open.substr(7));
       else if ( file2open.find("L_JDT") != string::npos )
         jdt.open(file2open.substr(6));
-      else if ( file2open.find("L_TRACE") != string::npos )
-        trace.open(file2open.substr(8));
+      
+#ifdef TRACE
+    else if ( file2open.find("L_TRACE") != string::npos )
+      trace.open(file2open.substr(8));
+#endif
     }
     //--------------------------------------
     input.close();
@@ -334,10 +359,13 @@ int main(int argc, char** argv) {
       cerr << "jdt could not be opened." << endl;
       return 1;
     }
-    if ( !trace.is_open() ) {
-      cerr << "trace could not be opened." << endl;
-      return 1;
-    }
+    
+#ifdef TRACE
+  if ( !trace.is_open() ) {
+    cerr << "trace could not be opened." << endl;
+    return 1;
+  }
+#endif
     
     input.open(argv[2]);
     //--------------------------------------
@@ -354,8 +382,10 @@ int main(int argc, char** argv) {
         walaConn.open(file2open.substr(7));
       else if ( file2open.find("L_JDT") != string::npos )
         jdtConn.open(file2open.substr(6));
-      else if ( file2open.find("L_TRACE") != string::npos )
-        traceConn.open(file2open.substr(8));
+#ifdef TRACE
+    else if ( file2open.find("L_TRACE") != string::npos )
+      traceConn.open(file2open.substr(8));
+#endif
     }
     input.close();
     
@@ -383,17 +413,22 @@ int main(int argc, char** argv) {
       cerr << "jdtConn could not be opened." << endl;
       return 1;
     }
-    if ( !traceConn.is_open() ) {
-      cerr << "traceConn could not be opened." << endl;
-      return 1;
-    }
+#ifdef TRACE
+  if ( !traceConn.is_open() ) {
+    cerr << "traceConn could not be opened." << endl;
+    return 1;
+  }
+#endif
     
   }
   else {
     
     if ( 9 != argc ) {
-
+#ifdef TRACE
       cerr << "Must give the 14 inputs (1 method 1 connection) (outputs of the tools) in the following order: JCG Soot OSA SPOON WALA JDT TRACE JCGConn SootConn OSAConn SPOONConn WALAConn JDTConn TRACEConn" << endl;
+#else
+      cerr << "Must give the 12 inputs (1 method 1 connection) (outputs of the tools) in the following order: JCG Soot OSA SPOON WALA JDT JCGConn SootConn OSAConn SPOONConn WALAConn JDTConn" << endl;
+#endif
       return 1;
     }
     int index = 1;
@@ -404,8 +439,9 @@ int main(int argc, char** argv) {
     spoon.open(argv[index++]);
     wala.open(argv[index++]);
     jdt.open(argv[index++]);
-    trace.open(argv[index++]);
-    
+#ifdef TRACE
+  trace.open(argv[index++]);
+#endif
     
     jcgConn.open(argv[index++]);
     sootConn.open(argv[index++]);
@@ -413,8 +449,9 @@ int main(int argc, char** argv) {
     spoonConn.open(argv[index++]);
     walaConn.open(argv[index++]);
     jdtConn.open(argv[index++]);
-    traceConn.open(argv[index++]);
-  
+#ifdef TRACE
+  traceConn.open(argv[index++]);
+#endif
   }
   
 //------load connections-------
@@ -426,7 +463,12 @@ int main(int argc, char** argv) {
   ofstream vennC("commonConnectionsVenn.csv");
   //vennC << "Soot;OSA;SPOON;JCG;WALA;TRACE"<<std::endl;
   //vennC << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  
+#ifdef TRACE
   vennC << "Soot;OSA;SPOON;JCG;WALA;JDT;TRACE"<<std::endl;
+#else
+  vennC << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+#endif
   
   //-------------------------jcg---------------
   jcgConn >> connStr >> toolc; 
@@ -574,6 +616,7 @@ int main(int argc, char** argv) {
     }
   }
   
+#ifdef TRACE
   //-------TRACE-------
   traceConn >> connStr >> toolc; 
   cout << "TRACE connections" << endl;
@@ -598,14 +641,24 @@ int main(int argc, char** argv) {
       connections.push_back(r);
     }
   }
+#endif
+  
   
   //-----kiiras
+#ifdef TRACE
   connout << "Connection" << "\t" << "matching" << "\t" << "Soot(" << SOOT_NUM << ")" << "\t" << "OSA(" << OSA_NUM << ")" << "\t" << "SPOON(" << SPOON_NUM << ")" << "\t" << "JCG(" << JCG_NUM << ")" << "\t" << "WALA(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "TRACE(" << TRACE_NUM << ")" << "\t" << "IntersectionID" << endl;
+#else
+  connout << "Connection" << "\t" << "matching" << "\t" << "Soot(" << SOOT_NUM << ")" << "\t" << "OSA(" << OSA_NUM << ")" << "\t" << "SPOON(" << SPOON_NUM << ")" << "\t" << "JCG(" << JCG_NUM << ")" << "\t" << "WALA(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
+#endif
   cout << connections.size() << endl;
   for ( unsigned i = 0; i < connections.size(); i++ ) {
-    
+#ifdef TRACE
     connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].osa << "\t" << connections[i].spoon << "\t" << connections[i].jcg << "\t" << connections[i].wala << "\t" << connections[i].jdt << "\t" << connections[i].trace << "\t" << connections[i].getMetszet() << endl;
   
+#else
+    connout << connections[i].connection << "\t" << connections[i].commonNum() << "\t" << connections[i].soot << "\t" << connections[i].osa << "\t" << connections[i].spoon << "\t" << connections[i].jcg << "\t" << connections[i].wala << "\t" << connections[i].jdt << "\t" << connections[i].getMetszet() << endl;
+#endif
+    
   vennC << connections[i].getMetszetAsString(std::to_string(i)) << std::endl;
   }
   
@@ -620,7 +673,13 @@ int main(int argc, char** argv) {
   ofstream venn("commonMethodsVenn.csv");
   //venn << "Soot;OSA;SPOON;JCG;WALA;TRACE"<<std::endl;
   //venn << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+  
+#ifdef TRACE
   venn << "Soot;OSA;SPOON;JCG;WALA;JDT;TRACE"<<std::endl;
+  
+#else
+  venn << "Soot;OSA;SPOON;JCG;WALA;JDT"<<std::endl;
+#endif
   string tool, trans, rep;
   string line;
   
@@ -782,6 +841,9 @@ DDD
   }
   //--------------
   
+  
+  
+#ifdef TRACE
   cout << "TRACE" << endl;
 
   trace >> tool >> trans >> rep; //get the header
@@ -807,13 +869,25 @@ DDD
     }
   }
   
+#endif
   //---kiírás
+  
+#ifdef TRACE
   out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep(" << SOOT_NUM << ")" << "\t" << "OSA.rep(" << OSA_NUM << ")" << "\t" << "SPOON.rep(" << SPOON_NUM << ")" << "\t" << "JCG.rep(" << JCG_NUM << ")" << "\t" << "WALA.rep(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "TRACE(" << TRACE_NUM << ")" << "\t" << "IntersectionID" << endl;
   
+#else
+  out << "Transformed" << "\t" << "matching" << "\t" << "Soot.rep(" << SOOT_NUM << ")" << "\t" << "OSA.rep(" << OSA_NUM << ")" << "\t" << "SPOON.rep(" << SPOON_NUM << ")" << "\t" << "JCG.rep(" << JCG_NUM << ")" << "\t" << "WALA.rep(" << WALA_NUM << ")" << "\t" << "JDT(" << JDT_NUM << ")" << "\t" << "IntersectionID" << endl;
+  
+#endif
   for ( unsigned i = 0; i < methods.size(); i++ ) {
     
+#ifdef TRACE
     out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].osa << "\t" << methods[i].spoon << "\t" << methods[i].jcg << "\t" << methods[i].wala << "\t" << methods[i].jdt << "\t" << methods[i].trace << "\t" << methods[i].getMetszet() << endl;
   
+#else
+    out << methods[i].transformed << "\t" << methods[i].commonNum() << "\t" << methods[i].soot << "\t" << methods[i].osa << "\t" << methods[i].spoon << "\t" << methods[i].jcg << "\t" << methods[i].wala << "\t" << methods[i].jdt << "\t" << methods[i].getMetszet() << endl;
+    
+#endif
   venn << methods[i].getMetszetAsString() << std::endl;
   }
   
