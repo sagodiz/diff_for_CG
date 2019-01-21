@@ -22,3 +22,10 @@
 ./main -s inputs/SparkSoot/Soot_v32/CallESoot32 -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/istvan_example_v2/CallEdgeExamples.dot -j inputs/JCG_new/CallEdgeExample/callEdgesExampleJCG.call -w inputs/_with_lineinfo/new_wala_ZeroOneContainerCFA_with_lineinfo/CallEdgeExample.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/istvan_example_v2/CalledgeExample.dot -projectName CallEdgeExamplesLineInfo -methodUnio 0 -lineInfoPairing 1 -calcUnionGraph 1
 
 . clean CallEdgeExamplesLineInfoUnio
+
+
+./main -s inputs/SparkSoot/Soot_v32_latest/argoFullSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/argouml/argouml.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/argouml/argouml.dot -j inputs/JCG_new/ArgoUML/argoFullJCG.call -w inputs/_with_lineinfo/new_wala_ZeroOneContainerCFA_with_lineinfo/argouml.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/argouml/argouml.dot -projectName ArgoLineInfo -methodUnio 0 -lineInfoPairing 1 -calcUnionGraph 1
+
+. clean ArgoLineInfoUnio
+
+
