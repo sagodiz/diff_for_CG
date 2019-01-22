@@ -106,6 +106,7 @@ namespace common {
     extern unsigned char resolve;
     extern unsigned char JDT_generics;
     extern bool onlyAnonymWithLineinfo;
+    extern bool genericParameterTypesNames;
     
   }
 
