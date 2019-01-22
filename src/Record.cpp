@@ -28,6 +28,9 @@
 
 using namespace std;
 
+string genericParameterTypeNameArray[] = {"E", "K", "N", "T", "V"};
+
+
 bool basic_type( const string& str ) {
   
   return str == "byte" ||
@@ -180,6 +183,7 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
   }
 }
 //----------------------------------------------------------------------------------------------------------------
+
 bool Record::operator==(const Record& r ) const {
 
 DDD
@@ -213,9 +217,20 @@ DDD
                   ( //this is to identify what belongs together
                    !basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
                    (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ||
-                   parameters[i].find("java/lang/Object") != string::npos || r.parameters[i].find("java/lang/Object") != string::npos) //it might equal if one of them is Object.
+                   parameters[i].find("java/lang/Object") != string::npos || r.parameters[i].find("java/lang/Object") != string::npos ||//it might equal if one of them is Object.
+                    (
+                      common::options::genericParameterTypesNames &&  (
+                        (parameters[i] == genericParameterTypeNameArray[0] || r.parameters[i] == genericParameterTypeNameArray[0]) ||
+                        (parameters[i] == genericParameterTypeNameArray[1] || r.parameters[i] == genericParameterTypeNameArray[1]) ||
+                        (parameters[i] == genericParameterTypeNameArray[2] || r.parameters[i] == genericParameterTypeNameArray[2]) ||
+                        (parameters[i] == genericParameterTypeNameArray[3] || r.parameters[i] == genericParameterTypeNameArray[3]) ||
+                        (parameters[i] == genericParameterTypeNameArray[4] || r.parameters[i] == genericParameterTypeNameArray[4]) 
+                        
+                      )
+                    )
                   )
                  )
+                )
               ) {
 
             }
@@ -241,14 +256,25 @@ DDD
                    (!common::options::onlyAnonymWithLineinfo && //if variable is true: "Generic" search not allowed. !var. is false, so nothing is going to be excuted after the &&, is it should
                     ( //this is to identify what belongs together
                      !basic_type(parameters[i]) && !basic_type(r.parameters[i]) &&  //if not equal must not be basic type, no way of polimorphism.
-                     (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos) //it might equal if one of them is Object.
+                     (parameters[i].find("java.lang.Object") != string::npos || r.parameters[i].find("java.lang.Object") != string::npos ||//it might equal if one of them is Object.
+                      parameters[i].find("java/lang/Object") != string::npos || r.parameters[i].find("java/lang/Object") != string::npos ||
+                      (
+                        common::options::genericParameterTypesNames && (
+                          (parameters[i] == genericParameterTypeNameArray[0] || r.parameters[i] == genericParameterTypeNameArray[0]) ||
+                          (parameters[i] == genericParameterTypeNameArray[1] || r.parameters[i] == genericParameterTypeNameArray[1]) ||
+                          (parameters[i] == genericParameterTypeNameArray[2] || r.parameters[i] == genericParameterTypeNameArray[2]) ||
+                          (parameters[i] == genericParameterTypeNameArray[3] || r.parameters[i] == genericParameterTypeNameArray[3]) ||
+                          (parameters[i] == genericParameterTypeNameArray[4] || r.parameters[i] == genericParameterTypeNameArray[4])
+                        )
+                      )
+                     
                     )
                    )
+                  )
                 ) {
 
               }
               else {
-
                 match = false;
                 break;
               }

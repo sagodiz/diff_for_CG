@@ -17,6 +17,7 @@ void lineInfoPairingMethod(char** argV, int argI);  //sets whether the lineinfo 
 void methodUnio(char** argV, int argI); //sets if methods that has multiple pairs should be paired to every math.
 void jdtGeneric(char** argV, int argI); //sets how JDT loader should transform generics
 void onlyAnonymWithLineinfo(char** argV, int argI); //sets if only Anonym should be compared with lineinfo
+void genericParameterTypesNames(char** argV, int argI); //sets if tipical generic type names should be used in generic pairing.
 void helpMethod(char** argV, int argI); //shows help message
 
 #endif

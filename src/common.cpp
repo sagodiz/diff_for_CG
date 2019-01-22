@@ -191,5 +191,6 @@ namespace common {
     unsigned char resolve = 0;
     unsigned char JDT_generics = common::enums::JDTGenerics::JDT_classAndParameters;
     bool onlyAnonymWithLineinfo = false;
+    bool genericParameterTypesNames = false;
   }
 }

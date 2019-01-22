@@ -119,6 +119,7 @@ int main( int argc, char** argv ) {
                           new Option("-h", &helpMethod),
                           new Option("-onlyAnonym", &onlyAnonymWithLineinfo),
                           new Option("-JDTGenerics", &jdtGeneric),
+                          new Option("-genericParameterTypeNames", &genericParameterTypesNames),
                           NULL
                       };
     

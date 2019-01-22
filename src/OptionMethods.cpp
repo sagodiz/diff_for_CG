@@ -186,6 +186,32 @@ void onlyAnonymWithLineinfo(char** argV, int argI) {
   common::options::onlyAnonymWithLineinfo = true;
 }
 
+
+void genericParameterTypesNames(char** argV, int argI) {
+
+  if ( !strcmp(argV[argI + 1], "0") ) {
+    //false
+    common::options::genericParameterTypesNames = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "false") ) {
+    //false
+    common::options::genericParameterTypesNames = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") ) {
+    //true
+    common::options::genericParameterTypesNames = true;
+  }
+  else if ( !strcmp(argV[argI + 1], "true") ) {
+    //true
+    common::options::genericParameterTypesNames = true;
+  }
+  else {
+
+    common::options::genericParameterTypesNames = false;
+  }
+}
+
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
@@ -221,6 +247,7 @@ void helpMethod(char** argV, int argI) {
     << "\t\t1: transform only class generics" << std::endl
     << "\t\t2: transform only parameters" << std::endl
     << "\t\t3: transform both class and method generics." << std::endl
+    << "\t-genericParameterTypeNames value \tSets on or off if generic pairing should consider tipical names: E, K, N, T, V. considered as generic parameters. Value for turnong on: {1, true} for turning off {0, false}. False is default." << std::endl
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 

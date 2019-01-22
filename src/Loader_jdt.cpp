@@ -105,9 +105,14 @@ vector<Record> Loader_jdt::load() {
       while ( getline(paramStream, parameter, ';') ) {
         
         if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyParameters) {
-          if (parameter.find("<") != string::npos) {
-
-            parameter = parameter.substr(0,parameter.find("<"));
+          size_t generics;
+          while ( (generics = parameter.find("<")) != string::npos) {
+            unsigned char i = 0;
+            do {
+            //count how many chars to delete
+              ++i;
+            }while(parameter[generics + i] != '>');
+            parameter.erase(generics, i+1);
           }
         }
 
@@ -148,10 +153,14 @@ vector<Record> Loader_jdt::load() {
       
       if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyClass) {
 
-        size_t generics = classStr.find("<");
-
-        if (generics != string::npos) {
-          classStr.erase(generics);
+        size_t generics;
+        while ( (generics = classStr.find("<")) != string::npos) {
+          unsigned char i = 0;
+          do {
+          //count how many chars to delete
+            ++i;
+          }while(classStr[generics + i] != '>');
+          classStr.erase(generics, i+1);
         }
       }
 
