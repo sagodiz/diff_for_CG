@@ -308,7 +308,7 @@ int main( int argc, char** argv ) {
 
   //transformInputGraph
 
-  for (int i = 0; i < loadersAndUnionG.size(); ++i) {
+  for (unsigned int i = 0; i < loadersAndUnionG.size(); ++i) {
 	  transformInputGraph(connections[i], loadersAndUnionG[i], records[i]);
   }
     

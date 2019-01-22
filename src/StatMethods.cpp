@@ -94,7 +94,7 @@ void transformInputGraph(const std::set<std::pair<int, int>>& compareSet, Named 
 	transformed << r.size() << endl;
 	cheatsheet << r.size() << endl;
 	std::map<int, int> idMapper;
-	for (int i = 0; i < r.size(); ++i) {
+	for (unsigned int i = 0; i < r.size(); ++i) {
 		transformed << "1" << endl;
 		int id = common::getIdForMethod(r[i]);
 		idMapper[id] = i;
@@ -150,14 +150,14 @@ void produceJaccard(const set<pair<int, int>>& compareSet1, const set<pair<int, 
 
 	std::map<int, std::pair<std::set<int>, std::set<int>>> allInOuts1, allInOuts2;
 
-	for (int j = 0; j < r2.size(); ++j) {
+	for (unsigned int j = 0; j < r2.size(); ++j) {
 		statOut << ";" << common::getMethodById(common::getIdForMethod(r2[j]));
 	}
 
-	for (int i = 0; i < r1.size(); ++i) {
+	for (unsigned int i = 0; i < r1.size(); ++i) {
 		int id1 = common::getIdForMethod(r1[i]);
 		statOut << std::endl << common::getMethodById(id1);
-		for (int j = 0; j < r2.size(); ++j) {
+		for (unsigned int j = 0; j < r2.size(); ++j) {
 			int id2 = common::getIdForMethod(r2[j]);
 
 			double jaccard = jaccardForNodes(id1, id2, compareSet1, compareSet2, allInOuts1, allInOuts2);
