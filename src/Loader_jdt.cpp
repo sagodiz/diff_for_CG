@@ -108,10 +108,16 @@ vector<Record> Loader_jdt::load() {
           size_t generics;
           while ( (generics = parameter.find("<")) != string::npos) {
             unsigned char i = 0;
+            unsigned char openedInner = 1;
             do {
             //count how many chars to delete
+              
               ++i;
-            }while(parameter[generics + i] != '>');
+              if ( parameter[generics + i] == '<' )
+                ++openedInner;
+              if ( parameter[generics + i] == '>' )
+                --openedInner;
+            }while(openedInner != 0 || parameter[generics + i] != '>');
             parameter.erase(generics, i+1);
           }
         }
@@ -156,10 +162,15 @@ vector<Record> Loader_jdt::load() {
         size_t generics;
         while ( (generics = classStr.find("<")) != string::npos) {
           unsigned char i = 0;
+          unsigned char openedInner = 1;
           do {
           //count how many chars to delete
             ++i;
-          }while(classStr[generics + i] != '>');
+            if ( classStr[generics + i] == '<' )
+                ++openedInner;
+              if ( classStr[generics + i] == '>' )
+                --openedInner;
+          }while(openedInner != 0 || classStr[generics + i] != '>');
           classStr.erase(generics, i+1);
         }
       }
