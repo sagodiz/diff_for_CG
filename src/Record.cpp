@@ -173,6 +173,17 @@ DDD
   if ( r.unifiedRep == unifiedRep )
     return true;
   
+  
+  if ( common::option::initblock2init && package == r.package &&
+       methodClass == r.methodClass &&
+      (
+        (methodName == "<init>" && r.methodName == "<initblock>") ||
+        (r.methodName == "<init>" && methodName == "<initblock>")
+      )
+     ) {
+    return true;
+  }
+      
   bool isEquals = false;
   
   

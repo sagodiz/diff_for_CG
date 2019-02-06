@@ -107,6 +107,7 @@ namespace common {
     extern unsigned char JDT_generics;
     extern bool onlyAnonymWithLineinfo;
     extern bool genericParameterTypesNames;
+    extern bool initblock2init;
     
   }
 

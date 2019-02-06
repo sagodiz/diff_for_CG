@@ -211,6 +211,30 @@ void genericParameterTypesNames(char** argV, int argI) {
   }
 }
 
+void initblock2initMethod(char** argV, int argI) {
+  
+  if ( !strcmp(argV[argI + 1], "0") ) {
+    //false
+    common::options::initblock2init = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "false") ) {
+    //false
+    common::options::initblock2init = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") ) {
+    //true
+    common::options::initblock2init = true;
+  }
+  else if ( !strcmp(argV[argI + 1], "true") ) {
+    //true
+    common::options::initblock2init = true;
+  }
+  else {
+    
+    common::options::initblock2init = true;
+  }
+}
+
 
 void helpMethod(char** argV, int argI) {
   
