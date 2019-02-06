@@ -120,6 +120,7 @@ int main( int argc, char** argv ) {
                           new Option("-onlyAnonym", &onlyAnonymWithLineinfo),
                           new Option("-JDTGenerics", &jdtGeneric),
                           new Option("-genericParameterTypeNames", &genericParameterTypesNames),
+                          new Option("-initblock2init", &initblock2initMethod),
                           NULL
                       };
     

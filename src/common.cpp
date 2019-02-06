@@ -192,5 +192,6 @@ namespace common {
     unsigned char JDT_generics = common::enums::JDTGenerics::JDT_classAndParameters;
     bool onlyAnonymWithLineinfo = false;
     bool genericParameterTypesNames = false;
+    bool initblock2init = true;
   }
 }

@@ -18,6 +18,7 @@ void methodUnio(char** argV, int argI); //sets if methods that has multiple pair
 void jdtGeneric(char** argV, int argI); //sets how JDT loader should transform generics
 void onlyAnonymWithLineinfo(char** argV, int argI); //sets if only Anonym should be compared with lineinfo
 void genericParameterTypesNames(char** argV, int argI); //sets if tipical generic type names should be used in generic pairing.
+void initblock2initMethod(char** argV, int argI); //turns off/on that initblock should be compared to inits (constructors)
 void helpMethod(char** argV, int argI); //shows help message
 
 #endif

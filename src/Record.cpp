@@ -191,8 +191,18 @@ DDD
   if ( r.unifiedRep == unifiedRep )
     return true;
   
-  bool isEquals = false;
+  if ( common::options::initblock2init && package == r.package &&
+      methodClass == r.methodClass &&
+      (
+        (methodName == "<init>" && r.methodName == "<initblock>") ||
+        (r.methodName == "<init>" && methodName == "<initblock>")
+      )
+     )
+    {
+      return true;
+    }
   
+  bool isEquals = false;
   
   if ( common::options::lineInfoPairing ) {
     
