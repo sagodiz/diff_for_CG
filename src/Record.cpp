@@ -174,7 +174,7 @@ DDD
     return true;
   
   
-  if ( common::option::initblock2init && package == r.package &&
+  if ( common::options::initblock2init && package == r.package &&
        methodClass == r.methodClass &&
       (
         (methodName == "<init>" && r.methodName == "<initblock>") ||
