@@ -293,19 +293,6 @@ DDD
           }
         }
       }
-      else {
-        //have different param. num, but in case of anonim it might work
-        //as we are here they are anonim-equals but if they are not equal they must be different in the anonim part so they are anonim classes/methods.
-        if (methodClass != r.methodClass || methodName != r.methodName) {
-          if (startLine != -1 && endLine != -1 && r.startLine != -1 && r.endLine != -1 &&
-            (
-            (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine)
-              )
-            ) {
-            isEquals = true;
-          }
-        }
-      }
     }
   }
 
