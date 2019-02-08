@@ -3,7 +3,7 @@
 #lineinfo and generic pairing
 ##unio
 ##################################
-: '
+
 ./main -s inputs/SparkSoot/Soot_v32_latest/JodaLibSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/joda-time/joda-time.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/joda-time/joda-time-2.9.9.dot -j inputs/JCG_new/Joda/JodaJCG.call -w inputs/_with_lineinfo/new_wala_ZeroOneContainerCFA_with_lineinfo/joda-time.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/joda-time/joda-time.dot -projectName JodaLineInfo -methodUnio 0 -lineInfoPairing 1 -calcUnionGraph 1 -genericParameterTypeNames 1
 
 . clean JodaLineInfoUnio
@@ -28,7 +28,7 @@
 
 . clean ArgoLineInfoUnio
 
-'
+
 ###only anonym pairing with lineinfo
 
 ./main -s inputs/SparkSoot/Soot_v32_latest/JodaLibSootDirectory.dot -osa inputs/_with_lineinfo/SourceMeter_with_lineinfo/joda-time/joda-time.dot -sp inputs/_with_lineinfo/spoon_with_lineinfo/joda-time/joda-time-2.9.9.dot -j inputs/JCG_new/Joda/JodaJCG.call -w inputs/_with_lineinfo/new_wala_ZeroOneContainerCFA_with_lineinfo/joda-time.dot -jdt inputs/_with_lineinfo/jdt_with_lineinfo/joda-time/joda-time.dot -projectName JodaLineInfoOnlyAnonym -methodUnio 0 -lineInfoPairing 1 -calcUnionGraph 1 -genericParameterTypeNames 1 -onlyAnonym 
