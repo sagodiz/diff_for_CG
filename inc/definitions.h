@@ -1,0 +1,10 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
+#define CONSTRUCTOR 1
+#define GENERATED_CONSTRUCTOR 2
+#define STATIC_INIT 4
+#define GENERIC_METHOD 8
+#define INHERITED_METHOD 16
+
+#endif
