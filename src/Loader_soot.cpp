@@ -21,7 +21,7 @@
   #define SOOT_PRINT(a) ;
 #endif
 
-void doTagging(std::istream& taggingFile);
+void doTagging(std::ifstream& taggingFile);
 
 
 
@@ -162,7 +162,7 @@ DDD
   
   if ( common::sootTagging != "" ) {
     
-    istream taggingFile(common::sootTagging);
+    ifstream taggingFile(common::sootTagging);
     if ( !taggingFile.is_open() )
       throw Labels::FILE_READ_ERROR + common::sootTagging + " (tagging)";
     

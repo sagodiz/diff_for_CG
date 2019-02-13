@@ -238,16 +238,16 @@ void initblock2initMethod(char** argV, int argI) {
 
 void taggingMethod(char** argV, int argI) {
   
-  if ( !strcmp(argv[argI + 1], "soot") ) {
+  if ( !strcmp(argV[argI + 1], "soot") ) {
     //soot tagging
-    common::sootTagging = argv[argI + 2];
+    common::sootTagging = argV[argI + 2];
   }
-  else if ( !strcmp(argv[argI + 1], "jdt") ) {
+  else if ( !strcmp(argV[argI + 1], "jdt") ) {
     //JDT tagging
-    common::jdtTagging = argv[argI + 2];
+    common::jdtTagging = argV[argI + 2];
   }
   else {
-    throw Labels::UNRECOGNIZED_SWITCH + argV[argI] + " " argV[argI + 1];
+    throw Labels::UNRECOGNIZED_SWITCH + argV[argI] + " " + argV[argI + 1];
   }
 }
 

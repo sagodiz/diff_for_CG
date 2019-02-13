@@ -15,7 +15,7 @@
   #define JDT_PRINT(a) ;
 #endif
 
-void doTagging(std::istream& taggingFile);
+void doTagging(std::ifstream& taggingFile);
 
 
 using namespace std;
@@ -210,7 +210,7 @@ vector<Record> Loader_jdt::load() {
   
   if ( common::jdtTagging != "" ) {
     
-    istream taggingFile(common::jdtTagging);
+    ifstream taggingFile(common::jdtTagging);
     if ( !taggingFile.is_open() )
       throw Labels::FILE_READ_ERROR + common::jdtTagging + " (tagging)";
     
