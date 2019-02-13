@@ -236,6 +236,18 @@ void initblock2initMethod(char** argV, int argI) {
 }
 
 
+void taggingMethod(char** argV, int argI) {
+  
+  if ( !strcmp(argv[argI + 1], "soot") ) {
+    //soot tagging
+    tagSoot(argV[argI + 2]);
+  }
+  else if ( !strcmp(argv[argI + 1], "jdt") ) {
+    //soot tagging
+    tagJDT(argV[argI + 2]);
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
@@ -266,12 +278,16 @@ void helpMethod(char** argV, int argI) {
     << "\t\t0 Union. (Default) Find all matches." << std::endl
     << "\t\t1 Section. Find all matches A in B and B in A and get the common methods of this two." << std::endl
     << "\t\t2 Nothing. It does nothing. The difference in number of matches is not resolved." << std::endl
-    << "\t-JDTGenerics value\t How JDT loader should transform generics" << std::endl
+    << "\t-JDTGenerics value\tHow JDT loader should transform generics" << std::endl
     << "\t\t0: no transformation" << std::endl
     << "\t\t1: transform only class generics" << std::endl
     << "\t\t2: transform only parameters" << std::endl
     << "\t\t3: transform both class and method generics." << std::endl
     << "\t-genericParameterTypeNames value \tSets on or off if generic pairing should consider tipical names: E, K, N, T, V. considered as generic parameters. Value for turnong on: {1, true} for turning off {0, false}. False is default." << std::endl
+    << "\t-initblock2init value\tTurns off or on the pairing of initblocks and inits (constructors) Values: {1, ture} (default) turns on {0, false} turns off" << std::endl
+    << "\t-tagging tool file\tThe tool thats tagging set should be used (it can be used multiple times) the file where taggings are placed" << std::endl
+    << "\t\tsoot Tagging using Soot" << std::endl 
+    << "\t\tjdt Tagging using JDT" << std::endl
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 
