@@ -240,11 +240,14 @@ void taggingMethod(char** argV, int argI) {
   
   if ( !strcmp(argv[argI + 1], "soot") ) {
     //soot tagging
-    tagSoot(argV[argI + 2]);
+    common::sootTagging = argv[argI + 2];
   }
   else if ( !strcmp(argv[argI + 1], "jdt") ) {
-    //soot tagging
-    tagJDT(argV[argI + 2]);
+    //JDT tagging
+    common::jdtTagging = argv[argI + 2];
+  }
+  else {
+    throw Labels::UNRECOGNIZED_SWITCH + argV[argI] + " " argV[argI + 1];
   }
 }
 

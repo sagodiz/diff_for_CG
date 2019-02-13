@@ -34,6 +34,8 @@ namespace common {
   
   extern bool TRACE_RUN;
   
+  extern std::string sootTagging;
+  extern std::string jdtTagging;
   
   /**
   * Connections are stored as a pair of ids. This method gets the method name for an id.

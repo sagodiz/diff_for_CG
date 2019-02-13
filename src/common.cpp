@@ -10,7 +10,9 @@ namespace common {
   std::vector<std::string> tsvFiles;
   std::vector<std::string> connTSVFiles;
   bool TRACE_RUN = false;
-
+  std::string sootTagging = "";
+  std::string jdtTagging = "";
+  
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr) {
     size_t genericSign = pckgClass.find("<");
     size_t lastDot = 0;
