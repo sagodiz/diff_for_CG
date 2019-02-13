@@ -13,7 +13,6 @@
 #define FINAL 512
 #define STATIC 1024
 #define ANONYMOUS 2048
-#define FINAL 4096
-#define ABSTRACT 8192
+#define ABSTRACT 4096
 
 #endif
