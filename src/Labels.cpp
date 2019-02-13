@@ -24,6 +24,7 @@ namespace Labels {
   const std::string PACKAGE_CLASS_WRONG_FORMAT = "The format of the package and the class name was not correct: ";
   const std::string DEBUG_FILE_COULD_NOT_WRITE = "The file that contains matching information (debug file) could not be written: ";
   const std::string ID_FILE_COULD_NOT_BE_CREATED = "ID and method mapping csv could not be created";
+  const std::string DECLARING_CLASS_DIFFERENCE = "The declaring classes are different: ";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

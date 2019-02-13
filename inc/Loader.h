@@ -23,8 +23,7 @@ class Loader : public Named {
     unsigned long long callNum; //number of all the calls in the output file
     unsigned long long uniqueMethodNum; //some tools contains methods more than once, so it is incremented if such a method is found that has not been yet.
     std::string name; //name of the tool
-    unsigned int properties;
-
+  
     std::set<std::string> notFilteredMethodNames; //methods found in the output, these are not filtered
 
     void printNotFilteredMethodNames(); //prints the non filtered methods

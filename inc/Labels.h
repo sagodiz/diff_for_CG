@@ -31,6 +31,7 @@ namespace Labels {
   extern const std::string PACKAGE_CLASS_WRONG_FORMAT;
   extern const std::string DEBUG_FILE_COULD_NOT_WRITE;
   extern const std::string ID_FILE_COULD_NOT_BE_CREATED;
+  extern const std::string DECLARING_CLASS_DIFFERENCE;
   
   //******************* strings used for tool naming and options*************************
   extern const std::string SOOT_NAME;

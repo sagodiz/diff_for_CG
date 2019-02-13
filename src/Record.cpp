@@ -395,6 +395,30 @@ string Record::getUnifiedRepresentation() const {
   return unifiedRep;
 }
 
+string Record::getDeclaringClass() const {
+  
+  return declaringClass;
+}
+
+//setter methods
+
+void setDeclaringClass(const string& dc) {
+  
+  if ( dc == "" ) {
+    return;
+  }
+  
+  if ( declaringClass == "" ) {
+    
+    declaringClass = dc;
+  }
+  else if ( dc != declaringClass ) {
+    
+    cerr << *this << endl;
+    throw Labels::DECLARING_CLASS_DIFFERENCE + declaringClass + " " + dc;
+  }
+}
+
 
 //friend
 ostream& operator<<(ostream& o, const Record& r) {

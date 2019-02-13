@@ -21,6 +21,9 @@ class Record {
   * Byte code based tools have the line info of the first expression.
   */
   
+  unsigned int properties;
+  std::string declaringClass; //A Record is a method, it has a declaring class that may differ from the containing class (see polymorphism)
+  
   std::string createUnifiedMethodName();
   
   public:
@@ -53,7 +56,7 @@ class Record {
     bool operator<( const Record& r ) const;  //just in order to be able store records in set if needed.
   
   
-  //*******************************getter functions********************************************
+  //*******************************getter methods********************************************
     std::string getSecondaryRepresentation() const;
   
     std::string getPackage() const;
@@ -62,8 +65,14 @@ class Record {
     std::vector<std::string> getParameters() const;
     std::vector<std::pair<std::string, std::string>> getSameMethods() const;
     std::string getUnifiedRepresentation() const;
+    std::string getDeclaringClass() const;
     
-    
+  
+  
+  //*****************************setter methods*******************************************
+    void setDeclaringClass(const std::string& dc);
+  
+  
     /**
     * \param o output stream to write to
     * \param r a record that is written to o.
