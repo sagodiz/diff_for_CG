@@ -1,7 +1,7 @@
 #include "../inc/common.h"
 #include "../inc/Loader.h"
 #include "../inc/Labels.h"
-#include <numeric>
+#include<numeric>
 #include<iostream>
 
 namespace common {

@@ -15,6 +15,9 @@
   #define JDT_PRINT(a) ;
 #endif
 
+void doTagging(std::istream& taggingFile);
+
+
 using namespace std;
 
 Loader_jdt::Loader_jdt( string filepath, string name ) : Loader(filepath, name) {
@@ -204,6 +207,16 @@ vector<Record> Loader_jdt::load() {
   
   printNotFilteredMethodNames();
 
+  
+  if ( common::jdtTagging != "" ) {
+    
+    istream taggingFile(common::jdtTagging);
+    if ( !taggingFile.is_open() )
+      throw Labels::FILE_READ_ERROR + common::jdtTagging + " (tagging)";
+    
+    doTagging(taggingFile);
+  }
+  
   return tmpRecords;
 }
 

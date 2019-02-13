@@ -21,6 +21,9 @@
   #define SOOT_PRINT(a) ;
 #endif
 
+void doTagging(std::istream& taggingFile);
+
+
 
 using namespace std;
 
@@ -156,6 +159,15 @@ DDD
   input.seekg(0, ios::beg);
 
   printNotFilteredMethodNames();
+  
+  if ( common::sootTagging != "" ) {
+    
+    istream taggingFile(common::sootTagging);
+    if ( !taggingFile.is_open() )
+      throw Labels::FILE_READ_ERROR + common::sootTagging + " (tagging)";
+    
+    doTagging(taggingFile);
+  }
   
   return tmpRecords;
 }
