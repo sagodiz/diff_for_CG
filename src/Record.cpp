@@ -21,6 +21,7 @@
 
 #include "../inc/Record.h"
 #include "../inc/common.h"
+#include "../inc/Labels.h"
 
 
 #include<stdio.h>
@@ -145,7 +146,7 @@ string Record::createUnifiedMethodName() {
 
 //----------------------------------------------public methods----------------------------------------------------
 
-Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), startLine(startLine), endLine(endLine) {
+Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), startLine(startLine), endLine(endLine), properties(0) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
 
@@ -156,7 +157,7 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
 }
 
 //-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
-Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, string secondaryRep, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep), startLine(startLine), endLine(endLine) {
+Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, string secondaryRep, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), secondaryRep(secondaryRep), startLine(startLine), endLine(endLine), properties(0) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
   
@@ -402,7 +403,7 @@ string Record::getDeclaringClass() const {
 
 //setter methods
 
-void setDeclaringClass(const string& dc) {
+void Record::setDeclaringClass(const string& dc) {
   
   if ( dc == "" ) {
     return;

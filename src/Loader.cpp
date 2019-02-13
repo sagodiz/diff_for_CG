@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0), callNum(0), uniqueMethodNum(0), name(name), properties(0) {
+Loader::Loader( string filepath, string name ) : filepath(filepath), methodNum(0), callNum(0), uniqueMethodNum(0), name(name) {
   
   input.open(filepath);
   if ( !input.is_open() )
