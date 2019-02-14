@@ -5,8 +5,6 @@
 #include <string>
 #include <iostream>
 
-#include "common.h"
-
 class Record {
   
   std::vector<std::pair<std::string, std::string>> sameMethods; //these string represent the same method only the way is different

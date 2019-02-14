@@ -410,7 +410,38 @@ string Record::getDeclaringClass() const {
 
 void Record::setProperties(const unsigned int tag) {
   
-  
+  common::enums::taggings tag2 = static_cast<common::enums::taggings>(tag);
+  switch( tag2 ) {
+    case common::enums::taggings::CONSTRUCTOR: properties |= (unsigned int)common::enums::taggings::CONSTRUCTOR;
+      break;
+    case common::enums::taggings::GENERATED_CONSTRUCTOR: properties |= (unsigned int)common::enums::taggings::GENERATED_CONSTRUCTOR;
+      break;
+    case common::enums::taggings::DEFAULT_CONSTRUCTOR: properties |= (unsigned int)common::enums::taggings::DEFAULT_CONSTRUCTOR;
+      break;
+    case common::enums::taggings::STATIC_INIT: properties |= (unsigned int)common::enums::taggings::STATIC_INIT;
+      break;
+    case common::enums::taggings::GENERIC_METHOD: properties |= (unsigned int)common::enums::taggings::GENERIC_METHOD;
+      break;
+    case common::enums::taggings::INHERITED_METHOD: properties |= (unsigned int)common::enums::taggings::INHERITED_METHOD;
+      break;
+    case common::enums::taggings::OVERRIDDEN_METHOD: properties |= (unsigned int)common::enums::taggings::OVERRIDDEN_METHOD;
+      break;
+    case common::enums::taggings::OVERLOADED_METHOD: properties |= (unsigned int)common::enums::taggings::OVERLOADED_METHOD;
+      break;
+    case common::enums::taggings::INTERFACE_METHOD: properties |= (unsigned int)common::enums::taggings::INTERFACE_METHOD;
+      break;
+    case common::enums::taggings::FINAL: properties |= (unsigned int)common::enums::taggings::FINAL;
+      break;
+    case common::enums::taggings::STATIC: properties |= (unsigned int)common::enums::taggings::STATIC;
+      break;
+    case common::enums::taggings::ANONYMOUS: properties |= (unsigned int)common::enums::taggings::ANONYMOUS;
+      break;
+    case common::enums::taggings::ABSTRACT: properties |= (unsigned int)common::enums::taggings::ABSTRACT;
+      break;
+    default: 
+      cerr << "Unrecognized tag value: " << tag << endl;
+      //throw Labels::UNRECOGNIZED_TAG;
+  }
 }
 
 void Record::setDeclaringClass(const string& dc) {

@@ -21,7 +21,7 @@
   #define SOOT_PRINT(a) ;
 #endif
 
-void doTagging(std::ifstream& taggingFile);
+void doTaggingSoot(std::ifstream& taggingFile);
 
 
 
@@ -166,7 +166,7 @@ DDD
     if ( !taggingFile.is_open() )
       throw Labels::FILE_READ_ERROR + common::sootTagging + " (tagging)";
     
-    doTagging(taggingFile);
+    doTaggingSoot(taggingFile);
   }
   
   return tmpRecords;
@@ -235,4 +235,8 @@ cout << "Soot transform" << endl;
   }
 
   return connections;
+}
+
+void doTaggingSoot(std::ifstream& taggingFile) {
+  
 }

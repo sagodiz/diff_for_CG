@@ -15,7 +15,7 @@
   #define JDT_PRINT(a) ;
 #endif
 
-void doTagging(std::ifstream& taggingFile);
+void doTaggingJDT(std::ifstream& taggingFile);
 
 
 using namespace std;
@@ -214,7 +214,7 @@ vector<Record> Loader_jdt::load() {
     if ( !taggingFile.is_open() )
       throw Labels::FILE_READ_ERROR + common::jdtTagging + " (tagging)";
     
-    doTagging(taggingFile);
+    doTaggingJDT(taggingFile);
   }
   
   return tmpRecords;
@@ -288,7 +288,7 @@ set<pair<int, int>> Loader_jdt::transformConnections() {
   return connections;
 }
 
-void doTagging(std::ifstream& taggingFile) {
+void doTaggingJDT(std::ifstream& taggingFile) {
   
   string line;
   
@@ -300,7 +300,26 @@ void doTagging(std::ifstream& taggingFile) {
       //it is a tag of the actual Record
       if ( "*DAFAULT_CONSTRUCTOR" == line ) {
         
+        r->setProperties(common::enums::taggings::DEFAULT_CONSTRUCTOR);
+      }
+      else if ( "*CONSTRUCTOR" == line ) {
         
+        r->setProperties(common::enums::taggings::CONSTRUCTOR);
+      }
+      else if ( "*GENERIC" == line ) {
+        
+        r->setProperties(common::enums::taggings::GENERIC_METHOD);
+      }
+    }
+    else {
+        
+      for ( unsigned int i  = 0; i < common::storedIds.size(); i++ ) {
+
+        if ( common::storedIds[i].getSecondaryRepresentation() == line ) {
+
+          r = &(common::storedIds[i]);
+          break;
+        }
       }
     }
   }

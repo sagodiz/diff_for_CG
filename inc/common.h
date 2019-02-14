@@ -155,7 +155,7 @@ namespace common {
                     STATIC = 1024,
                     ANONYMOUS = 2048,
                     ABSTRACT = 4096
-    }
+    };
   }
 }
 
