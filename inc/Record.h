@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 
+#include "common.h"
+
 class Record {
   
   std::vector<std::pair<std::string, std::string>> sameMethods; //these string represent the same method only the way is different
@@ -65,11 +67,13 @@ class Record {
     std::vector<std::string> getParameters() const;
     std::vector<std::pair<std::string, std::string>> getSameMethods() const;
     std::string getUnifiedRepresentation() const;
+    unsigned int getProperties() const;
     std::string getDeclaringClass() const;
     
   
   
   //*****************************setter methods*******************************************
+    void setProperties(const unsigned int tag);
     void setDeclaringClass(const std::string& dc);
   
   

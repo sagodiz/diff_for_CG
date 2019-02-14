@@ -287,3 +287,22 @@ set<pair<int, int>> Loader_jdt::transformConnections() {
 
   return connections;
 }
+
+void doTagging(std::ifstream& taggingFile) {
+  
+  string line;
+  
+  Record* r = NULL;
+  
+  while ( getline(taggingFile, line) ) {
+    
+    if ( '*' == line[0] ) {
+      //it is a tag of the actual Record
+      if ( "*DAFAULT_CONSTRUCTOR" == line ) {
+        
+        
+      }
+    }
+  }
+  
+}

@@ -396,12 +396,22 @@ string Record::getUnifiedRepresentation() const {
   return unifiedRep;
 }
 
+unsigned int Record::getProperties() const {
+  
+  return properties;
+}
+
 string Record::getDeclaringClass() const {
   
   return declaringClass;
 }
 
 //setter methods
+
+void Record::setProperties(const unsigned int tag) {
+  
+  
+}
 
 void Record::setDeclaringClass(const string& dc) {
   

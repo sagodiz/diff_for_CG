@@ -137,6 +137,25 @@ namespace common {
                       JDT_onlyParameters,
                       JDT_classAndParameters
     };
+    
+    /**
+    * The tagging IDs
+    */
+    enum taggings {
+                    CONSTRUCTOR = 1,
+                    GENERATED_CONSTRUCTOR = 2,
+                    DEFAULT_CONSTRUCTOR = 4,
+                    STATIC_INIT = 8,
+                    GENERIC_METHOD = 16,
+                    INHERITED_METHOD = 32,
+                    OVERRIDDEN_METHOD = 64,
+                    OVERLOADED_METHOD = 128,
+                    INTERFACE_METHOD = 256,
+                    FINAL = 512,
+                    STATIC = 1024,
+                    ANONYMOUS = 2048,
+                    ABSTRACT = 4096
+    }
   }
 }
 
