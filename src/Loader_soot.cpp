@@ -127,7 +127,7 @@ cout << "soot loader" << endl;
       string pckgStr, classStr;
       common::cutPckgClass(f_classWithPckg, pckgStr, classStr);
       
-      Record r(pair<string, string>(methodRepresentation, name), pckgStr, classStr, method, parameterVector, methodRepresentation, lineinfo);
+      Record r(pair<string, string>(methodRepresentation, name), pckgStr, classStr, method, parameterVector, pair<string, string>(methodRepresentation, name), lineinfo);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       
@@ -239,4 +239,48 @@ cout << "Soot transform" << endl;
 
 void doTaggingSoot(std::ifstream& taggingFile) {
   
+  string line;
+  
+  Record* r = NULL;
+  
+  while ( getline(taggingFile, line) ) {
+    
+    if ( '*' == line[0] ) {
+      //it is a tag of the actual Record
+      
+      if ( "*FINAL" == line ) {
+        
+        r->setProperties(common::enums::taggings::FINAL);
+      }
+      else if ( "*ABSTRACT" == line ) {
+        
+        r->setProperties(common::enums::taggings::ABSTRACT);
+      }
+      else if ( "*STATIC" == line ) {
+        
+        r->setProperties(common::enums::taggings::STATIC);
+      }
+      else if ( '*' == line[1] ) {
+        string dc = line.substr(line.find(":")+1);
+        
+cout << dc << endl;
+        
+        r->setDeclaringClass(dc);
+      }
+    }
+    else {
+        
+      bool check = false;
+      for ( unsigned int i  = 0; i < common::storedIds.size(); i++ ) {
+
+        if ( common::storedIds[i].getSecondaryRepresentation() == line ) {
+          check = true;
+          r = &(common::storedIds[i]);
+          break;
+        }
+      }
+      if ( !check )
+        throw Labels::TAGGING_METHOD_NOT_FOUND + line;
+    }
+  }
 }

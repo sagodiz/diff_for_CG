@@ -244,7 +244,7 @@ vector<Record> Loader_trace::load() {
       string pckgStr, classStr;
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
-      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine);
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, pair<string, string>(infoMine, name));
       if (find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end())  //put it only if not here
         tmpRecords.push_back(r);
 

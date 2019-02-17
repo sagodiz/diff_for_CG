@@ -25,6 +25,7 @@ namespace Labels {
   const std::string DEBUG_FILE_COULD_NOT_WRITE = "The file that contains matching information (debug file) could not be written: ";
   const std::string ID_FILE_COULD_NOT_BE_CREATED = "ID and method mapping csv could not be created";
   const std::string DECLARING_CLASS_DIFFERENCE = "The declaring classes are different: ";
+  const std::string TAGGING_METHOD_NOT_FOUND = "The method defined in tagging file was not loaded previously: ";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

@@ -265,7 +265,7 @@ cout << "wala loader" << endl;
       string pckgStr, classStr;
       common::cutPckgClass(pckgClass, pckgStr, classStr);
       
-      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, infoMine, startLine);
+      Record r(pair<string, string>(representation, name), pckgStr, classStr, method, parameterVector, pair<string, string>(infoMine, name), startLine);
       if ( find(tmpRecords.begin(), tmpRecords.end(), r) == tmpRecords.end() )  //put it only if not here
         tmpRecords.push_back( r );
       

@@ -2,6 +2,7 @@
 #define RECORD_H
 
 #include <vector>
+#include <map>
 #include <string>
 #include <iostream>
 
@@ -13,7 +14,7 @@ class Record {
   std::string methodName;   //name of the method
   std::vector<std::string> parameters;  //the method has parameters.
   std::string unifiedRep; //we transform everything to this format
-  std::string secondaryRep; //some tools have a secondary rep. to identify methods when dealing with calls.
+  std::map<std::string, std::vector<std::string>> secondaryRep; //some tools have a secondary rep. to identify methods when dealing with calls.
   int startLine = -1;  //default line is -1. It matches for everything sinc it indicates no information. 
   int endLine = -1; //end of the method.
   /*
@@ -29,7 +30,7 @@ class Record {
   public:
     Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, int startLine = -1, int endLine = -1 );
     //just for those that's rep is an id
-    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::string secondaryRep, int startLine = -1, int endLine = -1 );
+    Record( std::pair<std::string, std::string> rep, std::string package, std::string methodClass, std::string methodName, std::vector<std::string> parameters, std::pair<std::string, std::string> secondaryRep, int startLine = -1, int endLine = -1 );
     
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
@@ -49,6 +50,16 @@ class Record {
     * \return returns an updated record.
     */
     Record& operator+=( const Record& r );
+  
+  
+    /**
+    * \param s a string for the additional secondary representations
+    * \param t the tool whose representation it is.
+    * \return returns an updated record.
+    */
+    Record& addSecondaryRepresentation( const std::string& s, const std::string& t );
+    
+  
     /**
     * \param a record to be compared to.
     * \return decides whether the given record is smaller or not.
@@ -57,8 +68,12 @@ class Record {
   
   
   //*******************************getter methods********************************************
-    std::string getSecondaryRepresentation() const;
-  
+    std::string getSecondaryRepresentation() const; 
+    /**
+    * \param tool the tool whose representation array is needed
+    * \return Returns the representations for the given tool. If no representation found an empty vector. If tool is empty string random vector.
+    */
+    std::vector<std::string> getSecondaryRepresentationsForTool(const std::string tool) const; 
     std::string getPackage() const;
     std::string getClass() const;
     std::string getMethodName() const;

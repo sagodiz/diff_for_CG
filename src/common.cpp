@@ -30,12 +30,15 @@ namespace common {
         pckg = pckgClass.substr(0, lastDot);
         classStr = pckgClass.substr(lastDot + 1);
       }
+      else {
+        classStr = pckgClass;
+      }
     }
     else {
 
       lastDot = pckgClass.rfind(".");
       if (lastDot == std::string::npos) {
-
+        classStr = pckgClass;
       }
       else {
         pckg = pckgClass.substr(0, lastDot);

@@ -205,21 +205,22 @@ int main( int argc, char** argv ) {
     cout << loaders[i]->getName() << "..." << endl;
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-    
+    cout << "asd" << endl;
     if (common::options::calculateUnionGraph) {
       //collect edges
       unionGraphEdges.insert(connections[i].begin(), connections[i].end());
     }
-  
+  cout << "asd" << endl;
     VERBOSE1
     if (common::options::filterLevel > 0) {
-      
+      cout << "asd" << endl;
       std::set<int> filteredIds;
       records[i] = common::filterNodes(records[i], filteredIds);
       connections[i] = common::filterConnections(connections[i], filteredIds);  
     }
-    
+    cout << "asd" << endl;
     common::printFilteredMethod(loaders[i]->getName(), records[i]);
+    cout << "asd" << endl;
   }
   
   if (common::options::calculateUnionGraph) {
