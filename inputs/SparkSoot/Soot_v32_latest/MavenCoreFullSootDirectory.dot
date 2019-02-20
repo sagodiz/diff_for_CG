@@ -1,0 +1,812 @@
+digraph "call-graph" {
+    "(17)<org.apache.maven.toolchain.model.TrackableBase: java.lang.Object clone()>"
+    "(13)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.TrackableBase clone()>"
+    "(17)<org.apache.maven.toolchain.model.TrackableBase: java.lang.Object clone()>"->"(13)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.TrackableBase clone()>";
+    "(18)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.TrackableBase clone()>"
+    "(17)<org.apache.maven.toolchain.model.TrackableBase: java.lang.Object clone()>"->"(18)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.TrackableBase clone()>";
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"
+    "(17)<org.apache.maven.toolchain.model.TrackableBase: java.lang.Object clone()>"->"(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>";
+    "<java.lang.Throwable: java.lang.Throwable initCause(java.lang.Throwable)>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.Throwable: java.lang.Throwable initCause(java.lang.Throwable)>";
+    "<java.lang.Object: java.lang.Object clone()>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "<java.lang.Object: java.lang.Class getClass()>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "<java.lang.Class: java.lang.String getName()>"
+    "(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>"->"<java.lang.Class: java.lang.String getName()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"
+    "(18)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.TrackableBase clone()>"->"(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>";
+    "<java.util.ArrayList: void <clinit>()>"
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList: void <clinit>()>";
+    "<java.lang.Object: void <clinit>()>"
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.Object: void <clinit>()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.Throwable: java.lang.Throwable initCause(java.lang.Throwable)>";
+    "<java.util.ArrayList: void <init>()>"
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList: void <init>()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.lang.Class: java.lang.String getName()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"
+    "(13)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.TrackableBase clone()>"->"(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.Throwable: java.lang.Throwable initCause(java.lang.Throwable)>";
+    "<org.codehaus.plexus.util.xml.Xpp3Dom: void <init>(org.codehaus.plexus.util.xml.Xpp3Dom)>"
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<org.codehaus.plexus.util.xml.Xpp3Dom: void <init>(org.codehaus.plexus.util.xml.Xpp3Dom)>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"(35)<org.apache.maven.toolchain.model.TrackableBase: org.apache.maven.toolchain.model.TrackableBase clone()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.lang.Class: java.lang.String getName()>";
+    "(18)<org.apache.maven.toolchain.model.PersistedToolchains: java.lang.Object clone()>"
+    "(18)<org.apache.maven.toolchain.model.PersistedToolchains: java.lang.Object clone()>"->"(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>";
+    "(89)<org.apache.maven.project.MavenProject: java.lang.Object clone()>"
+    "(1163)<org.apache.maven.project.MavenProject: org.apache.maven.project.MavenProject clone()>"
+    "(89)<org.apache.maven.project.MavenProject: java.lang.Object clone()>"->"(1163)<org.apache.maven.project.MavenProject: org.apache.maven.project.MavenProject clone()>";
+    "<java.lang.UnsupportedOperationException: void <init>(java.lang.Throwable)>"
+    "(1163)<org.apache.maven.project.MavenProject: org.apache.maven.project.MavenProject clone()>"->"<java.lang.UnsupportedOperationException: void <init>(java.lang.Throwable)>";
+    "(1163)<org.apache.maven.project.MavenProject: org.apache.maven.project.MavenProject clone()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(46)<org.apache.maven.execution.MavenSession: java.lang.Object clone()>"
+    "(242)<org.apache.maven.execution.MavenSession: org.apache.maven.execution.MavenSession clone()>"
+    "(46)<org.apache.maven.execution.MavenSession: java.lang.Object clone()>"->"(242)<org.apache.maven.execution.MavenSession: org.apache.maven.execution.MavenSession clone()>";
+    "<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>"
+    "(242)<org.apache.maven.execution.MavenSession: org.apache.maven.execution.MavenSession clone()>"->"<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>";
+    "(242)<org.apache.maven.execution.MavenSession: org.apache.maven.execution.MavenSession clone()>"->"<java.lang.Object: java.lang.Object clone()>";
+    "(13)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.Object clone()>"
+    "(13)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.Object clone()>"->"(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"
+    "(1163)<org.apache.maven.project.MavenProject: org.apache.maven.project.MavenProject clone()>"->"(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>";
+    "<java.util.Collections: void <clinit>()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "<org.apache.maven.artifact.ArtifactUtils: org.apache.maven.artifact.Artifact copyArtifact(org.apache.maven.artifact.Artifact)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<org.apache.maven.artifact.ArtifactUtils: org.apache.maven.artifact.Artifact copyArtifact(org.apache.maven.artifact.Artifact)>";
+    "<java.util.Collections: java.util.List unmodifiableList(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.List unmodifiableList(java.util.List)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.List unmodifiableList(java.util.List)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.List unmodifiableList(java.util.List)>";
+    "<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.io.File: void <clinit>()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.io.File: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.Collections: void <clinit>()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.util.HashMap: void <init>(java.util.Map)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.HashMap: void <init>(java.util.Map)>";
+    "<java.util.ArrayList: void <init>(java.util.Collection)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <init>(java.util.Collection)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <init>(java.util.Collection)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <init>(java.util.Collection)>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.util.ArrayList: void <init>(java.util.Collection)>";
+    "<java.io.File: void <init>(java.lang.String)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.io.File: void <init>(java.lang.String)>";
+    "(252)<org.apache.maven.project.MavenProject: java.io.File getFile()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(252)<org.apache.maven.project.MavenProject: java.io.File getFile()>";
+    "(1001)<org.apache.maven.project.MavenProject: java.util.Set getDependencyArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1001)<org.apache.maven.project.MavenProject: java.util.Set getDependencyArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1001)<org.apache.maven.project.MavenProject: java.util.Set getDependencyArtifacts()>";
+    "(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>";
+    "(202)<org.apache.maven.project.MavenProject: java.io.File getParentFile()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(202)<org.apache.maven.project.MavenProject: java.io.File getParentFile()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(202)<org.apache.maven.project.MavenProject: java.io.File getParentFile()>";
+    "(743)<org.apache.maven.project.MavenProject: java.util.Set getPluginArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(743)<org.apache.maven.project.MavenProject: java.util.Set getPluginArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(743)<org.apache.maven.project.MavenProject: java.util.Set getPluginArtifacts()>";
+    "(1819)<org.apache.maven.project.MavenProject: java.util.Set getReportArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1819)<org.apache.maven.project.MavenProject: java.util.Set getReportArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1819)<org.apache.maven.project.MavenProject: java.util.Set getReportArtifacts()>";
+    "(1844)<org.apache.maven.project.MavenProject: java.util.Set getExtensionArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1844)<org.apache.maven.project.MavenProject: java.util.Set getExtensionArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1844)<org.apache.maven.project.MavenProject: java.util.Set getExtensionArtifacts()>";
+    "(763)<org.apache.maven.project.MavenProject: org.apache.maven.artifact.Artifact getParentArtifact()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(763)<org.apache.maven.project.MavenProject: org.apache.maven.artifact.Artifact getParentArtifact()>";
+    "(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>";
+    "(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>";
+    "(881)<org.apache.maven.project.MavenProject: java.util.List getActiveProfiles()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(881)<org.apache.maven.project.MavenProject: java.util.List getActiveProfiles()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(881)<org.apache.maven.project.MavenProject: java.util.List getActiveProfiles()>";
+    "(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>";
+    "(332)<org.apache.maven.project.MavenProject: java.util.List getCompileSourceRoots()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(332)<org.apache.maven.project.MavenProject: java.util.List getCompileSourceRoots()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(332)<org.apache.maven.project.MavenProject: java.util.List getCompileSourceRoots()>";
+    "(337)<org.apache.maven.project.MavenProject: java.util.List getTestCompileSourceRoots()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(337)<org.apache.maven.project.MavenProject: java.util.List getTestCompileSourceRoots()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(337)<org.apache.maven.project.MavenProject: java.util.List getTestCompileSourceRoots()>";
+    "(1567)<org.apache.maven.project.MavenProject: java.util.List getScriptSourceRoots()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1567)<org.apache.maven.project.MavenProject: java.util.List getScriptSourceRoots()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1567)<org.apache.maven.project.MavenProject: java.util.List getScriptSourceRoots()>";
+    "(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(1027)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getOriginalModel()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1027)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getOriginalModel()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1027)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getOriginalModel()>";
+    "(1109)<org.apache.maven.project.MavenProject: boolean isExecutionRoot()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1109)<org.apache.maven.project.MavenProject: boolean isExecutionRoot()>";
+    "(216)<org.apache.maven.project.MavenProject: org.apache.maven.artifact.Artifact getArtifact()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(216)<org.apache.maven.project.MavenProject: org.apache.maven.artifact.Artifact getArtifact()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(216)<org.apache.maven.project.MavenProject: org.apache.maven.artifact.Artifact getArtifact()>";
+    "(1037)<org.apache.maven.project.MavenProject: java.util.Map getManagedVersionMap()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1037)<org.apache.maven.project.MavenProject: java.util.Map getManagedVersionMap()>";
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1037)<org.apache.maven.project.MavenProject: java.util.Map getManagedVersionMap()>";
+    "(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>"->"<java.util.ArrayList: void <clinit>()>";
+    "(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>"->"<java.lang.Object: void <clinit>()>";
+    "(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>"->"<java.util.ArrayList: void <clinit>()>";
+    "(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>"->"<java.lang.Object: void <clinit>()>";
+    "(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>"->"<java.util.ArrayList: void <clinit>()>";
+    "(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>"->"<java.lang.Object: void <clinit>()>";
+    "(929)<org.apache.maven.project.MavenProject: java.util.List getAttachedArtifacts()>"->"<java.util.ArrayList: void <init>()>";
+    "(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>"->"<java.util.ArrayList: void <init>()>";
+    "(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>"->"<java.util.ArrayList: void <init>()>";
+    "<java.util.LinkedHashSet: void <init>(int)>"
+    "(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>"->"<java.util.LinkedHashSet: void <init>(int)>";
+    "<java.util.LinkedHashSet: void <init>()>"
+    "(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>"->"<java.util.LinkedHashSet: void <init>()>";
+    "<java.util.HashSet: boolean add(java.lang.Object)>"
+    "(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>"->"<java.util.HashSet: boolean add(java.lang.Object)>";
+    "(257)<org.apache.maven.project.MavenProject: void setFile(java.io.File)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(257)<org.apache.maven.project.MavenProject: void setFile(java.io.File)>";
+    "(1007)<org.apache.maven.project.MavenProject: void setDependencyArtifacts(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1007)<org.apache.maven.project.MavenProject: void setDependencyArtifacts(java.util.Set)>";
+    "(688)<org.apache.maven.project.MavenProject: void setArtifacts(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(688)<org.apache.maven.project.MavenProject: void setArtifacts(java.util.Set)>";
+    "(736)<org.apache.maven.project.MavenProject: void setPluginArtifacts(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(736)<org.apache.maven.project.MavenProject: void setPluginArtifacts(java.util.Set)>";
+    "(1811)<org.apache.maven.project.MavenProject: void setReportArtifacts(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1811)<org.apache.maven.project.MavenProject: void setReportArtifacts(java.util.Set)>";
+    "(1836)<org.apache.maven.project.MavenProject: void setExtensionArtifacts(java.util.Set)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1836)<org.apache.maven.project.MavenProject: void setExtensionArtifacts(java.util.Set)>";
+    "(758)<org.apache.maven.project.MavenProject: void setParentArtifact(org.apache.maven.artifact.Artifact)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(758)<org.apache.maven.project.MavenProject: void setParentArtifact(org.apache.maven.artifact.Artifact)>";
+    "(818)<org.apache.maven.project.MavenProject: void setRemoteArtifactRepositories(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(818)<org.apache.maven.project.MavenProject: void setRemoteArtifactRepositories(java.util.List)>";
+    "(834)<org.apache.maven.project.MavenProject: void setPluginArtifactRepositories(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(834)<org.apache.maven.project.MavenProject: void setPluginArtifactRepositories(java.util.List)>";
+    "(876)<org.apache.maven.project.MavenProject: void setActiveProfiles(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(876)<org.apache.maven.project.MavenProject: void setActiveProfiles(java.util.List)>";
+    "(1182)<org.apache.maven.project.MavenProject: void setAttachedArtifacts(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1182)<org.apache.maven.project.MavenProject: void setAttachedArtifacts(java.util.List)>";
+    "(1187)<org.apache.maven.project.MavenProject: void setCompileSourceRoots(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1187)<org.apache.maven.project.MavenProject: void setCompileSourceRoots(java.util.List)>";
+    "(1192)<org.apache.maven.project.MavenProject: void setTestCompileSourceRoots(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1192)<org.apache.maven.project.MavenProject: void setTestCompileSourceRoots(java.util.List)>";
+    "(1545)<org.apache.maven.project.MavenProject: void setScriptSourceRoots(java.util.List)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1545)<org.apache.maven.project.MavenProject: void setScriptSourceRoots(java.util.List)>";
+    "(1177)<org.apache.maven.project.MavenProject: void setModel(org.apache.maven.model.Model)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1177)<org.apache.maven.project.MavenProject: void setModel(org.apache.maven.model.Model)>";
+    "(1022)<org.apache.maven.project.MavenProject: void setOriginalModel(org.apache.maven.model.Model)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1022)<org.apache.maven.project.MavenProject: void setOriginalModel(org.apache.maven.model.Model)>";
+    "(1114)<org.apache.maven.project.MavenProject: void setExecutionRoot(boolean)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1114)<org.apache.maven.project.MavenProject: void setExecutionRoot(boolean)>";
+    "(221)<org.apache.maven.project.MavenProject: void setArtifact(org.apache.maven.artifact.Artifact)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(221)<org.apache.maven.project.MavenProject: void setArtifact(org.apache.maven.artifact.Artifact)>";
+    "(1032)<org.apache.maven.project.MavenProject: void setManagedVersionMap(java.util.Map)>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"(1032)<org.apache.maven.project.MavenProject: void setManagedVersionMap(java.util.Map)>";
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"
+    "(818)<org.apache.maven.project.MavenProject: void setRemoteArtifactRepositories(java.util.List)>"->"(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>";
+    "(834)<org.apache.maven.project.MavenProject: void setPluginArtifactRepositories(java.util.List)>"->"(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>";
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>";
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.lang.Object: void <clinit>()>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>";
+    "(268)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Proxy toProxy(org.apache.maven.repository.Proxy)>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(268)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Proxy toProxy(org.apache.maven.repository.Proxy)>";
+    "(255)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Authentication toAuthentication(org.apache.maven.artifact.repository.Authentication)>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(255)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Authentication toAuthentication(org.apache.maven.artifact.repository.Authentication)>";
+    "(245)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RepositoryPolicy toPolicy(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(245)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RepositoryPolicy toPolicy(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(245)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RepositoryPolicy toPolicy(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>";
+    "<java.lang.Character: void <clinit>()>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.Character: void <clinit>()>";
+    "<java.lang.Character: char toLowerCase(char)>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.Character: char toLowerCase(char)>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.Object: void <clinit>()>";
+    "<org.eclipse.aether.repository.RepositoryPolicy: void <init>(boolean,java.lang.String,java.lang.String)>"
+    "(245)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RepositoryPolicy toPolicy(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>"->"<org.eclipse.aether.repository.RepositoryPolicy: void <init>(boolean,java.lang.String,java.lang.String)>";
+    "<org.eclipse.aether.util.repository.AuthenticationBuilder: void <init>()>"
+    "(255)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Authentication toAuthentication(org.apache.maven.artifact.repository.Authentication)>"->"<org.eclipse.aether.util.repository.AuthenticationBuilder: void <init>()>";
+    "<org.eclipse.aether.repository.Proxy: void <init>(java.lang.String,java.lang.String,int,org.eclipse.aether.repository.Authentication)>"
+    "(268)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Proxy toProxy(org.apache.maven.repository.Proxy)>"->"<org.eclipse.aether.repository.Proxy: void <init>(java.lang.String,java.lang.String,int,org.eclipse.aether.repository.Authentication)>";
+    "(268)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.Proxy toProxy(org.apache.maven.repository.Proxy)>"->"<org.eclipse.aether.util.repository.AuthenticationBuilder: void <init>()>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(char)>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.lang.String: int length()>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<java.lang.String: int length()>";
+    "<org.eclipse.aether.repository.RemoteRepository$Builder: void <init>(java.lang.String,java.lang.String,java.lang.String)>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"<org.eclipse.aether.repository.RemoteRepository$Builder: void <init>(java.lang.String,java.lang.String,java.lang.String)>";
+    "<java.util.ArrayList: boolean add(java.lang.Object)>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "<java.util.ArrayList: void <init>(int)>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList: void <init>(int)>";
+    "(834)<org.apache.maven.project.MavenProject: void setPluginArtifactRepositories(java.util.List)>"->"(844)<org.apache.maven.project.MavenProject: java.util.List getPluginArtifactRepositories()>";
+    "<java.util.ArrayList: int size()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList: int size()>";
+    "<java.util.ArrayList: java.util.Iterator iterator()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList: java.util.Iterator iterator()>";
+    "<java.util.ArrayList$Itr: boolean hasNext()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList$Itr: boolean hasNext()>";
+    "<java.util.ArrayList$Itr: java.lang.Object next()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.ArrayList$Itr: java.lang.Object next()>";
+    "(818)<org.apache.maven.project.MavenProject: void setRemoteArtifactRepositories(java.util.List)>"->"(824)<org.apache.maven.project.MavenProject: java.util.List getRemoteArtifactRepositories()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>"
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(294)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(49)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.util.List getMojos()>"
+    "(77)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.lang.String toString()>"->"(49)<org.apache.maven.lifecycle.mapping.LifecyclePhase: java.util.List getMojos()>";
+    "(44)<org.apache.maven.lifecycle.internal.LifecycleTask: java.lang.String toString()>"
+    "(49)<org.apache.maven.lifecycle.internal.LifecycleTask: java.lang.String getLifecyclePhase()>"
+    "(44)<org.apache.maven.lifecycle.internal.LifecycleTask: java.lang.String toString()>"->"(49)<org.apache.maven.lifecycle.internal.LifecycleTask: java.lang.String getLifecyclePhase()>";
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"
+    "(151)<org.apache.maven.artifact.repository.metadata.AbstractRepositoryMetadata: java.lang.String toString()>"->"(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(79)<org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata: java.lang.Object getKey()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(236)<org.apache.maven.artifact.resolver.ArtifactResolutionRequest: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "<java.lang.StringBuilder: void <init>(int)>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>(int)>";
+    "(129)<org.apache.maven.repository.ArtifactTransferEvent: int getRequestType()>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"(129)<org.apache.maven.repository.ArtifactTransferEvent: int getRequestType()>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"(129)<org.apache.maven.repository.ArtifactTransferEvent: int getRequestType()>";
+    "(160)<org.apache.maven.repository.ArtifactTransferEvent: int getEventType()>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"(160)<org.apache.maven.repository.ArtifactTransferEvent: int getEventType()>";
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"(160)<org.apache.maven.repository.ArtifactTransferEvent: int getEventType()>";
+    "(192)<org.apache.maven.repository.ArtifactTransferEvent: java.io.File getLocalFile()>"
+    "(245)<org.apache.maven.repository.ArtifactTransferEvent: java.lang.String toString()>"->"(192)<org.apache.maven.repository.ArtifactTransferEvent: java.io.File getLocalFile()>";
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(85)<org.apache.maven.lifecycle.Lifecycle: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.ReactorModelPool$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>(int)>";
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(46)<org.apache.maven.toolchain.java.DefaultJavaToolChain: java.lang.String getJavaHome()>"
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"(46)<org.apache.maven.toolchain.java.DefaultJavaToolChain: java.lang.String getJavaHome()>";
+    "(51)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String getJavaHome()>"
+    "(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>"->"(51)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String getJavaHome()>";
+    "(46)<org.apache.maven.toolchain.java.DefaultJavaToolChain: java.lang.String getJavaHome()>"->"(51)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String getJavaHome()>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(357)<org.apache.maven.artifact.resolver.ArtifactResolutionResult: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.lang.Object: java.lang.String toString()>"
+    "(81)<org.apache.maven.lifecycle.internal.ExecutionPlanItem: java.lang.String toString()>"->"<java.lang.Object: java.lang.String toString()>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>(int)>";
+    "(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>"
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>";
+    "(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>"
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>";
+    "(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>"
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>";
+    "(1133)<org.apache.maven.project.MavenProject: java.lang.String toString()>"->"(252)<org.apache.maven.project.MavenProject: java.io.File getFile()>";
+    "(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>"->"(227)<org.apache.maven.project.MavenProject: org.apache.maven.model.Model getModel()>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>(int)>";
+    "(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(168)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getUrl()>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"(168)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getUrl()>";
+    "(188)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getUrl()>"
+    "(139)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String toString()>"->"(188)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getUrl()>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(99)<org.apache.maven.project.artifact.ProjectArtifactMetadata: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(87)<org.apache.maven.lifecycle.internal.ProjectSegment: org.apache.maven.project.MavenProject getProject()>"
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"(87)<org.apache.maven.lifecycle.internal.ProjectSegment: org.apache.maven.project.MavenProject getProject()>";
+    "(92)<org.apache.maven.lifecycle.internal.ProjectSegment: org.apache.maven.lifecycle.internal.TaskSegment getTaskSegment()>"
+    "(108)<org.apache.maven.lifecycle.internal.ProjectSegment: java.lang.String toString()>"->"(92)<org.apache.maven.lifecycle.internal.ProjectSegment: org.apache.maven.lifecycle.internal.TaskSegment getTaskSegment()>";
+    "(109)<org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout: java.lang.String toString()>"
+    "(43)<org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout: java.lang.String getId()>"
+    "(109)<org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout: java.lang.String toString()>"->"(43)<org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout: java.lang.String getId()>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(247)<org.apache.maven.artifact.resolver.ResolutionNode: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(33)<org.apache.maven.toolchain.java.DefaultJavaToolChain: java.lang.String toString()>"
+    "(33)<org.apache.maven.toolchain.java.DefaultJavaToolChain: java.lang.String toString()>"->"(61)<org.apache.maven.toolchain.java.JavaToolchainImpl: java.lang.String toString()>";
+    "(59)<org.apache.maven.lifecycle.internal.TaskSegment: java.lang.String toString()>"
+    "(64)<org.apache.maven.lifecycle.internal.TaskSegment: java.util.List getTasks()>"
+    "(59)<org.apache.maven.lifecycle.internal.TaskSegment: java.lang.String toString()>"->"(64)<org.apache.maven.lifecycle.internal.TaskSegment: java.util.List getTasks()>";
+    "(113)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.lang.String toString()>"
+    "(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>"
+    "(113)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.lang.String toString()>"->"(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>";
+    "(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>"->"<java.util.ArrayList: void <clinit>()>";
+    "(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.util.AbstractCollection: java.lang.String toString()>"
+    "(113)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.lang.String toString()>"->"<java.util.AbstractCollection: java.lang.String toString()>";
+    "(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>"->"<java.util.ArrayList: void <init>(java.util.Collection)>";
+    "(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>"
+    "(77)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List getSortedProjects()>"->"(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>";
+    "(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>"->"<java.util.ArrayList: void <clinit>()>";
+    "(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>"->"<java.lang.Object: void <clinit>()>";
+    "(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "(97)<org.apache.maven.graph.FilteredProjectDependencyGraph: java.util.List applyFilter(java.util.Collection)>"->"<java.util.ArrayList: void <init>(int)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>()>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(205)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(char)>";
+    "(176)<org.apache.maven.plugin.MojoExecution: java.lang.String toString()>"->"<java.lang.StringBuilder: void <init>(int)>";
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"
+    "(71)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getGroupId()>"
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(71)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getGroupId()>";
+    "(77)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getArtifactId()>"
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(77)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getArtifactId()>";
+    "(101)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getType()>"
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(101)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getType()>";
+    "(83)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getVersion()>"
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(83)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getVersion()>";
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(83)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getVersion()>";
+    "(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>"
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(350)<org.apache.maven.project.artifact.ActiveProjectArtifact: int hashCode()>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(328)<org.apache.maven.artifact.repository.MavenArtifactRepository: int hashCode()>"
+    "(328)<org.apache.maven.artifact.repository.MavenArtifactRepository: int hashCode()>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(328)<org.apache.maven.artifact.repository.MavenArtifactRepository: int hashCode()>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(328)<org.apache.maven.artifact.repository.MavenArtifactRepository: int hashCode()>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(328)<org.apache.maven.artifact.repository.MavenArtifactRepository: int hashCode()>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(104)<org.apache.maven.plugin.internal.WagonExcluder: int hashCode()>"
+    "(104)<org.apache.maven.plugin.internal.WagonExcluder: int hashCode()>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "<java.lang.Object: int hashCode()>"
+    "(104)<org.apache.maven.plugin.internal.WagonExcluder: int hashCode()>"->"<java.lang.Object: int hashCode()>";
+    "(1066)<org.apache.maven.project.MavenProject: int hashCode()>"
+    "(1066)<org.apache.maven.project.MavenProject: int hashCode()>"->"(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>";
+    "(1066)<org.apache.maven.project.MavenProject: int hashCode()>"->"(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>";
+    "(1066)<org.apache.maven.project.MavenProject: int hashCode()>"->"(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>";
+    "(159)<org.apache.maven.toolchain.DefaultToolchain: int hashCode()>"
+    "(84)<org.apache.maven.toolchain.DefaultToolchain: org.apache.maven.toolchain.model.ToolchainModel getModel()>"
+    "(159)<org.apache.maven.toolchain.DefaultToolchain: int hashCode()>"->"(84)<org.apache.maven.toolchain.DefaultToolchain: org.apache.maven.toolchain.model.ToolchainModel getModel()>";
+    "(159)<org.apache.maven.toolchain.DefaultToolchain: int hashCode()>"->"(84)<org.apache.maven.toolchain.DefaultToolchain: org.apache.maven.toolchain.model.ToolchainModel getModel()>";
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"
+    "(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>"
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>"
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>";
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(184)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean equals(java.lang.Object)>"->"(215)<org.apache.maven.plugin.DefaultPluginDescriptorCache$CacheKey: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"
+    "(356)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean eq(java.lang.Object,java.lang.Object)>"
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"->"(356)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"->"(356)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"->"(356)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"
+    "(1060)<org.apache.maven.project.MavenProject: boolean eq(java.lang.Object,java.lang.Object)>"
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(1060)<org.apache.maven.project.MavenProject: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(1060)<org.apache.maven.project.MavenProject: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(1060)<org.apache.maven.project.MavenProject: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(356)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"
+    "<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>"
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(151)<org.apache.maven.project.artifact.DefaultProjectArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(93)<org.apache.maven.project.artifact.DefaultMavenMetadataCache$CacheKey: boolean equals(java.lang.Object)>"
+    "(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$200(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"
+    "(93)<org.apache.maven.project.artifact.DefaultMavenMetadataCache$CacheKey: boolean equals(java.lang.Object)>"->"(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$200(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>";
+    "(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$300(java.util.List,java.util.List)>"
+    "(93)<org.apache.maven.project.artifact.DefaultMavenMetadataCache$CacheKey: boolean equals(java.lang.Object)>"->"(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$300(java.util.List,java.util.List)>";
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"
+    "(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>"
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>";
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>";
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(110)<org.apache.maven.plugin.DefaultPluginArtifactsCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(58)<org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter: boolean equals(java.lang.Object)>"
+    "(75)<org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter: boolean equals(java.lang.Object,java.lang.Object)>"
+    "(58)<org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter: boolean equals(java.lang.Object)>"->"(75)<org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(123)<org.apache.maven.plugin.DefaultPluginRealmCache$CacheKey: boolean equals(java.lang.Object)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>"
+    "(381)<org.apache.maven.RepositoryUtils: boolean repositoriesEquals(java.util.List,java.util.List)>"->"(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"
+    "(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$200(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>";
+    "(186)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoriesEquals(java.util.List,java.util.List)>"
+    "(43)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean access$300(java.util.List,java.util.List)>"->"(186)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoriesEquals(java.util.List,java.util.List)>";
+    "(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>"
+    "(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"
+    "(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>"->"(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>";
+    "(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(76)<org.apache.maven.plugin.CacheUtils: boolean pluginEquals(org.apache.maven.model.Plugin,org.apache.maven.model.Plugin)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(417)<org.apache.maven.RepositoryUtils: boolean policyEquals(org.eclipse.aether.repository.RepositoryPolicy,org.eclipse.aether.repository.RepositoryPolicy)>"
+    "(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>"->"(417)<org.apache.maven.RepositoryUtils: boolean policyEquals(org.eclipse.aether.repository.RepositoryPolicy,org.eclipse.aether.repository.RepositoryPolicy)>";
+    "(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>"->"(417)<org.apache.maven.RepositoryUtils: boolean policyEquals(org.eclipse.aether.repository.RepositoryPolicy,org.eclipse.aether.repository.RepositoryPolicy)>";
+    "(427)<org.apache.maven.RepositoryUtils: boolean repositoryEquals(org.eclipse.aether.repository.RemoteRepository,org.eclipse.aether.repository.RemoteRepository)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>"
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(130)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean artifactEquals(org.apache.maven.artifact.Artifact,org.apache.maven.artifact.Artifact)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>"
+    "(186)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoriesEquals(java.util.List,java.util.List)>"->"(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(118)<org.apache.maven.plugin.CacheUtils: boolean exclusionsEquals(java.util.List,java.util.List)>"
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(118)<org.apache.maven.plugin.CacheUtils: boolean exclusionsEquals(java.util.List,java.util.List)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(85)<org.apache.maven.plugin.CacheUtils: boolean dependenciesEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(417)<org.apache.maven.RepositoryUtils: boolean policyEquals(org.eclipse.aether.repository.RepositoryPolicy,org.eclipse.aether.repository.RepositoryPolicy)>"->"<java.util.Objects: boolean equals(java.lang.Object,java.lang.Object)>";
+    "(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(176)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryPolicyEquals(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy,org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>"
+    "(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>"->"(176)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryPolicyEquals(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy,org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>";
+    "(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>"->"(176)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryPolicyEquals(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy,org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>";
+    "(164)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryEquals(org.apache.maven.artifact.repository.ArtifactRepository,org.apache.maven.artifact.repository.ArtifactRepository)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(118)<org.apache.maven.plugin.CacheUtils: boolean exclusionsEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(118)<org.apache.maven.plugin.CacheUtils: boolean exclusionsEquals(java.util.List,java.util.List)>"->"(37)<org.apache.maven.plugin.CacheUtils: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(176)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean repositoryPolicyEquals(org.apache.maven.artifact.repository.ArtifactRepositoryPolicy,org.apache.maven.artifact.repository.ArtifactRepositoryPolicy)>"->"(204)<org.apache.maven.project.artifact.DefaultMavenMetadataCache: boolean eq(java.lang.Object,java.lang.Object)>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(71)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getGroupId()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(77)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getArtifactId()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(83)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getVersion()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(101)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getType()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(305)<org.apache.maven.repository.ArtifactTransferEvent: boolean equals(java.lang.Object)>"
+    "(305)<org.apache.maven.repository.ArtifactTransferEvent: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(305)<org.apache.maven.repository.ArtifactTransferEvent: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(78)<org.apache.maven.artifact.resolver.filter.IncludesArtifactFilter: boolean equals(java.lang.Object)>"
+    "(78)<org.apache.maven.artifact.resolver.filter.IncludesArtifactFilter: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(78)<org.apache.maven.artifact.resolver.filter.IncludesArtifactFilter: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(88)<org.apache.maven.plugin.internal.WagonExcluder: boolean equals(java.lang.Object)>"
+    "(88)<org.apache.maven.plugin.internal.WagonExcluder: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(88)<org.apache.maven.plugin.internal.WagonExcluder: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "<java.lang.Object: boolean equals(java.lang.Object)>"
+    "(88)<org.apache.maven.plugin.internal.WagonExcluder: boolean equals(java.lang.Object)>"->"<java.lang.Object: boolean equals(java.lang.Object)>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>";
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(185)<org.apache.maven.repository.DelegatingLocalArtifactRepository: boolean equals(java.lang.Object)>"->"<java.lang.Object: java.lang.Class getClass()>";
+    "(123)<org.apache.maven.toolchain.DefaultToolchain: boolean equals(java.lang.Object)>"
+    "(123)<org.apache.maven.toolchain.DefaultToolchain: boolean equals(java.lang.Object)>"->"(84)<org.apache.maven.toolchain.DefaultToolchain: org.apache.maven.toolchain.model.ToolchainModel getModel()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"
+    "(156)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.String getType()>"
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(156)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.String getType()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(156)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.String getType()>";
+    "(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>"
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>";
+    "<java.util.Properties: void <clinit>()>"
+    "(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>"->"<java.util.Properties: void <clinit>()>";
+    "(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.util.Properties: void <init>()>"
+    "(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>"->"<java.util.Properties: void <init>()>";
+    "<java.util.Hashtable: boolean equals(java.lang.Object)>"
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"<java.util.Hashtable: boolean equals(java.lang.Object)>";
+    "(226)<org.apache.maven.toolchain.model.ToolchainModel: int hashCode()>"
+    "<java.util.Hashtable: int hashCode()>"
+    "(226)<org.apache.maven.toolchain.model.ToolchainModel: int hashCode()>"->"<java.util.Hashtable: int hashCode()>";
+    "<java.util.Collections$UnmodifiableCollection: int size()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$UnmodifiableCollection: int size()>";
+    "<java.util.Collections$UnmodifiableCollection: java.util.Iterator iterator()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$UnmodifiableCollection: java.util.Iterator iterator()>";
+    "<java.util.Collections$UnmodifiableCollection$1: boolean hasNext()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$UnmodifiableCollection$1: boolean hasNext()>";
+    "<java.util.Collections$UnmodifiableCollection$1: java.lang.Object next()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$UnmodifiableCollection$1: java.lang.Object next()>";
+    "<java.io.File: java.lang.String getAbsolutePath()>"
+    "(1210)<org.apache.maven.project.MavenProject: void deepCopy(org.apache.maven.project.MavenProject)>"->"<java.io.File: java.lang.String getAbsolutePath()>";
+    "<java.util.Collections$UnmodifiableCollection: boolean add(java.lang.Object)>"
+    "(704)<org.apache.maven.project.MavenProject: java.util.Set getArtifacts()>"->"<java.util.Collections$UnmodifiableCollection: boolean add(java.lang.Object)>";
+    "<java.util.Hashtable: java.lang.Object clone()>"
+    "(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>"->"<java.util.Hashtable: java.lang.Object clone()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList: java.util.Iterator iterator()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList$Itr: boolean hasNext()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"<java.util.ArrayList$Itr: java.lang.Object next()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(71)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getGroupId()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(77)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getArtifactId()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(83)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getVersion()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(101)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getType()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(367)<org.apache.maven.project.artifact.ActiveProjectArtifact: boolean equals(java.lang.Object)>"->"(107)<org.apache.maven.project.artifact.ActiveProjectArtifact: java.lang.String getClassifier()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(335)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.lang.String getId()>"
+    "(336)<org.apache.maven.artifact.repository.MavenArtifactRepository: boolean equals(java.lang.Object)>"->"(335)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.lang.String getId()>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(463)<org.apache.maven.project.MavenProject: java.lang.String getArtifactId()>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(446)<org.apache.maven.project.MavenProject: java.lang.String getGroupId()>";
+    "(1043)<org.apache.maven.project.MavenProject: boolean equals(java.lang.Object)>"->"(491)<org.apache.maven.project.MavenProject: java.lang.String getVersion()>";
+    "(123)<org.apache.maven.toolchain.DefaultToolchain: boolean equals(java.lang.Object)>"->"(84)<org.apache.maven.toolchain.DefaultToolchain: org.apache.maven.toolchain.model.ToolchainModel getModel()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(156)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.String getType()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(156)<org.apache.maven.toolchain.model.ToolchainModel: java.lang.String getType()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>";
+    "(242)<org.apache.maven.toolchain.model.ToolchainModel: boolean equals(java.lang.Object)>"->"(132)<org.apache.maven.toolchain.model.ToolchainModel: java.util.Properties getProvides()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(126)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getId()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(183)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getId()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(335)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.lang.String getId()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(168)<org.apache.maven.repository.DelegatingLocalArtifactRepository: java.lang.String getUrl()>";
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(188)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.lang.String getUrl()>";
+    "(316)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.lang.String getUrl()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(316)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.lang.String getUrl()>";
+    "(156)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(156)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>";
+    "(119)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(119)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>";
+    "(344)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(344)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getSnapshots()>";
+    "(150)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(150)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>";
+    "(129)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(129)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>";
+    "(353)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(353)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.ArtifactRepositoryPolicy getReleases()>";
+    "(361)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.Authentication getAuthentication()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(361)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.Authentication getAuthentication()>";
+    "(409)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.Authentication getAuthentication()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(409)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.Authentication getAuthentication()>";
+    "(371)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.repository.Proxy getProxy()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(371)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.repository.Proxy getProxy()>";
+    "(418)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.repository.Proxy getProxy()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(418)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.repository.Proxy getProxy()>";
+    "(401)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.util.List getMirroredRepositories()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(401)<org.apache.maven.artifact.repository.MavenArtifactRepository: java.util.List getMirroredRepositories()>";
+    "(423)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.util.List getMirroredRepositories()>"
+    "(203)<org.apache.maven.RepositoryUtils: org.eclipse.aether.repository.RemoteRepository toRepo(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(423)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.util.List getMirroredRepositories()>";
+    "(423)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.util.List getMirroredRepositories()>"->"<java.util.Collections: void <clinit>()>";
+    "<java.util.Collections: java.util.List emptyList()>"
+    "(423)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.util.List getMirroredRepositories()>"->"<java.util.Collections: java.util.List emptyList()>";
+    "(423)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: java.util.List getMirroredRepositories()>"->"<java.lang.Object: void <clinit>()>";
+    "(144)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(144)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "(109)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(109)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "(362)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>"
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(362)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(144)<org.apache.maven.repository.DelegatingLocalArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(109)<org.apache.maven.artifact.repository.MavenArtifactRepository: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "(222)<org.apache.maven.RepositoryUtils: java.lang.String getLayout(org.apache.maven.artifact.repository.ArtifactRepository)>"->"(362)<org.apache.maven.artifact.repository.LegacyLocalRepositoryManager$ArtifactRepositoryAdapter: org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout getLayout()>";
+    "<java.util.Collections$EmptyList: int size()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$EmptyList: int size()>";
+    "<java.util.Collections$EmptyList: java.util.Iterator iterator()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$EmptyList: java.util.Iterator iterator()>";
+    "<java.util.Collections$EmptyIterator: boolean hasNext()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$EmptyIterator: boolean hasNext()>";
+    "<java.util.Collections$EmptyIterator: java.lang.Object next()>"
+    "(188)<org.apache.maven.RepositoryUtils: java.util.List toRepos(java.util.List)>"->"<java.util.Collections$EmptyIterator: java.lang.Object next()>";
+    "(62)<org.apache.maven.toolchain.model.PersistedToolchains: org.apache.maven.toolchain.model.PersistedToolchains clone()>"->"(86)<org.apache.maven.toolchain.model.ToolchainModel: org.apache.maven.toolchain.model.ToolchainModel clone()>";
+    "(445)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void close()>"
+    "(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>"
+    "(445)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void close()>"->"(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>";
+    "(44)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer: java.io.PrintStream access$400(org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer)>"
+    "(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>"->"(44)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer: java.io.PrintStream access$400(org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer)>";
+    "(451)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void flush()>"
+    "(451)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void flush()>"->"(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>";
+    "(457)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void write(int)>"
+    "(457)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void write(int)>"->"(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>";
+    "(434)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void write(byte[],int,int)>"
+    "(434)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: void write(byte[],int,int)>"->"(219)<org.apache.maven.lifecycle.internal.builder.multithreaded.ThreadOutputMuxer$ThreadBoundPrintStream: java.io.PrintStream getOutputStreamForCurrentThread()>";
+}
