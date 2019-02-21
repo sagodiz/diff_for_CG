@@ -1,0 +1,68 @@
+digraph "call-graph" {
+    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"
+    "(9)<dynamic.DynamicTest: void <init>()>"
+    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(9)<dynamic.DynamicTest: void <init>()>";
+    "(51)<dynamic.DynamicTest: void test()>"
+    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(51)<dynamic.DynamicTest: void test()>";
+    "<java.lang.Object: void <init>()>"
+    "(9)<dynamic.DynamicTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(37)<dynamic.DynamicTest: void methodHandle()>"
+    "(51)<dynamic.DynamicTest: void test()>"->"(37)<dynamic.DynamicTest: void methodHandle()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"
+    "(51)<dynamic.DynamicTest: void test()>"->"(16)<dynamic.DynamicTest: void reflection()>";
+    "(5)<helper.Debug: void <clinit>()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"(5)<helper.Debug: void <clinit>()>";
+    "<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>";
+    "<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "<java.lang.Object: void <clinit>()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.System: void <clinit>()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.System: void <clinit>()>";
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.invoke.MethodHandles: void <clinit>()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: void <clinit>()>";
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.invoke.MethodType: void <clinit>()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: void <clinit>()>";
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"(5)<helper.Debug: void <clinit>()>";
+    "<java.lang.Class: java.lang.Class forName(java.lang.String)>"
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.Class forName(java.lang.String)>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.System: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.Class: void <clinit>()>"
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<helper.Debug: void <clinit>()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<helper.Debug: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.System: void <clinit>()>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>";
+    "<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<java.lang.Throwable: void printStackTrace()>"
+    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Throwable: void printStackTrace()>";
+    "<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>"
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>";
+    "<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>"
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>";
+    "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>";
+    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.io.PrintStream: void println(java.lang.String)>";
+}
