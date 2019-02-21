@@ -36,7 +36,7 @@ cout << "OSA loader" << endl;
   getline(input, line); //get the "header" line
   
   while ( getline(input, line) ) {
-    
+    cout << line <<endl;
     if ( line.find("label") != string::npos ) {
 
       
@@ -217,6 +217,19 @@ cout << "OSA loader" << endl;
                   parameterVector.push_back(typeStr);
                   
                   arrayType = 0;  //it's just for safety
+                  break;
+          case 'V'://it is void
+            /*
+             //.....
+                  typeStr = "void";
+                  while ( arrayType-- ) {
+                    typeStr += '[';
+                    typeStr += ']';
+                  }
+                  parameterVector.push_back(typeStr);
+                  
+                  arrayType = 0;  //it's just for safety
+            */
                   break;
           default: //throw a new exception
                   throw Labels::FORMAT_NOT_FOUND_ERROR;
