@@ -1,68 +1,548 @@
 digraph "call-graph" {
-    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"
-    "(9)<dynamic.DynamicTest: void <init>()>"
-    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(9)<dynamic.DynamicTest: void <init>()>";
-    "(51)<dynamic.DynamicTest: void test()>"
-    "(55)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(51)<dynamic.DynamicTest: void test()>";
-    "<java.lang.Object: void <init>()>"
-    "(9)<dynamic.DynamicTest: void <init>()>"->"<java.lang.Object: void <init>()>";
-    "(37)<dynamic.DynamicTest: void methodHandle()>"
-    "(51)<dynamic.DynamicTest: void test()>"->"(37)<dynamic.DynamicTest: void methodHandle()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"
-    "(51)<dynamic.DynamicTest: void test()>"->"(16)<dynamic.DynamicTest: void reflection()>";
+    "(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>"
     "(5)<helper.Debug: void <clinit>()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"(5)<helper.Debug: void <clinit>()>";
-    "<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>";
-    "<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>";
+    "(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
     "<java.lang.Object: void <clinit>()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.System: void <clinit>()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.System: void <clinit>()>";
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.invoke.MethodHandles: void <clinit>()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: void <clinit>()>";
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.invoke.MethodType: void <clinit>()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: void <clinit>()>";
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"<java.lang.Object: void <clinit>()>";
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(18)<anonymAndInner.Outer$Nested: void staticNested()>"
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"(18)<anonymAndInner.Outer$Nested: void staticNested()>";
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<anonymAndInner.Outer$Inner: void inner()>"
+    "(12)<anonymAndInner.Outer$Inner: void inner()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(12)<anonymAndInner.Outer$Inner: void inner()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(12)<anonymAndInner.Outer$Inner: void inner()>"->"<java.lang.Object: void <clinit>()>";
+    "(18)<anonymAndInner.Outer$Nested: void staticNested()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(18)<anonymAndInner.Outer$Nested: void staticNested()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(18)<anonymAndInner.Outer$Nested: void staticNested()>"->"<java.lang.Object: void <clinit>()>";
+    "(22)<anonymAndInner.Outer$Nested: void nested()>"
+    "(22)<anonymAndInner.Outer$Nested: void nested()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(22)<anonymAndInner.Outer$Nested: void nested()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(22)<anonymAndInner.Outer$Nested: void nested()>"->"<java.lang.Object: void <clinit>()>";
+    "(6)<anonymAndInner.Outer: void inner()>"
+    "(6)<anonymAndInner.Outer: void inner()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(6)<anonymAndInner.Outer: void inner()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(6)<anonymAndInner.Outer: void inner()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"
+    "(11)<dynamic.DynamicTest: void reflection()>"->"(5)<helper.Debug: void <clinit>()>";
     "<java.lang.Class: java.lang.Class forName(java.lang.String)>"
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.Class forName(java.lang.String)>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.System: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.Class forName(java.lang.String)>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.System: void <clinit>()>"
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.System: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
     "<java.lang.Class: void <clinit>()>"
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: void <clinit>()>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Object: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"(5)<helper.Debug: void <clinit>()>";
+    "<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: java.lang.invoke.MethodHandles$Lookup lookup()>";
+    "<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: java.lang.invoke.MethodType methodType(java.lang.Class,java.lang.Class)>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.System: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.invoke.MethodHandles: void <clinit>()>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "<java.lang.invoke.MethodType: void <clinit>()>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodType: void <clinit>()>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<generics.Generic3: void foo()>"
+    "(5)<generics.Generic3: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<generics.Generic3: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<generics.Generic3: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "(10)<generics.GenericsTest: void test()>"
+    "(10)<generics.GenericsTest: void test()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(10)<generics.GenericsTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<helper.Abstract: void foo()>"
+    "(5)<helper.Abstract: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<helper.Abstract: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<helper.Abstract: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<helper.Base: void base()>"
+    "(5)<helper.Base: void base()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<helper.Base: void base()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<helper.Base: void base()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<helper.Child1: void goo()>"
+    "(5)<helper.Child1: void goo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<helper.Child1: void goo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<helper.Child1: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "(8)<helper.Child1: void foo()>"
+    "(8)<helper.Child1: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(8)<helper.Child1: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(8)<helper.Child1: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<helper.Child1: void child1()>"
+    "(11)<helper.Child1: void child1()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(11)<helper.Child1: void child1()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(11)<helper.Child1: void child1()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<helper.Child2: void goo()>"
+    "(5)<helper.Child2: void goo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<helper.Child2: void goo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<helper.Child2: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "(8)<helper.Child2: void hoo()>"
+    "(8)<helper.Child2: void hoo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(8)<helper.Child2: void hoo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(8)<helper.Child2: void hoo()>"->"<java.lang.Object: void <clinit>()>";
     "(5)<helper.Debug: void <clinit>()>"->"(5)<helper.Debug: void <clinit>()>";
     "(5)<helper.Debug: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"->"(5)<helper.Debug: void <clinit>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.System: void <clinit>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
-    "<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>";
-    "<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>";
-    "<java.io.PrintStream: void println(java.lang.String)>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.io.PrintStream: void println(java.lang.String)>";
-    "<java.lang.Throwable: void printStackTrace()>"
-    "(37)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Throwable: void printStackTrace()>";
+    "(7)<helper.Interface: void hoo()>"
+    "(7)<helper.Interface: void hoo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(7)<helper.Interface: void hoo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(7)<helper.Interface: void hoo()>"->"<java.lang.Object: void <clinit>()>";
+    "(4)<initialization.Constructor: void <init>()>"
+    "(4)<initialization.Constructor: void <init>()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(4)<initialization.Constructor: void <init>()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(4)<initialization.Constructor: void <init>()>"->"<java.lang.Object: void <clinit>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<initialization.InitializationTest: void test()>"
+    "(12)<initialization.InitializationTest: void test()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(20)<initialization.StaticInit: void staticInit()>"
+    "(12)<initialization.InitializationTest: void test()>"->"(20)<initialization.StaticInit: void staticInit()>";
+    "(12)<initialization.InitializationTest: void test()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(12)<initialization.InitializationTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"
+    "(12)<initialization.InitializationTest: void test()>"->"(12)<initialization.StaticInit: void <clinit>()>";
+    "(12)<initialization.InitializationTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>"
+    "(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(12)<initialization.StaticInit: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(12)<initialization.StaticInit: void <clinit>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"<java.lang.Object: void <clinit>()>";
+    "(20)<initialization.StaticInit: void staticInit()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(20)<initialization.StaticInit: void staticInit()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(20)<initialization.StaticInit: void staticInit()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<java8.Java8Test: void lambda()>"
+    "(5)<java8.Java8Test: void lambda()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<java8.Java8Test: void lambda()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<java8.Java8Test: void lambda()>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<java8.Java8Test: void methodReference()>"
+    "(11)<java8.Java8Test: void methodReference()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(11)<java8.Java8Test: void methodReference()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(11)<java8.Java8Test: void methodReference()>"->"<java.lang.Object: void <clinit>()>";
+    "(18)<java8.Java8Test: void functionalInterface()>"
+    "(18)<java8.Java8Test: void functionalInterface()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(18)<java8.Java8Test: void functionalInterface()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(18)<java8.Java8Test: void functionalInterface()>"->"<java.lang.Object: void <clinit>()>";
+    "(24)<java8.Java8Test: void test()>"
+    "(24)<java8.Java8Test: void test()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(24)<java8.Java8Test: void test()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(24)<java8.Java8Test: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(7)<java8.Java8Test: boolean lambda$0(int,int)>"
+    "(7)<java8.Java8Test: boolean lambda$0(int,int)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(7)<java8.Java8Test: boolean lambda$0(int,int)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(7)<java8.Java8Test: boolean lambda$0(int,int)>"->"<java.lang.Object: void <clinit>()>";
+    "(10)<java8.MethodReference: java.lang.String print(java.lang.String)>"
+    "(10)<java8.MethodReference: java.lang.String print(java.lang.String)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(10)<java8.MethodReference: java.lang.String print(java.lang.String)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(10)<java8.MethodReference: java.lang.String print(java.lang.String)>"->"<java.lang.Object: void <clinit>()>";
+    "(15)<java8.MethodReference: void privatePrint()>"
+    "(15)<java8.MethodReference: void privatePrint()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(15)<java8.MethodReference: void privatePrint()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(15)<java8.MethodReference: void privatePrint()>"->"<java.lang.Object: void <clinit>()>";
+    "(18)<java8.MethodReference: void <init>()>"
+    "<java.util.ArrayList: void <clinit>()>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.ArrayList: void <clinit>()>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.lang.Object: void <clinit>()>";
+    "(8)<parser.ForParser: void foo()>"
+    "(8)<parser.ForParser: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(8)<parser.ForParser: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(8)<parser.ForParser: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(12)<parser.ForParser: void goo()>"
+    "(12)<parser.ForParser: void goo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(12)<parser.ForParser: void goo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(12)<parser.ForParser: void goo()>"->"<java.lang.Object: void <clinit>()>";
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(5)<helper.Debug: void <clinit>()>";
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(5)<helper.Debug: void <clinit>()>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"<java.lang.Object: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"
+    "(6)<parser.ParserTest: void test()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(6)<parser.ParserTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"->"<java.lang.Class: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"->"<java.lang.Class: void <clinit>()>";
+    "(6)<parser.ParserTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<polimorph.Overload: void foo()>"
+    "(5)<polimorph.Overload: void foo()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<polimorph.Overload: void foo()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<polimorph.Overload: void foo()>"->"<java.lang.Object: void <clinit>()>";
+    "(8)<polimorph.Overload: void foo(int)>"
+    "(8)<polimorph.Overload: void foo(int)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(8)<polimorph.Overload: void foo(int)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(8)<polimorph.Overload: void foo(int)>"->"<java.lang.Object: void <clinit>()>";
+    "(11)<polimorph.Overload: void foo(java.lang.Object)>"
+    "(11)<polimorph.Overload: void foo(java.lang.Object)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(11)<polimorph.Overload: void foo(java.lang.Object)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(11)<polimorph.Overload: void foo(java.lang.Object)>"->"<java.lang.Object: void <clinit>()>";
+    "(14)<polimorph.Overload: void foo(int,java.lang.Object[])>"
+    "(14)<polimorph.Overload: void foo(int,java.lang.Object[])>"->"(5)<helper.Debug: void <clinit>()>";
+    "(14)<polimorph.Overload: void foo(int,java.lang.Object[])>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(14)<polimorph.Overload: void foo(int,java.lang.Object[])>"->"<java.lang.Object: void <clinit>()>";
+    "(18)<polimorph.Overload: void overload1()>"
+    "(18)<polimorph.Overload: void overload1()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(18)<polimorph.Overload: void overload1()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(18)<polimorph.Overload: void overload1()>"->"<java.lang.Object: void <clinit>()>";
+    "(23)<polimorph.Overload: void overload2()>"
+    "(23)<polimorph.Overload: void overload2()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(23)<polimorph.Overload: void overload2()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(23)<polimorph.Overload: void overload2()>"->"<java.lang.Object: void <clinit>()>";
+    "(28)<polimorph.Overload: void overload3()>"
+    "(28)<polimorph.Overload: void overload3()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(28)<polimorph.Overload: void overload3()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(28)<polimorph.Overload: void overload3()>"->"<java.lang.Object: void <clinit>()>";
+    "(33)<polimorph.Overload: void overload4()>"
+    "(33)<polimorph.Overload: void overload4()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(33)<polimorph.Overload: void overload4()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(33)<polimorph.Overload: void overload4()>"->"<java.lang.Object: void <clinit>()>";
+    "(33)<polimorph.Overload: void overload4()>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"<java.lang.Object: void <clinit>()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"<java.lang.Object: void <clinit>()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"<java.lang.Object: void <clinit>()>";
+    "(24)<polimorph.PolimorphTest: void test()>"
+    "(24)<polimorph.PolimorphTest: void test()>"->"(5)<helper.Debug: void <clinit>()>";
+    "(24)<polimorph.PolimorphTest: void test()>"->"(7)<helper.Debug: void debug(java.lang.String)>";
+    "(24)<polimorph.PolimorphTest: void test()>"->"<java.lang.Object: void <clinit>()>";
+    "(44)<anonymAndInner.AnonymAndInnerTest: void main(java.lang.String[])>"
+    "(3)<anonymAndInner.AnonymAndInnerTest: void <init>()>"
+    "(44)<anonymAndInner.AnonymAndInnerTest: void main(java.lang.String[])>"->"(3)<anonymAndInner.AnonymAndInnerTest: void <init>()>";
+    "(39)<anonymAndInner.AnonymAndInnerTest: void test()>"
+    "(44)<anonymAndInner.AnonymAndInnerTest: void main(java.lang.String[])>"->"(39)<anonymAndInner.AnonymAndInnerTest: void test()>";
+    "(1)<anonymAndInner.AnonymAndInnerTest$1: void <init>(anonymAndInner.AnonymAndInnerTest)>"
+    "(3)<helper.Child1: void <init>()>"
+    "(1)<anonymAndInner.AnonymAndInnerTest$1: void <init>(anonymAndInner.AnonymAndInnerTest)>"->"(3)<helper.Child1: void <init>()>";
+    "(1)<anonymAndInner.AnonymAndInnerTest$2: void <init>(anonymAndInner.AnonymAndInnerTest)>"
+    "(3)<generics.Generic1: void <init>()>"
+    "(1)<anonymAndInner.AnonymAndInnerTest$2: void <init>(anonymAndInner.AnonymAndInnerTest)>"->"(3)<generics.Generic1: void <init>()>";
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"->"(8)<helper.Child1: void foo()>";
+    "(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>"
+    "(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>"->"(24)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Child1)>";
+    "<java.lang.Object: void <init>()>"
+    "(3)<anonymAndInner.AnonymAndInnerTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(3)<anonymAndInner.Outer: void <init>()>"
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"->"(3)<anonymAndInner.Outer: void <init>()>";
+    "(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>"->"(6)<anonymAndInner.Outer: void inner()>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(1)<anonymAndInner.AnonymAndInnerTest$1: void <init>(anonymAndInner.AnonymAndInnerTest)>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(5)<helper.Child1: void goo()>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(1)<anonymAndInner.AnonymAndInnerTest$2: void <init>(anonymAndInner.AnonymAndInnerTest)>";
+    "(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>"->"(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>";
+    "(16)<anonymAndInner.Outer$Nested: void <init>()>"
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"(16)<anonymAndInner.Outer$Nested: void <init>()>";
+    "(32)<anonymAndInner.AnonymAndInnerTest: void nested()>"->"(22)<anonymAndInner.Outer$Nested: void nested()>";
+    "(39)<anonymAndInner.AnonymAndInnerTest: void test()>"->"(5)<anonymAndInner.AnonymAndInnerTest: void innerClass()>";
+    "(39)<anonymAndInner.AnonymAndInnerTest: void test()>"->"(12)<anonymAndInner.AnonymAndInnerTest: void anonim()>";
+    "(39)<anonymAndInner.AnonymAndInnerTest: void test()>"->"(32)<anonymAndInner.AnonymAndInnerTest: void nested()>";
+    "(10)<anonymAndInner.Outer$Inner: void <init>(anonymAndInner.Outer)>"
+    "(10)<anonymAndInner.Outer$Inner: void <init>(anonymAndInner.Outer)>"->"<java.lang.Object: void <init>()>";
+    "(16)<anonymAndInner.Outer$Nested: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(3)<anonymAndInner.Outer: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(6)<anonymAndInner.Outer: void inner()>"->"(10)<anonymAndInner.Outer$Inner: void <init>(anonymAndInner.Outer)>";
+    "(6)<anonymAndInner.Outer: void inner()>"->"(12)<anonymAndInner.Outer$Inner: void inner()>";
+    "(2)<CallGraphTest: void <init>()>"
+    "(2)<CallGraphTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"
+    "(3)<parser.ParserTest: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(3)<parser.ParserTest: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(6)<parser.ParserTest: void test()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(3)<anonymAndInner.AnonymAndInnerTest: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(39)<anonymAndInner.AnonymAndInnerTest: void test()>";
+    "(5)<initialization.InitializationTest: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(5)<initialization.InitializationTest: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(12)<initialization.InitializationTest: void test()>";
+    "(3)<java8.Java8Test: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(3)<java8.Java8Test: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(24)<java8.Java8Test: void test()>";
+    "(3)<generics.GenericsTest: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(3)<generics.GenericsTest: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(10)<generics.GenericsTest: void test()>";
+    "(3)<polimorph.PolimorphTest: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(3)<polimorph.PolimorphTest: void <init>()>";
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(24)<polimorph.PolimorphTest: void test()>";
+    "(8)<dynamic.DynamicTest: void <init>()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(8)<dynamic.DynamicTest: void <init>()>";
+    "(33)<dynamic.DynamicTest: void test()>"
+    "(5)<CallGraphTest: void main(java.lang.String[])>"->"(33)<dynamic.DynamicTest: void test()>";
+    "(8)<dynamic.DynamicTest: void <init>()>"->"<java.lang.Object: void <init>()>";
     "<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>"
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>";
     "<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>"
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>";
     "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>";
-    "(16)<dynamic.DynamicTest: void reflection()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>";
+    "<java.io.PrintStream: void println(java.lang.String)>"
+    "(11)<dynamic.DynamicTest: void reflection()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandles$Lookup: java.lang.invoke.MethodHandle findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)>";
+    "<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.invoke.MethodHandle: java.lang.Object invokeWithArguments(java.lang.Object[])>";
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "<java.lang.Throwable: void printStackTrace()>"
+    "(22)<dynamic.DynamicTest: void methodHandle()>"->"<java.lang.Throwable: void printStackTrace()>";
+    "(33)<dynamic.DynamicTest: void test()>"->"(22)<dynamic.DynamicTest: void methodHandle()>";
+    "(33)<dynamic.DynamicTest: void test()>"->"(11)<dynamic.DynamicTest: void reflection()>";
+    "(37)<dynamic.DynamicTest: void main(java.lang.String[])>"
+    "(37)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(8)<dynamic.DynamicTest: void <init>()>";
+    "(37)<dynamic.DynamicTest: void main(java.lang.String[])>"->"(33)<dynamic.DynamicTest: void test()>";
+    "(3)<generics.Generic1: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"(5)<helper.Abstract: void foo()>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"(8)<helper.Child1: void foo()>";
+    "(5)<generics.Generic1: void generic(helper.Interface)>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(3)<generics.Generic2: void <init>()>"
+    "(3)<generics.Generic2: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(8)<helper.Child1: void foo()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(5)<helper.Abstract: void foo()>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(5)<generics.Generic1: void generic(helper.Interface)>";
+    "(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>"->"(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>";
+    "(3)<generics.Generic3: void <init>()>"
+    "(3)<generics.Generic3: void <init>()>"->"(3)<generics.Generic1: void <init>()>";
+    "(5)<generics.Generic3: void foo()>"->"(3)<helper.Child1: void <init>()>";
+    "(5)<generics.Generic3: void foo()>"->"(5)<generics.Generic1: void generic(helper.Interface)>";
+    "(3)<generics.GenericsTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"(8)<helper.Child1: void foo()>";
+    "(5)<generics.GenericsTest: void genericMethod(helper.Interface)>"->"(5)<helper.Abstract: void foo()>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<generics.Generic1: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<helper.Child1: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(5)<generics.Generic1: void generic(helper.Interface)>";
+    "(10)<generics.GenericsTest: void test()>"->"(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<generics.Generic1: void <init>()>";
+    "(3)<helper.Child2: void <init>()>"
+    "(10)<generics.GenericsTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(5)<generics.Generic1: void generic(helper.Interface)>";
+    "(10)<generics.GenericsTest: void test()>"->"(1)<anonymAndInner.AnonymAndInnerTest$2: void generic(helper.Interface)>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<generics.Generic2: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<generics.Generic3: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(5)<generics.Generic3: void foo()>";
+    "(10)<generics.GenericsTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(10)<generics.GenericsTest: void test()>"->"(5)<generics.GenericsTest: void genericMethod(helper.Interface)>";
+    "(27)<generics.GenericsTest: void main(java.lang.String[])>"
+    "(27)<generics.GenericsTest: void main(java.lang.String[])>"->"(3)<generics.GenericsTest: void <init>()>";
+    "(27)<generics.GenericsTest: void main(java.lang.String[])>"->"(10)<generics.GenericsTest: void test()>";
+    "(3)<helper.Abstract: void <init>()>"
+    "(3)<helper.Abstract: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(3)<helper.Base: void <init>()>"
+    "(3)<helper.Base: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(3)<helper.Child1: void <init>()>"->"(3)<helper.Abstract: void <init>()>";
+    "(3)<helper.Child2: void <init>()>"->"(3)<helper.Abstract: void <init>()>";
+    "(3)<helper.Child3: void <init>()>"
+    "(3)<helper.Child3: void <init>()>"->"(3)<helper.Child2: void <init>()>";
+    "(3)<helper.Debug: void <init>()>"
+    "(3)<helper.Debug: void <init>()>"->"<java.lang.Object: void <init>()>";
     "(7)<helper.Debug: void debug(java.lang.String)>"->"<java.io.PrintStream: void println(java.lang.String)>";
+    "(4)<initialization.Constructor: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"<java.lang.Object: void <init>()>";
+    "(3)<initialization.IntermediateInitialization: void <init>()>"
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(3)<initialization.IntermediateInitialization: void <init>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(3)<helper.Child1: void <init>()>";
+    "(20)<initialization.Init: void <init>(helper.Interface)>"->"(3)<helper.Child2: void <init>()>";
+    "(5)<initialization.InitializationTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(12)<initialization.InitializationTest: void test()>"->"(3)<helper.Child1: void <init>()>";
+    "(12)<initialization.InitializationTest: void test()>"->"(20)<initialization.Init: void <init>(helper.Interface)>";
+    "(12)<initialization.InitializationTest: void test()>"->"(4)<initialization.Constructor: void <init>()>";
+    "(22)<initialization.InitializationTest: void main(java.lang.String[])>"
+    "(22)<initialization.InitializationTest: void main(java.lang.String[])>"->"(5)<initialization.InitializationTest: void <init>()>";
+    "(22)<initialization.InitializationTest: void main(java.lang.String[])>"->"(12)<initialization.InitializationTest: void test()>";
+    "(3)<initialization.IntermediateInitialization: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>"->"(3)<helper.Child1: void <init>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(3)<initialization.IntermediateInitialization: void <init>()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(8)<initialization.IntermediateInitialization: helper.Child1 instantiateChild1()>";
+    "(12)<initialization.StaticInit: void <clinit>()>"->"(3)<helper.Child2: void <init>()>";
+    "(3)<initialization.StaticInit: void <init>()>"
+    "(3)<initialization.StaticInit: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(3)<java8.Java8Test: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(11)<java8.Java8Test: void methodReference()>"->"(18)<java8.MethodReference: void <init>()>";
+    "(24)<java8.MethodReference: void doSomething()>"
+    "(11)<java8.Java8Test: void methodReference()>"->"(24)<java8.MethodReference: void doSomething()>";
+    "(24)<java8.Java8Test: void test()>"->"(5)<java8.Java8Test: void lambda()>";
+    "(24)<java8.Java8Test: void test()>"->"(11)<java8.Java8Test: void methodReference()>";
+    "(24)<java8.Java8Test: void test()>"->"(18)<java8.Java8Test: void functionalInterface()>";
+    "(31)<java8.Java8Test: void main(java.lang.String[])>"
+    "(31)<java8.Java8Test: void main(java.lang.String[])>"->"(3)<java8.Java8Test: void <init>()>";
+    "(31)<java8.Java8Test: void main(java.lang.String[])>"->"(24)<java8.Java8Test: void test()>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<java.util.ArrayList: void <init>()>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.ArrayList: void <init>()>";
+    "<java.util.Collections$CheckedCollection: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$CheckedCollection: boolean add(java.lang.Object)>";
+    "<java.util.concurrent.CopyOnWriteArrayList: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.concurrent.CopyOnWriteArrayList: boolean add(java.lang.Object)>";
+    "<java.util.Collections$SynchronizedCollection: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$SynchronizedCollection: boolean add(java.lang.Object)>";
+    "<java.util.ArrayList: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "<java.util.Collections$UnmodifiableCollection: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$UnmodifiableCollection: boolean add(java.lang.Object)>";
+    "<java.util.Vector: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Vector: boolean add(java.lang.Object)>";
+    "<java.util.LinkedList: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.LinkedList: boolean add(java.lang.Object)>";
+    "<java.util.AbstractList: boolean add(java.lang.Object)>"
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.AbstractList: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.AbstractList: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Vector: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$SynchronizedCollection: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$CheckedCollection: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.Collections$UnmodifiableCollection: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.LinkedList: boolean add(java.lang.Object)>";
+    "(18)<java8.MethodReference: void <init>()>"->"<java.util.concurrent.CopyOnWriteArrayList: boolean add(java.lang.Object)>";
+    "<java.util.Vector: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Vector: void forEach(java.util.function.Consumer)>";
+    "<java.util.Collections$SynchronizedCollection: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Collections$SynchronizedCollection: void forEach(java.util.function.Consumer)>";
+    "<java.util.Collections$CheckedCollection: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Collections$CheckedCollection: void forEach(java.util.function.Consumer)>";
+    "<java.util.ArrayList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.ArrayList: void forEach(java.util.function.Consumer)>";
+    "<java.util.Collections$UnmodifiableCollection: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Collections$UnmodifiableCollection: void forEach(java.util.function.Consumer)>";
+    "<java.util.Collections$SingletonList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Collections$SingletonList: void forEach(java.util.function.Consumer)>";
+    "<java.util.concurrent.CopyOnWriteArrayList$COWSubList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.concurrent.CopyOnWriteArrayList$COWSubList: void forEach(java.util.function.Consumer)>";
+    "<java.util.Collections$EmptyList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Collections$EmptyList: void forEach(java.util.function.Consumer)>";
+    "<java.util.Arrays$ArrayList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.Arrays$ArrayList: void forEach(java.util.function.Consumer)>";
+    "<java.util.concurrent.CopyOnWriteArrayList: void forEach(java.util.function.Consumer)>"
+    "(24)<java8.MethodReference: void doSomething()>"->"<java.util.concurrent.CopyOnWriteArrayList: void forEach(java.util.function.Consumer)>";
+    "(3)<parser.ForParser: void <init>()>"
+    "(3)<parser.ForParser: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(3)<generics.Generic2: void <init>()>";
+    "(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(3)<generics.Generic2: void <init>()>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(3)<generics.Generic1: void <init>()>";
+    "(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>"->"(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>";
+    "(3)<parser.ParserTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<parser.ForParser: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(8)<parser.ForParser: void foo()>";
+    "(6)<parser.ParserTest: void test()>"->"(12)<parser.ForParser: void goo()>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<generics.Generic1: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<parser.ForParser: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(16)<parser.ForParser: generics.Generic2 validMethod(helper.Child2,generics.Generic1,java.lang.Class[])>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<parser.ForParser: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(24)<parser.ForParser: generics.Generic2 validGenericMethod(helper.Child2,generics.Generic1,java.lang.Class[])>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(3)<helper.Child2: void <init>()>";
+    "(6)<parser.ParserTest: void test()>"->"(5)<generics.Generic2: void generic(helper.Interface,generics.Generic1)>";
+    "(17)<parser.ParserTest: void main(java.lang.String[])>"
+    "(17)<parser.ParserTest: void main(java.lang.String[])>"->"(3)<parser.ParserTest: void <init>()>";
+    "(17)<parser.ParserTest: void main(java.lang.String[])>"->"(6)<parser.ParserTest: void test()>";
+    "(3)<polimorph.Overload: void <init>()>"
+    "(3)<polimorph.Overload: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(18)<polimorph.Overload: void overload1()>"->"(5)<polimorph.Overload: void foo()>";
+    "(23)<polimorph.Overload: void overload2()>"->"(8)<polimorph.Overload: void foo(int)>";
+    "(28)<polimorph.Overload: void overload3()>"->"(11)<polimorph.Overload: void foo(java.lang.Object)>";
+    "(33)<polimorph.Overload: void overload4()>"->"(14)<polimorph.Overload: void foo(int,java.lang.Object[])>";
+    "(3)<polimorph.Polimorph: void <init>()>"
+    "(3)<polimorph.Polimorph: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"(8)<helper.Child1: void foo()>";
+    "(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>"->"(5)<helper.Abstract: void foo()>";
+    "(10)<polimorph.Polimorph: void interfaceImplementation()>"
+    "(10)<polimorph.Polimorph: void interfaceImplementation()>"->"(3)<helper.Child1: void <init>()>";
+    "(10)<polimorph.Polimorph: void interfaceImplementation()>"->"(8)<helper.Child1: void foo()>";
+    "(10)<polimorph.Polimorph: void interfaceImplementation()>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(10)<polimorph.Polimorph: void interfaceImplementation()>"->"(5)<helper.Child1: void goo()>";
+    "(17)<polimorph.Polimorph: void interfaceImplementation2()>"
+    "(17)<polimorph.Polimorph: void interfaceImplementation2()>"->"(3)<helper.Child2: void <init>()>";
+    "(17)<polimorph.Polimorph: void interfaceImplementation2()>"->"(5)<helper.Abstract: void foo()>";
+    "(17)<polimorph.Polimorph: void interfaceImplementation2()>"->"(8)<helper.Child2: void hoo()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(3)<helper.Child1: void <init>()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(8)<helper.Child1: void foo()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(3)<helper.Child1: void <init>()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(8)<helper.Child1: void foo()>";
+    "(23)<polimorph.Polimorph: void abstractClassImplementation()>"->"(16)<anonymAndInner.AnonymAndInnerTest$1: void foo()>";
+    "(3)<polimorph.PolimorphTest: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(3)<polimorph.Overload: void <init>()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(18)<polimorph.Overload: void overload1()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(23)<polimorph.Overload: void overload2()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(28)<polimorph.Overload: void overload3()>";
+    "(5)<polimorph.PolimorphTest: void overload()>"->"(33)<polimorph.Overload: void overload4()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(3)<polimorph.Polimorph: void <init>()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(10)<polimorph.Polimorph: void interfaceImplementation()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(17)<polimorph.Polimorph: void interfaceImplementation2()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(23)<polimorph.Polimorph: void abstractClassImplementation()>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(5)<polimorph.Polimorph: void overloadedInterface(helper.Interface)>";
+    "(15)<polimorph.PolimorphTest: void polimorphic()>"->"(3)<helper.Child3: void <init>()>";
+    "(24)<polimorph.PolimorphTest: void test()>"->"(5)<polimorph.PolimorphTest: void overload()>";
+    "(28)<polimorph.PolimorphTest: void main(java.lang.String[])>"
+    "(28)<polimorph.PolimorphTest: void main(java.lang.String[])>"->"(3)<polimorph.PolimorphTest: void <init>()>";
+    "(28)<polimorph.PolimorphTest: void main(java.lang.String[])>"->"(24)<polimorph.PolimorphTest: void test()>";
 }
