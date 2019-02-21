@@ -156,10 +156,7 @@ vector<Record> Loader_jdt::load() {
       }
    
       string pckgStr, classStr;
-cout << "----------------" << pckgClass << endl;
       common::cutPckgClass(pckgClass, pckgStr, classStr);
-cout << pckgStr << "/" << classStr << endl;
-      
       
       if (common::options::JDT_generics == common::enums::JDTGenerics::JDT_classAndParameters || common::options::JDT_generics == common::enums::JDTGenerics::JDT_onlyClass) {
         size_t generics;
@@ -206,21 +203,18 @@ cout << pckgStr << "/" << classStr << endl;
   
   input.clear();
   input.seekg(0, ios::beg);
-  cout << "asdasdads1" << endl;
+
   printNotFilteredMethodNames();
 
-  cout << "asdasdads2" << endl;
   if ( common::jdtTagging != "" ) {
     
     ifstream taggingFile(common::jdtTagging);
     if ( !taggingFile.is_open() )
       throw Labels::FILE_READ_ERROR + common::jdtTagging + " (tagging)";
     
-    cout << "asdasdads3" << endl;
     doTaggingJDT(taggingFile, name);
-    cout << "asdasdads4" << endl;
   }
-  cout << "asdasdads" << endl;
+
   return tmpRecords;
 }
 
@@ -297,11 +291,11 @@ void doTaggingJDT(std::ifstream& taggingFile, const string& name) {
   string line;
   
   Record* r = NULL;
-  cout << __LINE__ << endl;
+
   while ( getline(taggingFile, line) ) {
-    cout << __LINE__ << endl;
+
     if ( '*' == line[0] ) {
-      cout << __LINE__ << endl;
+
       //it is a tag of the actual Record
       if ( "*DAFAULT_CONSTRUCTOR" == line ) {
         
@@ -317,27 +311,22 @@ void doTaggingJDT(std::ifstream& taggingFile, const string& name) {
       }
     }
     else {
-        cout << __LINE__ << endl;
+
       bool check = false;
       for ( unsigned int i  = 0; i < common::storedIds.size(); i++ ) {
-        cout << __LINE__ << endl;
+
         auto vect = common::storedIds[i].getSecondaryRepresentationsForTool(name);
         auto begin = vect.begin();
         auto end = vect.end();
         
-        for (auto it = begin; it != end; it++ ) {
-          cout << "Repi: " << *it << endl;
-        }
-        
-        cout << "asd" << endl;
         if ( find(begin, end, line) != end ) {
-          cout << __LINE__ << endl;
+
           check = true;
           r = &(common::storedIds[i]);
           break;
         }
       }
-      cout << __LINE__ << endl;
+
       if ( !check )
         throw Labels::TAGGING_METHOD_NOT_FOUND + line;
     }

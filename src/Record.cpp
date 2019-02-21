@@ -398,16 +398,14 @@ string Record::getSecondaryRepresentation() const {
 }
 
 vector<string> Record::getSecondaryRepresentationsForTool(const string tool) const {
-  cout << *this << " ";
+
   if ( "" == tool )
     return secondaryRep.begin()->second;
-  //cout << "beforeWhat" << tool << endl;
+
   if ( secondaryRep.find(tool) != secondaryRep.end() ) {
-    cout << secondaryRep.find(tool)->second.size() << endl;;
     return secondaryRep.find(tool)->second;
-    
   }
-  //cout << "WHAAAT!?!?!?" << tool << " " << *this << endl;
+
   vector<string> a;
   return a;
 }

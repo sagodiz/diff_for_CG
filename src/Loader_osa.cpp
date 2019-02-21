@@ -36,7 +36,7 @@ cout << "OSA loader" << endl;
   getline(input, line); //get the "header" line
   
   while ( getline(input, line) ) {
-    cout << line <<endl;
+
     if ( line.find("label") != string::npos ) {
 
       

@@ -262,9 +262,6 @@ void doTaggingSoot(std::ifstream& taggingFile) {
       }
       else if ( '*' == line[1] ) {
         string dc = line.substr(line.find(":")+1);
-        
-cout << dc << endl;
-        
         r->setDeclaringClass(dc);
       }
     }
