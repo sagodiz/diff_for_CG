@@ -35,22 +35,18 @@ class Record {
     bool operator==( const Record& r ) const;
     bool operator==( const std::pair<std::string, std::string> m ) const;
     bool operator==( const std::string& unifiedNode ) const;
-    /**
-    * \param  A record, but this time the record is not compared to the original classname but every '$' is replaced with '.'
-    * \return a bool value if the 2 records, this and the parameter, are equal
-    */
-    bool operator>>=( const Record& r ) const;
+  
     /**
     * \param the method is already found by one of the tools, it just a new form from another method.
     * \return returns a Record, now containing the new form too.
     */
     Record& operator+=( const std::pair<std::string, std::string> newWayOfRepresentation );
+  
     /**
     * \param a record of which method representations to be copied. 
     * \return returns an updated record.
     */
     Record& operator+=( const Record& r );
-  
   
     /**
     * \param s a string for the additional secondary representations
@@ -59,7 +55,6 @@ class Record {
     */
     Record& addSecondaryRepresentation( const std::string& s, const std::string& t );
     
-  
     /**
     * \param a record to be compared to.
     * \return decides whether the given record is smaller or not.

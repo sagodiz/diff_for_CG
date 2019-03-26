@@ -12,7 +12,6 @@ namespace Labels {
   const std::string TOOL_HAS_MORE_THAN_ONE_REP = "Tool has more than one representation for method.";
   const std::string NO_LOADER_WERE_GIVEN = "No loader was given. Please give at least 1 loader.";
   const std::string COULD_NOT_WRITE_FILE_LIST = "Could not write list of tsv files.";
-  const std::string CHP_TRANSFORMATION_OPTION_ERROR = "The transformation value is unrecognized.";
   const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN = "Transformation option for anonym classes is invalid.";
   const std::string WALA_NON_INNERCLASS_EXISTENCE = "Wala is among the nodes, but could not remove it as there is no '$'.";
   const std::string COULD_NOT_WRITE_GRAPHML = "Could not write graphml file";
@@ -29,11 +28,9 @@ namespace Labels {
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";
-  const std::string SOOT_CL = "-s"; //Soot Command Line
+  const std::string SOOT_CL = "-s";
   const std::string OSA_NAME = "OSA";
   const std::string OSA_CL = "-osa";
-  const std::string CHP_NAME = "CHP";
-  const std::string CHP_CL = "-c";
   const std::string SPOON_NAME = "SPOON";
   const std::string SPOON_CL = "-sp";
   const std::string JCG_NAME = "JCG";

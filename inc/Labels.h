@@ -21,7 +21,6 @@ namespace Labels {
   extern std::string PROJECT_NAME;
   extern std::string PROJECT_PATH;
   extern const std::string COULD_NOT_WRITE_FILE_LIST;
-  extern const std::string CHP_TRANSFORMATION_OPTION_ERROR;
   extern const std::string ANONYM_CLASS_TRANSFORMATION_OPTION_UNKNOWN;
   extern const std::string WALA_NON_INNERCLASS_EXISTENCE;
   extern const std::string COULD_NOT_WRITE_GRAPHML;
@@ -35,12 +34,11 @@ namespace Labels {
   extern const std::string TAGGING_METHOD_NOT_FOUND;
   
   //******************* strings used for tool naming and options*************************
+  //********CL: comman line, it is added in the command line parameters; NAME: name of the tool
   extern const std::string SOOT_NAME;
-  extern const std::string SOOT_CL; //Soot Command Line
+  extern const std::string SOOT_CL; 
   extern const std::string OSA_NAME;
   extern const std::string OSA_CL;
-  extern const std::string CHP_NAME;
-  extern const std::string CHP_CL;
   extern const std::string SPOON_NAME;
   extern const std::string SPOON_CL;
   extern const std::string JCG_NAME;

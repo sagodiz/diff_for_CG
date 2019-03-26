@@ -156,7 +156,7 @@ Record::Record( pair<string, string> rep, string package, string methodClass, st
   }
 }
 
-//-----------------------------For those where rep is not the line but an ID e.g. SourceMeter---------------------------------------
+//-----------------------------For those where rep is not the line but an ID e.g. OSA---------------------------------------
 Record::Record( pair<string, string> rep, string package, string methodClass, string methodName, vector<string> parameters, pair<string, string> secondaryRep, int startLine, int endLine ) : package(package), methodClass(methodClass), methodName(methodName), parameters(parameters), startLine(startLine), endLine(endLine), properties(0) {
   sameMethods.push_back(rep);
   unifiedRep = createUnifiedMethodName();
@@ -302,40 +302,6 @@ bool Record::operator==(const string& unifiedNode) const {
   return found;
 }
 
-bool Record::operator>>=(const Record& r ) const { //CHP operator. Not used anymore.
-
-DDD
-  string classStr = r.getClass();
-  replace( classStr.begin(), classStr.end(), '$', '.'); // replace all '$' to '.'
-
-  if ( classStr == methodClass
-      && r.getMethodName() == methodName
-      && r.getParameters() == parameters
-      ) {
-        
-    return true;
-  }
-  
-  bool isEquals = false;
-
-  if ( common::options::lineInfoPairing ) {
-    
-    if ( r.package == package && //the same package. It must not differ!
-        ( anonymEqual(methodClass, classStr) ) &&  //class names are the same or both of them is anonym
-        ( anonymEqual(methodName, r.methodName) ) ) {  //the same method or both of them is anonym.
-
-      if ( startLine != -1 && //this is a real information
-        ( (startLine <= r.startLine && endLine >= r.endLine) || (startLine >= r.startLine && endLine <= r.endLine) ) //a total interception, a in b or b in a
-        ) {
-DEBUG_EQUALITY
-        isEquals = true;
-      }
-    }
-  }
-  
-  return isEquals;
-}
-
 Record& Record::operator+=( const pair<string, string> nWOR ) {
   
   sameMethods.push_back(nWOR);
@@ -465,7 +431,6 @@ void Record::setProperties(const unsigned int tag) {
       break;
     default: 
       cerr << "Unrecognized tag value: " << tag << endl;
-      //throw Labels::UNRECOGNIZED_TAG;
   }
 }
 

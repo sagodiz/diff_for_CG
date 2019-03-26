@@ -8,7 +8,6 @@
 #include "inc/Labels.h"
 #include "inc/Loader.h"
 #include "inc/Loader_soot.h"
-#include "inc/Loader_callerhierarchy.h"
 #include "inc/Loader_osa.h"
 #include "inc/Loader_jcg.h"
 #include "inc/Loader_wala.h"
@@ -83,13 +82,6 @@ void printMatrix(const std::vector<Named*>& loaders, const std::vector<std::vect
 
 
 int main( int argc, char** argv ) {
-/*
-  if ( argc < 3 ) {
-    
-    cout << "At least 1 tool have to be given." << endl;
-    return 1;
-  }
-*/
   
   try { 
 
@@ -97,7 +89,6 @@ int main( int argc, char** argv ) {
   
   Switch* switches[] = {
                           new Switch(Labels::SOOT_CL, factory ),
-                          new Switch(Labels::CHP_CL, factory ),
                           new Switch(Labels::OSA_CL, factory ),
                           new Switch(Labels::SPOON_CL, factory ),
                           new Switch(Labels::JCG_CL, factory ),
@@ -113,7 +104,6 @@ int main( int argc, char** argv ) {
                           new Option("-projectPath", &projectPathMethod),
                           new Option("-calcUnionGraph", &calcUnionGraphMethod),
                           new Option("-transformToGraphDB", &transformToGraphDB),
-                          new Option("-CHPtransformation", &cHPTransformationMethod),
                           new Option("-anonymTransformation", &anonymClassNameTransformationMethod),
                           new Option("-lineInfoPairing", &lineInfoPairingMethod),
                           new Option("-methodUnio", &methodUnio),
@@ -130,8 +120,6 @@ int main( int argc, char** argv ) {
   vector<Loader*> loaders;
   vector<Named*> loadersAndUnionG;
 
-  Switch* chp = NULL;
-  int chpArgIndex = -1;
   unsigned counters[8] = {0};
   unsigned char j = -1;
     
@@ -156,33 +144,18 @@ int main( int argc, char** argv ) {
     for ( int i = 1; i < argc - 1; i++ ) {
       
       if ( *(switches[j]) == argv[i] ) {
-        
-        if ( *(switches[j]) == "-c" ) {
-          //if it is chp note it and add it later so it wold run for last.
-          chp = switches[j];
-          chpArgIndex = ++i;
-        }
-        else {
-          //it is not chp. add it.
-          switches[j]->init(argv[++i]);
-          loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
-          loadersAndUnionG.push_back(*loaders.rbegin());
-        }
+        //add it
+        switches[j]->init(argv[++i]);
+        loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
+        loadersAndUnionG.push_back(*loaders.rbegin());
       }
     }
-  }
-  
-  if ( chp ) {
-    
-    chp->init(argv[chpArgIndex]);
-    loaders.push_back( chp->getLoaderPointer(0) );
-    loadersAndUnionG.push_back(*loaders.rbegin());
   }
     
   if ( 0 == loaders.size() )
     throw Labels::NO_LOADER_WERE_GIVEN;
 
-  if (common::options::loadToGraph == 2) {//csak graf db stat
+  if (common::options::loadToGraph == 2) {//only graph db stat
     
     std::vector<std::string> graph_ids;
     GraphDBCommon::loadDBLabelsFromFile(graph_ids, Labels::PROJECT_NAME);
@@ -205,22 +178,17 @@ int main( int argc, char** argv ) {
     cout << loaders[i]->getName() << "..." << endl;
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-    cout << "asd" << endl;
     if (common::options::calculateUnionGraph) {
       //collect edges
       unionGraphEdges.insert(connections[i].begin(), connections[i].end());
     }
-  cout << "asd" << endl;
     VERBOSE1
     if (common::options::filterLevel > 0) {
-      cout << "asd" << endl;
       std::set<int> filteredIds;
       records[i] = common::filterNodes(records[i], filteredIds);
       connections[i] = common::filterConnections(connections[i], filteredIds);  
     }
-    cout << "asd" << endl;
     common::printFilteredMethod(loaders[i]->getName(), records[i]);
-    cout << "asd" << endl;
   }
   
   if (common::options::calculateUnionGraph) {

@@ -3,7 +3,6 @@
 #include "../inc/GraphDBCommon.h"
 #include "../inc/Loader_soot.h"
 #include "../inc/Loader_osa.h"
-#include "../inc/Loader_callerhierarchy.h"
 #include "../inc/Loader_spoon.h"
 #include "../inc/Loader_jcg.h"
 #include "../inc/Loader_wala.h"
@@ -26,9 +25,6 @@ Loader* Factory::getLoaderPointer( string str, string filePath, unsigned counter
   }
   else if ( Labels::OSA_CL == str ) {
     return new Loader_osa(filePath, Labels::OSA_NAME + std::to_string(counter));
-  }
-  else if ( Labels::CHP_CL == str ) {
-    return new Loader_callerhierarchy(filePath, Labels::CHP_NAME + std::to_string(counter));
   }
   else if ( Labels::SPOON_CL == str ) {
     return new Loader_spoon(filePath, Labels::SPOON_NAME + std::to_string(counter));

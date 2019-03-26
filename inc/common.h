@@ -102,7 +102,6 @@ namespace common {
     extern unsigned char loadToGraph;
     extern unsigned char filterLevel;
     extern unsigned char calculateUnionGraph;
-    extern unsigned char CHPTransform;
     extern unsigned char anonymClassNameTransform;
     extern bool lineInfoPairing;
     extern unsigned char resolve;

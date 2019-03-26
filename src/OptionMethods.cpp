@@ -66,35 +66,6 @@ void transformToGraphDB(char** argV, int argI) {
   }
 }
 
-
-void cHPTransformationMethod( char** argV, int argI ) {
-  
-  if ( !strcmp(argV[argI + 1], "0") ) {
-    //do not do any transformation
-    common::options::CHPTransform = 0;
-  }
-  else if ( !strcmp(argV[argI + 1], "1") ) {
-    //clean every method even if it is not among the generic params
-    common::options::CHPTransform = 1;
-  }
-  else if ( !strcmp(argV[argI + 1], "2") ) {
-    //transform the class name and no more
-    common::options::CHPTransform = 2;
-  }
-  else if ( !strcmp(argV[argI + 1], "3") ) {
-    //transform the classname, and remove generic signature in params
-    common::options::CHPTransform = 3;
-  }
-  else if ( !strcmp(argV[argI + 1], "4") ) {
-    //change every generic param type to object
-    common::options::CHPTransform = 4;
-  }
-  else {
-    
-    common::options::CHPTransform = 0;
-  }
-}
-
 void anonymClassNameTransformationMethod( char** argV, int argI ) {
   
   if ( !strcmp(argV[argI + 1], "0") ) {
@@ -110,7 +81,6 @@ void anonymClassNameTransformationMethod( char** argV, int argI ) {
     common::options::anonymClassNameTransform = 0;
   }
 }
-
 
 void lineInfoPairingMethod( char** argV, int argI ) {
   
@@ -135,7 +105,6 @@ void lineInfoPairingMethod( char** argV, int argI ) {
     common::options::lineInfoPairing = false;
   }
 }
-
 
 void methodUnio( char** argV, int argI ) {
   
@@ -186,7 +155,6 @@ void onlyAnonymWithLineinfo(char** argV, int argI) {
   common::options::onlyAnonymWithLineinfo = true;
 }
 
-
 void genericParameterTypesNames(char** argV, int argI) {
   
   if ( !strcmp(argV[argI + 1], "0") ) {
@@ -235,7 +203,6 @@ void initblock2initMethod(char** argV, int argI) {
   }
 }
 
-
 void taggingMethod(char** argV, int argI) {
   
   if ( !strcmp(argV[argI + 1], "soot") ) {
@@ -274,7 +241,6 @@ void helpMethod(char** argV, int argI) {
     << "\t-anonymTransformation level\t Level identifies how anonym parts of the nodes should be resolved:" << std::endl
     << "\t\t0 No transformation (Default)" << std::endl
     << "\t\t1 Transform every anonym member into a unified method name \"UNIFIEDMETHODNAME\" without quotes" << std::endl
-    << "\t-CHPtransformation level\t CHP generic methods are transformed. TODO:levels CHP is not used..." << std::endl
     << "\t-calcUnionGraph level\t Calculates a graf that contains every method and edge collected by every tool and includes it in stat. Level is 1 or 0" << std::endl
     << "\t-lineInfoPairing value\t Sets on or off the pairing based on lineinfo. Value for turning on pairing: {1, true} for turning off {0, false}. False is default value." << std::endl
     << "\t-methodUnio value\t How method pairing should be \"counted\"." << std::endl
