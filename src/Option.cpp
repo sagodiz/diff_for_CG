@@ -10,6 +10,9 @@ Option::~Option() {
 
 void Option::foo(char** argV, int argI) {
   
+  if ( NULL == fooP )
+    return;
+  
   (*fooP)(argV, argI);
 }
 
