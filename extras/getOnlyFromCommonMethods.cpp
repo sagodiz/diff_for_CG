@@ -7,8 +7,8 @@ using namespace std;
 int main(int argc, char **argv ) {
   
   if ( argc != 3 ) {
-    cerr << "Adja meg a paramétereket: metódus_gyűjtemény szűrendő_file " << endl;
-    cout << "This program collects the calls that exist only between nodes that are found by every tool." << endl;
+    cerr << "Give parameters: collection-of-methods file2filter " << endl;
+    cout << "This program collects the calls from the file (given in first parameter) that are listed in the second parameter." << endl;
     return -1;
   }
   
@@ -16,7 +16,7 @@ int main(int argc, char **argv ) {
   ifstream input(argv[1]);
   if ( !input.is_open() ) {
     
-    cerr << "Nem lehetett megnyitni olvasásra a filet: " << argv[1] << endl;
+    cerr << "Could not read file: " << argv[1] << endl;
     return -2;
   }
   
@@ -25,20 +25,19 @@ int main(int argc, char **argv ) {
   while ( input >> line ) {
     methods.insert(line);
   }
-  //cout << "Methods are loaded." << endl;
   
   input.close();
   input.open(argv[2]);
   if ( !input.is_open() ) {
     
-    cerr << "Nem lehetett megnyitni olvasásra a filet: " << argv[2] << endl;
+    cerr << "Could not read file: " << argv[2] << endl;
     return -3;
   }
   
   ofstream output("commonMethodCalls.tsv");
   if ( !output.is_open() ) {
     
-    cerr << "Nem lehetett megnyitni olvasásra a filet: commonMethodCalls.tsv" << endl;
+    cerr << "Could not write file: commonMethodCalls.tsv" << endl;
     return -4;
   }
   
@@ -70,7 +69,7 @@ int main(int argc, char **argv ) {
     
     if ( methods.find(id1) != methods.end() && methods.find(id2) != methods.end() ) {
       
-      output << line << endl; //endl nem biztos, hogy kell
+      output << line << endl;
     }
   }
   
