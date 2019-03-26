@@ -10,6 +10,7 @@
 #define JCG_NUM 8
 #define WALA_NUM 16
 #define TRACE_NUM 32
+#define JDT_NUM 64
 
 std::string sectionAsString(int);
 
@@ -108,6 +109,7 @@ int main( int argc, char** argv ) {
     getline(input_stringstream, spoon, '\t');
     getline(input_stringstream, jcg, '\t');
     getline(input_stringstream, wala, '\t');
+    getline(input_stringstream, jdt, '\t');
     getline(input_stringstream, trace, '\t');
     getline(input_stringstream, sectionStr, '\t');
     
@@ -147,17 +149,25 @@ string sectionAsString( int id ) {
   if ( id & SOOT_NUM )
     section += "Soot";
   section += "\t";
+  
   if ( id & OSA_NUM )
     section += "OSA";
   section += "\t";
+  
   if ( id & SPOON_NUM )
     section += "SPOON";
   section += "\t";
+  
   if ( id & JCG_NUM )
     section += "JCG";
   section += "\t";
+  
   if ( id & WALA_NUM )
     section += "WALA";
+  section += "\t";
+  
+  if ( id & JDT_NUM )
+    section += "JDT";
     
   return section;
 }
