@@ -40,7 +40,7 @@ int main( int argc, char** argv ) {
     return 2;
   }
   
-  string transformed, matchingStr, soot, osa, spoon, jcg, wala, trace, sectionStr;
+  string transformed, matchingStr, soot, osa, spoon, jcg, wala, trace, jdt, sectionStr;
   int section;
   //int matching;
   string line;
@@ -58,6 +58,7 @@ int main( int argc, char** argv ) {
     getline(input_stringstream, spoon, '\t');
     getline(input_stringstream, jcg, '\t');
     getline(input_stringstream, wala, '\t');
+    getline(input_stringstream, jdt, '\t');
     getline(input_stringstream, trace, '\t');
     getline(input_stringstream, sectionStr, '\t');
     
