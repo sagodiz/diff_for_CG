@@ -222,9 +222,10 @@ int main( int argc, char** argv ) {
       cout << "Calculating iterative stuff for trance and " << loaders[i] << " for predefined epsilon: " << common::options::epsilon << endl;
       int j = 1;
       int graphDiff = INT_MAX;
+      set<pair<int, int>> staticIterativeGraph = connections[i];
       do {
         
-        set<pair<int, int>> staticIterativeGraph = createTransClosure(connections[i], j);
+        staticIterativeGraph = createTransClosure(staticIterativeGraph, 1); //iteratively always add the reachable nodes in one step. The iterative process results  the j-th distance transitive closure.
         graphDiff = createGraphDiff(connections[traceIndex], staticIterativeGraph);
         j++;
       }while(graphDiff > common::options::epsilon);
