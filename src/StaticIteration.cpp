@@ -1,14 +1,17 @@
+#include <string>
+
 #include "../inc/StaticIteration.h"
+#include "../inc/Labels.h"
 
 using namespace std;
+
+
 /**
 * This method creates a transitive closure graph from the given graph.
 * \param start The graph that should be transitive closured.
-* \param limit This number defines how far from the original node in the graph should the transitive clouser connect nodes. If it is -1 all the "child" nodes are connected otherwise all nodes till the limit depth child
+* \param limit This number defines how far from the original node in the graph should the transitive closure connect nodes. If it is -1 all the "child" nodes are connected otherwise all nodes till the limit depth child
 * \return a graph with the extra (transitive) connections added.
 */
-
-//TODO: Mátrixá alakítani ez előtt s úgy gyorsabb lesz. Másik metódus!!
 set<pair<int, int>> createTransClosure(const set<pair<int, int>>& start, const int limit) {
   
   //TODO
@@ -43,19 +46,11 @@ int createGraphDiff(const set<pair<int, int>>& trace, const set<pair<int, int>>&
 /**
 * This method creates a transitive closure graph from the given graph.
 * \param start The graph that should be transitive closured.
-* \param limit This number defines how far from the original node in the graph should the transitive clouser connect nodes. If it is -1 all the "child" nodes are connected otherwise all nodes till the limit depth child
+* \param limit This number defines how far from the original node in the graph should the transitive closure connect nodes. If it is -1 all the "child" nodes are connected otherwise all nodes till the limit depth child
 * \return a graph with the extra (transitive) connections added.
 */
-
-//TODO: Egy object en menjen az egész végig!!!!
-EdgeMatrix& createTransClosure(const EdgeMatrix& start, const int limit) {
-
-  //TODO
-  EdgeMatrix* returnm = new EdgeMatrix(start.getSize());
-
-
-  delete &start;
-  return *returnm;
+void createTransClosure(EdgeMatrix& start, const int limit) {
+  
 }
 
 /**
@@ -69,4 +64,41 @@ int createGraphDiff(const EdgeMatrix& trace, const EdgeMatrix& staticGraph) {
   int difference = 0;
 //TODO
   return difference;
+}
+
+/**
+* This method creates an EdgeMatrix from a set of edges
+* \param edges this param contains the set of edges that are inserted to the matrix
+* \param size it is optional. By default it is -1. It is the size of the matrix that should be converted. If this size is smaller than the possible matrix indexes the behavior is undefined. If it is -1, the biggest value is set as size.
+* \return Returns a pointer to an EdgeMatrix object that contains all the calls that were in the param edges.
+*/
+EdgeMatrix* createEdgeMatrixPointer(std::set<std::pair<int, int>>& edges, int size) {
+  
+  EdgeMatrix* matrix = NULL;
+  if ( -1 != size ) {
+    matrix = new EdgeMatrix(size);
+  }
+  else {
+    cout << "Why are you even using it?" << endl;
+    long int biggest = -1;
+    for ( auto it : edges ) {
+      
+      if ( it.first > biggest )
+        biggest = it.first;
+      if ( it.second > biggest )
+        biggest = it.second;
+    }
+    
+    if ( -1 == biggest )
+      throw Labels::UNKNOWN_ERROR_BIGGEST_EDGEID_MINUS + to_string(biggest);
+    
+    matrix = new EdgeMatrix(biggest);
+  }
+  
+  for ( auto it : edges ) {
+    
+    *matrix += it;
+  }
+  
+  return matrix;
 }

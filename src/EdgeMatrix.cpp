@@ -2,12 +2,12 @@
 using namespace std;
 //public methods for class
 
-EdgeMatrix::EdgeMatrix(int size) : size(size) {
+EdgeMatrix::EdgeMatrix(int size) : size(size), callNum(0) {
 
-  cells = new[] int*[size];
+  cells = new int*[size];
   for (int i = 0; i < size; i++) {
 
-    cells[i] = new[] int[size];
+    cells[i] = new int[size];
     for (int j = 0; i < size; j++) {  //it might useless
       cells[i][j] = 0;
     }
@@ -35,6 +35,7 @@ int EdgeMatrix::getCallNum() const {
 
 EdgeMatrix& EdgeMatrix::operator+=(pair<int, int> edge) {
   cells[edge.first][edge.second] = 1;
+  return *this;
 }
 
 EdgeMatrix& EdgeMatrix::operator=(const EdgeMatrix& m) {
@@ -45,9 +46,9 @@ EdgeMatrix& EdgeMatrix::operator=(const EdgeMatrix& m) {
   delete[] cells;
 
   this->size = m.size;
-  cells = new[] int*[size];
+  cells = new int*[size];
   for (int i = 0; i < size; i++) {
-    cells[i] = new[]int[size];
+    cells[i] = new int[size];
   }
 
   for (int i = 0; i < size; i++) {

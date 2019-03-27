@@ -209,8 +209,11 @@ int main( int argc, char** argv ) {
       throw Labels::TRACE_NOT_SET_WHEN_STATIC_ITERATIVE;
     }
     
-    set<pair<int, int>> transitiveDynamic = createTransClosure(connections[traceIndex], -1);  //the dynamic graph and -1 meaning no limit for the depth of transitive closure.
+    //set<pair<int, int>> transitiveDynamic = createTransClosure(connections[traceIndex], -1);  //the dynamic graph and -1 meaning no limit for the depth of transitive closure.
+    EdgeMatrix *dynamicMatrix = createEdgeMatrixPointer(connections[traceIndex], common::storedIds.size());  //first create matrix representation, add the max size that is possible, so no need for further size checking
+    EdgeMatrix *transitiveDynamic = createEdgeMatrixPointer(connections[traceIndex], common::storedIds.size());  //first create matrix representation
     
+    createTransClosure(*transitiveDynamic, -1);
     
     for ( unsigned int i = 0; i < connections.size(); i++ ) {
       
@@ -222,11 +225,14 @@ int main( int argc, char** argv ) {
       cout << "Calculating iterative stuff for trance and " << loaders[i] << " for predefined epsilon: " << common::options::epsilon << endl;
       int j = 1;
       int graphDiff = INT_MAX;
-      set<pair<int, int>> staticIterativeGraph = connections[i];
+      //set<pair<int, int>> staticIterativeGraph = connections[i];
+      EdgeMatrix* staticIterativeGraph = createEdgeMatrixPointer(connections[i], common::storedIds.size());
+      
       do {
         
-        staticIterativeGraph = createTransClosure(staticIterativeGraph, 1); //iteratively always add the reachable nodes in one step. The iterative process results  the j-th distance transitive closure.
-        graphDiff = createGraphDiff(connections[traceIndex], staticIterativeGraph);
+        //staticIterativeGraph = createTransClosure(staticIterativeGraph, 1); //iteratively always add the reachable nodes in one step. The iterative process results  the j-th distance transitive closure.
+        createTransClosure(*staticIterativeGraph, 1);
+        graphDiff = createGraphDiff(*dynamicMatrix, *staticIterativeGraph);
         j++;
       }while(graphDiff > common::options::epsilon);
     }

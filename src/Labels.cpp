@@ -26,6 +26,7 @@ namespace Labels {
   const std::string DECLARING_CLASS_DIFFERENCE = "The declaring classes are different: ";
   const std::string TAGGING_METHOD_NOT_FOUND = "The method defined in tagging file was not loaded previously: ";
   const std::string TRACE_NOT_SET_WHEN_STATIC_ITERATIVE = "Trace tool is not set when static iterative algorithm is set. There is nothing approximate to.";
+  const std::string UNKNOWN_ERROR_BIGGEST_EDGEID_MINUS = "Biggest edge id is minus.";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

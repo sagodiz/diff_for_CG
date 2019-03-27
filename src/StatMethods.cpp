@@ -18,7 +18,7 @@ void makeGraphDBStat(const vector<string>& graph_ids) {
   }
 }
 
-void writeConnTSV(set<pair<int, int>> connections, string name) {
+void writeConnTSV(const set<pair<int, int>>& connections, string name) {
 
   ofstream TSV(common::produceFileNamePrefix() + name + "connections.tsv");
 
@@ -34,7 +34,7 @@ void writeConnTSV(set<pair<int, int>> connections, string name) {
   }
 }
 
-void writeTSV(vector<Record> records, string name, string tool) {
+void writeTSV(const vector<Record>& records, string name, string tool) {
 
   ofstream TSV(common::produceFileNamePrefix() + tool + "loadedMethods.tsv");
 
@@ -63,7 +63,7 @@ void writeTSV(vector<Record> records, string name, string tool) {
   }
 }
 
-commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> compareSet2, Named * l1, Named * l2, vector<Record> r1, vector<Record> r2) {
+commonCounters makeStat(const set<pair<int, int>>& compareSet1, const set<pair<int, int>>& compareSet2, Named * l1, Named * l2, const vector<Record>& r1, const vector<Record>& r2) {
 
   unsigned long long commonCalls = 0;
   unsigned long long commonCallsCheck = 0;
@@ -154,7 +154,8 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
 
       for (unsigned i = 0; i < r1.size(); i++) {
 
-        vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        //vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        auto ehh = find(r2.begin(), r2.end(), r1[i]);
         if ( ehh != r2.end()) {
           
           ++commonMethods;
@@ -173,7 +174,8 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
 
       for (unsigned i = 0; i < r1.size(); i++) {
         
-        vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        //vector<Record>::iterator ehh = find(r2.begin(), r2.end(), r1[i]);
+        auto ehh = find(r2.begin(), r2.end(), r1[i]);
         if ( ehh != r2.end()) {
           
           ++commonMethods;
@@ -217,7 +219,8 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
       
       for (unsigned i = 0; i < r2.size(); i++) {
         //TODO
-        vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        //vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        auto ahh = find(r1.begin(), r1.end(), r2[i]);
         if ( ahh != r1.end()) {
 
           ++commonMethodsCheck;
@@ -241,7 +244,8 @@ commonCounters makeStat(set<pair<int, int>> compareSet1, set<pair<int, int>> com
       
       for (unsigned i = 0; i < r2.size(); i++) {
         
-        vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        //vector<Record>::iterator ahh = find(r1.begin(), r1.end(), r2[i]);
+        auto ahh = find(r1.begin(), r1.end(), r2[i]);
         if ( ahh != r1.end()) {
 
           ++commonMethodsCheck;

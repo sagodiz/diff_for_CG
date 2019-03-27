@@ -42,6 +42,7 @@ src/Loader_jdt.cpp \
 src/GraphDBCommon.cpp \
 src/StatMethods.cpp \
 src/StaticIteration.cpp \
+src/EdgeMatrix.cpp \
 -o main \
 -std=c++11 -Wall -Werror
 
