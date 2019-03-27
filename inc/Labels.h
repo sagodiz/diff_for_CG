@@ -32,6 +32,7 @@ namespace Labels {
   extern const std::string ID_FILE_COULD_NOT_BE_CREATED;
   extern const std::string DECLARING_CLASS_DIFFERENCE;
   extern const std::string TAGGING_METHOD_NOT_FOUND;
+  extern const std::string TRACE_NOT_SET_WHEN_STATIC_ITERATIVE;
   
   //******************* strings used for tool naming and options*************************
   //********CL: comman line, it is added in the command line parameters; NAME: name of the tool

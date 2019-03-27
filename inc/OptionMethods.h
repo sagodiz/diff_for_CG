@@ -20,6 +20,7 @@ void genericParameterTypesNames(char** argV, int argI); //sets if tipical generi
 void initblock2initMethod(char** argV, int argI); //turns off/on thet initblocks should be paired to inits (constructors)
 void taggingMethod(char** argV, int argI);  //activates the tagging for the given (parameter) tool.
 void staticIterativeMethod(char** argV, int argI);  //it sets if the iterative algorith should be used for static graphs...
+void setEpsilonMethod(char** argV, int argI);  //sets the epsilon value for iteration
 void helpMethod(char** argV, int argI); //shows help message
 
 #endif

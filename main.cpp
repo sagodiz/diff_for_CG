@@ -3,7 +3,7 @@
 #include <set>
 #include <vector>
 #include <algorithm>
-
+#include <climits>
 
 #include "inc/Labels.h"
 #include "inc/Loader.h"
@@ -21,6 +21,7 @@
 #include "inc/Option.h"
 
 #include "inc/StatMethods.h"
+#include "inc/StaticIteration.h"
 
 #if defined(VERBOSE)
   #define VERBOSE1 \
@@ -114,6 +115,7 @@ int main( int argc, char** argv ) {
                           new Option("-initblock2init", &initblock2initMethod),
                           new Option("-tagging", &taggingMethod),
                           new Option("-staticIterative", &staticIterativeMethod),
+                          new Option("-setEpsilon", &setEpsilonMethod),
                           NULL
                       };
     
@@ -175,10 +177,18 @@ int main( int argc, char** argv ) {
     
   cout << "Starting transforming and making stat..." << endl;
     
+    
+  char traceIndex = -1;
   for (unsigned i = 0; i < loaders.size(); ++i ) {
     cout << loaders[i]->getName() << "..." << endl;
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
+    
+    if ( "Trace" == loaders[i]->getName() ) {
+      
+      traceIndex = i;
+    }
+    
     if (common::options::calculateUnionGraph) {
       //collect edges
       unionGraphEdges.insert(connections[i].begin(), connections[i].end());
@@ -195,13 +205,37 @@ int main( int argc, char** argv ) {
     
   if ( common::options::staticIterative ) {
     
+    if ( -1 == traceIndex ) {
+      throw Labels::TRACE_NOT_SET_WHEN_STATIC_ITERATIVE;
+    }
+    
+    set<pair<int, int>> transitiveDynamic = createTransClosure(connections[traceIndex], -1);  //the dynamic graph and -1 meaning no limit for the depth of transitive closure.
     
     
+    for ( unsigned int i = 0; i < connections.size(); i++ ) {
+      
+      if ( (int)i == traceIndex ) {
+        
+        continue;
+      }
+      
+      cout << "Calculating iterative stuff for trance and " << loaders[i] << " for predefined epsilon: " << common::options::epsilon << endl;
+      int j = 1;
+      int graphDiff = INT_MAX;
+      do {
+        
+        set<pair<int, int>> staticIterativeGraph = createTransClosure(connections[i], j);
+        graphDiff = createGraphDiff(connections[traceIndex], staticIterativeGraph);
+        j++;
+      }while(graphDiff > common::options::epsilon);
+    }
     
     return 0;
   }
     
-  
+  //################################################################################################################
+  //############################################# OLD STUFF ########################################################
+  //################################################################################################################
   if (common::options::calculateUnionGraph) {
     
    if (common::options::filterLevel > 0) {

@@ -110,6 +110,7 @@ namespace common {
     extern bool genericParameterTypesNames;
     extern bool initblock2init;
     extern bool staticIterative;
+    extern int epsilon;
     
   }
 

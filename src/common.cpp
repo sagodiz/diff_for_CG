@@ -198,5 +198,6 @@ namespace common {
     bool genericParameterTypesNames = false;
     bool initblock2init = true;
     bool staticIterative = true;
+    int epsilon = 10;
   }
 }

@@ -4,6 +4,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <stdlib.h>
 
 void projectNameMethod( char** argV, int argI ) {
   
@@ -242,6 +243,19 @@ void staticIterativeMethod(char** argV, int argI) {
   }
 }
 
+void setEpsilonMethod(char** argV, int argI) {
+  
+  int i;
+  if ( (i = (int)strtol(argV[argI + 1], NULL, 0)) ) {
+    common::options::epsilon = i;
+  }
+  else {
+    std::cerr << argV[argI + 1] << " could not be read as a number. Default 10  is set." << std::endl;
+    common::options::epsilon = 10;
+  }
+  
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
@@ -281,11 +295,12 @@ void helpMethod(char** argV, int argI) {
     << "\t-tagging tool file\tThe tool thats tagging set should be used (it can be used multiple times) the file where taggings are placed" << std::endl
     << "\t\tsoot Tagging using Soot" << std::endl 
     << "\t\tjdt Tagging using JDT" << std::endl
+    << "\t-setEpsilon value\t Sets how many calls are allowed in difference between the static and dynamic graphs. By default it is 10" << std::endl
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 
     << "\t-onlyAnonym\t It sets that only anonym elements should be compared by lineinfo." << std::endl
-    << "\t-staticIterative\t Sets if static graphs should be modified by transitive closure. Values: {1, ture} (default) turns on {0, false} turns off" << std::end
+    << "\t-staticIterative\t Sets if static graphs should be modified by transitive closure. Values: {1, ture} (default) turns on {0, false} turns off" << std::endl
     << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
   
 }
