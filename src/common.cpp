@@ -197,5 +197,6 @@ namespace common {
     bool onlyAnonymWithLineinfo = false;
     bool genericParameterTypesNames = false;
     bool initblock2init = true;
+    bool staticIterative = true;
   }
 }

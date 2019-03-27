@@ -218,6 +218,30 @@ void taggingMethod(char** argV, int argI) {
   }
 }
 
+void staticIterativeMethod(char** argV, int argI) {
+  
+  if ( !strcmp(argV[argI + 1], "0") ) {
+    //false
+    common::options::staticIterative = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "false") ) {
+    //false
+    common::options::staticIterative = false;
+  }
+  else if ( !strcmp(argV[argI + 1], "1") ) {
+    //true
+    common::options::staticIterative = true;
+  }
+  else if ( !strcmp(argV[argI + 1], "true") ) {
+    //true
+    common::options::staticIterative = true;
+  }
+  else {
+    
+    common::options::staticIterative = true;
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
@@ -261,6 +285,7 @@ void helpMethod(char** argV, int argI) {
   
   std::cout << "Options without required values" << std::endl 
     << "\t-onlyAnonym\t It sets that only anonym elements should be compared by lineinfo." << std::endl
+    << "\t-staticIterative\t Sets if static graphs should be modified by transitive closure. Values: {1, ture} (default) turns on {0, false} turns off" << std::end
     << "\t-h\t Well, it is not really an option, it just shows the help message." << std::endl;
   
 }

@@ -113,6 +113,7 @@ int main( int argc, char** argv ) {
                           new Option("-genericParameterTypeNames", &genericParameterTypesNames),
                           new Option("-initblock2init", &initblock2initMethod),
                           new Option("-tagging", &taggingMethod),
+                          new Option("-staticIterative", &staticIterativeMethod),
                           NULL
                       };
     
@@ -190,6 +191,16 @@ int main( int argc, char** argv ) {
     }
     common::printFilteredMethod(loaders[i]->getName(), records[i]);
   }
+    
+    
+  if ( common::options::staticIterative ) {
+    
+    
+    
+    
+    return 0;
+  }
+    
   
   if (common::options::calculateUnionGraph) {
     
