@@ -50,7 +50,29 @@ int createGraphDiff(const set<pair<int, int>>& trace, const set<pair<int, int>>&
 * \return a graph with the extra (transitive) connections added.
 */
 void createTransClosure(EdgeMatrix& start, const int limit) {
-  
+
+  for (int l = 0; l < limit; l++) { //iteration depts
+
+    EdgeMatrix tmp(start.getSize());
+
+    for (int i = 0; i < start.getSize(); i++) { //rows
+
+      for (int j = 0; j < start.getSize(); j++) { //columns
+
+        if (1 == start.getCell(i, j)) {
+         
+          for (int e = 0; e < start.getSize(); e++) {
+
+            if (1 == start.getCell(j, e)) { //so the callee became caller
+              tmp.setCell(j, e);
+            }
+          }
+        }
+      }
+    }
+
+    start += tmp;
+  }
 }
 
 /**

@@ -1,4 +1,5 @@
 #include "../inc/EdgeMatrix.h"
+#include <iostream>
 using namespace std;
 //public methods for class
 
@@ -31,6 +32,28 @@ int EdgeMatrix::getCallNum() const {
   return callNum;
 }
 
+int EdgeMatrix::getCell(int caller, int callee) const {
+
+  if (caller >= size || callee >= size) {
+    return -1;//TODO maybe error??
+  }
+
+  return cells[caller][callee];
+}
+
+//setters
+void EdgeMatrix::setCell(int i, int j, int value) {
+
+  if (i >= size || j >= size) {
+    cerr << "Cell: [" << i << "][" << j << "] is not set as out of range: " << size << endl;
+  }
+  if (value != 0 && value != 1) {
+    value = 1;
+  }
+
+  cells[i][j] = value;
+}
+
 //operators
 
 EdgeMatrix& EdgeMatrix::operator+=(pair<int, int> edge) {
@@ -58,6 +81,24 @@ EdgeMatrix& EdgeMatrix::operator=(const EdgeMatrix& m) {
   }
 
   this->callNum = m.callNum;
+
+  return *this;
+}
+
+EdgeMatrix& EdgeMatrix::operator+=(const EdgeMatrix& m) {
+
+  if (m.getSize() != size) {
+    cerr << "hiba TODO" << endl;
+  }
+
+  for (int i = 0; i < size; i++) {
+
+    for (int j = 0; j < size; j++) {
+
+      if ( 1 == m.getCell(i, j) )
+        this->cells[i][j] = 1;
+    }
+  }
 
   return *this;
 }
