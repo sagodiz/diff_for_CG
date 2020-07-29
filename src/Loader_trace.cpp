@@ -24,17 +24,43 @@ Loader_trace::Loader_trace(string filepath, string name) : Loader(filepath, name
 Loader_trace::~Loader_trace() {
 }
 
+bool Loader_trace::isTrace() const {
+	return true;
+}
+
 vector<Record> Loader_trace::load() {
 
   vector<Record> tmpRecords;
 
+  if(common::isTraceRun()){
+	  //consider entry point as a node in case we compare trace to trace
+	  Record r(pair<string, string>(entry_node, name), "", "", entry_node, {}, pair<string, string>(entry_node, name));
+	  tmpRecords.push_back(r);
+
+	  if (find(common::storedIds.begin(), common::storedIds.end(), r) == common::storedIds.end()) {
+		  //so this record is not found in the vector
+		  common::storedIds.push_back(r);
+		  ++uniqueMethodNum;
+	  }
+	  else {
+
+		  auto it = find(common::storedIds.begin(), common::storedIds.end(), r);
+		  if (*it == pair<string, string>(entry_node, name)) {
+			  //contains this representation
+		  }
+		  else {
+			  *it += pair<string, string>(entry_node, name);  //add this representation
+		  }
+	  }
+  }
+
   string line;
   getline(input, line); //get the "header" line
-  getline(input, line); //get the "header" line
+  //getline(input, line); //get the "header" line
 
   while (getline(input, line)) {
 
-    if (line.find("label") != string::npos) {
+    if (line.find("label") != string::npos && line.compare("rankdir=\"LR\";") != 0) {
 
       string representation;
       string pckgClass;
@@ -42,6 +68,7 @@ vector<Record> Loader_trace::load() {
       string infoMine;
 
       stringstream input_stringstream(line);
+
       getline(input_stringstream, representation, ' ');
       getline(input_stringstream, infoMine, ' ');
 
@@ -285,20 +312,25 @@ set<pair<int, int>> Loader_trace::transformConnections() {
 
   while (getline(input, line)) {
 
-    if (line.find("label") == string::npos && line[0] != '}') {
+	std::string delimiter = "->";
+
+    if (line.find("label") == string::npos && line.find(delimiter) != string::npos) {
 
 
-      std::string delimiter = "->";
+      
       size_t delimiter_pos = line.find(delimiter);
       string caller = line.substr(0, delimiter_pos);  //left part
       common::trim(caller);
 
-      if (caller == entry_representation || caller == entry_node) {
+      if ((caller == entry_representation || caller == entry_node) && !common::isTraceRun()) {
         continue;
       }
 
       string callee = line.substr(delimiter_pos + delimiter.length());  //right part
       common::trim(callee);
+	  if (callee[callee.length() - 1] == ';') {
+		  callee = callee.substr(0, callee.length() - 1);
+	  }
 
       //it is a connection
       ++callNum;

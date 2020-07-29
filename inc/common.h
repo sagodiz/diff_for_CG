@@ -33,9 +33,18 @@ namespace common {
   std::string produceFileNamePrefix();
   
   extern bool TRACE_RUN;
+  extern bool JUST_TRACE_RUN;
   
   extern std::string sootTagging;
   extern std::string jdtTagging;
+
+  static inline void setTraceRun() {
+	  JUST_TRACE_RUN = true;
+  }
+
+  static inline bool isTraceRun() {
+	  return JUST_TRACE_RUN;
+  }
   
   /**
   * Connections are stored as a pair of ids. This method gets the method name for an id.

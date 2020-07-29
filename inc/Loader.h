@@ -57,6 +57,7 @@ class Loader : public Named {
     unsigned long long getUniqueMethodNum() const;
     std::string getName() const;
     std::string getKind() const;
+	virtual bool isTrace() const;
     
   //in order to print information about loaders easier  
   friend std::ostream& operator<<(std::ostream& o, Loader* l );

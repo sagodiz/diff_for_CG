@@ -139,6 +139,7 @@ int main( int argc, char** argv ) {
   }
   
   j = -1;
+  bool justTrace = true;
   while( switches[++j] ) {
     
     for ( int i = 1; i < argc - 1; i++ ) {
@@ -147,9 +148,16 @@ int main( int argc, char** argv ) {
         //add it
         switches[j]->init(argv[++i]);
         loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
+		if (!(*loaders.rbegin())->isTrace()) {
+			justTrace = false;
+		}
         loadersAndUnionG.push_back(*loaders.rbegin());
       }
     }
+  }
+
+  if (justTrace) {
+	  common::setTraceRun();
   }
     
   if ( 0 == loaders.size() )

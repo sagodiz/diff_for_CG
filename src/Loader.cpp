@@ -59,6 +59,10 @@ string Loader::getKind() const {
   return "L_";
 }
 
+bool Loader::isTrace() const {
+	return false;
+}
+
 //friend
 ostream& operator<<(ostream& o, Loader* l ) {
   

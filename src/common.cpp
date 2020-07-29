@@ -10,6 +10,7 @@ namespace common {
   std::vector<std::string> tsvFiles;
   std::vector<std::string> connTSVFiles;
   bool TRACE_RUN = false;
+  bool JUST_TRACE_RUN = false;
   std::string sootTagging = "";
   std::string jdtTagging = "";
   

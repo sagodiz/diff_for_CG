@@ -17,6 +17,7 @@ public:
   ~Loader_trace();
   std::vector<Record> load();
   std::set<std::pair<int, int>> transformConnections();
+  bool isTrace() const override;
 };
 
 #endif
