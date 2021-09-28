@@ -146,7 +146,7 @@ int main( int argc, char** argv ) {
       
       if ( *(switches[j]) == argv[i] ) {
         //add it
-        switches[j]->init(argv[++i]);
+        i += switches[j]->init(argv, ++i);
         loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
 		if (!(*loaders.rbegin())->isTrace()) {
 			justTrace = false;
@@ -192,11 +192,11 @@ int main( int argc, char** argv ) {
     }
     VERBOSE1
     if (common::options::filterLevel > 0) {
+      common::printFilteredMethod(loaders[i]->getName(), records[i]);
       std::set<int> filteredIds;
       records[i] = common::filterNodes(records[i], filteredIds);
       connections[i] = common::filterConnections(connections[i], filteredIds);  
     }
-    common::printFilteredMethod(loaders[i]->getName(), records[i]);
   }
   
   if (common::options::calculateUnionGraph) {
@@ -217,6 +217,10 @@ int main( int argc, char** argv ) {
     loadersAndUnionG.push_back(factory.getUnionGraphPointer());
   }
 
+  // TODO: add the approx tool.
+  /*if ( common::calculateApprox ) {
+    calculateAndAddApprox(records, connections, loadersAndUnionG);
+  }*/
 
   //start generating various outputs, statistics..
   for ( unsigned i = 0; i < records.size() && i < loadersAndUnionG.size(); i++ ) { //the and is here just for safety, those two should be the same.
@@ -262,16 +266,13 @@ int main( int argc, char** argv ) {
   }
 
   std::vector<std::vector<float>> matrixCalls, matrixMethods;
- // std::vector<std::vector<float>> matrixMethodsDuplicate;
+
   std::vector<std::vector<unsigned long long>> matrixCallsCount, matrixMethodsCount;
-//  std::vector<std::vector<unsigned long long>> matrixMethodsCountDuplicate;
+
     
   matrixCalls.resize(loadersAndUnionG.size());
   matrixMethods.resize(loadersAndUnionG.size());
- /* if (common::enums::methodRes::nothing == common::options::resolve) {
-	  matrixMethodsDuplicate.resize(loadersAndUnionG.size());
-	  matrixMethodsCountDuplicate.resize(loadersAndUnionG.size());
-  }*/
+
   matrixCallsCount.resize(loadersAndUnionG.size());
   matrixMethodsCount.resize(loadersAndUnionG.size());
     
@@ -279,10 +280,7 @@ int main( int argc, char** argv ) {
     
     matrixCalls[i].resize(loadersAndUnionG.size());
     matrixMethods[i].resize(loadersAndUnionG.size());
-	/*if (common::enums::methodRes::nothing == common::options::resolve) {
-		matrixMethodsDuplicate[i].resize(loadersAndUnionG.size());
-		matrixMethodsCountDuplicate[i].resize(loadersAndUnionG.size());
-	}*/
+
     matrixCallsCount[i].resize(loadersAndUnionG.size());
     matrixMethodsCount[i].resize(loadersAndUnionG.size());
   }
@@ -312,17 +310,6 @@ int main( int argc, char** argv ) {
       matrixMethods[j][i] = 1 - (commonVals.not_found.second / loader_j_uniqueMethod);
       matrixCalls[j][i] = commonVals.commonCalls / loader_j_callNum;
 
-	 /* if (common::enums::methodRes::nothing == common::options::resolve) {
-		  //aranyok
-		  matrixMethodsDuplicate[i][i] = loader_i_uniqueMethod;
-		  //matrixMethodsDuplicate[i][j] = commonVals.commonMethods.second / loader_i_uniqueMethod;
-		  matrixMethodsDuplicate[i][j] = 1 - (commonVals.not_found.second / loader_i_uniqueMethod);
-
-		  matrixMethodsDuplicate[j][j] = loader_j_uniqueMethod;
-		  //matrixMethodsDuplicate[j][i] = commonVals.commonMethods.second / loader_j_uniqueMethod;
-		  matrixMethodsDuplicate[j][i] = 1 - (commonVals.not_found.second / loader_j_uniqueMethod);
-	  }*/
-
       //szamok
       matrixCallsCount[i][i] = connections[i].size();
       matrixMethodsCount[i][i] = records[i].size();
@@ -336,16 +323,6 @@ int main( int argc, char** argv ) {
       matrixMethodsCount[j][i] = commonVals.not_found.second;
       matrixCallsCount[j][i] = commonVals.commonCalls;
 
-
-	 /* if (common::enums::methodRes::nothing == common::options::resolve) {
-		  matrixMethodsCountDuplicate[i][i] = records[i].size();
-		  //matrixMethodsCountDuplicate[i][j] = commonVals.commonMethods.second;
-		  matrixMethodsCountDuplicate[i][j] = commonVals.not_found.second;
-
-		  matrixMethodsCountDuplicate[j][j] = records[j].size();
-		  //matrixMethodsCountDuplicate[j][i] = commonVals.commonMethods.second;matrixMethodsDuplicate
-		  matrixMethodsCountDuplicate[j][i] = commonVals.not_found.second;
-	  }*/
     }
   }
     
@@ -359,10 +336,6 @@ int main( int argc, char** argv ) {
   printMatrix(loadersAndUnionG, matrixCalls, common_file, "calls");
 
   printMatrix(loadersAndUnionG, matrixMethods, common_file, "methods");
-  /*if (common::enums::methodRes::nothing == common::options::resolve) {
-	  printMatrix(loadersAndUnionG, matrixMethodsDuplicate, common_file, "methodsDupl");
-	  printMatrix(loadersAndUnionG, matrixMethodsCountDuplicate, common_file, "methodsCountDupl");
-  }*/
 
   printMatrix(loadersAndUnionG, matrixCallsCount, common_file, "callsCount");
   printMatrix(loadersAndUnionG, matrixMethodsCount, common_file, "methodsCount");

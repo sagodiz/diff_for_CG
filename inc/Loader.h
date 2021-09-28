@@ -57,6 +57,7 @@ class Loader : public Named {
     unsigned long long getUniqueMethodNum() const;
     std::string getName() const;
     std::string getKind() const;
+    Loader& set_name(const std::string& name) { this->name = name; return *this; }
 	virtual bool isTrace() const;
     
   //in order to print information about loaders easier  

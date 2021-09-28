@@ -118,6 +118,7 @@ namespace common {
     extern bool onlyAnonymWithLineinfo;
     extern bool genericParameterTypesNames;
     extern bool initblock2init;
+    extern bool calculateApprox;
     
   }
 
