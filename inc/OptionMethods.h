@@ -20,5 +20,5 @@ void genericParameterTypesNames(char** argV, int argI); //sets if tipical generi
 void initblock2initMethod(char** argV, int argI); //turns off/on thet initblocks should be paired to inits (constructors)
 void taggingMethod(char** argV, int argI);  //activates the tagging for the given (parameter) tool.
 void helpMethod(char** argV, int argI); //shows help message
-
+void approx(char** argV, int argI); // sets the approx tools.
 #endif

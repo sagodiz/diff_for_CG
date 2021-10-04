@@ -218,6 +218,19 @@ void taggingMethod(char** argV, int argI) {
   }
 }
 
+void approx(char** argV, int argI) {
+  std::string tools = argV[argI + 1];
+  std::string delimiter = "&";
+
+  size_t pos = 0;
+  std::string tool;
+  while ((pos = tools.find(delimiter)) != std::string::npos) {
+      tool = tools.substr(0, pos);
+      common::approxTools.push_back(tool);
+      tools.erase(0, pos + delimiter.length());
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;

@@ -13,6 +13,7 @@ namespace common {
   bool JUST_TRACE_RUN = false;
   std::string sootTagging = "";
   std::string jdtTagging = "";
+  std::vector<std::string> approxTools;
   
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr) {
     size_t genericSign = pckgClass.find("<");
@@ -183,6 +184,38 @@ namespace common {
   }
 
   
+  void calculateAndAddApprox(std::vector<std::vector<Record>>& records, 
+                            std::vector<std::set<std::pair<int, int>>>& connections, 
+                            std::vector<Named *>& loadersAndUnionG) {
+
+    std::string firstName = approxTools[0];
+    std::string secondName = approxTools[1];
+
+    Loader* first = nullptr;
+    for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
+      if ( firstName == loadersAndUnionG[i]->getName() ) {
+        std::cout << "First tool in approx is: " << firstName << std::endl;
+        first = dynamic_cast<Loader*>(loadersAndUnionG[i]);
+      }
+    }
+
+    if ( !first ) {
+      throw Labels::APPROX_TOOL_ONE_NOT_FOUND;
+    }
+
+    Loader* second = nullptr;
+    for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
+      if ( secondName == loadersAndUnionG[i]->getName() ) {
+        std::cout << "First tool in approx is: " << secondName << std::endl;
+        second = dynamic_cast<Loader*>(loadersAndUnionG[i]);
+      }
+    }
+
+    if ( !second ) {
+      throw Labels::APPROX_TOOL_TWO_NOT_FOUND;
+    }
+  }
+
 }
 
 namespace common {

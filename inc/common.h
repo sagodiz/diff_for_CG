@@ -4,9 +4,11 @@
 #include <vector>
 #include <algorithm> 
 #include <cctype>
-#include "Record.h"
 #include <string>
 #include <set>
+
+#include "Record.h"
+#include "Named.h"
 
 class Loader;
 
@@ -19,6 +21,7 @@ namespace common {
   extern std::vector<Record> storedIds; //stores the loaded methods, the Records created from the methods.
   extern std::vector<std::string> tsvFiles; //tsv (tab separated files) are created in order to output different informations, these files are stored.
   extern std::vector<std::string> connTSVFiles; //the same as tsvFiles it just for the connection information.
+  extern std::vector<std::string> approxTools;
   bool unifyeAnonymClasses( std::string& str ); //transforms anonym classes
   bool unifyeAnonymMethods( std::string& str ); //methods may be anonym, transforms anonym methods.
   bool isExclude(const std::string& method);  //Decides if a method should not be in the graph
@@ -96,6 +99,10 @@ namespace common {
     return false;
   };
   
+  void calculateAndAddApprox(std::vector<std::vector<Record>>& records, 
+                            std::vector<std::set<std::pair<int, int>>>& connections, 
+                            std::vector<Named *>& loadersAndUnionG);
+
 }
 
 namespace common {

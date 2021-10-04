@@ -25,6 +25,8 @@ namespace Labels {
   const std::string ID_FILE_COULD_NOT_BE_CREATED = "ID and method mapping csv could not be created";
   const std::string DECLARING_CLASS_DIFFERENCE = "The declaring classes are different: ";
   const std::string TAGGING_METHOD_NOT_FOUND = "The method defined in tagging file was not loaded previously: ";
+  const std::string APPROX_TOOL_ONE_NOT_FOUND = "The first tool (which to filter) for approx is not found.";
+  const std::string APPROX_TOOL_TWO_NOT_FOUND = "The second tool (which to add as extra) for approx is not found.";
   
   //*********************************** strings used for tool naming and options *************************
   const std::string SOOT_NAME = "Soot";

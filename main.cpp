@@ -113,6 +113,7 @@ int main( int argc, char** argv ) {
                           new Option("-genericParameterTypeNames", &genericParameterTypesNames),
                           new Option("-initblock2init", &initblock2initMethod),
                           new Option("-tagging", &taggingMethod),
+                          new Option("-approx", &approx),
                           NULL
                       };
     
@@ -218,9 +219,9 @@ int main( int argc, char** argv ) {
   }
 
   // TODO: add the approx tool.
-  /*if ( common::calculateApprox ) {
-    calculateAndAddApprox(records, connections, loadersAndUnionG);
-  }*/
+  if ( common::options::calculateApprox ) {
+    common::calculateAndAddApprox(records, connections, loadersAndUnionG);
+  }
 
   //start generating various outputs, statistics..
   for ( unsigned i = 0; i < records.size() && i < loadersAndUnionG.size(); i++ ) { //the and is here just for safety, those two should be the same.
