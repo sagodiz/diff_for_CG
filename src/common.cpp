@@ -192,10 +192,12 @@ namespace common {
     std::string secondName = approxTools[1];
 
     Loader* first = nullptr;
+    std::set<std::pair<int, int>> first_calls;
     for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
       if ( firstName == loadersAndUnionG[i]->getName() ) {
         std::cout << "First tool in approx is: " << firstName << std::endl;
         first = dynamic_cast<Loader*>(loadersAndUnionG[i]);
+        first_calls = connections[i];
       }
     }
 
@@ -204,16 +206,23 @@ namespace common {
     }
 
     Loader* second = nullptr;
+    std::set<std::pair<int, int>> second_calls;
     for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
       if ( secondName == loadersAndUnionG[i]->getName() ) {
         std::cout << "First tool in approx is: " << secondName << std::endl;
         second = dynamic_cast<Loader*>(loadersAndUnionG[i]);
+        second_calls = connections[i];
       }
     }
 
     if ( !second ) {
       throw Labels::APPROX_TOOL_TWO_NOT_FOUND;
     }
+
+    
+
+    // TODO: collect calls that should be removed.
+    // TODO: get the similar methods (limited) and insert them.
   }
 
 }
