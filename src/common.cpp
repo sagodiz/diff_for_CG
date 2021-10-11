@@ -286,19 +286,19 @@ namespace common {
           return false;
       });
 //      std::cout << similar_calls_num << std::endl;
-      if(similar_calls_num > 5) {
-        for(auto id : similar_callees  ) {
+      if( similar_calls_num > common::options::filterNumber ) {
+        for( auto id : similar_callees ) {
           to_erase.insert(std::make_pair(call.first, id));
         }
         unsigned i = 1;
-        for(auto call_spoon : second_calls ) {
-          if(call.first == call_spoon.first) {
+        for( auto call_spoon : second_calls ) {
+          if( call.first == call_spoon.first ) {
             std::string pckg2, clazz2, method2;
             cutPckgClassMethod(common::getMethodById(call_spoon.second), pckg2, clazz2, method2);
-            if(method == method2) {
+            if( method == method2 ) {
               to_add.insert(call_spoon);
               
-              if ( common::options::filterNumber != 0 && i > common::options::filterNumber ) break;
+              if ( common::options::approxAddedMethods != 0 && i > common::options::approxAddedMethods ) break;
               
               ++i;
             }
@@ -352,6 +352,7 @@ namespace common {
     bool genericParameterTypesNames = false;
     bool initblock2init = true;
     bool calculateApprox = false;
-    unsigned filterNumber = 0;
+    unsigned filterNumber = 5;
+    unsigned approxAddedMethods = 1;
   }
 }

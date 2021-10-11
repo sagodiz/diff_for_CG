@@ -128,6 +128,7 @@ namespace common {
     extern bool initblock2init;
     extern bool calculateApprox;
     extern unsigned filterNumber;
+    extern unsigned approxAddedMethods;
     
   }
 

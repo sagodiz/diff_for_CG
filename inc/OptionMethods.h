@@ -21,5 +21,5 @@ void initblock2initMethod(char** argV, int argI); //turns off/on thet initblocks
 void taggingMethod(char** argV, int argI);  //activates the tagging for the given (parameter) tool.
 void helpMethod(char** argV, int argI); //shows help message
 void approx(char** argV, int argI); // sets the approx tools.
-void approxLimit(char** argV, int argI); // sets the filterNumber for limiting the approx methods added by second tool.
+void approxLimit(char** argV, int argI); // sets the limit when similar calls are considered an exploded graph.
 #endif

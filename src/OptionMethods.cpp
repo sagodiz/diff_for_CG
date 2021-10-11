@@ -229,11 +229,13 @@ void approx(char** argV, int argI) {
       common::approxTools.push_back(tool);
       tools.erase(0, pos + delimiter.length());
   }
+  common::options::calculateApprox = true;
 }
 
 void approxLimit(char** argV, int argI) {
   try {
     common::options::filterNumber = std::stoi(argV[argI + 1]);
+    common::options::approxAddedMethods = std::stoi(argV[argI + 1]);
   } catch(const std::out_of_range& e) {
     throw e.what();
   } catch( const std::invalid_argument& e) {
@@ -280,6 +282,8 @@ void helpMethod(char** argV, int argI) {
     << "\t-tagging tool file\tThe tool thats tagging set should be used (it can be used multiple times) the file where taggings are placed" << std::endl
     << "\t\tsoot Tagging using Soot" << std::endl 
     << "\t\tjdt Tagging using JDT" << std::endl
+    << "\t-approx config-string\tSets the approximation to true and accepts a string that sets what tools should be used during approximation. This string contains the names of the tools separated by '&'. If no name is provided for the tools the default is used. Always the first tool's calls are filtered and combined with the second tool's calls." << std::endl
+    << "\t-approxLimits int1 int2\tSets how many methods are needed to consider similar calls \"exploded graph\" and how many methods should be inserted from the second tool." << std::endl
     << std::endl;
   
   std::cout << "Options without required values" << std::endl 
