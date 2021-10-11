@@ -21,7 +21,7 @@ void Switch::init(string filePath) {
 
 int Switch::init(char** parameters, int index ) {
   
-  int alter_index = 0;
+  int alter_index = 1;
   std::string param1 = parameters[index + alter_index];
   
   if ( param1[0] == ':' ) {

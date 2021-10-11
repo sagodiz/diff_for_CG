@@ -45,9 +45,9 @@
   #define STARTTRACEDIAGRAM system("start traceValami commonConnections.tsv commonMethods.tsv");
 #endif
 
+#define DDD cout << __FILE__ << __LINE__ << endl;
+
 using namespace std;
-
-
 
 template<typename T>
 void printValue(FILE * common_file, const T& value);
@@ -144,16 +144,20 @@ int main( int argc, char** argv ) {
   bool justTrace = true;
   while( switches[++j] ) {
     
-    for ( int i = 1; i < argc - 1; i++ ) {
-      
+
+    unsigned i = 1;
+    while(i < (unsigned) argc - 1) {
+
       if ( *(switches[j]) == argv[i] ) {
         //add it
-        i += switches[j]->init(argv, ++i);
+        i += switches[j]->init(argv, i);
         loaders.push_back( switches[j]->getLoaderPointer(counters[j]++) );
-		if (!(*loaders.rbegin())->isTrace()) {
-			justTrace = false;
-		}
+        if (!(*loaders.rbegin())->isTrace()) {
+          justTrace = false;
+        }
         loadersAndUnionG.push_back(*loaders.rbegin());
+      } else {
+        ++i;
       }
     }
   }
@@ -200,7 +204,7 @@ int main( int argc, char** argv ) {
       connections[i] = common::filterConnections(connections[i], filteredIds);  
     }
   }
-  
+
   if (common::options::calculateUnionGraph) {
     
    if (common::options::filterLevel > 0) {
@@ -221,6 +225,7 @@ int main( int argc, char** argv ) {
 
   // TODO: add the approx tool.
   if ( common::options::calculateApprox ) {
+
     common::calculateAndAddApprox(records, connections, loadersAndUnionG);
   }
 

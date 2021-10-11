@@ -16,6 +16,8 @@
 
 using namespace std;
 
+#define DDD std::cout << __FILE__ << " " << __LINE__ << std::endl;
+
 const std::string Loader_trace::entry_node = "ENTRY";
 
 Loader_trace::Loader_trace(string filepath, string name) : Loader(filepath, name) {
@@ -29,7 +31,7 @@ bool Loader_trace::isTrace() const {
 }
 
 vector<Record> Loader_trace::load() {
-
+  std::cout << "Trace loader" << std::endl;
   vector<Record> tmpRecords;
 
   if(common::isTraceRun()){
@@ -303,7 +305,7 @@ vector<Record> Loader_trace::load() {
 }
 
 set<pair<int, int>> Loader_trace::transformConnections() {
-
+  std::cout << "Trace transform" << std::endl;
   set<pair<int, int>> connections;
 
   string line;
@@ -323,12 +325,15 @@ set<pair<int, int>> Loader_trace::transformConnections() {
       common::trim(caller);
 
       if ((caller == entry_representation || caller == entry_node) && !common::isTraceRun()) {
+
         continue;
       }
 
       string callee = line.substr(delimiter_pos + delimiter.length());  //right part
       common::trim(callee);
+
 	  if (callee[callee.length() - 1] == ';') {
+
 		  callee = callee.substr(0, callee.length() - 1);
 	  }
 
@@ -338,7 +343,6 @@ set<pair<int, int>> Loader_trace::transformConnections() {
       int callerId = -1, calleeId = -1;
 
       bool check = false; //to check if the method do be found.
-
       for (unsigned i = 0; i < common::storedIds.size(); i++) {
 
         if (common::storedIds[i] == pair<string, string>(caller, name)) {
@@ -348,6 +352,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
           break;
         }
       }
+
       if (!check) {
 
         cerr << "Method couldn't be resolved: " << caller << endl;
@@ -362,6 +367,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
           calleeId = i;
           break;
         }
+
       }
       if (!check) {
 
@@ -372,6 +378,7 @@ set<pair<int, int>> Loader_trace::transformConnections() {
     }
     else {
       //do nothing
+
     }
   }
 

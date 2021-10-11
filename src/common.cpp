@@ -217,7 +217,6 @@ namespace common {
     std::set<std::pair<int, int>> first_calls;
     for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) { // TODO: find?
       if ( firstName == loadersAndUnionG[i]->getName() ) {
-        std::cout << "First tool in approx is: " << firstName << std::endl;
         first = dynamic_cast<Loader*>(loadersAndUnionG[i]);
         first_calls = connections[i];
       }
@@ -231,7 +230,6 @@ namespace common {
     std::set<std::pair<int, int>> second_calls;
     for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
       if ( secondName == loadersAndUnionG[i]->getName() ) {
-        std::cout << "First tool in approx is: " << secondName << std::endl;
         second = dynamic_cast<Loader*>(loadersAndUnionG[i]);
         second_calls = connections[i];
       }
@@ -323,16 +321,18 @@ namespace common {
     std::cout << "Deleted: " << to_erase.size() << " added: " << to_add.size() << " skipped: " << skipped << " clskipped: " << clskipp << " Final size " << combined_calls.size() << std::endl;
     
     connections.push_back(combined_calls);
-    // TODO: should we add the records and stuff like that?
-    class Approx : public Loader {
-      std::set<std::pair<int, int>> connections;
+   
+    class Approx : public Named {
+      std::string name;
       public:
-        Approx(const std::set<std::pair<int, int>>& c) : Loader("Non", "Approx"), connections(c) { }
-        virtual std::vector<Record> load() override { return std::vector<Record>(); }
-        virtual std::set<std::pair<int, int>> transformConnections() override { return connections; }
+        Approx(const std::string& first, const std::string& second) : name(first + "-" + second) {}
+        virtual std::string getName() const override { return name; }
+        virtual std::string getFilePath() override { return "Approx"; }
+        virtual std::string getKind() const override { return "A_"; }
+
     };
-    loadersAndUnionG.push_back( new Approx(combined_calls) );
-    // TODO: add connections and the fictive loader to the containers.
+    loadersAndUnionG.push_back( new Approx(firstName, secondName) );
+    // TODO: get methods for approx.
   }
 
 

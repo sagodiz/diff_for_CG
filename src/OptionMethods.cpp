@@ -229,6 +229,10 @@ void approx(char** argV, int argI) {
       common::approxTools.push_back(tool);
       tools.erase(0, pos + delimiter.length());
   }
+  if ( tools.length() > 0 ) { // as the last tool does not have any & at the end.
+    common::approxTools.push_back(tools);
+  }
+
   common::options::calculateApprox = true;
 }
 
