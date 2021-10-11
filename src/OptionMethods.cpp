@@ -231,6 +231,16 @@ void approx(char** argV, int argI) {
   }
 }
 
+void approxLimit(char** argV, int argI) {
+  try {
+    common::options::filterNumber = std::stoi(argV[argI + 1]);
+  } catch(const std::out_of_range& e) {
+    throw e.what();
+  } catch( const std::invalid_argument& e) {
+    throw e.what();
+  }
+}
+
 void helpMethod(char** argV, int argI) {
   
   std::cout << "Usage: " << argV[0] << " [-loader file]... [-option]... [-option value]..." << std::endl << std::endl;
