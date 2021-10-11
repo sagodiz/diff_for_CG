@@ -114,7 +114,7 @@ int main( int argc, char** argv ) {
                           new Option("-initblock2init", &initblock2initMethod),
                           new Option("-tagging", &taggingMethod),
                           new Option("-approx", &approx),
-                          new Option("-approxMethodLimit", &approxLimit),
+                          new Option("-approxLimits", &approxLimit),
                           NULL
                       };
     
