@@ -30,6 +30,7 @@ namespace common {
   std::vector<Record> filterNodes(const std::vector<Record>& unfiltered, std::set<int>& filteredIds); //does the filtering for methods.
   std::set<std::pair<int, int>> filterConnections(const std::set<std::pair<int, int>>& unfiltered, const std::set<int>& filteredIds); //does the filtering for connections
   void cutPckgClass(const std::string pckgClass, std::string& pckg, std::string& classStr); //cuts apart pckg and class name.It assumes the followong format:pckg.hierarchy.ClassName[$Nesteds]
+  void cutPckgClassMethod(const std::string pckClassMethod, std::string& pckg, std::string& clazz, std::string& method);
   void printFilteredMethod(const std::string& loadername, std::vector<Record> records); 
 
   std::string produceMethodPairingName();
@@ -126,6 +127,7 @@ namespace common {
     extern bool genericParameterTypesNames;
     extern bool initblock2init;
     extern bool calculateApprox;
+    extern unsigned filterNumber;
     
   }
 

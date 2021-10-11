@@ -48,7 +48,19 @@ namespace common {
       }
     }    
   }
-  
+    void cutPckgClassMethod(const std::string pckClassMethod, std::string& pckg, std::string& clazz, std::string& method) {
+
+    size_t par = pckClassMethod.rfind('(');
+    if ( par == std::string::npos )
+      return;
+
+    size_t last_dot = pckClassMethod.substr(0, par).rfind(".");
+
+    method = pckClassMethod.substr(last_dot + 1);
+
+    cutPckgClass(pckClassMethod.substr(0, last_dot), pckg, clazz);
+  }
+
   bool unifyeAnonymClasses( std::string& str ) {
     
     bool replaced = false;
@@ -184,6 +196,16 @@ namespace common {
   }
 
   
+  namespace {
+    bool notCaller(const std::set<std::pair<int, int>>& sootC, int id) {
+      //std::cout << "Checking clinit " << id << std::endl;
+      //std::cout << getMethodById(id) << std::endl;
+      bool asd = find_if(sootC.begin(), sootC.end(), [&](const std::pair<int, int>& c){return c.first == id;}) == sootC.end();
+      //std::cout << asd << std::endl;
+      return asd;
+    }
+  }
+
   void calculateAndAddApprox(std::vector<std::vector<Record>>& records, 
                             std::vector<std::set<std::pair<int, int>>>& connections, 
                             std::vector<Named *>& loadersAndUnionG) {
@@ -193,7 +215,7 @@ namespace common {
 
     Loader* first = nullptr;
     std::set<std::pair<int, int>> first_calls;
-    for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) {
+    for ( auto i = 0u; i < loadersAndUnionG.size(); ++i ) { // TODO: find?
       if ( firstName == loadersAndUnionG[i]->getName() ) {
         std::cout << "First tool in approx is: " << firstName << std::endl;
         first = dynamic_cast<Loader*>(loadersAndUnionG[i]);
@@ -219,11 +241,100 @@ namespace common {
       throw Labels::APPROX_TOOL_TWO_NOT_FOUND;
     }
 
-    
+    std::set<std::pair<int, int>> combined_calls;
+    size_t skipped = 0;
+    size_t clskipp = 0;
+    for(auto call : first_calls ) {
+      /*if( common::getMethodById(call.second).find("clinit") != std::string::npos ) {
+         std::cout << "clinit omg" << std::endl;
+      }*/
+      if ( common::getMethodById(call.second).rfind("java", 0) != std::string::npos ) {
+        // std::cout << "Skipping" <<std::endl;
+        ++skipped;
+      }
+      else if( common::getMethodById(call.second).find("clinit") != std::string::npos && notCaller(first_calls, call.second) ) {
+        //std::cout << "Skipped clinit" << std::endl;
+        ++clskipp;
+      }
+      else {
+        combined_calls.insert(call);
+      }
+    }
 
-    // TODO: collect calls that should be removed.
-    // TODO: get the similar methods (limited) and insert them.
+    std::set<std::pair<int, int>> to_erase;
+    std::set<std::pair<int, int>> to_add;
+
+
+    for(auto call : combined_calls) {
+      std::vector<int> similar_callees;
+      std::string pckg, clazz, method;
+
+      cutPckgClassMethod(common::getMethodById(call.second), pckg, clazz, method);
+      
+      auto similar_calls_num = count_if(combined_calls.begin(), combined_calls.end(), [&](const std::pair<int, int>& c){
+          if ( call.first != c.first)
+            return false;
+          std::string pckg2, clazz2, method2;
+          cutPckgClassMethod(common::getMethodById(c.second), pckg2, clazz2, method2);
+            
+          if ( method2 == method && clazz != clazz2) {
+            
+//            std::cout << "Sim call" << call.first << pckg2 << " " << pckg << " " << clazz2 << " " << clazz << " " << method2 << " " << method << std::endl;
+            similar_callees.push_back(c.second);
+            return true;
+          }
+          return false;
+      });
+//      std::cout << similar_calls_num << std::endl;
+      if(similar_calls_num > 5) {
+        for(auto id : similar_callees  ) {
+          to_erase.insert(std::make_pair(call.first, id));
+        }
+        unsigned i = 1;
+        for(auto call_spoon : second_calls ) {
+          if(call.first == call_spoon.first) {
+            std::string pckg2, clazz2, method2;
+            cutPckgClassMethod(common::getMethodById(call_spoon.second), pckg2, clazz2, method2);
+            if(method == method2) {
+              to_add.insert(call_spoon);
+              
+              if ( common::options::filterNumber != 0 && i > common::options::filterNumber ) break;
+              
+              ++i;
+            }
+          }
+        }
+        to_erase.insert(call);
+      }
+    }
+
+    for(auto e : to_erase) {
+      //std::cout << "Deleting:" << common::getMethodById(e.first) << "->" << common::getMethodById(e.second) << std::endl;
+      combined_calls.erase(e);
+    }
+
+    for (auto a : to_add) {
+      combined_calls.insert(a);
+    }
+
+    /*for (auto call : combined_calls) {
+      std::cout << common::getMethodById(call.first) << "->" << common::getMethodById(call.second) << std::endl;
+    }*/
+    std::cout << "Deleted: " << to_erase.size() << " added: " << to_add.size() << " skipped: " << skipped << " clskipped: " << clskipp << " Final size " << combined_calls.size() << std::endl;
+    
+    connections.push_back(combined_calls);
+    // TODO: should we add the records and stuff like that?
+    class Approx : public Loader {
+      std::set<std::pair<int, int>> connections;
+      public:
+        Approx(const std::set<std::pair<int, int>>& c) : Loader("Non", "Approx"), connections(c) { }
+        virtual std::vector<Record> load() override { return std::vector<Record>(); }
+        virtual std::set<std::pair<int, int>> transformConnections() override { return connections; }
+    };
+    loadersAndUnionG.push_back( new Approx(combined_calls) );
+    // TODO: add connections and the fictive loader to the containers.
   }
+
 
 }
 
@@ -241,5 +352,6 @@ namespace common {
     bool genericParameterTypesNames = false;
     bool initblock2init = true;
     bool calculateApprox = false;
+    unsigned filterNumber = 0;
   }
 }
