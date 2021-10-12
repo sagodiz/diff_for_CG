@@ -192,7 +192,7 @@ int main( int argc, char** argv ) {
     cout << loaders[i]->getName() << "..." << endl;
     records[i] = loaders[i]->load();
     connections[i] = loaders[i]->transformConnections();
-    if (common::options::calculateUnionGraph) {
+    if ( common::options::calculateUnionGraph && !loaders[i]->isTrace() ) {
       //collect edges
       unionGraphEdges.insert(connections[i].begin(), connections[i].end());
     }
