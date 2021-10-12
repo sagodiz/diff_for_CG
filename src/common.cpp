@@ -332,7 +332,17 @@ namespace common {
 
     };
     loadersAndUnionG.push_back( new Approx(firstName, secondName) );
-    // TODO: get methods for approx.
+    
+    std::set<int> approx_methods;
+    for ( auto call : combined_calls ) {
+      approx_methods.insert(call.first);
+      approx_methods.insert(call.second);
+    }
+    std::vector<Record> approx_records;
+    for ( auto methodID : approx_methods ) {
+      approx_records.push_back(storedIds[methodID]);
+    }
+    records.push_back(approx_records);
   }
 
 
