@@ -209,9 +209,11 @@ namespace common {
   void calculateAndAddApprox(std::vector<std::vector<Record>>& records, 
                             std::vector<std::set<std::pair<int, int>>>& connections, 
                             std::vector<Named *>& loadersAndUnionG) {
+    static unsigned approxIndex = 0;
+    std::cout << "Number of calls considered too big: " << common::options::filterNumber << " Number of calls to use instead: " << common::options::approxAddedMethods << std::endl;
 
-    std::string firstName = approxTools[0];
-    std::string secondName = approxTools[1];
+    std::string firstName = approxTools[approxIndex++];
+    std::string secondName = approxTools[approxIndex++];
 
     Loader* first = nullptr;
     std::set<std::pair<int, int>> first_calls;
@@ -364,5 +366,6 @@ namespace common {
     bool calculateApprox = false;
     unsigned filterNumber = 5;
     unsigned approxAddedMethods = 1;
+    unsigned approxNum = 0;
   }
 }

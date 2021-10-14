@@ -129,6 +129,7 @@ namespace common {
     extern bool calculateApprox;
     extern unsigned filterNumber;
     extern unsigned approxAddedMethods;
+    extern unsigned approxNum;
     
   }
 

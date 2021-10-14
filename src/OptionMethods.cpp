@@ -219,6 +219,7 @@ void taggingMethod(char** argV, int argI) {
 }
 
 void approx(char** argV, int argI) {
+  common::options::approxNum++;
   std::string tools = argV[argI + 1];
   std::string delimiter = "&";
 
@@ -239,7 +240,7 @@ void approx(char** argV, int argI) {
 void approxLimit(char** argV, int argI) {
   try {
     common::options::filterNumber = std::stoi(argV[argI + 1]);
-    common::options::approxAddedMethods = std::stoi(argV[argI + 1]);
+    common::options::approxAddedMethods = std::stoi(argV[argI + 2]);
   } catch(const std::out_of_range& e) {
     throw e.what();
   } catch( const std::invalid_argument& e) {

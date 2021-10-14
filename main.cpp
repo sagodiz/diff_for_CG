@@ -126,16 +126,14 @@ int main( int argc, char** argv ) {
   unsigned char j = -1;
     
   while( options[++j] ) {
-    for ( int i = 0; i < argc; i++ ) {  //well, it might cause problem if no value is given for the last option, but that need one...
-      
+    for ( int i = 0; i < argc; i++ ) {  //well, it might cause problem if no value is given for the last option, but that need one...     
       if ( *(options[j]) == argv[i] ) {
-
         options[j]->foo(argv, i);
         
         if ( (string)"-h" == argv[i] )
           return 0;
         
-        break;
+        //break; option might be applied bultiple times
       }
     }
   }
@@ -225,8 +223,9 @@ int main( int argc, char** argv ) {
 
   // TODO: add the approx tool.
   if ( common::options::calculateApprox ) {
-
-    common::calculateAndAddApprox(records, connections, loadersAndUnionG);
+    for ( auto i = 0u; i < common::options::approxNum; ++i ) {
+      common::calculateAndAddApprox(records, connections, loadersAndUnionG);
+    }
   }
 
   //start generating various outputs, statistics..
