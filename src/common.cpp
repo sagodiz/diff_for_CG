@@ -249,7 +249,7 @@ namespace common {
          std::cout << "clinit omg" << std::endl;
       }*/
       if ( common::getMethodById(call.second).rfind("java", 0) != std::string::npos ) {
-        // std::cout << "Skipping" <<std::endl;
+        std::cout << "Skipping" << getMethodById(call.second) << std::endl;
         ++skipped;
       }
       else if( common::getMethodById(call.second).find("clinit") != std::string::npos && notCaller(first_calls, call.second) ) {
@@ -295,7 +295,7 @@ namespace common {
           if( call.first == call_spoon.first ) {
             std::string pckg2, clazz2, method2;
             cutPckgClassMethod(common::getMethodById(call_spoon.second), pckg2, clazz2, method2);
-            if( method == method2 ) {
+            if( method == method2 && pckg2.rfind("java", 0) == std::string::npos ) {
               to_add.insert(call_spoon);
               
               if ( common::options::approxAddedMethods != 0 && i > common::options::approxAddedMethods ) break;
